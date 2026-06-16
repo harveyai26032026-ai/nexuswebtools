@@ -107,13 +107,13 @@
           <option value="INR">₹ INR</option>
         </select>
       </div>
-      <div class="field"><label for="mPrincipal">Starting capital</label><input id="mPrincipal" type="number" min="0" step="any" value="10000"></div>
-      <div class="field"><label for="mRate">Annual interest rate %</label><input id="mRate" type="number" step="any" value="5"></div>
-      <div class="field"><label for="mYears">Duration (years)</label><input id="mYears" type="number" min="0" step="any" value="20"></div>
+      <div class="field"><label for="mPrincipal"><strong>Starting capital</strong><span class="help" tabindex="0" role="button" aria-label="Help: Starting capital">?<span class="tip" role="tooltip">The lump sum you begin with — also called the <strong>principal</strong>. All interest and growth build on top of this amount.</span></span></label><input id="mPrincipal" type="number" min="0" step="any" value="10000"></div>
+      <div class="field"><label for="mRate"><strong>Annual interest rate %</strong><span class="help" tabindex="0" role="button" aria-label="Help: Annual interest rate">?<span class="tip" role="tooltip">The yearly rate your money earns, before compounding. This is the <strong>nominal</strong> rate — the calculator shows the higher <strong>effective</strong> rate once compounding is applied.</span></span></label><input id="mRate" type="number" step="any" value="5"></div>
+      <div class="field"><label for="mYears"><strong>Duration (years)</strong><span class="help" tabindex="0" role="button" aria-label="Help: Duration">?<span class="tip" role="tooltip">How long the money stays invested. The longer the term, the more dramatic the compounding <strong>snowball effect</strong> becomes.</span></span></label><input id="mYears" type="number" min="0" step="any" value="20"></div>
     </div>
 
     <div class="grid">
-      <div class="field"><label for="mComp">Compounding frequency</label>
+      <div class="field"><label for="mComp"><strong>Compounding frequency</strong><span class="help" tabindex="0" role="button" aria-label="Help: Compounding frequency">?<span class="tip" role="tooltip">How often earned <strong>interest</strong> is added back to your balance so it starts earning interest too. More frequent compounding (daily &gt; monthly &gt; yearly) gives a higher effective return for the same rate.</span></span></label>
         <select id="mComp">
           <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
@@ -123,8 +123,8 @@
           <option value="yearly">Yearly</option>
         </select>
       </div>
-      <div class="field"><label for="mContrib">Regular contribution</label><input id="mContrib" type="number" min="0" step="any" value="100"></div>
-      <div class="field"><label for="mContribFreq">Contribution frequency</label>
+      <div class="field"><label for="mContrib"><strong>Regular contribution</strong><span class="help" tabindex="0" role="button" aria-label="Help: Regular contribution">?<span class="tip" role="tooltip">A recurring deposit you add on top of the starting capital. Consistent <strong>contributions</strong> feed the snowball — even small amounts compound powerfully over time.</span></span></label><input id="mContrib" type="number" min="0" step="any" value="100"></div>
+      <div class="field"><label for="mContribFreq"><strong>Contribution frequency</strong><span class="help" tabindex="0" role="button" aria-label="Help: Contribution frequency">?<span class="tip" role="tooltip">How often you make each contribution — weekly, fortnightly, monthly, quarterly or yearly.</span></span></label>
         <select id="mContribFreq">
           <option value="weekly">Weekly</option>
           <option value="fortnightly">Fortnightly</option>
@@ -133,7 +133,7 @@
           <option value="yearly">Yearly</option>
         </select>
       </div>
-      <div class="field"><label for="mTiming">Contribution timing</label>
+      <div class="field"><label for="mTiming"><strong>Contribution timing</strong><span class="help" tabindex="0" role="button" aria-label="Help: Contribution timing">?<span class="tip" role="tooltip">Whether each deposit lands at the <strong>start</strong> of the period (so it earns interest that period) or the <strong>end</strong>. Start-of-period contributions grow slightly more.</span></span></label>
         <select id="mTiming">
           <option value="end" selected>End of period</option>
           <option value="begin">Start of period</option>
@@ -142,8 +142,8 @@
     </div>
 
     <div class="grid">
-      <div class="field"><label for="mStopYear">Stop contributing after year <span class="hint-inline">(0 = never)</span></label><input id="mStopYear" type="number" min="0" step="1" value="0"></div>
-      <div class="field"><label for="mIncrease">Annual contribution increase %</label><input id="mIncrease" type="number" min="0" step="any" value="0"></div>
+      <div class="field"><label for="mStopYear"><strong>Stop contributing after year</strong> <span class="hint-inline">(0 = never)</span><span class="help" tabindex="0" role="button" aria-label="Help: Stop contributing after year">?<span class="tip" role="tooltip">Model pausing deposits. After this year your balance keeps <strong>compounding</strong> on what you've saved, but no new contributions are added. Use 0 to contribute for the whole term.</span></span></label><input id="mStopYear" type="number" min="0" step="1" value="0"></div>
+      <div class="field"><label for="mIncrease"><strong>Annual contribution increase %</strong><span class="help" tabindex="0" role="button" aria-label="Help: Annual contribution increase">?<span class="tip" role="tooltip">Grow your contribution each year — e.g. 3% to keep pace with pay rises or inflation. Set 0 to keep deposits flat.</span></span></label><input id="mIncrease" type="number" min="0" step="any" value="0"></div>
     </div>
 
     <div class="results" id="results" aria-live="polite"></div>
