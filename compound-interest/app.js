@@ -213,13 +213,15 @@ ${sheets.join("\n")}
 
     // yearly breakdown table (with running total of all money put in, incl. starting capital)
     let cumIn = r.totalContributions - r.yearly.reduce((s, y) => s + y.contributions, 0); // = starting principal
+    let cumInterest = 0;
     let rows = r.yearly
       .map((y) => {
         cumIn += y.contributions;
+        cumInterest += y.interest;
         return `<tr><td>${y.year}</td><td>${fmt(y.contributions, cur)}</td><td>${fmt(cumIn, cur)}</td><td>${fmt(
           y.interest,
           cur
-        )}</td><td>${fmt(y.balance, cur)}</td></tr>`;
+        )}</td><td>${fmt(cumInterest, cur)}</td><td>${fmt(y.balance, cur)}</td></tr>`;
       })
       .join("");
     $("breakdownBody").innerHTML = rows;
