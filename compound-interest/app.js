@@ -152,8 +152,9 @@
       sheets.push(sheet("Inputs & Summary", rows));
 
       // --- Sheet 2: Yearly breakdown ---
-      const yr = [row([cellStr("Year"), cellStr("Contributions"), cellStr("Interest"), cellStr("End balance")])];
-      r.yearly.forEach((y) => yr.push(row([cellNum(y.year), cellNum(y.contributions), cellNum(y.interest), cellNum(y.balance)])));
+      const yr = [row([cellStr("Year"), cellStr("Contributions"), cellStr("Total contributions"), cellStr("Interest"), cellStr("End balance")])];
+      let cumIn2 = r.totalContributions - r.yearly.reduce((s, y) => s + y.contributions, 0);
+      r.yearly.forEach((y) => { cumIn2 += y.contributions; yr.push(row([cellNum(y.year), cellNum(y.contributions), cellNum(cumIn2), cellNum(y.interest), cellNum(y.balance)])); });
       sheets.push(sheet("Yearly Breakdown", yr));
     }
 
@@ -210,15 +211,16 @@ ${sheets.join("\n")}
       <div class="stat"><span class="big">${fmtN(r.roi)}%</span><span class="lbl">Return on investment</span></div>
       <div class="stat"><span class="big">${fmtN(r.effectiveAnnualRate)}%</span><span class="lbl">Effective annual rate</span></div>`;
 
-    // yearly breakdown table
+    // yearly breakdown table (with running total of all money put in, incl. starting capital)
+    let cumIn = r.totalContributions - r.yearly.reduce((s, y) => s + y.contributions, 0); // = starting principal
     let rows = r.yearly
-      .map(
-        (y) =>
-          `<tr><td>${y.year}</td><td>${fmt(y.contributions, cur)}</td><td>${fmt(y.interest, cur)}</td><td>${fmt(
-            y.balance,
-            cur
-          )}</td></tr>`
-      )
+      .map((y) => {
+        cumIn += y.contributions;
+        return `<tr><td>${y.year}</td><td>${fmt(y.contributions, cur)}</td><td>${fmt(cumIn, cur)}</td><td>${fmt(
+          y.interest,
+          cur
+        )}</td><td>${fmt(y.balance, cur)}</td></tr>`;
+      })
       .join("");
     $("breakdownBody").innerHTML = rows;
 
