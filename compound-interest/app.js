@@ -227,26 +227,60 @@ ${sheets.join("\n")}
     drawBars("mainChart", r.yearly, cur);
   }
 
-  // ---- Simple inline SVG bar chart (balance growth) ----
+  // ---- Round-number axis scaling (1/2/2.5/5 * 10^n steps) ----
+  function niceNum(x, round) {
+    const exp = Math.floor(Math.log10(x));
+    const f = x / Math.pow(10, exp);
+    let nf;
+    if (round) nf = f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10;
+    else nf = f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10;
+    return nf * Math.pow(10, exp);
+  }
+  // Returns {max, step, ticks:[...]} giving a readable axis from 0..>=dataMax
+  function niceScale(dataMax, targetTicks) {
+    targetTicks = targetTicks || 5;
+    if (!isFinite(dataMax) || dataMax <= 0) return { max: 1, step: 1, ticks: [0, 1] };
+    const range = niceNum(dataMax, false);
+    const step = niceNum(range / (targetTicks - 1), true);
+    const max = Math.ceil(dataMax / step) * step;
+    const ticks = [];
+    for (let v = 0; v <= max + step * 0.5; v += step) ticks.push(v);
+    return { max, step, ticks };
+  }
+
+  // ---- Inline SVG bar chart (balance growth) with scaled y-axis ----
   function drawBars(svgId, yearly, cur) {
     const svg = $(svgId);
     if (!svg || !yearly.length) return;
-    const W = 640, H = 220, pad = 34;
-    const max = Math.max(...yearly.map((y) => y.balance), 1);
-    const bw = (W - pad * 2) / yearly.length;
+    const W = 640, H = 230, padL = 56, padR = 14, padT = 14, padB = 26;
+    const dataMax = Math.max(...yearly.map((y) => y.balance), 1);
+    const sc = niceScale(dataMax, 5);
+    const max = sc.max;
+    const plotH = H - padT - padB;
+    const plotW = W - padL - padR;
+    const yAt = (v) => (H - padB) - (v / max) * plotH;
+    const bw = plotW / yearly.length;
+
+    // y gridlines + round labels
+    let grid = "";
+    sc.ticks.forEach((v) => {
+      const y = yAt(v);
+      grid += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W - padR}" y2="${y.toFixed(1)}" stroke="#eef1f7"/>`;
+      grid += `<text x="${padL - 6}" y="${(y + 3).toFixed(1)}" font-size="9" text-anchor="end" fill="#9aa3b8">${shortCur(v, cur)}</text>`;
+    });
+
     let bars = "";
     yearly.forEach((y, i) => {
-      const h = ((y.balance / max) * (H - pad * 2));
-      const x = pad + i * bw;
-      const yTop = H - pad - h;
-      const contribH = (y => ((cumContrib(yearly, y.year) / max) * (H - pad * 2)))(y);
-      bars += `<rect x="${x + bw * 0.12}" y="${H - pad - h}" width="${bw * 0.76}" height="${h}" fill="#3b5bdb" rx="2"><title>Year ${y.year}: ${fmt(y.balance, cur)}</title></rect>`;
-      bars += `<rect x="${x + bw * 0.12}" y="${H - pad - contribH}" width="${bw * 0.76}" height="${contribH}" fill="#0f9d6b" rx="2" opacity="0.85"><title>Year ${y.year} invested: ${fmt(cumContrib(yearly, y.year), cur)}</title></rect>`;
+      const h = (y.balance / max) * plotH;
+      const x = padL + i * bw;
+      const contribH = (cumContrib(yearly, y.year) / max) * plotH;
+      bars += `<rect x="${(x + bw * 0.12).toFixed(1)}" y="${(H - padB - h).toFixed(1)}" width="${(bw * 0.76).toFixed(1)}" height="${h.toFixed(1)}" fill="#3b5bdb" rx="2"><title>Year ${y.year}: ${fmt(y.balance, cur)}</title></rect>`;
+      bars += `<rect x="${(x + bw * 0.12).toFixed(1)}" y="${(H - padB - contribH).toFixed(1)}" width="${(bw * 0.76).toFixed(1)}" height="${contribH.toFixed(1)}" fill="#0f9d6b" rx="2" opacity="0.85"><title>Year ${y.year} invested: ${fmt(cumContrib(yearly, y.year), cur)}</title></rect>`;
       if (i === 0 || i === yearly.length - 1 || yearly.length <= 12) {
-        bars += `<text x="${x + bw / 2}" y="${H - pad + 14}" font-size="10" text-anchor="middle" fill="#5b647a">${y.year}</text>`;
+        bars += `<text x="${(x + bw / 2).toFixed(1)}" y="${H - padB + 14}" font-size="10" text-anchor="middle" fill="#5b647a">${y.year}</text>`;
       }
     });
-    svg.innerHTML = `<line x1="${pad}" y1="${H - pad}" x2="${W - pad}" y2="${H - pad}" stroke="#e3e7f0"/>${bars}`;
+    svg.innerHTML = `${grid}<line x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" stroke="#cfd6e4"/>${bars}`;
   }
   function cumContrib(yearly, uptoYear) {
     return yearly.filter((y) => y.year <= uptoYear).reduce((s, y) => s + y.contributions, 0);
@@ -257,20 +291,21 @@ ${sheets.join("\n")}
   function drawCompareLines(svgId, results, cur) {
     const svg = $(svgId);
     if (!svg || !results.length) return;
-    const W = 640, H = 240, padL = 52, padR = 14, padT = 14, padB = 28;
+    const W = 640, H = 240, padL = 56, padR = 14, padT = 14, padB = 28;
     const maxYears = Math.max(...results.map((s) => s.r.yearly.length), 1);
-    const maxBal = Math.max(...results.map((s) => Math.max(...s.r.yearly.map((y) => y.balance), 0)), 1);
+    const dataMax = Math.max(...results.map((s) => Math.max(...s.r.yearly.map((y) => y.balance), 0)), 1);
+    const sc = niceScale(dataMax, 5);
+    const maxBal = sc.max;
     const xAt = (yr) => padL + ((yr) / maxYears) * (W - padL - padR);
     const yAt = (v) => (H - padB) - (v / maxBal) * (H - padT - padB);
 
-    // y-axis gridlines + labels (4 steps)
+    // y-axis gridlines + round-number labels
     let grid = "";
-    for (let i = 0; i <= 4; i++) {
-      const v = (maxBal / 4) * i;
+    sc.ticks.forEach((v) => {
       const y = yAt(v);
-      grid += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#eef1f7"/>`;
-      grid += `<text x="${padL - 6}" y="${y + 3}" font-size="9" text-anchor="end" fill="#9aa3b8">${shortCur(v, cur)}</text>`;
-    }
+      grid += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W - padR}" y2="${y.toFixed(1)}" stroke="#eef1f7"/>`;
+      grid += `<text x="${padL - 6}" y="${(y + 3).toFixed(1)}" font-size="9" text-anchor="end" fill="#9aa3b8">${shortCur(v, cur)}</text>`;
+    });
     // x-axis labels (start + end year)
     grid += `<text x="${xAt(0)}" y="${H - 8}" font-size="9" text-anchor="middle" fill="#9aa3b8">Yr 0</text>`;
     grid += `<text x="${xAt(maxYears)}" y="${H - 8}" font-size="9" text-anchor="end" fill="#9aa3b8">Yr ${maxYears}</text>`;
