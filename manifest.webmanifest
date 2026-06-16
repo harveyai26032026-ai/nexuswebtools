@@ -1,0 +1,12 @@
+{
+  "name": "Nexus Web Tools",
+  "short_name": "NexusTools",
+  "description": "A hub of free, instant online calculators and utilities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b5bdb",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
