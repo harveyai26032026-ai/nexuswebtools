@@ -363,6 +363,25 @@ ${sheets.join("\n")}
     drawCompareLines("compareChart", results, cur);
     $("compareChartWrap").hidden = false;
 
+    // year-by-year comparison table (end-of-year balance per scenario)
+    const maxYears = Math.max(...results.map((s) => s.r.yearly.length), 0);
+    if (maxYears > 0) {
+      let yHead = `<tr><th>Year</th>${results.map((x) => `<th>${esc(x.label)}</th>`).join("")}</tr>`;
+      let yBody = "";
+      for (let yr = 1; yr <= maxYears; yr++) {
+        const cells = results
+          .map((x) => {
+            const row = x.r.yearly.find((y) => y.year === yr);
+            return `<td>${row ? fmt(row.balance, cur) : "—"}</td>`;
+          })
+          .join("");
+        yBody += `<tr><td>${yr}</td>${cells}</tr>`;
+      }
+      $("compareYearly").innerHTML = yHead + yBody;
+      $("compareYearlyHead").hidden = false;
+      $("compareYearlyNote").hidden = false;
+    }
+
     // best/worst callout
     const sorted = [...results].sort((a, b) => b.r.finalBalance - a.r.finalBalance);
     const best = sorted[0], worst = sorted[sorted.length - 1];
@@ -481,6 +500,9 @@ ${sheets.join("\n")}
     $("compareTable").innerHTML = "";
     if ($("compareTableHead")) $("compareTableHead").hidden = true;
     if ($("compareChartWrap")) $("compareChartWrap").hidden = true;
+    if ($("compareYearly")) $("compareYearly").innerHTML = "";
+    if ($("compareYearlyHead")) $("compareYearlyHead").hidden = true;
+    if ($("compareYearlyNote")) $("compareYearlyNote").hidden = true;
     if ($("compareSummary")) $("compareSummary").innerHTML = "";
     restoring = false;
     runMain();
