@@ -3,31 +3,32 @@
   --ring:#e3e7f0; --soft:#f7f8fb;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.55}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 
 /* Unified stacked-centered ribbon (matches concrete + calculator pages) */
 .ribbon{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring);position:sticky;top:0;z-index:10}
 .brand{font-weight:700;letter-spacing:.3px;font-size:1.05rem}
 .ribbon nav{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
-.ribbon nav a{color:var(--muted);text-decoration:none;font-size:.92rem}
-.ribbon nav a:hover{color:var(--accent)}
+.ribbon nav a{color:var(--muted);text-decoration:none;font-size:.92rem;transition:color .18s ease}
+.ribbon nav a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 
 main{max-width:900px;margin:0 auto;padding:34px 16px 50px}
+@media (min-width:640px){main{padding:46px 24px 64px}}
 
 /* Centered hero for elegant first impression */
-.hero{text-align:center;margin-bottom:8px}
+.hero{text-align:center;margin-bottom:10px;padding:8px 0 4px}
 .hero .lede{margin-left:auto;margin-right:auto}
 
 /* Uniform type hierarchy */
-h1{font-size:1.85rem;margin:.2em 0 .3em;letter-spacing:-.01em}
-.lede{color:var(--muted);font-size:1.08rem;max-width:62ch;margin:.3em 0 0}
-h2{margin-top:34px;font-size:1.3rem;letter-spacing:-.01em}
-h3{margin-top:18px;color:var(--accent);font-size:1.02rem}
+h1{font-size:2.05rem;font-weight:800;margin:.2em 0 .3em;letter-spacing:-.02em;line-height:1.2}
+.lede{color:var(--muted);font-size:1.1rem;max-width:58ch;margin:.4em 0 0;line-height:1.6}
+h2{margin-top:36px;font-size:1.4rem;font-weight:700;letter-spacing:-.01em}
+h3{margin-top:18px;color:var(--accent);font-size:1.05rem;font-weight:700}
 p{max-width:70ch}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
-.card{display:flex;flex-direction:column;gap:6px;background:var(--soft);border:1px solid var(--ring);border-radius:14px;padding:20px;text-decoration:none;color:var(--text);box-shadow:0 8px 24px rgba(20,30,60,.06);transition:transform .12s ease,box-shadow .12s ease}
-a.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(20,30,60,.12);border-color:var(--accent)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:22px}
+.card{display:flex;flex-direction:column;gap:6px;background:var(--soft);border:1px solid var(--ring);border-radius:14px;padding:22px;text-decoration:none;color:var(--text);box-shadow:0 6px 18px rgba(20,30,60,.06);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
+a.card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(20,30,60,.12);border-color:var(--accent)}
 .card-ico{font-size:1.9rem}
 .card-title{font-weight:800;font-size:1.06rem}
 .card-desc{font-size:.9rem;color:var(--muted)}
@@ -43,8 +44,14 @@ footer a{color:var(--muted);text-decoration:none}
 footer a:hover{color:var(--accent)}
 
 @media (max-width:520px){
-  h1{font-size:1.5rem}
-  .lede{font-size:.96rem}
+  h1{font-size:1.6rem}
+  .lede{font-size:.98rem}
   main{padding:24px 12px 40px}
   .cards{grid-template-columns:1fr;gap:12px}
+}
+
+/* Accessibility: honour reduced-motion preference */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  a.card:hover{transform:none}
 }
