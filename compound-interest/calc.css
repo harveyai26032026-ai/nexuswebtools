@@ -1,0 +1,33 @@
+/* Compound interest calculator — page-specific styles (extends ../style.css) */
+.crumbs{font-size:.82rem;color:var(--muted);margin-bottom:6px}
+.crumbs a{color:var(--accent);text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+.hint-inline{font-weight:400;color:var(--muted);font-size:.78rem}
+
+.results{margin-top:14px;border-top:1px solid var(--ring);padding-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px}
+.stat{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:12px;text-align:center}
+.stat .big{display:block;font-size:1.25rem;font-weight:800;color:var(--accent2)}
+.stat .lbl{font-size:.74rem;color:var(--muted)}
+
+#mainChart{margin-top:16px;background:var(--soft);border:1px solid var(--ring);border-radius:10px}
+.chart-key{font-size:.78rem;color:var(--muted);text-align:center;margin:.4em 0 0}
+.key-blue{color:#3b5bdb}.key-green{color:#0f9d6b}
+
+.adv-toggle{margin-top:14px;cursor:pointer;background:#fff;border:1px solid var(--accent);color:var(--accent);font-weight:700;border-radius:9px;padding:10px 14px;width:100%;font-size:.95rem}
+.adv-toggle:hover{background:#eef2ff}
+.adv-toggle.primary{background:var(--accent);color:#fff}
+.adv-toggle.primary:hover{background:#2f4ac0}
+[hidden]{display:none !important}
+.advanced{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.adv-block{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:12px}
+.scenario{position:relative}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn-row .adv-toggle{margin-top:0;flex:1;min-width:160px}
+.table-scroll{overflow-x:auto}
+#compareTable td,#compareTable th{white-space:nowrap}
+#compareSummary .hint{font-size:.9rem;background:var(--soft);border:1px solid var(--ring);border-radius:9px;padding:10px 12px}
+
+@media (max-width:520px){
+  .stat .big{font-size:1.1rem}
+  .btn-row .adv-toggle{min-width:0}
+}

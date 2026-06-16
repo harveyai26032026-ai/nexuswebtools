@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compound Interest Calculator — Compare Scenarios | Nexus Web Tools</title>
+<meta name="description" content="Free compound interest calculator with regular contributions, any compounding frequency, contribution stop dates and a multi‑scenario comparison tool. Metric‑friendly, instant.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="Nexus Web Tools">
+<meta name="theme-color" content="#3b5bdb">
+<link rel="canonical" href="https://nexuswebtools.com/compound-interest/">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nexus Web Tools">
+<meta property="og:title" content="Compound Interest Calculator with Scenario Comparison">
+<meta property="og:description" content="Model future value with regular contributions and compare multiple what‑if scenarios side by side — different capital, rates, durations and contribution stop dates.">
+<meta property="og:url" content="https://nexuswebtools.com/compound-interest/">
+<meta property="og:image" content="https://nexuswebtools.com/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compound Interest Calculator — Compare Scenarios">
+<meta name="twitter:description" content="Free compound interest calculator with regular deposits and multi‑scenario comparison.">
+<meta name="twitter:image" content="https://nexuswebtools.com/og.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://nexuswebtools.com/compound-interest/#app",
+      "name": "Compound Interest Calculator",
+      "url": "https://nexuswebtools.com/compound-interest/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Calculate compound interest with regular contributions and compare multiple investment scenarios side by side.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nexuswebtools.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Compound Interest Calculator", "item": "https://nexuswebtools.com/compound-interest/" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to calculate compound interest with regular contributions",
+      "step": [
+        { "@type": "HowToStep", "name": "Enter your starting capital", "text": "Type the lump sum you start with (your principal)." },
+        { "@type": "HowToStep", "name": "Set the interest rate and term", "text": "Enter the annual interest rate and how many years the money will grow." },
+        { "@type": "HowToStep", "name": "Add regular contributions", "text": "Set a recurring deposit amount and how often you contribute." },
+        { "@type": "HowToStep", "name": "Choose compounding frequency", "text": "Select daily, monthly, quarterly or yearly compounding." },
+        { "@type": "HowToStep", "name": "Read and compare results", "text": "See future value, total interest and ROI, then open Compare scenarios to model alternatives." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What is compound interest?","acceptedAnswer":{"@type":"Answer","text":"Compound interest is interest earned on both your original principal and on the interest that has already accrued. Because each period's interest is added to the balance, growth accelerates over time — the snowball effect."}},
+        {"@type":"Question","name":"How is compound interest calculated?","acceptedAnswer":{"@type":"Answer","text":"The basic formula is A = P(1 + r/n)^(nt), where P is principal, r is the annual rate, n is the number of compounding periods per year and t is the number of years. Regular contributions are added each period and then also compound."}},
+        {"@type":"Question","name":"Does compounding frequency matter?","acceptedAnswer":{"@type":"Answer","text":"Yes. The more often interest compounds, the higher the effective annual rate. Daily compounding yields slightly more than monthly, which yields more than yearly, for the same nominal rate."}},
+        {"@type":"Question","name":"What happens if I stop contributing early?","acceptedAnswer":{"@type":"Answer","text":"Your balance keeps compounding on what you have already saved, but it grows more slowly than if you kept contributing. Use the 'stop contributing after year' setting and the scenario comparison to see the exact impact."}},
+        {"@type":"Question","name":"What is the effective annual rate?","acceptedAnswer":{"@type":"Answer","text":"The effective annual rate (or annual percentage yield) is the real rate you earn once compounding is taken into account. For a 6% nominal rate compounded monthly the effective rate is about 6.17%."}}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="calc.css">
+</head>
+<body>
+<header class="ribbon">
+  <div class="brand"><a href="/" style="text-decoration:none;color:inherit">🧰 Nexus Web Tools</a></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/#tools">Tools</a>
+    <a href="/compound-interest/">Compound Interest</a>
+    <a href="https://concrete-calcs.com/">Concrete Calculator</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+</header>
+
+<main>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Compound Interest Calculator</span></nav>
+
+  <h1>Compound Interest Calculator</h1>
+  <p class="lede">Work out the future value of your savings or investment with regular contributions and any compounding frequency — then open <strong>Compare scenarios</strong> to model different starting amounts, rates, durations and contribution stop dates side by side.</p>
+
+  <section class="tool" aria-label="Compound interest calculator">
+    <div class="grid">
+      <div class="field">
+        <label for="ccyCurrency">Currency</label>
+        <select id="ccyCurrency">
+          <option value="USD">$ USD</option>
+          <option value="AUD" selected>$ AUD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="CAD">$ CAD</option>
+          <option value="NZD">$ NZD</option>
+          <option value="JPY">¥ JPY</option>
+          <option value="INR">₹ INR</option>
+        </select>
+      </div>
+      <div class="field"><label for="mPrincipal">Starting capital</label><input id="mPrincipal" type="number" min="0" step="any" value="10000"></div>
+      <div class="field"><label for="mRate">Annual interest rate %</label><input id="mRate" type="number" step="any" value="5"></div>
+      <div class="field"><label for="mYears">Duration (years)</label><input id="mYears" type="number" min="0" step="any" value="20"></div>
+    </div>
+
+    <div class="grid">
+      <div class="field"><label for="mComp">Compounding frequency</label>
+        <select id="mComp">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly" selected>Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="halfyearly">Half‑yearly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+      </div>
+      <div class="field"><label for="mContrib">Regular contribution</label><input id="mContrib" type="number" min="0" step="any" value="100"></div>
+      <div class="field"><label for="mContribFreq">Contribution frequency</label>
+        <select id="mContribFreq">
+          <option value="weekly">Weekly</option>
+          <option value="fortnightly">Fortnightly</option>
+          <option value="monthly" selected>Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+      </div>
+      <div class="field"><label for="mTiming">Contribution timing</label>
+        <select id="mTiming">
+          <option value="end" selected>End of period</option>
+          <option value="begin">Start of period</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="field"><label for="mStopYear">Stop contributing after year <span class="hint-inline">(0 = never)</span></label><input id="mStopYear" type="number" min="0" step="1" value="0"></div>
+      <div class="field"><label for="mIncrease">Annual contribution increase %</label><input id="mIncrease" type="number" min="0" step="any" value="0"></div>
+    </div>
+
+    <div class="results" id="results" aria-live="polite"></div>
+
+    <svg id="mainChart" viewBox="0 0 640 220" width="100%" role="img" aria-label="Balance growth by year"></svg>
+    <p class="chart-key"><span class="key-blue">■</span> Total balance &nbsp; <span class="key-green">■</span> Amount invested</p>
+
+    <button id="bkToggle" type="button" class="adv-toggle">Show yearly breakdown ▾</button>
+    <div id="breakdownWrap" hidden>
+      <table class="ref">
+        <thead><tr><th>Year</th><th>Contributions</th><th>Interest</th><th>End balance</th></tr></thead>
+        <tbody id="breakdownBody"></tbody>
+      </table>
+    </div>
+
+    <!-- ADVANCED: scenario comparison -->
+    <button id="advToggle" type="button" class="adv-toggle" aria-expanded="false">⚙️ Compare scenarios ▾</button>
+    <div id="advanced" class="advanced" hidden>
+      <p class="hint">Add one or more scenarios. Leave a field blank to keep the same value as the main inputs above — change only the variables you want to test (different starting capital, interest rate, duration, or the year you stop contributing). Then press <strong>Run comparison</strong>.</p>
+      <div id="scenarioList"></div>
+      <div class="btn-row">
+        <button id="addScenario" type="button" class="adv-toggle">＋ Add scenario</button>
+        <button id="runCompare" type="button" class="adv-toggle primary">Run comparison</button>
+      </div>
+      <div id="compareSummary"></div>
+      <div class="table-scroll"><table class="ref" id="compareTable"></table></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>What is compound interest?</h2>
+    <p>Compound interest is interest earned on both your original <strong>principal</strong> and on the interest that has already been added to your balance. Unlike simple interest — which only ever pays on the original amount — compound interest creates a snowball effect: each period's interest joins the pot and goes on to earn interest of its own. Over long horizons this is the single most powerful force in personal investing.</p>
+
+    <h2>The compound interest formula</h2>
+    <p>The future value of a lump sum is:</p>
+    <p><code>A = P × (1 + r/n)<sup>n·t</sup></code></p>
+    <p>where <code>P</code> is the principal, <code>r</code> the annual interest rate (as a decimal), <code>n</code> the number of compounding periods per year, and <code>t</code> the number of years. When you also make regular contributions, each deposit is added to the balance and then compounds for the remaining periods — this calculator simulates every period for you, including contributions that increase each year or stop after a chosen year.</p>
+
+    <h2 id="example">Worked example: $10,000 for 20 years at 5%</h2>
+    <table class="ref">
+      <thead><tr><th>Year</th><th>Interest earned</th><th>End balance</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>$500.00</td><td>$10,500.00</td></tr>
+        <tr><td>2</td><td>$525.00</td><td>$11,025.00</td></tr>
+        <tr><td>3</td><td>$551.25</td><td>$11,576.25</td></tr>
+        <tr><td>…</td><td>…</td><td>…</td></tr>
+        <tr><td>20</td><td>—</td><td><strong>$26,533</strong></td></tr>
+      </tbody>
+    </table>
+    <p>With no further deposits, $10,000 grows to about <strong>$26,533</strong> — roughly $16,533 of interest, a 165% return. Add just $100 a month and the balance after 20 years jumps to around <strong>$67,000</strong>. Try it above and use the comparison tool to see how much difference an extra 1–2% rate, a few more years, or continuing to contribute makes.</p>
+
+    <h2>How to make compound interest work for you</h2>
+    <ul class="benefits">
+      <li><strong>Start early.</strong> Time is the biggest lever — money invested in your twenties compounds for decades.</li>
+      <li><strong>Contribute regularly.</strong> Consistent deposits feed the snowball; even small amounts add up.</li>
+      <li><strong>Don't stop too soon.</strong> Use the "stop contributing after year" field to see the cost of pausing.</li>
+      <li><strong>Favour higher compounding frequency.</strong> Daily or monthly compounding beats yearly for the same nominal rate.</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently asked questions</h2>
+    <h3>How is compound interest calculated?</h3>
+    <p>Using <code>A = P(1 + r/n)<sup>nt</sup></code> for a lump sum. Regular contributions are added each period and then also compound, which this tool simulates period by period.</p>
+    <h3>Does compounding frequency matter?</h3>
+    <p>Yes — the more often interest compounds, the higher the <em>effective</em> annual rate. The calculator shows the effective annual rate so you can compare products fairly.</p>
+    <h3>What happens if I stop contributing early?</h3>
+    <p>Your existing balance keeps compounding, but growth slows. Set a stop year and run a comparison to quantify the difference.</p>
+    <h3>What is the effective annual rate?</h3>
+    <p>It's the real return once compounding is included. A 6% nominal rate compounded monthly gives an effective rate of about 6.17%.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Compound Interest Calculator</strong> — free future‑value &amp; scenario modelling tool.</p>
+  <p><a href="/">All tools</a> · <a href="https://concrete-calcs.com/">Concrete Calculator</a> · <a href="#faq">FAQ</a></p>
+  <p>Estimates are for general guidance only and are not financial advice. Returns are not guaranteed; consider inflation, fees and tax, and consult a licensed adviser.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
