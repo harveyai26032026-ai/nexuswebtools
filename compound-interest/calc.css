@@ -6,7 +6,7 @@
 
 /* Form container + responsive field grid */
 .tool{background:var(--soft,#f7f8fb);border:1px solid var(--ring);border-radius:14px;padding:16px;margin:18px 0;box-shadow:0 8px 24px rgba(20,30,60,.06)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
 /* Descriptor and input sit on the SAME line: label takes available width, input is fixed-width on the right */
 .field{display:flex;align-items:center;gap:10px;margin:0;min-width:0}
 /* Inputs & selects are compact and stay beside their descriptor */

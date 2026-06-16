@@ -6,7 +6,7 @@
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 
 /* Unified stacked-centered ribbon (matches concrete + calculator pages) */
-.ribbon{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 18px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring);box-shadow:0 2px 6px rgba(0,0,0,.04);position:sticky;top:0;z-index:10}
+.ribbon{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 18px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring);position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(20,30,60,.04)}
 .brand{font-weight:700;letter-spacing:.3px;font-size:1.05rem}
 .ribbon nav{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
 .ribbon nav a{color:var(--muted);text-decoration:none;font-size:.92rem;padding:.3rem .6rem;border-radius:6px;transition:color .18s ease,background .18s ease}
