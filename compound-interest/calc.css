@@ -1,6 +1,6 @@
 /* Compound interest calculator — page-specific styles (extends ../style.css) */
 /* Slightly wider page so fields have more room (overrides 900px from style.css) */
-main{max-width:1040px}
+main{max-width:1120px}
 .crumbs{font-size:.82rem;color:var(--muted);margin-bottom:6px}
 .crumbs a{color:var(--accent);text-decoration:none}
 .crumbs a:hover{text-decoration:underline}
@@ -10,9 +10,9 @@ main{max-width:1040px}
 .tool{background:var(--soft,#f7f8fb);border:1px solid var(--ring);border-radius:14px;padding:16px 14px;margin:18px 0;box-shadow:0 8px 24px rgba(20,30,60,.06)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px 16px}
 /* Descriptor and input sit on the SAME line: label takes available width, input is fixed-width on the right */
-.field{display:flex;align-items:center;gap:10px;margin:0;min-width:0}
+.field{display:flex;align-items:center;gap:8px;margin:0;min-width:0}
 /* Inputs & selects are wider now and stay beside their descriptor; dead space between label and input is reduced */
-.field input,.field select{flex:0 0 150px;width:150px;max-width:150px;margin-left:auto}
+.field input,.field select{flex:0 0 190px;width:190px;max-width:190px;margin-left:auto}
 /* Label term + hover/focus help icon, vertically centred next to the input, wraps if long */
 .field label{flex:0 1 auto;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:.82rem;font-weight:600;color:var(--muted);line-height:1.25;min-width:0}
 
