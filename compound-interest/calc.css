@@ -39,6 +39,12 @@
 .btn-row{display:flex;gap:10px;flex-wrap:wrap}
 .btn-row .adv-toggle{margin-top:0;flex:1;min-width:160px}
 .table-scroll{overflow-x:auto}
+.cmp-h{margin:18px 0 6px;color:var(--accent);font-size:1rem}
+#compareChartWrap .chart{background:var(--soft,#f7f8fb);border:1px solid var(--ring);border-radius:10px;padding:6px;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:10px 0 4px;font-size:.84rem;color:var(--muted)}
+.leg-item{display:inline-flex;align-items:center;gap:6px}
+.leg-swatch{width:14px;height:4px;border-radius:2px;display:inline-block}
+.leg-item strong{color:var(--text)}
 #compareTable td,#compareTable th{white-space:nowrap}
 #compareSummary .hint{font-size:.9rem;background:var(--soft);border:1px solid var(--ring);border-radius:9px;padding:10px 12px}
 

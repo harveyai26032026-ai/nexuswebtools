@@ -250,6 +250,66 @@ ${sheets.join("\n")}
     return yearly.filter((y) => y.year <= uptoYear).reduce((s, y) => s + y.contributions, 0);
   }
 
+  // ---- Multi-line SVG chart: base + every comparison scenario ----
+  const CMP_COLORS = ["#3b5bdb", "#0f9d6b", "#d9531e", "#8b5cf6", "#e11d8f", "#0891b2", "#ca8a04", "#475569"];
+  function drawCompareLines(svgId, results, cur) {
+    const svg = $(svgId);
+    if (!svg || !results.length) return;
+    const W = 640, H = 240, padL = 52, padR = 14, padT = 14, padB = 28;
+    const maxYears = Math.max(...results.map((s) => s.r.yearly.length), 1);
+    const maxBal = Math.max(...results.map((s) => Math.max(...s.r.yearly.map((y) => y.balance), 0)), 1);
+    const xAt = (yr) => padL + ((yr) / maxYears) * (W - padL - padR);
+    const yAt = (v) => (H - padB) - (v / maxBal) * (H - padT - padB);
+
+    // y-axis gridlines + labels (4 steps)
+    let grid = "";
+    for (let i = 0; i <= 4; i++) {
+      const v = (maxBal / 4) * i;
+      const y = yAt(v);
+      grid += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#eef1f7"/>`;
+      grid += `<text x="${padL - 6}" y="${y + 3}" font-size="9" text-anchor="end" fill="#9aa3b8">${shortCur(v, cur)}</text>`;
+    }
+    // x-axis labels (start + end year)
+    grid += `<text x="${xAt(0)}" y="${H - 8}" font-size="9" text-anchor="middle" fill="#9aa3b8">Yr 0</text>`;
+    grid += `<text x="${xAt(maxYears)}" y="${H - 8}" font-size="9" text-anchor="end" fill="#9aa3b8">Yr ${maxYears}</text>`;
+
+    // one polyline per scenario, anchored at year 0 = starting principal
+    let lines = "";
+    results.forEach((s, i) => {
+      const color = CMP_COLORS[i % CMP_COLORS.length];
+      const pts = [[xAt(0), yAt(s.opts.principal)]].concat(
+        s.r.yearly.map((y) => [xAt(y.year), yAt(y.balance)])
+      );
+      const d = pts.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
+      lines += `<polyline points="${d}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>`;
+      const last = pts[pts.length - 1];
+      lines += `<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3" fill="${color}"><title>${esc(s.label)}: ${fmt(s.r.finalBalance, cur)}</title></circle>`;
+    });
+
+    svg.innerHTML = `${grid}<line x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" stroke="#d7dce8"/><line x1="${padL}" y1="${padT}" x2="${padL}" y2="${H - padB}" stroke="#d7dce8"/>${lines}`;
+
+    // legend
+    $("compareLegend").innerHTML = results
+      .map((s, i) => {
+        const color = CMP_COLORS[i % CMP_COLORS.length];
+        return `<span class="leg-item"><span class="leg-swatch" style="background:${color}"></span>${esc(s.label)} — <strong>${fmt(s.r.finalBalance, cur)}</strong></span>`;
+      })
+      .join("");
+  }
+  // compact currency for axis labels (e.g. $1.2k, $3.4M)
+  function shortCur(v, cur) {
+    try {
+      return new Intl.NumberFormat(undefined, {
+        style: "currency", currency: cur, notation: "compact", maximumFractionDigits: 1,
+      }).format(isFinite(v) ? v : 0);
+    } catch (e) {
+      return Math.round(v).toLocaleString();
+    }
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
   // ---- Scenario comparison (advanced) ----
   function runCompare() {
     const cur = currency();
@@ -289,6 +349,11 @@ ${sheets.join("\n")}
       )
       .join("");
     $("compareTable").innerHTML = head + body;
+    $("compareTableHead").hidden = false;
+
+    // multi-line growth chart: base + all scenarios
+    drawCompareLines("compareChart", results, cur);
+    $("compareChartWrap").hidden = false;
 
     // best/worst callout
     const sorted = [...results].sort((a, b) => b.r.finalBalance - a.r.finalBalance);

@@ -176,6 +176,12 @@
         <button id="runCompare" type="button" class="adv-toggle primary">Run comparison</button>
       </div>
       <div id="compareSummary"></div>
+      <div id="compareChartWrap" hidden>
+        <h3 class="cmp-h">Balance growth — base vs scenarios</h3>
+        <svg id="compareChart" class="chart" viewBox="0 0 640 240" width="100%" role="img" aria-label="Line chart comparing balance growth of each scenario over time"></svg>
+        <div id="compareLegend" class="legend"></div>
+      </div>
+      <h3 class="cmp-h" id="compareTableHead" hidden>Scenario summary</h3>
       <div class="table-scroll"><table class="ref" id="compareTable"></table></div>
     </div>
   </section>
