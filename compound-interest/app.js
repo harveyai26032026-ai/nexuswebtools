@@ -319,14 +319,22 @@ ${sheets.join("\n")}
     document.querySelectorAll(".scenario").forEach((el, idx) => {
       const o = Object.assign({}, base);
       const get = (cls) => el.querySelector("." + cls);
-      const ov = (cls, key, isPct) => {
+      const ov = (cls, key) => {
         const node = get(cls);
         if (node && node.value !== "") o[key] = parseFloat(node.value) || 0;
+      };
+      const ovStr = (cls, key) => {
+        const node = get(cls);
+        if (node && node.value !== "") o[key] = node.value;
       };
       ov("sPrincipal", "principal");
       ov("sRate", "annualRatePct");
       ov("sYears", "years");
+      ovStr("sComp", "compFreq");
       ov("sContrib", "contribAmount");
+      ovStr("sContribFreq", "contribFreq");
+      ovStr("sTiming", "contribTiming");
+      ov("sIncrease", "annualContribIncreasePct");
       ov("sStop", "contribStopYear");
       const lbl = get("sLabel").value || `Scenario ${idx + 1}`;
       scenarios.push({ label: lbl, opts: o });
@@ -379,7 +387,17 @@ ${sheets.join("\n")}
         <div class="field"><label>Starting capital</label><input class="sPrincipal" type="number" step="any" placeholder="leave blank = same"></div>
         <div class="field"><label>Interest rate %</label><input class="sRate" type="number" step="any" placeholder="leave blank = same"></div>
         <div class="field"><label>Duration (yrs)</label><input class="sYears" type="number" step="any" placeholder="leave blank = same"></div>
+        <div class="field"><label>Compounding</label>
+          <select class="sComp"><option value="">— same —</option><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly">Monthly</option><option value="quarterly">Quarterly</option><option value="halfyearly">Half-yearly</option><option value="yearly">Yearly</option></select>
+        </div>
         <div class="field"><label>Contribution / period</label><input class="sContrib" type="number" step="any" placeholder="leave blank = same"></div>
+        <div class="field"><label>Contribution frequency</label>
+          <select class="sContribFreq"><option value="">— same —</option><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly">Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option></select>
+        </div>
+        <div class="field"><label>Contribution timing</label>
+          <select class="sTiming"><option value="">— same —</option><option value="end">End of period</option><option value="begin">Start of period</option></select>
+        </div>
+        <div class="field"><label>Annual contribution increase %</label><input class="sIncrease" type="number" step="any" placeholder="leave blank = same"></div>
         <div class="field"><label>Stop contributing after yr</label><input class="sStop" type="number" step="1" placeholder="0 = never"></div>
       </div>
       <button type="button" class="rmScenario adv-toggle" style="margin-top:8px">Remove scenario</button>`;
@@ -406,7 +424,12 @@ ${sheets.join("\n")}
         principal: (get("sPrincipal") || {}).value || "",
         rate: (get("sRate") || {}).value || "",
         years: (get("sYears") || {}).value || "",
-        stopYear: (get("sStopYear") || {}).value || "",
+        comp: (get("sComp") || {}).value || "",
+        contrib: (get("sContrib") || {}).value || "",
+        contribFreq: (get("sContribFreq") || {}).value || "",
+        timing: (get("sTiming") || {}).value || "",
+        increase: (get("sIncrease") || {}).value || "",
+        stop: (get("sStop") || {}).value || "",
       });
     });
     return list;
@@ -436,7 +459,10 @@ ${sheets.join("\n")}
       if (!row) return;
       const set = (c, v) => { const n = row.querySelector("." + c); if (n && v !== "") n.value = v; };
       set("sPrincipal", sc.principal); set("sRate", sc.rate);
-      set("sYears", sc.years); set("sStopYear", sc.stopYear);
+      set("sYears", sc.years); set("sComp", sc.comp);
+      set("sContrib", sc.contrib); set("sContribFreq", sc.contribFreq);
+      set("sTiming", sc.timing); set("sIncrease", sc.increase);
+      set("sStop", sc.stop);
     });
     restoring = false;
     return true;
