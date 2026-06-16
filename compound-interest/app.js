@@ -425,7 +425,7 @@ ${sheets.join("\n")}
   }
 
   // ---- persistence (localStorage) ----
-  const STORE_KEY = "nwt-compound-interest-v1";
+  const STORE_KEY = "nwt-compound-interest-v2";
   const MAIN_IDS = ["ccyCurrency", "mPrincipal", "mRate", "mYears", "mComp",
     "mContrib", "mContribFreq", "mTiming", "mStopYear", "mIncrease"];
   let DEFAULTS = {}; // captured from initial HTML values before any restore
@@ -512,6 +512,8 @@ ${sheets.join("\n")}
   // ---- wire up ----
   document.addEventListener("DOMContentLoaded", function () {
     captureDefaults();
+    // purge any pre-feature saved model (older schema) so new fields/tables appear
+    try { localStorage.removeItem("nwt-compound-interest-v1"); } catch (e) {}
     // recalc + persist on any main input change
     document.querySelectorAll("[id^='m']").forEach((el) => {
       el.addEventListener("input", () => { runMain(); saveState(); });
