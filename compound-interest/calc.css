@@ -42,6 +42,14 @@
 .btn-row{display:flex;gap:10px;flex-wrap:wrap}
 .btn-row .adv-toggle{margin-top:0;flex:1;min-width:160px}
 .table-scroll{overflow-x:auto}
+/* Bordered data tables with full gridlines */
+table.ref{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92rem;border:1px solid #cfd6e4}
+table.ref th,table.ref td{border:1px solid #cfd6e4;padding:8px 10px;text-align:right;white-space:nowrap}
+table.ref th:first-child,table.ref td:first-child{text-align:left}
+table.ref thead th,table.ref th{background:var(--soft,#f7f8fb);font-weight:700;color:var(--text,#1a1f2e);text-align:right}
+table.ref thead th:first-child{text-align:left}
+table.ref tbody tr:nth-child(even) td{background:#fafbfd}
+table.ref tbody tr:hover td{background:#eef2ff}
 .cmp-h{margin:18px 0 6px;color:var(--accent);font-size:1rem}
 #compareChartWrap .chart{background:var(--soft,#f7f8fb);border:1px solid var(--ring);border-radius:10px;padding:6px;display:block}
 .legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:10px 0 4px;font-size:.84rem;color:var(--muted)}
