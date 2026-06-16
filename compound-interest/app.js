@@ -104,11 +104,104 @@
 
   function currency() { return $("ccyCurrency").value; }
 
+  // keep last computed state for export
+  let lastMain = null;     // { opts, r }
+  let lastCompare = null;  // [{label, opts, r}, ...]
+
+  // ---- Excel export (SpreadsheetML 2003 — opens natively in Excel/LibreOffice/Sheets) ----
+  function xmlEsc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function cellNum(v) { return `<Cell><Data ss:Type="Number">${isFinite(v) ? v : 0}</Data></Cell>`; }
+  function cellStr(v) { return `<Cell><Data ss:Type="String">${xmlEsc(v)}</Data></Cell>`; }
+  function row(cells) { return `<Row>${cells.join("")}</Row>`; }
+  function sheet(name, rows) {
+    return `<Worksheet ss:Name="${xmlEsc(name).slice(0, 31)}"><Table>${rows.join("")}</Table></Worksheet>`;
+  }
+
+  function buildWorkbook() {
+    const cur = currency();
+    const sheets = [];
+
+    // --- Sheet 1: Inputs & summary ---
+    if (lastMain) {
+      const o = lastMain.opts, r = lastMain.r;
+      const rows = [
+        row([cellStr("Nexus Web Tools — Compound Interest Model")]),
+        row([cellStr("Generated"), cellStr(new Date().toLocaleString())]),
+        row([cellStr("Currency"), cellStr(cur)]),
+        row([]),
+        row([cellStr("INPUTS")]),
+        row([cellStr("Starting capital"), cellNum(o.principal)]),
+        row([cellStr("Annual interest rate (%)"), cellNum(o.annualRatePct)]),
+        row([cellStr("Duration (years)"), cellNum(o.years)]),
+        row([cellStr("Compounding frequency"), cellStr(o.compFreq)]),
+        row([cellStr("Regular contribution"), cellNum(o.contribAmount)]),
+        row([cellStr("Contribution frequency"), cellStr(o.contribFreq)]),
+        row([cellStr("Contribution timing"), cellStr(o.contribTiming)]),
+        row([cellStr("Stop contributing after year (0 = never)"), cellNum(o.contribStopYear)]),
+        row([cellStr("Annual contribution increase (%)"), cellNum(o.annualContribIncreasePct)]),
+        row([]),
+        row([cellStr("RESULTS")]),
+        row([cellStr("Future value"), cellNum(r.finalBalance)]),
+        row([cellStr("Total invested"), cellNum(r.totalContributions)]),
+        row([cellStr("Total interest"), cellNum(r.totalInterest)]),
+        row([cellStr("Return on investment (%)"), cellNum(r.roi)]),
+        row([cellStr("Effective annual rate (%)"), cellNum(r.effectiveAnnualRate)]),
+      ];
+      sheets.push(sheet("Inputs & Summary", rows));
+
+      // --- Sheet 2: Yearly breakdown ---
+      const yr = [row([cellStr("Year"), cellStr("Contributions"), cellStr("Interest"), cellStr("End balance")])];
+      r.yearly.forEach((y) => yr.push(row([cellNum(y.year), cellNum(y.contributions), cellNum(y.interest), cellNum(y.balance)])));
+      sheets.push(sheet("Yearly Breakdown", yr));
+    }
+
+    // --- Sheet 3: Scenario comparison (if run) ---
+    if (lastCompare && lastCompare.length) {
+      const head = row([
+        cellStr("Scenario"), cellStr("Starting capital"), cellStr("Rate (%)"), cellStr("Years"),
+        cellStr("Contrib stop year"), cellStr("Invested"), cellStr("Interest"), cellStr("Future value"),
+      ]);
+      const body = lastCompare.map((x) =>
+        row([
+          cellStr(x.label), cellNum(x.opts.principal), cellNum(x.opts.annualRatePct), cellNum(x.opts.years),
+          cellNum(x.opts.contribStopYear), cellNum(x.r.totalContributions), cellNum(x.r.totalInterest), cellNum(x.r.finalBalance),
+        ])
+      );
+      sheets.push(sheet("Scenario Comparison", [head, ...body]));
+    }
+
+    return `<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+${sheets.join("\n")}
+</Workbook>`;
+  }
+
+  function exportExcel() {
+    if (!lastMain) runMain();
+    const xml = buildWorkbook();
+    const blob = new Blob([xml], { type: "application/vnd.ms-excel" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const stamp = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = `compound-interest-model-${stamp}.xls`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+  }
+
+
   // ---- Main calculator ----
   function runMain() {
     const cur = currency();
     const opts = readInputs("m");
     const r = simulate(opts);
+    lastMain = { opts, r };
 
     $("results").innerHTML = `
       <div class="stat"><span class="big">${fmt(r.finalBalance, cur)}</span><span class="lbl">Future value</span></div>
@@ -180,6 +273,7 @@
     });
 
     const results = scenarios.map((s) => ({ label: s.label, opts: s.opts, r: simulate(s.opts) }));
+    lastCompare = results;
 
     // comparison table
     let head = `<tr><th>Scenario</th><th>Start</th><th>Rate</th><th>Years</th><th>Contrib stop (yr)</th><th>Invested</th><th>Interest</th><th>Future value</th></tr>`;
@@ -248,6 +342,7 @@
 
     $("addScenario").addEventListener("click", () => addScenario());
     $("runCompare").addEventListener("click", runCompare);
+    $("exportXls").addEventListener("click", exportExcel);
 
     // breakdown toggle
     $("bkToggle").addEventListener("click", () => {

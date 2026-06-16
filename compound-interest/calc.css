@@ -30,6 +30,8 @@
 .adv-toggle:hover{background:#eef2ff}
 .adv-toggle.primary{background:var(--accent);color:#fff}
 .adv-toggle.primary:hover{background:#2f4ac0}
+.export-btn{border-color:var(--accent2,#0f9d6b);color:var(--accent2,#0f9d6b)}
+.export-btn:hover{background:#e9f7f1}
 [hidden]{display:none !important}
 .advanced{margin-top:12px;display:flex;flex-direction:column;gap:10px}
 .adv-block{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:12px}
