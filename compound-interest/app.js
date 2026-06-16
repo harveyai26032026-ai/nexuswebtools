@@ -387,14 +387,89 @@ ${sheets.join("\n")}
     div.querySelector(".rmScenario").addEventListener("click", () => { div.remove(); });
   }
 
+  // ---- persistence (localStorage) ----
+  const STORE_KEY = "nwt-compound-interest-v1";
+  const MAIN_IDS = ["ccyCurrency", "mPrincipal", "mRate", "mYears", "mComp",
+    "mContrib", "mContribFreq", "mTiming", "mStopYear", "mIncrease"];
+  let DEFAULTS = {}; // captured from initial HTML values before any restore
+  let restoring = false;
+
+  function captureDefaults() {
+    MAIN_IDS.forEach((id) => { const el = $(id); if (el) DEFAULTS[id] = el.value; });
+  }
+  function readScenarios() {
+    const list = [];
+    document.querySelectorAll(".scenario").forEach((el) => {
+      const get = (c) => el.querySelector("." + c);
+      list.push({
+        label: (get("sLabel") || {}).value || "",
+        principal: (get("sPrincipal") || {}).value || "",
+        rate: (get("sRate") || {}).value || "",
+        years: (get("sYears") || {}).value || "",
+        stopYear: (get("sStopYear") || {}).value || "",
+      });
+    });
+    return list;
+  }
+  function saveState() {
+    if (restoring) return;
+    try {
+      const main = {};
+      MAIN_IDS.forEach((id) => { const el = $(id); if (el) main[id] = el.value; });
+      localStorage.setItem(STORE_KEY, JSON.stringify({ main, scenarios: readScenarios() }));
+    } catch (e) { /* storage disabled/full — fail silently */ }
+  }
+  function restoreState() {
+    let data = null;
+    try { data = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); } catch (e) { data = null; }
+    if (!data || !data.main) return false;
+    restoring = true;
+    MAIN_IDS.forEach((id) => {
+      const el = $(id);
+      if (el && data.main[id] !== undefined && data.main[id] !== null) el.value = data.main[id];
+    });
+    // rebuild scenarios exactly as saved
+    $("scenarioList").innerHTML = "";
+    (data.scenarios || []).forEach((sc) => {
+      addScenario({ label: sc.label });
+      const row = $("scenarioList").lastElementChild;
+      if (!row) return;
+      const set = (c, v) => { const n = row.querySelector("." + c); if (n && v !== "") n.value = v; };
+      set("sPrincipal", sc.principal); set("sRate", sc.rate);
+      set("sYears", sc.years); set("sStopYear", sc.stopYear);
+    });
+    restoring = false;
+    return true;
+  }
+  function resetDefaults() {
+    if (!confirm("Reset all inputs and scenarios back to the defaults? Your saved model will be cleared.")) return;
+    restoring = true;
+    try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+    MAIN_IDS.forEach((id) => { const el = $(id); if (el && DEFAULTS[id] !== undefined) el.value = DEFAULTS[id]; });
+    // reset scenarios to the single seeded example
+    $("scenarioList").innerHTML = "";
+    addScenario({ label: "Higher rate (+2%)" });
+    const firstRate = document.querySelector(".sRate");
+    if (firstRate) firstRate.value = ((parseFloat($("mRate").value) || 5) + 2).toString();
+    // clear any rendered comparison output
+    $("compareTable").innerHTML = "";
+    if ($("compareTableHead")) $("compareTableHead").hidden = true;
+    if ($("compareChartWrap")) $("compareChartWrap").hidden = true;
+    if ($("compareSummary")) $("compareSummary").innerHTML = "";
+    restoring = false;
+    runMain();
+    saveState();
+  }
+
   // ---- wire up ----
   document.addEventListener("DOMContentLoaded", function () {
-    // recalc on any main input change
+    captureDefaults();
+    // recalc + persist on any main input change
     document.querySelectorAll("[id^='m']").forEach((el) => {
-      el.addEventListener("input", runMain);
-      el.addEventListener("change", runMain);
+      el.addEventListener("input", () => { runMain(); saveState(); });
+      el.addEventListener("change", () => { runMain(); saveState(); });
     });
-    $("ccyCurrency").addEventListener("change", () => { runMain(); if ($("compareTable").innerHTML) runCompare(); });
+    $("ccyCurrency").addEventListener("change", () => { runMain(); if ($("compareTable").innerHTML) runCompare(); saveState(); });
 
     // advanced toggle
     const advBtn = $("advToggle");
@@ -405,9 +480,17 @@ ${sheets.join("\n")}
       else { adv.setAttribute("hidden", ""); advBtn.setAttribute("aria-expanded", "false"); advBtn.innerHTML = "⚙️ Compare scenarios ▾"; }
     });
 
-    $("addScenario").addEventListener("click", () => addScenario());
+    $("addScenario").addEventListener("click", () => { addScenario(); saveState(); });
     $("runCompare").addEventListener("click", runCompare);
     $("exportXls").addEventListener("click", exportExcel);
+    $("resetDefaults").addEventListener("click", resetDefaults);
+
+    // persist scenario edits + additions/removals via delegation
+    $("scenarioList").addEventListener("input", saveState);
+    $("scenarioList").addEventListener("change", saveState);
+    $("scenarioList").addEventListener("click", (e) => {
+      if (e.target && e.target.classList.contains("rmScenario")) setTimeout(saveState, 0);
+    });
 
     // breakdown toggle
     $("bkToggle").addEventListener("click", () => {
@@ -416,10 +499,13 @@ ${sheets.join("\n")}
       else { b.setAttribute("hidden", ""); $("bkToggle").textContent = "Show yearly breakdown ▾"; }
     });
 
-    // seed one example scenario so the feature is discoverable
-    addScenario({ label: "Higher rate (+2%)" });
-    const firstRate = document.querySelector(".sRate");
-    if (firstRate) firstRate.value = ((parseFloat($("mRate").value) || 5) + 2).toString();
+    // restore saved model if present; otherwise seed one example scenario
+    const restored = restoreState();
+    if (!restored) {
+      addScenario({ label: "Higher rate (+2%)" });
+      const firstRate = document.querySelector(".sRate");
+      if (firstRate) firstRate.value = ((parseFloat($("mRate").value) || 5) + 2).toString();
+    }
 
     runMain();
   });
