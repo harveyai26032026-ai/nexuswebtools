@@ -24,18 +24,59 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Unit Converter",
-  "url": "https://nexuswebtools.com/unit-converter/",
-  "description": "Instant, free, ad‑free unit conversion for dozens of categories. Mobile‑first, no sign‑up required.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "JavaScript",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://nexuswebtools.com/unit-converter/#app",
+      "name": "Unit Converter",
+      "url": "https://nexuswebtools.com/unit-converter/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Instant, free unit conversion for length, area, volume, weight, temperature, speed, data and pressure.",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nexuswebtools.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Unit Converter", "item": "https://nexuswebtools.com/unit-converter/"}
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to convert units",
+      "step": [
+        {"@type": "HowToStep", "name": "Choose a category", "text": "Select the type of measurement — length, area, volume, weight, temperature, speed, data or pressure."},
+        {"@type": "HowToStep", "name": "Enter the value", "text": "Type the number you want to convert."},
+        {"@type": "HowToStep", "name": "Pick source and target units", "text": "Choose the unit you are converting from and the unit you want to convert to."},
+        {"@type": "HowToStep", "name": "Read the result", "text": "The converted value appears instantly — no button to press."}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What is the difference between metric and imperial?","acceptedAnswer":{"@type":"Answer","text":"The metric system (metres, kilograms, litres) is based on powers of ten and is used worldwide. The imperial system (feet, pounds, gallons) is used mainly in the United States and a few other countries. This converter handles both."}},
+        {"@type":"Question","name":"How does the converter calculate results?","acceptedAnswer":{"@type":"Answer","text":"For most units the converter uses a conversion factor. It multiplies your input by the factor for the source unit, then divides by the factor for the target unit. Temperature conversions use special offset-and-scale formulas because zero is not the same across Celsius, Fahrenheit and Kelvin."}},
+        {"@type":"Question","name":"Why is temperature conversion different?","acceptedAnswer":{"@type":"Answer","text":"Length, weight and other quantities share the same zero point — zero metres equals zero feet. Temperature scales have different zero points (0 °C ≠ 0 °F ≠ 0 K), so converting requires both a multiplication and an addition, not just a single ratio."}},
+        {"@type":"Question","name":"Are the conversions exact?","acceptedAnswer":{"@type":"Answer","text":"Most conversions use internationally agreed exact definitions (e.g. 1 inch = 25.4 mm exactly). Results are shown to six decimal places; for most practical purposes you can round to two or three."}},
+        {"@type":"Question","name":"What is the best way to remember common conversions?","acceptedAnswer":{"@type":"Answer","text":"Learn a few anchor points: 1 inch ≈ 25.4 mm, 1 foot ≈ 0.305 m, 1 mile ≈ 1.609 km, 1 kg ≈ 2.205 lb, 1 litre ≈ 0.264 gal. From these you can derive the rest."}}
+      ]
+    }
+  ]
 }
 </script>
 <link rel="preload" href="../style.css" as="style" crossorigin>
 <link rel="stylesheet" href="../style.css">
+<style>
+table.ref{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92rem;border:1px solid var(--border,#d0d7de)}
+table.ref th{background:var(--accent,#3b5bdb);color:#fff;padding:8px 10px;text-align:left;font-weight:600}
+table.ref td{padding:7px 10px;border-bottom:1px solid var(--border,#d0d7de)}
+table.ref tbody tr:nth-child(even){background:rgba(0,0,0,.03)}
+table.ref tbody tr:hover{background:rgba(59,91,219,.07)}
+ul.benefits{padding-left:1.4em;margin:1em 0}
+ul.benefits li{margin:.5em 0;line-height:1.6}
+</style>
 </head>
 <body>
 <header class="ribbon">
@@ -46,6 +87,7 @@
         <a href="/s-curve/">S‑Curve Model</a>
     <a href="/compound-interest/">Compound Interest</a>
     <a href="https://concrete-calcs.com/">Concrete Calculator</a>
+    <a href="#faq">FAQ</a>
   </nav>
 </header>
 <main>
@@ -184,6 +226,72 @@ function convertCategory(cat){
 }
 populateAllUnits();
 </script>
+</section>
+
+<section id="how">
+  <h2>How unit conversion works</h2>
+  <p>Unit conversion is the process of expressing the same physical quantity in a different unit of measurement. Every conversion falls into one of two groups: <strong>ratio‑based</strong> (most categories) and <strong>offset‑based</strong> (temperature).</p>
+
+  <h3>Ratio‑based conversions</h3>
+  <p>For length, weight, area, volume, speed, data and pressure the converter stores each unit as a factor relative to a base unit (metre, kilogram, square metre, litre, m/s, byte, pascal). To convert from unit A to unit B:</p>
+  <p><code>result = value × (factorA / factorB)</code></p>
+  <p>Because both factors share the same base, the base cancels out and you get the correct ratio every time. For example, to convert 5 miles to kilometres the converter multiplies 5 by the mile‑to‑metre factor and divides by the km‑to‑metre factor, yielding 8.047 km.</p>
+
+  <h3>Temperature conversions</h3>
+  <p>Temperature scales don't share a common zero — 0 °C, 0 °F and 0 K are all different physical temperatures — so a simple ratio isn't enough. The converter first translates the input to Celsius, then from Celsius to the target scale:</p>
+  <p><code>°F = °C × 9/5 + 32 &nbsp;&nbsp;|&nbsp;&nbsp; K = °C + 273.15</code></p>
+
+  <h2 id="example">Worked examples</h2>
+  <table class="ref">
+    <thead><tr><th>Convert</th><th>From</th><th>To</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>10</td><td>miles</td><td>kilometres</td><td>16.093 km</td></tr>
+      <tr><td>72</td><td>°F</td><td>°C</td><td>22.222 °C</td></tr>
+      <tr><td>100</td><td>kg</td><td>lb</td><td>220.462 lb</td></tr>
+      <tr><td>5</td><td>gallons</td><td>litres</td><td>18.927 l</td></tr>
+      <tr><td>1</td><td>GB</td><td>MB</td><td>1,024 MB</td></tr>
+      <tr><td>30</td><td>psi</td><td>bar</td><td>2.068 bar</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Common conversion reference</h2>
+  <table class="ref">
+    <thead><tr><th>Category</th><th>Anchor conversion</th><th>Use it to remember</th></tr></thead>
+    <tbody>
+      <tr><td>Length</td><td>1 in = 25.4 mm (exact)</td><td>Derive feet, yards and miles from inches</td></tr>
+      <tr><td>Area</td><td>1 ft² ≈ 0.0929 m²</td><td>10 ft² is just under 1 m²</td></tr>
+      <tr><td>Volume</td><td>1 gal (US) ≈ 3.785 l</td><td>4 litres is roughly 1 gallon</td></tr>
+      <tr><td>Weight</td><td>1 kg ≈ 2.205 lb</td><td>5 kg ≈ 11 lb</td></tr>
+      <tr><td>Temperature</td><td>°F = °C × 1.8 + 32</td><td>Double °C and add 30 for a quick estimate</td></tr>
+      <tr><td>Speed</td><td>1 mph ≈ 1.609 km/h</td><td>50 mph ≈ 80 km/h</td></tr>
+      <tr><td>Data</td><td>1 GB = 1,024 MB</td><td>Binary prefix — each step is ×1,024</td></tr>
+      <tr><td>Pressure</td><td>1 atm = 101.325 kPa ≈ 14.7 psi</td><td>Tyre pressure ≈ 2 bar ≈ 30 psi</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tips for accurate conversions</h2>
+  <ul class="benefits">
+    <li><strong>Know whether you need precision or an estimate.</strong> For cooking, "1 litre ≈ 4 cups" is fine. For engineering, use the exact factor (1 l = 0.264172 gal).</li>
+    <li><strong>Watch your significant figures.</strong> The converter shows six decimal places — round to what's appropriate for your use case.</li>
+    <li><strong>Temperature is special.</strong> Always use the converter for °F ↔ °C ↔ K; a simple ratio will give the wrong answer.</li>
+    <li><strong>US vs imperial gallons.</strong> This converter uses the US liquid gallon (≈ 3.785 l). The imperial gallon (UK) is larger (≈ 4.546 l).</li>
+    <li><strong>Data units are binary.</strong> 1 KB = 1,024 B, 1 MB = 1,024 KB — not 1,000. Storage manufacturers sometimes use decimal prefixes (1 MB = 1,000,000 B), which is why a "500 GB" drive shows less in your OS.</li>
+  </ul>
+</section>
+
+<section id="faq">
+  <h2>Frequently asked questions</h2>
+  <h3>What is the difference between metric and imperial?</h3>
+  <p>The metric system (metres, kilograms, litres) is based on powers of ten and is used worldwide. The imperial system (feet, pounds, gallons) is used mainly in the United States and a few other countries. This converter handles both.</p>
+  <h3>How does the converter calculate results?</h3>
+  <p>For most units the converter uses a conversion factor. It multiplies your input by the factor for the source unit, then divides by the factor for the target unit. Temperature conversions use special offset-and-scale formulas because zero is not the same across Celsius, Fahrenheit and Kelvin.</p>
+  <h3>Why is temperature conversion different?</h3>
+  <p>Length, weight and other quantities share the same zero point — zero metres equals zero feet. Temperature scales have different zero points (0 °C ≠ 0 °F ≠ 0 K), so converting requires both a multiplication and an addition, not just a single ratio.</p>
+  <h3>Are the conversions exact?</h3>
+  <p>Most conversions use internationally agreed exact definitions (e.g. 1 inch = 25.4 mm exactly). Results are shown to six decimal places; for most practical purposes you can round to two or three.</p>
+  <h3>What is the best way to remember common conversions?</h3>
+  <p>Learn a few anchor points: 1 inch ≈ 25.4 mm, 1 foot ≈ 0.305 m, 1 mile ≈ 1.609 km, 1 kg ≈ 2.205 lb, 1 litre ≈ 0.264 gal. From these you can derive the rest.</p>
+</section>
 </main>
 <footer>
   <p><a href="/">All tools</a> · <a href="/compound-interest/">Compound Interest</a> · <a href="/s-curve/">S‑Curve Model</a> · <a href="https://concrete-calcs.com/">Concrete Calculator</a></p>
