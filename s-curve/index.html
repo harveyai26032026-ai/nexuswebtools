@@ -22,6 +22,17 @@
 <meta name="twitter:description" content="Interactive S‑curve model for project cash‑flow forecasting.">
 <link rel="preload" href="../style.css" as="style" crossorigin>
 <link rel="stylesheet" href="../style.css">
+<style>
+  table.ref{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92rem;border:1px solid var(--ring,#cfd6e4)}
+  table.ref th,table.ref td{border:1px solid var(--ring,#cfd6e4);padding:8px 10px;text-align:right;white-space:nowrap}
+  table.ref th:first-child,table.ref td:first-child{text-align:left}
+  table.ref thead th{background:var(--soft,#f7f8fb);font-weight:700;color:var(--text,#1a1f2e);text-align:right}
+  table.ref thead th:first-child{text-align:left}
+  table.ref tbody tr:nth-child(even) td{background:#fafbfd}
+  table.ref tbody tr:hover td{background:#eef2ff}
+  #summary{margin-top:20px}
+  #summary h2{margin-bottom:6px}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,36 +74,54 @@
   <section id="chart" aria-label="S‑curve chart">
     <svg id="svg" width="100%" height="400" viewBox="0 0 600 400" preserveAspectRatio="none"></svg>
   </section>
+  <section id="summary" aria-label="Cash‑flow summary table">
+    <h2>Cash‑flow summary</h2>
+    <table class="ref" id="summaryTable">
+      <thead><tr><th>Interval</th><th>Period value</th><th>Cumulative</th><th>Remaining</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
 </main>
 <footer>
   <p><a href="/">All tools</a> · <a href="/compound-interest/">Compound Interest</a> · <a href="/unit-converter/">Unit Converter</a> · <a href="https://concrete-calcs.com/">Concrete Calculator</a></p>
   <p>&copy; 2026 Nexus Web Tools. All rights reserved.</p>
 </footer>
 <script>
+function fmt(n,d){return n.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})}
+
 function draw(){
   const period = Math.max(1, parseInt(document.getElementById('period').value));
-  const steep = parseFloat(document.getElementById('steepness').value);
-  const start = parseFloat(document.getElementById('startVal').value);
-  const end = parseFloat(document.getElementById('endVal').value);
+  const steep = parseFloat(document.getElementById('steepness').value)||0;
+  const start = parseFloat(document.getElementById('startVal').value)||0;
+  const end = parseFloat(document.getElementById('endVal').value)||0;
   const unit = document.getElementById('unit').value;
   const svg = document.getElementById('svg');
-  // compute points
-  const points = [];
+  const tbody = document.querySelector('#summaryTable tbody');
+
+  // compute S‑curve values for each interval
+  const values = [];
   for(let i=0;i<=period;i++){
-    const x = i/period; // 0‑1
-    const y = start + (end-start)/(1+Math.exp(-steep*(i - period/2)));
-    points.push({x: x*600, y: 400 - ((y-start)/(end-start||1))*400});
+    const logistic = start + (end-start)/(1+Math.exp(-steep*(i - period/2)));
+    values.push(logistic);
   }
-  const pathData = points.map((p,i)=> (i===0? 'M':'L') + p.x + ',' + p.y).join(' ');
-  // clear
+
+  // ---- SVG chart ----
+  const points = values.map((y,i) => {
+    const x = (i/period)*600;
+    const yPx = 400 - ((y-start)/(end-start||1))*400;
+    return {x, y:yPx};
+  });
+  const pathData = points.map((p,i)=> (i===0? 'M':'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' ');
   while(svg.firstChild) svg.removeChild(svg.firstChild);
+
   const path = document.createElementNS('http://www.w3.org/2000/svg','path');
   path.setAttribute('d', pathData);
   path.setAttribute('stroke', '#3b5bdb');
   path.setAttribute('stroke-width', '2');
   path.setAttribute('fill', 'none');
   svg.appendChild(path);
-  // optional axis labels
+
+  // axis labels
   const txt = document.createElementNS('http://www.w3.org/2000/svg','text');
   txt.setAttribute('x', 590);
   txt.setAttribute('y', 390);
@@ -100,6 +129,19 @@ function draw(){
   txt.setAttribute('text-anchor','end');
   txt.textContent = unit;
   svg.appendChild(txt);
+
+  // ---- summary table ----
+  const total = Math.abs(end - start);
+  const u = unit ? ' ' + unit : '';
+  let rows = '';
+  for(let i=0;i<=period;i++){
+    const periodVal = i === 0 ? 0 : Math.max(0, values[i] - values[i-1]);
+    const cumul = Math.max(0, values[i] - start);
+    const remaining = Math.max(0, total - cumul);
+    const label = i === 0 ? 'Start' : i === period ? 'End' : String(i);
+    rows += `<tr><td>${label}</td><td>${fmt(periodVal,2)}${u}</td><td>${fmt(cumul,2)}${u}</td><td>${fmt(remaining,2)}${u}</td></tr>`;
+  }
+  tbody.innerHTML = rows;
 }
 draw();
 </script>
