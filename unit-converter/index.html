@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit Converter — Length, Weight, Temperature &amp; More</title>
+<meta name="description" content="Free instant unit converter for length, area, volume, weight, temperature, speed, data and more. No sign‑up, no ads, mobile‑friendly.">
+<link rel="canonical" href="https://nexuswebtools.com/unit-converter/">
+<link rel="icon" href="../favicon.webp" type="image/webp">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nexus Web Tools">
+<meta property="og:locale" content="en">
+<meta property="og:title" content="Unit Converter — Length, Weight, Temperature &amp; More">
+<meta property="og:description" content="Free instant unit converter for length, area, volume, weight, temperature, speed, data and more. No sign‑up, no ads, mobile‑friendly.">
+<meta property="og:url" content="https://nexuswebtools.com/unit-converter/">
+<meta property="og:image" content="https://nexuswebtools.com/og.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Unit Converter — Length, Weight, Temperature &amp; More">
+<meta name="twitter:description" content="Free instant unit converter for length, area, volume, weight, temperature, speed, data and more. No sign‑up, no ads.">
+<meta name="twitter:image" content="https://nexuswebtools.com/og.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Unit Converter",
+  "url": "https://nexuswebtools.com/unit-converter/",
+  "description": "Instant, free, ad‑free unit conversion for dozens of categories. Mobile‑first, no sign‑up required.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "JavaScript",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<link rel="preload" href="../style.css" as="style" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="ribbon">
+  <div class="brand">🧰 Nexus Web Tools</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/unit-converter/" class="active">Unit Converter</a>
+    <a href="/compound-interest/">Compound Interest</a>
+    <a href="https://concrete-calcs.com/">Concrete Calculator</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h1>Unit Converter</h1>
+    <p class="lede">Convert between length, area, volume, weight, temperature, speed, data, pressure and more – instantly, free, no ads.</p>
+  </section>
+  <section id="converter" aria-label="Unit converter">
+    <div class="grid">
+      <div class="field">
+        <label for="category">Category</label>
+        <select id="category" onchange="populateUnits()">
+          <option value="length">Length</option>
+          <option value="area">Area</option>
+          <option value="volume">Volume</option>
+          <option value="weight">Weight</option>
+          <option value="temperature">Temperature</option>
+          <option value="speed">Speed</option>
+          <option value="data">Data</option>
+          <option value="pressure">Pressure</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="inputValue">Value</label>
+        <input id="inputValue" type="number" step="any" value="1" oninput="convert()">
+      </div>
+      <div class="field">
+        <label for="fromUnit">From</label>
+        <select id="fromUnit" onchange="convert()"></select>
+      </div>
+      <div class="field">
+        <label for="toUnit">To</label>
+        <select id="toUnit" onchange="convert()"></select>
+      </div>
+    </div>
+    <p class="result" id="result"></p>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2026 Nexus Web Tools. All rights reserved.</p>
+</footer>
+<script>
+const unitData = {
+  length: { base: 'm', units: {m:1, km:0.001, cm:100, mm:1000, ft:3.28084, in:39.3701, yd:1.09361} },
+  area:   { base: 'm²', units: {"m²":1, "km²":1e-6, "cm²":10000, "mm²":1e6, "ft²":10.7639, "yd²":1.19599, "acre":0.000247105} },
+  volume:{ base: 'l', units: {l:1, ml:1000, "m³":0.001, "ft³":35.3147, gal:0.264172, "qt":1.05669} },
+  weight:{ base: 'kg', units: {kg:1, g:1000, mg:1e6, lb:2.20462, oz:35.274} },
+  temperature:{ base: 'K', units: {C:0, F:0, K:0} },
+  speed:{ base: 'm/s', units: {"m/s":1, kmh:3.6, mph:2.23694, knots:1.94384} },
+  data:{ base: 'B', units: {B:1, KB:1024, MB:1048576, GB:1073741824, TB:1099511627776} },
+  pressure:{ base: 'Pa', units: {Pa:1, kPa:1000, bar:100000, psi:6894.76, atm:101325} }
+};
+function populateUnits(){
+  const cat = document.getElementById('category').value;
+  const from = document.getElementById('fromUnit');
+  const to = document.getElementById('toUnit');
+  from.innerHTML=''; to.innerHTML='';
+  Object.keys(unitData[cat].units).forEach(u=>{
+    const opt1=document.createElement('option');opt1.value=u;opt1.textContent=u;from.appendChild(opt1.cloneNode(true));
+    const opt2=document.createElement('option');opt2.value=u;opt2.textContent=u;to.appendChild(opt2.cloneNode(true));
+  });
+  from.value=Object.keys(unitData[cat].units)[0];
+  to.value=Object.keys(unitData[cat].units)[1];
+  convert();
+}
+function convert(){
+  const cat=document.getElementById('category').value;
+  const val=parseFloat(document.getElementById('inputValue').value)||0;
+  const from=document.getElementById('fromUnit').value;
+  const to=document.getElementById('toUnit').value;
+  let result;
+  if(cat==='temperature'){
+    let c;
+    if(from==='C') c=val; else if(from==='F') c=(val-32)*5/9; else c=val-273.15;
+    if(to==='C') result=c; else if(to==='F') result=c*9/5+32; else result=c+273.15;
+  } else {
+    const factorFrom=unitData[cat].units[from];
+    const factorTo=unitData[cat].units[to];
+    result=val * (factorFrom/factorTo);
+  }
+  document.getElementById('result').textContent = `${val} ${from} = ${result.toFixed(6)} ${to}`;
+}
+populateUnits();
+</script>
+</body>
+</html>
