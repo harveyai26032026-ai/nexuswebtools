@@ -69,22 +69,51 @@
 <link rel="preload" href="../style.css" as="style" crossorigin>
 <link rel="stylesheet" href="../style.css">
 <style>
-table.ref{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92rem;border:1px solid var(--border,#d0d7de)}
-table.ref th{background:var(--accent,#3b5bdb);color:#fff;padding:8px 10px;text-align:left;font-weight:600}
-table.ref td{padding:7px 10px;border-bottom:1px solid var(--border,#d0d7de)}
+/* ---- Tool container (matches concrete-calcs .tool) ---- */
+.tool{background:var(--soft);border:1px solid var(--ring);border-radius:14px;padding:14px;margin:18px 0;box-shadow:0 8px 24px rgba(20,30,60,.06)}
+.field{display:flex;flex-direction:column;gap:3px;margin:7px 0}
+.field label{font-size:.82rem;font-weight:600;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+input,select{background:#fff;color:var(--text);border:1px solid var(--ring);border-radius:7px;padding:9px 11px;font-size:.95rem;width:100%}
+input:focus,select:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+select{min-width:0;padding-right:28px;appearance:auto}
+
+/* ---- Result bubbles (matches concrete-calcs .stat) ---- */
+.results{margin-top:12px;border-top:1px solid var(--ring);padding-top:12px;display:grid;grid-template-columns:1fr;gap:8px}
+.stat{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:14px;text-align:center}
+.stat .big{display:block;font-size:1.35rem;font-weight:800;color:var(--accent2);word-break:break-word}
+.stat .lbl{display:block;font-size:.78rem;color:var(--muted);margin-top:2px}
+
+/* ---- TOC ---- */
+#toc ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 6px}
+#toc li a{display:inline-block;padding:6px 14px;border:1px solid var(--ring);border-radius:8px;text-decoration:none;color:var(--accent);font-size:.9rem;font-weight:600;transition:background .15s ease,border-color .15s ease}
+#toc li a:hover{background:var(--soft);border-color:var(--accent)}
+
+/* ---- Tables ---- */
+table.ref{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92rem;border:1px solid var(--ring)}
+table.ref th{background:var(--accent);color:#fff;padding:8px 10px;text-align:left;font-weight:600}
+table.ref td{padding:7px 10px;border-bottom:1px solid var(--ring)}
 table.ref tbody tr:nth-child(even){background:rgba(0,0,0,.03)}
 table.ref tbody tr:hover{background:rgba(59,91,219,.07)}
 ul.benefits{padding-left:1.4em;margin:1em 0}
 ul.benefits li{margin:.5em 0;line-height:1.6}
+.category-section h3{margin-top:0}
+
+@media (max-width:520px){
+  .grid{grid-template-columns:1fr 1fr;gap:7px}
+  .grid .field:first-child{grid-column:1/-1}
+  .stat .big{font-size:1.15rem}
+  .tool{padding:11px}
+}
 </style>
 </head>
 <body>
 <header class="ribbon">
-  <div class="brand">🧰 Nexus Web Tools</div>
+  <div class="brand"><a href="/" style="text-decoration:none;color:inherit">🧰 Nexus Web Tools</a></div>
   <nav>
     <a href="/">Home</a>
     <a href="/unit-converter/">Unit Converter</a>
-        <a href="/s-curve/">S‑Curve Model</a>
+    <a href="/s-curve/">S‑Curve Model</a>
     <a href="/compound-interest/">Compound Interest</a>
     <a href="https://concrete-calcs.com/">Concrete Calculator</a>
     <a href="#faq">FAQ</a>
@@ -95,138 +124,160 @@ ul.benefits li{margin:.5em 0;line-height:1.6}
     <h1>Unit Converter</h1>
     <p class="lede">Convert between length, area, volume, weight, temperature, speed, data, pressure and more – instantly, free, no ads.</p>
   </section>
+
 <section id="toc">
   <h2>Categories</h2>
-  <ul class="toc-list">
-    <li><a href="#length">Length</a></li>
-    <li><a href="#area">Area</a></li>
-    <li><a href="#volume">Volume</a></li>
-    <li><a href="#weight">Weight</a></li>
-    <li><a href="#temperature">Temperature</a></li>
-    <li><a href="#speed">Speed</a></li>
-    <li><a href="#data">Data</a></li>
-    <li><a href="#pressure">Pressure</a></li>
+  <ul>
+    <li><a href="#length">📏 Length</a></li>
+    <li><a href="#area">📐 Area</a></li>
+    <li><a href="#volume">🧊 Volume</a></li>
+    <li><a href="#weight">⚖️ Weight</a></li>
+    <li><a href="#temperature">🌡️ Temperature</a></li>
+    <li><a href="#speed">🏎️ Speed</a></li>
+    <li><a href="#data">💾 Data</a></li>
+    <li><a href="#pressure">🔧 Pressure</a></li>
   </ul>
 </section>
 
-<section id="length" class="category-section">
-  <h3>Length Converter</h3>
+<section id="length" class="category-section tool">
+  <h3>📏 Length Converter</h3>
   <div class="grid">
     <div class="field"><label for="inputLength">Value</label><input id="inputLength" type="number" step="any" value="1" oninput="convertCategory('length')"></div>
     <div class="field"><label for="fromLength">From</label><select id="fromLength" onchange="convertCategory('length')"></select></div>
     <div class="field"><label for="toLength">To</label><select id="toLength" onchange="convertCategory('length')"></select></div>
   </div>
-  <p class="result" id="resultLength"></p>
+  <div class="results"><div class="stat"><span class="big" id="resultLengthVal"></span><span class="lbl" id="resultLengthFrom"></span></div></div>
 </section>
 
-<section id="area" class="category-section">
-  <h3>Area Converter</h3>
+<section id="area" class="category-section tool">
+  <h3>📐 Area Converter</h3>
   <div class="grid">
     <div class="field"><label for="inputArea">Value</label><input id="inputArea" type="number" step="any" value="1" oninput="convertCategory('area')"></div>
     <div class="field"><label for="fromArea">From</label><select id="fromArea" onchange="convertCategory('area')"></select></div>
     <div class="field"><label for="toArea">To</label><select id="toArea" onchange="convertCategory('area')"></select></div>
   </div>
-  <p class="result" id="resultArea"></p>
+  <div class="results"><div class="stat"><span class="big" id="resultAreaVal"></span><span class="lbl" id="resultAreaFrom"></span></div></div>
 </section>
 
-<section id="volume" class="category-section">
-  <h3>Volume Converter</h3>
+<section id="volume" class="category-section tool">
+  <h3>🧊 Volume Converter</h3>
   <div class="grid">
     <div class="field"><label for="inputVolume">Value</label><input id="inputVolume" type="number" step="any" value="1" oninput="convertCategory('volume')"></div>
     <div class="field"><label for="fromVolume">From</label><select id="fromVolume" onchange="convertCategory('volume')"></select></div>
     <div class="field"><label for="toVolume">To</label><select id="toVolume" onchange="convertCategory('volume')"></select></div>
   </div>
-  <p class="result" id="resultVolume"></p>
+  <div class="results"><div class="stat"><span class="big" id="resultVolumeVal"></span><span class="lbl" id="resultVolumeFrom"></span></div></div>
 </section>
 
-<section id="weight" class="category-section">
-  <h3>Weight Converter</h3>
+<section id="weight" class="category-section tool">
+  <h3>⚖️ Weight Converter</h3>
   <div class="grid">
     <div class="field"><label for="inputWeight">Value</label><input id="inputWeight" type="number" step="any" value="1" oninput="convertCategory('weight')"></div>
     <div class="field"><label for="fromWeight">From</label><select id="fromWeight" onchange="convertCategory('weight')"></select></div>
     <div class="field"><label for="toWeight">To</label><select id="toWeight" onchange="convertCategory('weight')"></select></div>
   </div>
-  <p class="result" id="resultWeight"></p>
+  <div class="results"><div class="stat"><span class="big" id="resultWeightVal"></span><span class="lbl" id="resultWeightFrom"></span></div></div>
 </section>
 
-<section id="temperature" class="category-section">
-  <h3>Temperature Converter</h3>
+<section id="temperature" class="category-section tool">
+  <h3>🌡️ Temperature Converter</h3>
   <div class="grid">
     <div class="field"><label for="inputTemperature">Value</label><input id="inputTemperature" type="number" step="any" value="1" oninput="convertCategory('temperature')"></div>
     <div class="field"><label for="fromTemperature">From</label><select id="fromTemperature" onchange="convertCategory('temperature')"></select></div>
     <div class="field"><label for="toTemperature">To</label><select id="toTemperature" onchange="convertCategory('temperature')"></select></div>
   </div>
-  <p class="result" id="resultTemperature"></p>
+  <div class="results"><div class="stat"><span class="big" id="resultTemperatureVal"></span><span class="lbl" id="resultTemperatureFrom"></span></div></div>
 </section>
 
-<section id="speed" class="category-section">
-  <h3>Speed Converter</h3>
+<section id="speed" class="category-section tool">
+  <h3>🏎️ Speed Converter</h3>
   <div class="grid">
     <div class="field"><label for="inputSpeed">Value</label><input id="inputSpeed" type="number" step="any" value="1" oninput="convertCategory('speed')"></div>
     <div class="field"><label for="fromSpeed">From</label><select id="fromSpeed" onchange="convertCategory('speed')"></select></div>
     <div class="field"><label for="toSpeed">To</label><select id="toSpeed" onchange="convertCategory('speed')"></select></div>
   </div>
-  <p class="result" id="resultSpeed"></p>
+  <div class="results"><div class="stat"><span class="big" id="resultSpeedVal"></span><span class="lbl" id="resultSpeedFrom"></span></div></div>
 </section>
 
-<section id="data" class="category-section">
-  <h3>Data Converter</h3>
+<section id="data" class="category-section tool">
+  <h3>💾 Data Converter</h3>
   <div class="grid">
     <div class="field"><label for="inputData">Value</label><input id="inputData" type="number" step="any" value="1" oninput="convertCategory('data')"></div>
     <div class="field"><label for="fromData">From</label><select id="fromData" onchange="convertCategory('data')"></select></div>
     <div class="field"><label for="toData">To</label><select id="toData" onchange="convertCategory('data')"></select></div>
   </div>
-  <p class="result" id="resultData"></p>
+  <div class="results"><div class="stat"><span class="big" id="resultDataVal"></span><span class="lbl" id="resultDataFrom"></span></div></div>
 </section>
 
-<section id="pressure" class="category-section">
-  <h3>Pressure Converter</h3>
+<section id="pressure" class="category-section tool">
+  <h3>🔧 Pressure Converter</h3>
   <div class="grid">
     <div class="field"><label for="inputPressure">Value</label><input id="inputPressure" type="number" step="any" value="1" oninput="convertCategory('pressure')"></div>
     <div class="field"><label for="fromPressure">From</label><select id="fromPressure" onchange="convertCategory('pressure')"></select></div>
     <div class="field"><label for="toPressure">To</label><select id="toPressure" onchange="convertCategory('pressure')"></select></div>
   </div>
-  <p class="result" id="resultPressure"></p>
+  <div class="results"><div class="stat"><span class="big" id="resultPressureVal"></span><span class="lbl" id="resultPressureFrom"></span></div></div>
 </section>
 
 <script>
-const categories = ['length','area','volume','weight','temperature','speed','data','pressure'];
+const unitData = {
+  length:     { base: 'm',   units: {m:1, km:0.001, cm:100, mm:1000, ft:3.28084, in:39.3701, yd:1.09361, mi:0.000621371} },
+  area:       { base: 'm²',  units: {"m²":1, "km²":1e-6, "cm²":10000, "mm²":1e6, "ft²":10.7639, "yd²":1.19599, "acre":0.000247105, "ha":0.0001} },
+  volume:     { base: 'l',   units: {l:1, ml:1000, "m³":0.001, "ft³":35.3147, gal:0.264172, "qt":1.05669, "cup":4.22675} },
+  weight:     { base: 'kg',  units: {kg:1, g:1000, mg:1e6, lb:2.20462, oz:35.274, "st":0.157473} },
+  temperature:{ base: 'K',   units: {"°C":0, "°F":0, K:0} },
+  speed:      { base: 'm/s', units: {"m/s":1, "km/h":3.6, "mph":2.23694, "knots":1.94384} },
+  data:       { base: 'B',   units: {B:1, KB:1024, MB:1048576, GB:1073741824, TB:1099511627776} },
+  pressure:   { base: 'Pa',  units: {Pa:1, kPa:1000, bar:100000, psi:6894.76, atm:101325} }
+};
+
+const categories = Object.keys(unitData);
+
+function capitalize(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+
 function populateAllUnits(){
   categories.forEach(cat => {
     const from = document.getElementById('from' + capitalize(cat));
-    const to = document.getElementById('to' + capitalize(cat));
-    if(!from||!to) return;
-    from.innerHTML=''; to.innerHTML='';
-    Object.keys(unitData[cat].units).forEach(u=>{
-      const opt1=document.createElement('option');opt1.value=u;opt1.textContent=u;from.appendChild(opt1.cloneNode(true));
-      const opt2=document.createElement('option');opt2.value=u;opt2.textContent=u;to.appendChild(opt2.cloneNode(true));
+    const to   = document.getElementById('to'   + capitalize(cat));
+    if(!from || !to) return;
+    from.innerHTML = ''; to.innerHTML = '';
+    Object.keys(unitData[cat].units).forEach(u => {
+      const o1 = document.createElement('option'); o1.value = u; o1.textContent = u; from.appendChild(o1);
+      const o2 = document.createElement('option'); o2.value = u; o2.textContent = u; to.appendChild(o2);
     });
-    // set defaults
-    from.value=Object.keys(unitData[cat].units)[0];
-    to.value=Object.keys(unitData[cat].units)[1];
+    from.value = Object.keys(unitData[cat].units)[0];
+    to.value   = Object.keys(unitData[cat].units)[1];
     convertCategory(cat);
   });
 }
-function capitalize(s){return s.charAt(0).toUpperCase() + s.slice(1);}
-function convertCategory(cat){
-  const val = parseFloat(document.getElementById('input' + capitalize(cat)).value) || 0;
-  const from = document.getElementById('from' + capitalize(cat)).value;
-  const to = document.getElementById('to' + capitalize(cat)).value;
-  let result;
-  if(cat=== 'temperature'){
-    let c;
-    if(from==='C') c=val; else if(from==='F') c=(val-32)*5/9; else c=val-273.15;
-    if(to==='C') result=c; else if(to==='F') result=c*9/5+32; else result=c+273.15;
-  } else {
-    const factorFrom = unitData[cat].units[from];
-    const factorTo = unitData[cat].units[to];
-    result = val * (factorFrom/factorTo);
-  }
-  document.getElementById('result' + capitalize(cat)).textContent = `${val} ${from} = ${result.toFixed(6)} ${to}`;
+
+function fmtNum(n){
+  if(Math.abs(n) >= 1e9 || (Math.abs(n) < 0.0001 && n !== 0)) return n.toExponential(4);
+  const s = n.toPrecision(10);
+  return parseFloat(s).toString();
 }
+
+function convertCategory(cat){
+  const val  = parseFloat(document.getElementById('input' + capitalize(cat)).value) || 0;
+  const from = document.getElementById('from' + capitalize(cat)).value;
+  const to   = document.getElementById('to'   + capitalize(cat)).value;
+  let result;
+  if(cat === 'temperature'){
+    let c;
+    if(from === '°C') c = val; else if(from === '°F') c = (val - 32) * 5 / 9; else c = val - 273.15;
+    if(to === '°C') result = c; else if(to === '°F') result = c * 9 / 5 + 32; else result = c + 273.15;
+  } else {
+    const fFrom = unitData[cat].units[from];
+    const fTo   = unitData[cat].units[to];
+    result = val * (fFrom / fTo);
+  }
+  const C = capitalize(cat);
+  document.getElementById('result' + C + 'Val').textContent  = fmtNum(result) + ' ' + to;
+  document.getElementById('result' + C + 'From').textContent = val + ' ' + from;
+}
+
 populateAllUnits();
 </script>
-</section>
 
 <section id="how">
   <h2>How unit conversion works</h2>
@@ -272,7 +323,7 @@ populateAllUnits();
   <h2>Tips for accurate conversions</h2>
   <ul class="benefits">
     <li><strong>Know whether you need precision or an estimate.</strong> For cooking, "1 litre ≈ 4 cups" is fine. For engineering, use the exact factor (1 l = 0.264172 gal).</li>
-    <li><strong>Watch your significant figures.</strong> The converter shows six decimal places — round to what's appropriate for your use case.</li>
+    <li><strong>Watch your significant figures.</strong> The converter shows up to 10 significant digits — round to what's appropriate for your use case.</li>
     <li><strong>Temperature is special.</strong> Always use the converter for °F ↔ °C ↔ K; a simple ratio will give the wrong answer.</li>
     <li><strong>US vs imperial gallons.</strong> This converter uses the US liquid gallon (≈ 3.785 l). The imperial gallon (UK) is larger (≈ 4.546 l).</li>
     <li><strong>Data units are binary.</strong> 1 KB = 1,024 B, 1 MB = 1,024 KB — not 1,000. Storage manufacturers sometimes use decimal prefixes (1 MB = 1,000,000 B), which is why a "500 GB" drive shows less in your OS.</li>
@@ -297,48 +348,5 @@ populateAllUnits();
   <p><a href="/">All tools</a> · <a href="/compound-interest/">Compound Interest</a> · <a href="/s-curve/">S‑Curve Model</a> · <a href="https://concrete-calcs.com/">Concrete Calculator</a></p>
   <p>&copy; 2026 Nexus Web Tools. All rights reserved.</p>
 </footer>
-<script>
-const unitData = {
-  length: { base: 'm', units: {m:1, km:0.001, cm:100, mm:1000, ft:3.28084, in:39.3701, yd:1.09361} },
-  area:   { base: 'm²', units: {"m²":1, "km²":1e-6, "cm²":10000, "mm²":1e6, "ft²":10.7639, "yd²":1.19599, "acre":0.000247105} },
-  volume:{ base: 'l', units: {l:1, ml:1000, "m³":0.001, "ft³":35.3147, gal:0.264172, "qt":1.05669} },
-  weight:{ base: 'kg', units: {kg:1, g:1000, mg:1e6, lb:2.20462, oz:35.274} },
-  temperature:{ base: 'K', units: {C:0, F:0, K:0} },
-  speed:{ base: 'm/s', units: {"m/s":1, kmh:3.6, mph:2.23694, knots:1.94384} },
-  data:{ base: 'B', units: {B:1, KB:1024, MB:1048576, GB:1073741824, TB:1099511627776} },
-  pressure:{ base: 'Pa', units: {Pa:1, kPa:1000, bar:100000, psi:6894.76, atm:101325} }
-};
-function populateUnits(){
-  const cat = document.getElementById('category').value;
-  const from = document.getElementById('fromUnit');
-  const to = document.getElementById('toUnit');
-  from.innerHTML=''; to.innerHTML='';
-  Object.keys(unitData[cat].units).forEach(u=>{
-    const opt1=document.createElement('option');opt1.value=u;opt1.textContent=u;from.appendChild(opt1.cloneNode(true));
-    const opt2=document.createElement('option');opt2.value=u;opt2.textContent=u;to.appendChild(opt2.cloneNode(true));
-  });
-  from.value=Object.keys(unitData[cat].units)[0];
-  to.value=Object.keys(unitData[cat].units)[1];
-  convert();
-}
-function convert(){
-  const cat=document.getElementById('category').value;
-  const val=parseFloat(document.getElementById('inputValue').value)||0;
-  const from=document.getElementById('fromUnit').value;
-  const to=document.getElementById('toUnit').value;
-  let result;
-  if(cat==='temperature'){
-    let c;
-    if(from==='C') c=val; else if(from==='F') c=(val-32)*5/9; else c=val-273.15;
-    if(to==='C') result=c; else if(to==='F') result=c*9/5+32; else result=c+273.15;
-  } else {
-    const factorFrom=unitData[cat].units[from];
-    const factorTo=unitData[cat].units[to];
-    result=val * (factorFrom/factorTo);
-  }
-  document.getElementById('result').textContent = `${val} ${from} = ${result.toFixed(6)} ${to}`;
-}
-populateUnits();
-</script>
 </body>
 </html>
