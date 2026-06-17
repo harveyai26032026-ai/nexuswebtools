@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4562423029265065" crossorigin="anonymous"></script>
 <title>Unit Converter — Length, Weight, Temperature &amp; More</title>
 <meta name="description" content="Free instant unit converter for length, area, volume, weight, temperature, speed, data and more. No sign‑up, no ads, mobile‑friendly.">
 <link rel="canonical" href="https://nexuswebtools.com/unit-converter/">
@@ -40,7 +42,8 @@
   <div class="brand">🧰 Nexus Web Tools</div>
   <nav>
     <a href="/">Home</a>
-    <a href="/unit-converter/" class="active">Unit Converter</a>
+    <a href="/unit-converter/">Unit Converter</a>
+        <a href="/s-curve/">S‑Curve Model</a>
     <a href="/compound-interest/">Compound Interest</a>
     <a href="https://concrete-calcs.com/">Concrete Calculator</a>
   </nav>
@@ -50,36 +53,137 @@
     <h1>Unit Converter</h1>
     <p class="lede">Convert between length, area, volume, weight, temperature, speed, data, pressure and more – instantly, free, no ads.</p>
   </section>
-  <section id="converter" aria-label="Unit converter">
-    <div class="grid">
-      <div class="field">
-        <label for="category">Category</label>
-        <select id="category" onchange="populateUnits()">
-          <option value="length">Length</option>
-          <option value="area">Area</option>
-          <option value="volume">Volume</option>
-          <option value="weight">Weight</option>
-          <option value="temperature">Temperature</option>
-          <option value="speed">Speed</option>
-          <option value="data">Data</option>
-          <option value="pressure">Pressure</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="inputValue">Value</label>
-        <input id="inputValue" type="number" step="any" value="1" oninput="convert()">
-      </div>
-      <div class="field">
-        <label for="fromUnit">From</label>
-        <select id="fromUnit" onchange="convert()"></select>
-      </div>
-      <div class="field">
-        <label for="toUnit">To</label>
-        <select id="toUnit" onchange="convert()"></select>
-      </div>
-    </div>
-    <p class="result" id="result"></p>
-  </section>
+<section id="toc">
+  <h2>Categories</h2>
+  <ul class="toc-list">
+    <li><a href="#length">Length</a></li>
+    <li><a href="#area">Area</a></li>
+    <li><a href="#volume">Volume</a></li>
+    <li><a href="#weight">Weight</a></li>
+    <li><a href="#temperature">Temperature</a></li>
+    <li><a href="#speed">Speed</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#pressure">Pressure</a></li>
+  </ul>
+</section>
+
+<section id="length" class="category-section">
+  <h3>Length Converter</h3>
+  <div class="grid">
+    <div class="field"><label for="inputLength">Value</label><input id="inputLength" type="number" step="any" value="1" oninput="convertCategory('length')"></div>
+    <div class="field"><label for="fromLength">From</label><select id="fromLength" onchange="convertCategory('length')"></select></div>
+    <div class="field"><label for="toLength">To</label><select id="toLength" onchange="convertCategory('length')"></select></div>
+  </div>
+  <p class="result" id="resultLength"></p>
+</section>
+
+<section id="area" class="category-section">
+  <h3>Area Converter</h3>
+  <div class="grid">
+    <div class="field"><label for="inputArea">Value</label><input id="inputArea" type="number" step="any" value="1" oninput="convertCategory('area')"></div>
+    <div class="field"><label for="fromArea">From</label><select id="fromArea" onchange="convertCategory('area')"></select></div>
+    <div class="field"><label for="toArea">To</label><select id="toArea" onchange="convertCategory('area')"></select></div>
+  </div>
+  <p class="result" id="resultArea"></p>
+</section>
+
+<section id="volume" class="category-section">
+  <h3>Volume Converter</h3>
+  <div class="grid">
+    <div class="field"><label for="inputVolume">Value</label><input id="inputVolume" type="number" step="any" value="1" oninput="convertCategory('volume')"></div>
+    <div class="field"><label for="fromVolume">From</label><select id="fromVolume" onchange="convertCategory('volume')"></select></div>
+    <div class="field"><label for="toVolume">To</label><select id="toVolume" onchange="convertCategory('volume')"></select></div>
+  </div>
+  <p class="result" id="resultVolume"></p>
+</section>
+
+<section id="weight" class="category-section">
+  <h3>Weight Converter</h3>
+  <div class="grid">
+    <div class="field"><label for="inputWeight">Value</label><input id="inputWeight" type="number" step="any" value="1" oninput="convertCategory('weight')"></div>
+    <div class="field"><label for="fromWeight">From</label><select id="fromWeight" onchange="convertCategory('weight')"></select></div>
+    <div class="field"><label for="toWeight">To</label><select id="toWeight" onchange="convertCategory('weight')"></select></div>
+  </div>
+  <p class="result" id="resultWeight"></p>
+</section>
+
+<section id="temperature" class="category-section">
+  <h3>Temperature Converter</h3>
+  <div class="grid">
+    <div class="field"><label for="inputTemperature">Value</label><input id="inputTemperature" type="number" step="any" value="1" oninput="convertCategory('temperature')"></div>
+    <div class="field"><label for="fromTemperature">From</label><select id="fromTemperature" onchange="convertCategory('temperature')"></select></div>
+    <div class="field"><label for="toTemperature">To</label><select id="toTemperature" onchange="convertCategory('temperature')"></select></div>
+  </div>
+  <p class="result" id="resultTemperature"></p>
+</section>
+
+<section id="speed" class="category-section">
+  <h3>Speed Converter</h3>
+  <div class="grid">
+    <div class="field"><label for="inputSpeed">Value</label><input id="inputSpeed" type="number" step="any" value="1" oninput="convertCategory('speed')"></div>
+    <div class="field"><label for="fromSpeed">From</label><select id="fromSpeed" onchange="convertCategory('speed')"></select></div>
+    <div class="field"><label for="toSpeed">To</label><select id="toSpeed" onchange="convertCategory('speed')"></select></div>
+  </div>
+  <p class="result" id="resultSpeed"></p>
+</section>
+
+<section id="data" class="category-section">
+  <h3>Data Converter</h3>
+  <div class="grid">
+    <div class="field"><label for="inputData">Value</label><input id="inputData" type="number" step="any" value="1" oninput="convertCategory('data')"></div>
+    <div class="field"><label for="fromData">From</label><select id="fromData" onchange="convertCategory('data')"></select></div>
+    <div class="field"><label for="toData">To</label><select id="toData" onchange="convertCategory('data')"></select></div>
+  </div>
+  <p class="result" id="resultData"></p>
+</section>
+
+<section id="pressure" class="category-section">
+  <h3>Pressure Converter</h3>
+  <div class="grid">
+    <div class="field"><label for="inputPressure">Value</label><input id="inputPressure" type="number" step="any" value="1" oninput="convertCategory('pressure')"></div>
+    <div class="field"><label for="fromPressure">From</label><select id="fromPressure" onchange="convertCategory('pressure')"></select></div>
+    <div class="field"><label for="toPressure">To</label><select id="toPressure" onchange="convertCategory('pressure')"></select></div>
+  </div>
+  <p class="result" id="resultPressure"></p>
+</section>
+
+<script>
+const categories = ['length','area','volume','weight','temperature','speed','data','pressure'];
+function populateAllUnits(){
+  categories.forEach(cat => {
+    const from = document.getElementById('from' + capitalize(cat));
+    const to = document.getElementById('to' + capitalize(cat));
+    if(!from||!to) return;
+    from.innerHTML=''; to.innerHTML='';
+    Object.keys(unitData[cat].units).forEach(u=>{
+      const opt1=document.createElement('option');opt1.value=u;opt1.textContent=u;from.appendChild(opt1.cloneNode(true));
+      const opt2=document.createElement('option');opt2.value=u;opt2.textContent=u;to.appendChild(opt2.cloneNode(true));
+    });
+    // set defaults
+    from.value=Object.keys(unitData[cat].units)[0];
+    to.value=Object.keys(unitData[cat].units)[1];
+    convertCategory(cat);
+  });
+}
+function capitalize(s){return s.charAt(0).toUpperCase() + s.slice(1);}
+function convertCategory(cat){
+  const val = parseFloat(document.getElementById('input' + capitalize(cat)).value) || 0;
+  const from = document.getElementById('from' + capitalize(cat)).value;
+  const to = document.getElementById('to' + capitalize(cat)).value;
+  let result;
+  if(cat=== 'temperature'){
+    let c;
+    if(from==='C') c=val; else if(from==='F') c=(val-32)*5/9; else c=val-273.15;
+    if(to==='C') result=c; else if(to==='F') result=c*9/5+32; else result=c+273.15;
+  } else {
+    const factorFrom = unitData[cat].units[from];
+    const factorTo = unitData[cat].units[to];
+    result = val * (factorFrom/factorTo);
+  }
+  document.getElementById('result' + capitalize(cat)).textContent = `${val} ${from} = ${result.toFixed(6)} ${to}`;
+}
+populateAllUnits();
+</script>
 </main>
 <footer>
   <p>&copy; 2026 Nexus Web Tools. All rights reserved.</p>
