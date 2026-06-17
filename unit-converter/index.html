@@ -231,6 +231,24 @@ const unitData = {
   pressure:   { base: 'Pa',  units: {Pa:1, kPa:1000, bar:100000, psi:6894.76, atm:101325} }
 };
 
+/* Full unit names for dropdown labels */
+const unitLabels = {
+  m:'Metres (m)', km:'Kilometres (km)', cm:'Centimetres (cm)', mm:'Millimetres (mm)',
+  ft:'Feet (ft)', in:'Inches (in)', yd:'Yards (yd)', mi:'Miles (mi)',
+  'm²':'Square metres (m²)', 'km²':'Square kilometres (km²)', 'cm²':'Square centimetres (cm²)',
+  'mm²':'Square millimetres (mm²)', 'ft²':'Square feet (ft²)', 'yd²':'Square yards (yd²)',
+  'acre':'Acres', 'ha':'Hectares (ha)',
+  l:'Litres (l)', ml:'Millilitres (ml)', 'm³':'Cubic metres (m³)', 'ft³':'Cubic feet (ft³)',
+  gal:'Gallons (gal)', 'qt':'Quarts (qt)', 'cup':'Cups (cup)',
+  kg:'Kilograms (kg)', g:'Grams (g)', mg:'Milligrams (mg)', lb:'Pounds (lb)',
+  oz:'Ounces (oz)', 'st':'Stones (st)',
+  '°C':'Celsius (°C)', '°F':'Fahrenheit (°F)', K:'Kelvin (K)',
+  'm/s':'Metres per second (m/s)', 'km/h':'Kilometres per hour (km/h)',
+  'mph':'Miles per hour (mph)', 'knots':'Knots',
+  B:'Bytes (B)', KB:'Kilobytes (KB)', MB:'Megabytes (MB)', GB:'Gigabytes (GB)', TB:'Terabytes (TB)',
+  Pa:'Pascals (Pa)', kPa:'Kilopascals (kPa)', bar:'Bar', psi:'PSI (psi)', atm:'Atmospheres (atm)'
+};
+
 const categories = Object.keys(unitData);
 
 function capitalize(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
@@ -242,8 +260,9 @@ function populateAllUnits(){
     if(!from || !to) return;
     from.innerHTML = ''; to.innerHTML = '';
     Object.keys(unitData[cat].units).forEach(u => {
-      const o1 = document.createElement('option'); o1.value = u; o1.textContent = u; from.appendChild(o1);
-      const o2 = document.createElement('option'); o2.value = u; o2.textContent = u; to.appendChild(o2);
+      const label = unitLabels[u] || u;
+      const o1 = document.createElement('option'); o1.value = u; o1.textContent = label; from.appendChild(o1);
+      const o2 = document.createElement('option'); o2.value = u; o2.textContent = label; to.appendChild(o2);
     });
     from.value = Object.keys(unitData[cat].units)[0];
     to.value   = Object.keys(unitData[cat].units)[1];
@@ -252,9 +271,17 @@ function populateAllUnits(){
 }
 
 function fmtNum(n){
-  if(Math.abs(n) >= 1e9 || (Math.abs(n) < 0.0001 && n !== 0)) return n.toExponential(4);
-  const s = n.toPrecision(10);
-  return parseFloat(s).toString();
+  /* Always use decimal notation — never scientific */
+  if(n === 0) return '0';
+  const abs = Math.abs(n);
+  if(abs >= 1){
+    /* Round to 6 decimal places, strip trailing zeros */
+    return parseFloat(n.toFixed(6)).toString();
+  }
+  /* Very small: show up to 10 decimal places to preserve precision */
+  let s = n.toFixed(10);
+  s = s.replace(/0+$/, '').replace(/\.$/, '');
+  return s;
 }
 
 function convertCategory(cat){
