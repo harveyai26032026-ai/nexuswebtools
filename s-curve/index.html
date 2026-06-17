@@ -136,7 +136,7 @@ function draw(){
   let rows = '';
   for(let i=0;i<=period;i++){
     const periodVal = i === 0 ? 0 : Math.max(0, values[i] - values[i-1]);
-    const cumul = Math.max(0, values[i] - start);
+    const cumul = i === 0 ? 0 : Math.max(0, values[i] - values[0]);
     const remaining = Math.max(0, total - cumul);
     const label = i === 0 ? 'Start' : i === period ? 'End' : String(i);
     rows += `<tr><td>${label}</td><td>${fmt(periodVal,2)}${u}</td><td>${fmt(cumul,2)}${u}</td><td>${fmt(remaining,2)}${u}</td></tr>`;
