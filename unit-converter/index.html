@@ -269,7 +269,7 @@ function convertCategory(cat){
   } else {
     const fFrom = unitData[cat].units[from];
     const fTo   = unitData[cat].units[to];
-    result = val * (fFrom / fTo);
+    result = val * (fTo / fFrom);
   }
   const C = capitalize(cat);
   document.getElementById('result' + C + 'Val').textContent  = fmtNum(result) + ' ' + to;
