@@ -240,6 +240,10 @@
         {
           "heading": "Examples of How Much You Could Save with Compound Interest",
           "text": "For example, let's say you start saving for retirement at age 30 and contribute $5,000 per year until age 65. If the funds earn an average annual return of 7%, by the time you reach retirement age, you could have over $1.2 million in savings. This is just one example, but the power of compound interest can significantly impact your retirement savings."
+        },
+        {
+          "heading": "Estimating Healthcare Costs",
+          "text": "Use a retirement calculator to estimate your healthcare costs in retirement. Consider factors like Medicare premiums, out-of-pocket expenses, and any additional insurance costs. By accounting for these expenses, you can better plan for your healthcare needs in retirement."
         }
       ],
       "faqs": [
@@ -270,6 +274,14 @@
         {
           "q": "Can I use a retirement calculator to estimate my Social Security benefits?",
           "a": "Yes, many retirement calculators allow you to input your expected Social Security benefits to help you better estimate your overall retirement income. For example, if you expect to receive $20,000 in Social Security benefits per year, the calculator can adjust your other income sources accordingly."
+        },
+        {
+          "q": "How does inflation affect my retirement savings?",
+          "a": "Inflation can significantly reduce the purchasing power of your savings over time, especially if you're not earning interest on your savings. Use a retirement calculator to account for inflation and ensure your savings will go further in retirement."
+        },
+        {
+          "q": "Can I use a retirement calculator to estimate my taxes in retirement?",
+          "a": "Yes, many retirement calculators allow you to enter your expected tax bracket in retirement to estimate how much you'll need to save for taxes. Keep in mind that tax rates and laws can change over time, so it's important to review and update your calculations regularly."
         }
       ]
     },
@@ -327,19 +339,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Investments planning",
-            "text": "Use the tool to plan how investments fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Investments optimization",
-            "text": "Compare alternative rates and frequencies for investments to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Examples of How to Use the Compound Interest Calculator",
+          "text": "For example, let's say you have two investments: a savings account with an interest rate of 2% per year, and a stock portfolio with an average return of 8% per year. Using our compound interest calculator, you can see how much your investments will be worth over time. For the savings account, you would enter the principal amount (e.g. $10,000), interest rate (2%), and time period (e.g. 5 years). The calculator will display the total value of the savings account after 5 years, which in this case is $10,400. For the stock portfolio, you would enter the principal amount (e.g. $50,000), interest rate (8%), and time period (e.g. 10 years). The calculator will display the total value of the stock portfolio after 10 years, which in this case is $92,763."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $8,000 grow to at 3.1% per annum over 5 years for investments?",
@@ -358,6 +363,16 @@
         {
           "slug": "investments",
           "name": "Investments Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the compound interest calculator for multiple investments?",
+          "a": "Yes, our compound interest calculator can handle multiple investments. Simply enter the details for each investment, including the principal amount, interest rate, and time period."
+        },
+        {
+          "q": "How do I calculate the average return on my investments using the calculator?",
+          "a": "To calculate the average return on your investments, simply enter the total value of all your investments in the 'Total Value' field, and the calculator will display the average return."
         }
       ]
     },
@@ -419,6 +434,10 @@
         {
           "heading": "Additional Examples of How to Use the Calculator",
           "text": "For example, if you're 35 years old and want to know how much you need to save each month to reach your retirement goal of $1 million by age 65, you can use our calculator to determine that you need to save approximately $400 per month. Or, if you're 45 years old and want to know how much you need to save each month to catch up on lost time and reach your retirement goal by age 70, you can use the calculator to determine that you need to save approximately $600 per month."
+        },
+        {
+          "heading": "Contributions Taxation",
+          "text": "When calculating your superannuation contributions, the calculator takes into account the relevant tax rates and offsets. For example, if you are a non-taxable individual, the calculator will not apply any tax to your contributions. If you are a taxpayer, the calculator will apply the appropriate tax rate to your contributions based on your income level."
         }
       ],
       "faqs": [
@@ -449,6 +468,14 @@
         {
           "q": "How does the calculator handle taxation of my superannuation contributions?",
           "a": "Our calculator takes into account the different tax rates for superannuation contributions, so you can get an accurate estimate of how much your superannuation balance will grow over time."
+        },
+        {
+          "q": "What if I want to calculate my superannuation balance at a different frequency, such as quarterly or monthly?",
+          "a": "The calculator can accommodate different calculation frequencies by selecting the appropriate option from the drop-down menu. For example, you can choose to calculate your superannuation balance annually, semi-annually, or quarterly."
+        },
+        {
+          "q": "How does the calculator handle inflation when calculating my superannuation balance?",
+          "a": "The calculator assumes a constant inflation rate of 3% per annum. You can adjust this rate to reflect your own expectations or circumstances."
         }
       ]
     },
