@@ -171,7 +171,13 @@ def render_niche_page(tool_id: str, page: dict) -> str:
     bg = page.get("background")
     if bg:
         background_html = '    <h2>Background</h2>\n'
-        if isinstance(bg, dict):
+        if isinstance(bg, list):
+            for item in bg:
+                if isinstance(item, dict):
+                    background_html += render_content_block(item)
+                else:
+                    background_html += render_paragraphs(str(item))
+        elif isinstance(bg, dict):
             background_html += render_content_block(bg)
         else:
             background_html += render_paragraphs(str(bg))
@@ -181,7 +187,13 @@ def render_niche_page(tool_id: str, page: dict) -> str:
     how = page.get("how_to_use")
     if how:
         how_to_html = '    <h2>How to Use This Calculator</h2>\n'
-        if isinstance(how, dict):
+        if isinstance(how, list):
+            for item in how:
+                if isinstance(item, dict):
+                    how_to_html += render_content_block(item)
+                else:
+                    how_to_html += render_paragraphs(str(item))
+        elif isinstance(how, dict):
             how_to_html += render_content_block(how)
         else:
             how_to_html += render_paragraphs(str(how))
@@ -191,7 +203,13 @@ def render_niche_page(tool_id: str, page: dict) -> str:
     apps = page.get("applications")
     if apps:
         apps_html = '    <h2>Applications</h2>\n'
-        if isinstance(apps, dict):
+        if isinstance(apps, list):
+            for app in apps:
+                if isinstance(app, dict):
+                    apps_html += render_content_block(app)
+                else:
+                    apps_html += render_paragraphs(str(app))
+        elif isinstance(apps, dict):
             apps_html += render_content_block(apps)
         else:
             apps_html += render_paragraphs(str(apps))
