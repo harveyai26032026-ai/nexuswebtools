@@ -7236,27 +7236,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "S-Curves support several critical functions in this domain:",
-        "subsections": [
-          {
-            "heading": "Cash Flow Forecasting",
-            "text": "Predicts peak cash outflows for financing and reserve management."
-          },
-          {
-            "heading": "Progress Claim Verification",
-            "text": "Compare claimed progress against baseline to identify over/under-claiming."
-          },
-          {
-            "heading": "Earned Value Management",
-            "text": "S-Curve is the visual backbone of EVM. SV = EV − PV; CV = EV − AC."
-          },
-          {
-            "heading": "Client Reporting",
-            "text": "Most understood project visualisation. Clients see on/off track at a glance."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Applications in Project Management",
+          "text": "The S-curve tool can be applied to a wide range of construction projects, including building renovations, civil engineering projects, and commercial construction. By using an S-curve tool, project managers can better plan and execute these complex projects, identify potential risks and issues, and improve overall project outcomes."
+        }
+      ],
       "faqs": [
         {
           "q": "What is an S-Curve in construction?",
@@ -7287,6 +7272,16 @@
         {
           "slug": "budget-tracking",
           "name": "Budget Tracking S-Curve"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are some common construction projects that can benefit from using an S-curve tool?",
+          "a": "Some common construction projects that can benefit from using an S-curve tool include building renovations, civil engineering projects, and commercial construction. By using an S-curve tool, project managers can better plan and execute these complex projects."
+        },
+        {
+          "q": "How does the S-curve tool help construction project managers identify potential risks and issues?",
+          "a": "The S-curve tool helps construction project managers identify potential risks and issues by providing a visual representation of the project timeline, allowing them to easily identify potential bottlenecks and areas where delays may occur. This can help managers proactively address these issues before they become major problems."
         }
       ]
     },
@@ -7336,23 +7331,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "S-Curves support several critical functions in this domain:",
-        "subsections": [
-          {
-            "heading": "IT and Software",
-            "text": "Track development velocity, testing progress, deployment milestones. Predict release dates early."
-          },
-          {
-            "heading": "Executive Dashboards",
-            "text": "S-Curves communicate complex status in one chart. Above baseline = ahead; below = behind."
-          },
-          {
-            "heading": "Portfolio Management",
-            "text": "Overlay S-Curves for multiple projects to see aggregate progress and resource demand."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Real-Time Collaboration",
+          "text": "The S-Curve tool allows for real-time collaboration, enabling team members to work together on a project from anywhere in the world. This feature is especially useful for remote teams, as it eliminates the need for constant communication and ensures that everyone is always on the same page."
+        }
+      ],
       "faqs": [
         {
           "q": "S-Curve vs Gantt chart?",
@@ -7379,6 +7363,16 @@
         {
           "slug": "budget-tracking",
           "name": "Budget Tracking S-Curve"
+        }
+      ],
+      "faq": [
+        {
+          "q": "How can I use the S-Curve tool to track progress on a project with multiple stakeholders?",
+          "a": "The S-Curve tool allows you to add multiple stakeholders and assign them roles in the project, making it easier to track progress and ensure that everyone is on the same page."
+        },
+        {
+          "q": "Can I use the S-Curve tool to manage a remote team?",
+          "a": "Yes, the S-Curve tool can be used to manage a remote team by allowing you to assign tasks and track progress in real-time, regardless of location."
         }
       ]
     },
