@@ -58,6 +58,10 @@
         {
           "heading": "Examples of How to Use the Compound Interest Calculator",
           "text": "You can use our compound interest calculator to determine the future value of a savings account, an investment portfolio, or even a student loan. For example, you could enter the initial amount of money in your savings account, the annual interest rate, and the number of years you want to save, and the calculator will show you how much that money is expected to grow over time. Alternatively, you can use the calculator to determine the total cost of a loan, including the interest payments, by entering the principal amount, interest rate, and loan term."
+        },
+        {
+          "heading": "Examples of How to Use the Compound Interest Calculator for Education Savings",
+          "text": "You can use the compound interest calculator to estimate how much you need to save each month or year to reach a specific education savings goal, such as saving for college or a vocational training program. For example, if you want to save $20,000 for your child's college education in 10 years, the calculator can help you determine how much you need to save each month or year to reach that goal."
         }
       ],
       "faqs": [
@@ -88,6 +92,14 @@
         {
           "q": "Can I use the compound interest calculator for non-investment purposes?",
           "a": "Yes, our compound interest calculator can be used for any type of loan or debt, as well as for savings goals. It's a versatile tool that can help you understand the impact of compounding on any type of financial situation."
+        },
+        {
+          "q": "Can I use the compound interest calculator to compare different investment options?",
+          "a": "Yes, you can use the compound interest calculator to compare the potential growth of different investments, such as stocks, bonds, and mutual funds."
+        },
+        {
+          "q": "How do I calculate the future value of a savings plan for my child's education?",
+          "a": "To calculate the future value of a savings plan for your child's education, you can use the compound interest calculator to estimate how much money you will need to save over time to reach your desired goal."
         }
       ]
     },
@@ -149,6 +161,10 @@
         {
           "heading": "Example Commercial Mortgage Application",
           "text": "For example, let's say you want to purchase a commercial building for $1 million with a 20% down payment. Based on current market rates, the monthly mortgage payment would be approximately $5,300 over a 30-year term. This translates to an annual interest rate of 4.5% and a total cost of $1.2 million over the life of the loan. However, please note that commercial mortgages often have different interest rates and terms than residential mortgages, so it's important to consult with a commercial mortgage lender for the most accurate estimate."
+        },
+        {
+          "heading": "Property Taxes",
+          "text": "Our mortgage calculator accounts for property taxes by assuming an average annual property tax rate of 1.2%. If your actual property tax rate is different, please enter the appropriate amount in the 'Additional Payments' field."
         }
       ],
       "faqs": [
@@ -179,6 +195,14 @@
         {
           "q": "How does the mortgage calculator account for property taxes?",
           "a": "Our mortgage calculator takes into account the annual property taxes for the loan amount and term. Please enter the property tax rate as a percentage to get an accurate estimate."
+        },
+        {
+          "q": "Can I use the mortgage calculator for a rental property?",
+          "a": "Yes, you can use our mortgage calculator for any type of property, including rental properties. Please enter the appropriate loan amount and interest rate based on your specific circumstances."
+        },
+        {
+          "q": "How does the mortgage calculator handle prepayment penalties?",
+          "a": "Our mortgage calculator assumes that you will make only the minimum payments required by the loan terms. If you have a prepayment penalty, please enter the appropriate amount in the 'Additional Payments' field."
         }
       ]
     },
@@ -244,6 +268,10 @@
         {
           "heading": "Estimating Healthcare Costs",
           "text": "Use a retirement calculator to estimate your healthcare costs in retirement. Consider factors like Medicare premiums, out-of-pocket expenses, and any additional insurance costs. By accounting for these expenses, you can better plan for your healthcare needs in retirement."
+        },
+        {
+          "heading": "Planning for Retirement Housing",
+          "text": "Retirement calculators can also help you estimate the cost of housing in retirement. For example, if you plan to downsize or move to a lower-cost area, a retirement calculator can help you determine how much you may need to save for housing costs."
         }
       ],
       "faqs": [
@@ -282,6 +310,14 @@
         {
           "q": "Can I use a retirement calculator to estimate my taxes in retirement?",
           "a": "Yes, many retirement calculators allow you to enter your expected tax bracket in retirement to estimate how much you'll need to save for taxes. Keep in mind that tax rates and laws can change over time, so it's important to review and update your calculations regularly."
+        },
+        {
+          "q": "How does retirement savings impact my overall financial goals?",
+          "a": "Retirement savings is a crucial component of your overall financial plan, as it can help you achieve long-term financial stability and security."
+        },
+        {
+          "q": "Can I use a retirement calculator to estimate the cost of healthcare in retirement?",
+          "a": "Yes, many retirement calculators include estimates for healthcare costs in retirement, which can help you better plan for this expense."
         }
       ]
     },
@@ -438,6 +474,10 @@
         {
           "heading": "Contributions Taxation",
           "text": "When calculating your superannuation contributions, the calculator takes into account the relevant tax rates and offsets. For example, if you are a non-taxable individual, the calculator will not apply any tax to your contributions. If you are a taxpayer, the calculator will apply the appropriate tax rate to your contributions based on your income level."
+        },
+        {
+          "heading": "Calculating Your Superannuation Balance at Different Frequencies",
+          "text": "You can use the calculator to calculate your superannuation balance at different frequencies, such as quarterly or monthly. This can help you track your superannuation balance over time and make more informed financial decisions."
         }
       ],
       "faqs": [
@@ -476,6 +516,14 @@
         {
           "q": "How does the calculator handle inflation when calculating my superannuation balance?",
           "a": "The calculator assumes a constant inflation rate of 3% per annum. You can adjust this rate to reflect your own expectations or circumstances."
+        },
+        {
+          "q": "What if I want to calculate my superannuation balance at a different age than the default retirement age?",
+          "a": "The calculator allows you to enter your desired retirement age, and will calculate your superannuation balance based on that age."
+        },
+        {
+          "q": "How does the calculator handle the taxation of my superannuation contributions if I am self-employed?",
+          "a": "The calculator takes into account the different taxation rates for self-employed individuals, so you can get an accurate estimate of your superannuation balance."
         }
       ]
     },
