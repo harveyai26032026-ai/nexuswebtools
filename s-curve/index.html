@@ -82,6 +82,7 @@
   ]
 }
 </script>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" defer></script>
 </head>
 <body>
 <header class="ribbon">
@@ -114,7 +115,10 @@
     </div>
   </section>
   <section id="summary" aria-label="Cash‑flow summary table">
-    <h2>Cash‑flow summary</h2>
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <h2 style="margin:0">Cash‑flow summary</h2>
+      <button id="exportBtn" onclick="exportToExcel()" style="background:#0f9d6b;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;font-size:.9rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem">📊 Export to Excel</button>
+    </div>
     <table class="ref" id="summaryTable">
       <thead><tr><th>Interval</th><th>Period value</th><th>Period %</th><th>Cumulative</th><th>Cumul %</th><th>Remaining</th></tr></thead>
       <tbody></tbody>
@@ -372,6 +376,104 @@ function draw(){
   tbody.innerHTML=rows;
 }
 draw();
+
+/* ── Export to Excel with live formulas ── */
+function exportToExcel(){
+  if(typeof XLSX==='undefined'){alert('Excel library still loading — please try again in a moment.');return}
+  const period=Math.max(1,parseInt(document.getElementById('period').value));
+  const steep=parseFloat(document.getElementById('steepness').value)||0;
+  const startVal=parseFloat(document.getElementById('startVal').value)||0;
+  const endVal=parseFloat(document.getElementById('endVal').value)||0;
+  const unit=document.getElementById('unit').value;
+  const uLabel=unit?unit:'value';
+
+  const ws={};
+  const c=(r,col)=>XLSX.utils.encode_cell({r,c:col});
+
+  /* ── Input parameters (editable — all formulas reference these) ── */
+  const inputRows=[
+    ['Parameter','Value'],
+    ['Period (intervals)',period],
+    ['Steepness',steep],
+    ['Start Value',startVal],
+    ['End Value',endVal],
+  ];
+  inputRows.forEach((row,i)=>{
+    ws[c(i,0)]={v:row[0],s:{font:{bold:true}}};
+    ws[c(i,1)]={v:row[1]};
+  });
+
+  /* ── Helper formulas ── */
+  // Row 6: Midpoint = Period/2
+  ws[c(5,0)]={v:'Midpoint'};
+  ws[c(5,1)]={f:'B2/2'};
+
+  // Row 7: Raw Start = 1/(1+EXP(-Steepness*(0-Midpoint)))
+  ws[c(6,0)]={v:'Raw Start'};
+  ws[c(6,1)]={f:'1/(1+EXP(-B3*(0-B6)))'};
+
+  // Row 8: Raw End = 1/(1+EXP(-Steepness*(Period-Midpoint)))
+  ws[c(7,0)]={v:'Raw End'};
+  ws[c(7,1)]={f:'1/(1+EXP(-B3*(B2-B6)))'};
+
+  // Row 9: Raw Range = Raw End - Raw Start
+  ws[c(8,0)]={v:'Raw Range'};
+  ws[c(8,1)]={f:'B8-B7'};
+
+  // Row 10: Total Range = End - Start
+  ws[c(9,0)]={v:'Total Range'};
+  ws[c(9,1)]={f:'B5-B4'};
+
+  /* ── Blank row 11 ── */
+
+  /* ── Data table header row 12 ── */
+  const hdr=['Interval','Raw','Normalised','Cumulative ('+uLabel+')','Period Value ('+uLabel+')','Period %','Cumul %','Remaining ('+uLabel+')'];
+  hdr.forEach((h,col)=>{ ws[c(11,col)]={v:h,s:{font:{bold:true},fill:{fgColor:{rgb:'E8F0FE'}}} }; });
+
+  /* ── Data rows starting row 13 ── */
+  for(let i=0;i<=period;i++){
+    const r=12+i;              // 0-indexed row
+    const er=r+1;              // 1-indexed Excel row
+    const prevEr=er-1;         // previous Excel row
+
+    // A: Interval
+    ws[c(r,0)]={v:i};
+
+    // B: Raw = 1/(1+EXP(-$B$3*(A{er}-$B$6)))
+    ws[c(r,1)]={f:'1/(1+EXP(-$B$3*(A'+er+'-$B$6)))'};
+
+    // C: Normalised = IF($B$9<>0,(B{er}-$B$7)/$B$9,0)
+    ws[c(r,2)]={f:'IF($B$9<>0,(B'+er+'-$B$7)/$B$9,0)'};
+
+    // D: Cumulative = $B$4 + C{er}*$B$10
+    ws[c(r,3)]={f:'$B$4+C'+er+'*$B$10'};
+
+    // E: Period Value = IF(interval=0, 0, D{er}-D{prev})
+    if(i===0){
+      ws[c(r,4)]={v:0};
+    } else {
+      ws[c(r,4)]={f:'D'+er+'-D'+prevEr};
+    }
+
+    // F: Period % = IF($B$10<>0, E{er}/$B$10, 0)  — format as percentage
+    ws[c(r,5)]={f:'IF($B$10<>0,E'+er+'/$B$10,0)',z:'0.0%'};
+
+    // G: Cumul % = IF($B$10<>0, (D{er}-$B$4)/$B$10, 0) — format as percentage
+    ws[c(r,6)]={f:'IF($B$10<>0,(D'+er+'-$B$4)/$B$10,0)',z:'0.0%'};
+
+    // H: Remaining = MAX(0, $B$5 - D{er})
+    ws[c(r,7)]={f:'MAX(0,$B$5-D'+er+')'};
+  }
+
+  /* ── Set range and column widths ── */
+  ws['!ref']=XLSX.utils.encode_range({s:{r:0,c:0},e:{r:12+period,c:7}});
+  ws['!cols']=[{wch:22},{wch:14},{wch:14},{wch:20},{wch:22},{wch:12},{wch:12},{wch:20}];
+
+  /* ── Create workbook and download ── */
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'S-Curve Model');
+  XLSX.writeFile(wb,'s-curve-model.xlsx');
+}
 </script>
 </body>
 </html>
