@@ -116,7 +116,7 @@
   <section id="summary" aria-label="Cash‑flow summary table">
     <h2>Cash‑flow summary</h2>
     <table class="ref" id="summaryTable">
-      <thead><tr><th>Interval</th><th>Period value</th><th>Cumulative</th><th>Remaining</th></tr></thead>
+      <thead><tr><th>Interval</th><th>Period value</th><th>Period %</th><th>Cumulative</th><th>Cumul %</th><th>Remaining</th></tr></thead>
       <tbody></tbody>
     </table>
   </section>
@@ -360,7 +360,7 @@ function draw(){
     const cumul=i===0?0:Math.max(0,values[i]-values[0]);
     const remaining=Math.max(0,total-cumul);
     const label=i===0?'Start':i===period?'End':String(i);
-    rows+=`<tr><td>${label}</td><td>${fmt(periodVal,2)}${u}</td><td>${fmt(cumul,2)}${u}</td><td>${fmt(remaining,2)}${u}</td></tr>`;
+    rows+=`<tr><td>${label}</td><td>${fmt(periodVal,2)}${u}</td><td>${total?fmt(periodVal/total*100,1)+'%':'—'}</td><td>${fmt(cumul,2)}${u}</td><td>${total?fmt(cumul/total*100,1)+'%':'—'}</td><td>${fmt(remaining,2)}${u}</td></tr>`;
   }
   tbody.innerHTML=rows;
 }
