@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest Mortgage Calculator | Nexus Web Tools</title>
+  <meta name="description" content="Calculate compound interest on your mortgage. See how extra repayments and compounding frequency affect the total cost of your home loan. Free mortgage calculator.">
+  <link rel="canonical" href="https://nexuswebtools.com/compound-interest/mortgage/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Compound Interest Mortgage Calculator">
+  <meta property="og:description" content="Calculate compound interest on your mortgage. See how extra repayments and compounding frequency affect the total cost of your home loan. Free mortgage calculator.">
+  <meta property="og:url" content="https://nexuswebtools.com/compound-interest/mortgage/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Web Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Compound Interest Mortgage Calculator">
+  <meta name="twitter:description" content="Calculate compound interest on your mortgage. See how extra repayments and compounding frequency affect the total cost of your home loan. Free mortgage calculator.">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Compound Interest Mortgage Calculator",
+  "description": "Calculate compound interest on your mortgage. See how extra repayments and compounding frequency affect the total cost of your home loan. Free mortgage calculator.",
+  "url": "https://nexuswebtools.com/compound-interest/mortgage/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebApplication",
+    "name": "Compound Interest Calculator",
+    "url": "https://nexuswebtools.com/compound-interest/"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nexuswebtools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Compound Interest Calculator",
+      "item": "https://nexuswebtools.com/compound-interest/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Compound Interest Mortgage Calculator",
+      "item": "https://nexuswebtools.com/compound-interest/mortgage/"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much interest do you pay on a mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On a $500,000 mortgage at 6% over 30 years with monthly repayments, total interest is approximately $579,000. You repay roughly $1,079,000 in total \u2014 more than double the original loan. The exact amount depends on your rate, term, and any extra repayments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does mortgage interest compound daily or monthly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most mortgages compound interest daily but charge it monthly. This means your effective rate is slightly higher than the stated annual rate. The difference is small but worth understanding for precise calculations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do extra repayments save on a mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On a $500,000 loan at 6% over 30 years, adding $200/month in extra repayments saves approximately $83,000 in interest and pays off the loan 5 years early. Extra repayments in the first 5 years have the greatest impact because they reduce the principal when interest charges are highest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it better to make fortnightly or monthly repayments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fortnightly repayments effectively add one extra monthly repayment per year (26 fortnightly payments = 13 monthly equivalents). On a $500,000 loan at 6%, this alone saves approximately $50,000 in interest and shortens the loan by about 4 years."
+      }
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="/style.css?v=1">
+  <style>
+    .niche-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%); padding: 2rem 1rem; text-align: center; border-radius: 8px; margin-bottom: 1.5rem; }
+    .niche-hero h1 { margin: 0 0 0.5rem; color: #1a1a2e; }
+    .niche-hero p { margin: 0 auto; color: #555; max-width: 600px; }
+    .cta-box { background: #fff; border: 2px solid #3b5bdb; border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
+    .cta-box a { display: inline-block; background: #3b5bdb; color: #fff; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+    .cta-box a:hover { background: #2b4bc8; }
+    .niche-content h2 { color: #1a1a2e; margin-top: 2rem; border-bottom: 2px solid #e8f0fe; padding-bottom: 0.3rem; }
+    .niche-content h3 { color: #2d3748; margin-top: 1.5rem; }
+    .niche-content p, .niche-content li { line-height: 1.7; color: #333; }
+    .niche-content ul { padding-left: 1.5rem; }
+    .niche-content ol.steps { padding-left: 1.5rem; }
+    .niche-content ol.steps li { margin-bottom: 0.75rem; }
+    .niche-content ol.steps li p { margin: 0.25rem 0 0; color: #555; font-size: 0.95rem; }
+    .niche-content ul li { margin-bottom: 0.5rem; }
+    details { background: #f8f9fa; border-radius: 6px; margin-bottom: 0.5rem; padding: 0.75rem 1rem; }
+    details summary { cursor: pointer; color: #1a1a2e; font-size: 1rem; }
+    details summary:hover { color: #3b5bdb; }
+    details p { margin: 0.5rem 0 0; color: #444; line-height: 1.6; }
+    .related-tools { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+    .related-tools h3 { margin-top: 0; }
+    .related-tools ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .related-tools li a { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 0.4rem 0.9rem; border-radius: 4px; text-decoration: none; color: #3b5bdb; font-size: 0.9rem; }
+    .related-tools li a:hover { border-color: #3b5bdb; background: #f0f4ff; }
+    .breadcrumb { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+    .breadcrumb a { color: #3b5bdb; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
+      <nav class="nav-ribbon">
+        <a href="/compound-interest/">Compound Interest Calculator</a>
+        <a href="/unit-converter/">Unit Converter</a>
+        <a href="/s-curve/">S-Curve Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container niche-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/compound-interest/">Compound Interest Calculator</a> &rsaquo;
+      <strong>Compound Interest Mortgage Calculator</strong>
+    </nav>
+
+    <section class="niche-hero">
+      <h1>Compound Interest Mortgage Calculator</h1>
+      <p>Calculate how compound interest affects your mortgage. See the true cost of your home loan and how extra repayments save thousands in interest.</p>
+    </section>
+
+    <div class="cta-box">
+      <p>Ready to calculate?</p>
+      <a href="/compound-interest/">&rsaquo; Open the Compound Interest Calculator</a>
+    </div>
+
+    <h2>Background</h2>
+      <p>A mortgage is the largest compound interest calculation most people will ever encounter. On a typical $500,000 home loan at 6% over 30 years, you pay roughly $579,000 in interest — more than the house itself. Understanding how mortgage compounding works is essential for making informed decisions about loan structure, repayment strategies, and refinancing.</p>
+    <h3>How Mortgage Interest Compounds</h3>
+      <p>Most mortgages compound interest daily but charge it monthly. This means each day, interest is calculated on the outstanding balance and added up over the month. When you make a repayment, it first covers the accumulated interest, then reduces the principal. As the principal shrinks, less interest accrues — this is the amortisation process.</p>
+    <h3>The True Cost of a Mortgage</h3>
+      <p>On a $500,000 loan at 6% over 30 years with monthly repayments of $2,998, you pay $1,079,191 in total — $579,191 in interest plus the original $500,000. In the first year, approximately $29,800 goes to interest and only $6,176 to principal. This front-loaded interest structure is why early extra repayments have such a dramatic impact.</p>
+
+    <h2>How to Use This Calculator</h2>
+      <p>Use our Compound Interest Calculator to model your mortgage scenario. Here is how to set it up for home loan calculations:</p>
+      <ol class="steps">
+        <li><strong>Enter the loan amount as the principal</strong><p>This is the amount you are borrowing (e.g. $500,000). Do not include your deposit.</p></li>
+        <li><strong>Set the annual interest rate</strong><p>Use the rate on your loan offer or comparison rate. A comparison rate includes fees and gives a more accurate picture.</p></li>
+        <li><strong>Choose monthly compounding</strong><p>Most mortgages compound daily but charge monthly. Monthly compounding in the calculator gives a close approximation.</p></li>
+        <li><strong>Set the loan term in years</strong><p>Typical terms are 25 or 30 years. Shorter terms mean higher repayments but far less total interest.</p></li>
+        <li><strong>Use the scenario comparison feature</strong><p>Run two scenarios — one with minimum repayments, one with extra repayments — to see the difference in total interest paid and time to pay off the loan.</p></li>
+      </ol>
+
+    <h2>Applications</h2>
+      <p>Mortgage compound interest calculations are critical for several real-world decisions:</p>
+    <h3>Extra Repayment Strategy</h3>
+      <p>Adding even $200/month to your mortgage repayment can save over $80,000 in interest and cut 5+ years off the loan. Use the calculator to test different extra repayment amounts.</p>
+    <h3>Refinancing Analysis</h3>
+      <p>Compare your current loan rate against a new offer. A 0.5% rate reduction on a $400,000 loan saves approximately $44,000 over 30 years. Factor in refinancing costs to determine the break-even point.</p>
+    <h3>Offset Account Impact</h3>
+      <p>An offset account reduces the balance on which interest is calculated. $50,000 in an offset on a $500,000 loan at 6% saves approximately $3,000 per year in interest.</p>
+    <h3>Loan Term Comparison</h3>
+      <p>Compare a 25-year vs 30-year term. The shorter term has higher monthly repayments but saves tens of thousands in total interest.</p>
+
+
+
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary><strong>How much interest do you pay on a mortgage?</strong></summary>
+      <p>On a $500,000 mortgage at 6% over 30 years with monthly repayments, total interest is approximately $579,000. You repay roughly $1,079,000 in total — more than double the original loan. The exact amount depends on your rate, term, and any extra repayments.</p>
+    </details>
+    <details>
+      <summary><strong>Does mortgage interest compound daily or monthly?</strong></summary>
+      <p>Most mortgages compound interest daily but charge it monthly. This means your effective rate is slightly higher than the stated annual rate. The difference is small but worth understanding for precise calculations.</p>
+    </details>
+    <details>
+      <summary><strong>How much do extra repayments save on a mortgage?</strong></summary>
+      <p>On a $500,000 loan at 6% over 30 years, adding $200/month in extra repayments saves approximately $83,000 in interest and pays off the loan 5 years early. Extra repayments in the first 5 years have the greatest impact because they reduce the principal when interest charges are highest.</p>
+    </details>
+    <details>
+      <summary><strong>Is it better to make fortnightly or monthly repayments?</strong></summary>
+      <p>Fortnightly repayments effectively add one extra monthly repayment per year (26 fortnightly payments = 13 monthly equivalents). On a $500,000 loan at 6%, this alone saves approximately $50,000 in interest and shortens the loan by about 4 years.</p>
+    </details>
+
+
+    <div class="related-tools">
+      <h3>Related Calculators</h3>
+      <ul>
+        <li><a href="/compound-interest/home-loan/">Home Loan Calculator</a></li>
+        <li><a href="/compound-interest/savings/">Savings Calculator</a></li>
+        <li><a href="/compound-interest/car-loan/">Car Loan Calculator</a></li>
+        <li><a href="/unit-converter/">Unit Converter</a></li>
+        <li><a href="/s-curve/">S-Curve Calculator</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nexus Web Tools. <a href="/compound-interest/">Compound Interest Calculator</a> &middot; <a href="/unit-converter/">Unit Converter</a> &middot; <a href="/s-curve/">S-Curve Calculator</a></p>
+    </div>
+  </footer>
+</body>
+</html>

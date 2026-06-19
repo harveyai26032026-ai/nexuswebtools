@@ -1,0 +1,860 @@
+{
+  "compound-interest": [
+    {
+      "slug": "savings",
+      "title": "Compound Interest Savings Calculator",
+      "intro": "See how your savings grow with compound interest. Calculate returns on regular deposits with monthly, quarterly, or annual compounding.",
+      "meta_description": "Calculate compound interest on your savings. See how regular deposits grow over time with monthly, quarterly, and annual compounding. Free savings calculator.",
+      "category": "FinanceApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "Compound interest is the process where interest earned on your savings is added to your balance, and future interest is calculated on the new, larger amount. Unlike simple interest — which is always calculated on the original deposit — compound interest creates exponential growth over time. The concept dates back to 17th-century mathematics and remains the foundation of modern savings and banking.",
+        "subsections": [
+          {
+            "heading": "The Mathematics Behind Savings Growth",
+            "text": "The compound interest formula is A = P(1 + r/n)^(nt), where P is the principal, r is the annual interest rate, n is the compounding frequency, and t is the time in years. For regular deposits, each contribution begins compounding from the moment it is added, which is why consistent savers see accelerating growth over time."
+          },
+          {
+            "heading": "Why Compounding Frequency Matters",
+            "text": "The more often interest compounds, the more you earn. A $10,000 deposit at 5% annual interest yields $10,500 with annual compounding but $10,511.62 with daily compounding after one year. Over 30 years, this small difference becomes hundreds of dollars — entirely free."
+          }
+        ]
+      },
+      "how_to_use": {
+        "text": "Our Compound Interest Calculator is pre-configured for savings scenarios. Follow these steps to project your savings growth:",
+        "steps": [
+          {"title": "Enter your initial deposit", "detail": "This is the amount already in your savings account (can be $0 if starting from scratch)."},
+          {"title": "Enter your regular contribution", "detail": "The amount you plan to deposit each period — weekly, fortnightly, or monthly. Consistency is key to compound growth."},
+          {"title": "Set the contribution frequency", "detail": "Choose monthly, quarterly, or annually to match your deposit schedule. More frequent contributions accelerate growth."},
+          {"title": "Enter the annual interest rate", "detail": "Use the rate advertised by your bank (APY). High-yield savings accounts typically offer 4–5%."},
+          {"title": "Choose the compounding frequency", "detail": "Most savings accounts compound daily or monthly. Check your bank's terms."},
+          {"title": "Set the time horizon", "detail": "Enter the number of years you plan to save. Longer periods produce dramatically more growth."},
+          {"title": "Review the results", "detail": "The calculator shows your total balance, total contributions, and total interest earned. Use the year-by-year table to track progress."}
+        ]
+      },
+      "applications": {
+        "text": "Compound interest savings calculations apply to a wide range of personal finance goals:",
+        "subsections": [
+          {
+            "heading": "Emergency Fund Building",
+            "text": "Financial advisors recommend 3–6 months of expenses in a high-yield savings account. Use the calculator to determine how long it takes to reach your target with regular contributions."
+          },
+          {
+            "heading": "Goal-Based Savings",
+            "text": "Whether saving for a home deposit, wedding, or car, the calculator shows exactly when you will reach your target based on your contribution plan and expected interest rate."
+          },
+          {
+            "heading": "Comparing Savings Accounts",
+            "text": "Enter different interest rates and compounding frequencies to compare savings accounts side by side. A 0.5% rate difference can mean thousands over a decade."
+          },
+          {
+            "heading": "Retirement Nest Egg Projections",
+            "text": "Project how your savings will grow over 20–40 years. This is especially useful for understanding the time value of starting early."
+          }
+        ]
+      },
+      "faqs": [
+        {"q": "How is compound interest calculated on savings?", "a": "Compound interest on savings is calculated using the formula A = P(1 + r/n)^(nt), where P is your initial deposit, r is the annual interest rate, n is the number of times interest compounds per year, and t is the number of years. Our calculator handles this automatically — just enter your details."},
+        {"q": "What is a good interest rate for a savings account?", "a": "High-yield savings accounts typically offer 4–5% APY as of 2025, compared to 0.5–1% for standard accounts at major banks. The difference on $10,000 over 10 years is thousands of dollars due to compounding. Online banks generally offer higher rates than brick-and-mortar institutions."},
+        {"q": "Is it better to compound monthly or daily?", "a": "Daily compounding produces slightly higher returns than monthly. On $10,000 at 5% for 10 years: daily yields approximately $16,486 vs monthly approximately $16,470. The difference is small but free — choose daily compounding when available."},
+        {"q": "How much should I save each month?", "a": "A common guideline is to save at least 20% of your income. For specific goals, use the calculator to work backwards: enter your target amount, time horizon, and interest rate, then adjust the monthly contribution until the projected balance matches your goal."},
+        {"q": "Does inflation affect my savings?", "a": "Yes. If your savings earn 5% and inflation is 3%, your real return is approximately 2%. Our calculator shows nominal growth — for inflation-adjusted projections, use a lower effective interest rate (e.g. 2% instead of 5%)."}
+      ],
+      "related": [
+        {"slug": "retirement", "name": "Retirement Calculator"},
+        {"slug": "investments", "name": "Investment Calculator"},
+        {"slug": "term-deposit", "name": "Term Deposit Calculator"},
+        {"slug": "superannuation", "name": "Superannuation Calculator"}
+      ]
+    },
+    {
+      "slug": "mortgage",
+      "title": "Compound Interest Mortgage Calculator",
+      "intro": "Calculate how compound interest affects your mortgage. See the true cost of your home loan and how extra repayments save thousands in interest.",
+      "meta_description": "Calculate compound interest on your mortgage. See how extra repayments and compounding frequency affect the total cost of your home loan. Free mortgage calculator.",
+      "category": "FinanceApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "A mortgage is the largest compound interest calculation most people will ever encounter. On a typical $500,000 home loan at 6% over 30 years, you pay roughly $579,000 in interest — more than the house itself. Understanding how mortgage compounding works is essential for making informed decisions about loan structure, repayment strategies, and refinancing.",
+        "subsections": [
+          {
+            "heading": "How Mortgage Interest Compounds",
+            "text": "Most mortgages compound interest daily but charge it monthly. This means each day, interest is calculated on the outstanding balance and added up over the month. When you make a repayment, it first covers the accumulated interest, then reduces the principal. As the principal shrinks, less interest accrues — this is the amortisation process."
+          },
+          {
+            "heading": "The True Cost of a Mortgage",
+            "text": "On a $500,000 loan at 6% over 30 years with monthly repayments of $2,998, you pay $1,079,191 in total — $579,191 in interest plus the original $500,000. In the first year, approximately $29,800 goes to interest and only $6,176 to principal. This front-loaded interest structure is why early extra repayments have such a dramatic impact."
+          }
+        ]
+      },
+      "how_to_use": {
+        "text": "Use our Compound Interest Calculator to model your mortgage scenario. Here is how to set it up for home loan calculations:",
+        "steps": [
+          {"title": "Enter the loan amount as the principal", "detail": "This is the amount you are borrowing (e.g. $500,000). Do not include your deposit."},
+          {"title": "Set the annual interest rate", "detail": "Use the rate on your loan offer or comparison rate. A comparison rate includes fees and gives a more accurate picture."},
+          {"title": "Choose monthly compounding", "detail": "Most mortgages compound daily but charge monthly. Monthly compounding in the calculator gives a close approximation."},
+          {"title": "Set the loan term in years", "detail": "Typical terms are 25 or 30 years. Shorter terms mean higher repayments but far less total interest."},
+          {"title": "Use the scenario comparison feature", "detail": "Run two scenarios — one with minimum repayments, one with extra repayments — to see the difference in total interest paid and time to pay off the loan."}
+        ]
+      },
+      "applications": {
+        "text": "Mortgage compound interest calculations are critical for several real-world decisions:",
+        "subsections": [
+          {
+            "heading": "Extra Repayment Strategy",
+            "text": "Adding even $200/month to your mortgage repayment can save over $80,000 in interest and cut 5+ years off the loan. Use the calculator to test different extra repayment amounts."
+          },
+          {
+            "heading": "Refinancing Analysis",
+            "text": "Compare your current loan rate against a new offer. A 0.5% rate reduction on a $400,000 loan saves approximately $44,000 over 30 years. Factor in refinancing costs to determine the break-even point."
+          },
+          {
+            "heading": "Offset Account Impact",
+            "text": "An offset account reduces the balance on which interest is calculated. $50,000 in an offset on a $500,000 loan at 6% saves approximately $3,000 per year in interest."
+          },
+          {
+            "heading": "Loan Term Comparison",
+            "text": "Compare a 25-year vs 30-year term. The shorter term has higher monthly repayments but saves tens of thousands in total interest."
+          }
+        ]
+      },
+      "faqs": [
+        {"q": "How much interest do you pay on a mortgage?", "a": "On a $500,000 mortgage at 6% over 30 years with monthly repayments, total interest is approximately $579,000. You repay roughly $1,079,000 in total — more than double the original loan. The exact amount depends on your rate, term, and any extra repayments."},
+        {"q": "Does mortgage interest compound daily or monthly?", "a": "Most mortgages compound interest daily but charge it monthly. This means your effective rate is slightly higher than the stated annual rate. The difference is small but worth understanding for precise calculations."},
+        {"q": "How much do extra repayments save on a mortgage?", "a": "On a $500,000 loan at 6% over 30 years, adding $200/month in extra repayments saves approximately $83,000 in interest and pays off the loan 5 years early. Extra repayments in the first 5 years have the greatest impact because they reduce the principal when interest charges are highest."},
+        {"q": "Is it better to make fortnightly or monthly repayments?", "a": "Fortnightly repayments effectively add one extra monthly repayment per year (26 fortnightly payments = 13 monthly equivalents). On a $500,000 loan at 6%, this alone saves approximately $50,000 in interest and shortens the loan by about 4 years."}
+      ],
+      "related": [
+        {"slug": "home-loan", "name": "Home Loan Calculator"},
+        {"slug": "savings", "name": "Savings Calculator"},
+        {"slug": "car-loan", "name": "Car Loan Calculator"}
+      ]
+    },
+    {
+      "slug": "retirement",
+      "title": "Compound Interest Retirement Calculator",
+      "intro": "Plan your retirement with compound interest projections. See how your superannuation and investments grow over your working life.",
+      "meta_description": "Calculate compound interest for retirement planning. Project how superannuation and investments grow over time with our free retirement compound interest calculator.",
+      "category": "FinanceApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "Retirement planning is the quintessential application of compound interest. The difference between starting at age 25 versus 35 can mean hundreds of thousands of dollars more in retirement savings — even if the later starter contributes more in total. Time is the single most powerful variable in retirement calculations because compound interest needs years to produce its exponential effect.",
+        "subsections": [
+          {
+            "heading": "The Cost of Delaying Retirement Savings",
+            "text": "If you save $500/month at 7% annual return starting at age 25, you will have approximately $1,224,000 by age 65. If you start at 35 with the same contributions, you will have approximately $567,000 — less than half. The 10-year delay costs you $657,000 despite only missing $60,000 in actual contributions."
+          },
+          {
+            "heading": "Superannuation and Compound Interest",
+            "text": "In Australia, employer superannuation contributions (11.5% as of 2024–25) are invested and compound over your entire working life. For someone earning $90,000, employer contributions alone can grow to over $500,000 after 30 years, with compound interest accounting for roughly 60% of the final balance."
+          }
+        ]
+      },
+      "how_to_use": {
+        "text": "Our Compound Interest Calculator is ideal for retirement projections. Set it up as follows:",
+        "steps": [
+          {"title": "Enter your current retirement savings balance", "detail": "Include superannuation, investment accounts, and any other retirement-focused savings."},
+          {"title": "Enter your regular contribution", "detail": "Include both your personal contributions and employer superannuation contributions. For example, on a $90,000 salary with 11.5% SG, that is approximately $860/month from your employer alone."},
+          {"title": "Set the contribution frequency to monthly", "detail": "Most retirement contributions are made monthly via payroll, so this gives the most accurate projection."},
+          {"title": "Enter an expected annual return", "detail": "A balanced super fund historically returns 7–8% per annum. Use 7% for a conservative estimate or 5% for a very conservative projection."},
+          {"title": "Set the time horizon to years until retirement", "detail": "If you are 35 and plan to retire at 65, enter 30 years. Adjust based on your target retirement age."},
+          {"title": "Use scenario comparison for before/after analysis", "detail": "Run one scenario with current contributions and another with increased contributions (e.g. salary sacrifice) to see the impact of voluntary super contributions."}
+        ]
+      },
+      "applications": {
+        "text": "Retirement compound interest calculations support several key financial decisions:",
+        "subsections": [
+          {
+            "heading": "Salary Sacrifice Analysis",
+            "text": "Calculate how additional pre-tax super contributions grow over time. Salary sacrificing $200/month from age 35 at 7% returns adds approximately $260,000 to your retirement balance by age 65."
+          },
+          {
+            "heading": "Early Retirement Feasibility",
+            "text": "Determine whether your current savings rate will support early retirement. Work backwards from your target retirement fund to calculate the required monthly contribution."},
+          {
+            "heading": "Transition to Retirement Strategies",
+            "text": "Model scenarios where you reduce work hours but maintain super contributions. See how part-time income plus compounding existing savings affects your retirement timeline."},
+          {
+            "heading": "Retirement Gap Analysis",
+            "text": "Compare your projected retirement balance against your estimated needs. If there is a gap, the calculator shows how much extra you need to contribute to close it."}
+        ]
+      },
+      "faqs": [
+        {"q": "How much should I save for retirement?", "a": "A common guideline is to save 15% of your pre-tax income for retirement, including employer contributions. The exact amount depends on your desired lifestyle, expected retirement age, and investment returns. Use the calculator to model different scenarios and find the right savings rate for your goals."},
+        {"q": "How does compound interest help retirement savings?", "a": "Compound interest means your investment returns generate their own returns. Over 30–40 years of saving, compound interest typically accounts for more than half of your final retirement balance. This is why starting early is so important — each additional year of compounding adds significantly to your final balance."},
+        {"q": "What return rate should I use for retirement projections?", "a": "For Australian balanced super funds, a long-term average of 7% per annum is reasonable. For conservative estimates, use 5%. For aggressive growth portfolios, 8–9% may be appropriate but comes with higher volatility. Always factor in that past returns do not guarantee future performance."},
+        {"q": "How does inflation affect my retirement savings?", "a": "Inflation reduces the purchasing power of your savings. If your investments return 7% and inflation averages 3%, your real return is approximately 4%. For inflation-adjusted projections, use a lower effective return rate in the calculator (e.g. 4% instead of 7%)."}
+      ],
+      "related": [
+        {"slug": "superannuation", "name": "Superannuation Calculator"},
+        {"slug": "savings", "name": "Savings Calculator"},
+        {"slug": "investments", "name": "Investment Calculator"},
+        {"slug": "early-retirement", "name": "Early Retirement Calculator"}
+      ]
+    },
+    {
+      "slug": "investments",
+      "title": "Compound Interest Investment Calculator",
+      "intro": "Project the growth of your investments with compound interest. Model shares, ETFs, managed funds, and recurring investment plans.",
+      "meta_description": "Calculate compound interest on investments. Project share portfolio, ETF, and managed fund growth with our free investment compound interest calculator.",
+      "category": "FinanceApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "Investment growth is driven by compound returns — when your earnings (dividends, capital gains, interest) are reinvested, they generate their own earnings. This compounding effect is what turns modest, consistent contributions into substantial wealth over long periods. The Australian share market has returned an average of approximately 9.8% per annum over 30 years, with dividends reinvested.",
+        "subsections": [
+          {
+            "heading": "The Power of Reinvested Dividends",
+            "text": "Dividends may seem small — typically 3–5% yield on Australian shares — but when reinvested, they dramatically accelerate compounding. A $10,000 investment in the ASX 200 with dividends reinvested would have grown to approximately $92,000 over 25 years, compared to approximately $58,000 without dividend reinvestment."
+          },
+          {
+            "heading": "Dollar-Cost Averaging and Compounding",
+            "text": "Investing a fixed amount at regular intervals (dollar-cost averaging) combines naturally with compound interest. You buy more units when prices are low and fewer when high, while earlier purchases have more time to compound. This strategy reduces timing risk and maximises long-term compound growth."
+          }
+        ]
+      },
+      "how_to_use": {
+        "text": "Model your investment growth using our Compound Interest Calculator with these settings:",
+        "steps": [
+          {"title": "Enter your current investment portfolio value", "detail": "Include shares, ETFs, managed funds, and any other invested assets."},
+          {"title": "Enter your regular investment contribution", "detail": "The amount you plan to invest each period. This could be a recurring ETF purchase, managed fund contribution, or share purchase plan."},
+          {"title": "Set the contribution frequency", "detail": "Monthly is most common for regular investment plans. Some platforms allow fortnightly or weekly contributions."},
+          {"title": "Enter your expected annual return", "detail": "For diversified Australian shares, 7–9% is a reasonable long-term assumption. For international shares, 8–10%. For bonds, 4–6%. Use conservative estimates for planning."},
+          {"title": "Choose annual compounding", "detail": "Investment returns typically compound annually in practice, though the exact frequency depends on dividend reinvestment timing."},
+          {"title": "Set your investment time horizon", "detail": "Investments should be evaluated over at least 5–7 years. Longer horizons (10–30 years) smooth out market volatility and show the full compounding effect."}
+        ]
+      },
+      "applications": {
+        "text": "Investment compound interest calculations are essential for several planning scenarios:",
+        "subsections": [
+          {
+            "heading": "Portfolio Growth Projections",
+            "text": "See how your current portfolio and regular contributions will grow over time. This helps set realistic expectations and stay motivated during market downturns."
+          },
+          {
+            "heading": "Comparing Investment Options",
+            "text": "Run scenarios with different return rates to compare conservative (bonds), balanced, and growth (shares) investment strategies. See the trade-off between risk and long-term returns."
+          },
+          {
+            "heading": "Fire Movement Planning",
+            "text": "Financial Independence, Retire Early (FIRE) relies on aggressive saving and compound investment returns. Calculate how much you need to invest monthly to reach your FIRE number."
+          },
+          {
+            "heading": "Lump Sum vs Regular Investing",
+            "text": "Compare investing a lump sum now versus spreading it over 12 months. Historically, lump sum investing outperforms about 66% of the time, but regular investing reduces timing risk."
+          }
+        ]
+      },
+      "faqs": [
+        {"q": "What is a realistic return on investments?", "a": "For diversified Australian shares, a long-term average of 7–9% per annum (including reinvested dividends) is reasonable. International shares may return 8–10%. Bonds typically return 4–6%. These are historical averages — actual returns vary year to year and can be negative in any given year."},
+        {"q": "Should I reinvest my dividends?", "a": "Yes, for long-term growth. Reinvested dividends are a major driver of compound returns. Over 25 years, dividend reinvestment can add 50%+ to your total return compared to taking dividends as cash."},
+        {"q": "How does market volatility affect compound returns?", "a": "Short-term volatility has minimal impact on long-term compound returns. Markets have historically recovered from every downturn. In fact, regular contributions during downturns buy more units at lower prices, which enhances long-term compounding (dollar-cost averaging)."},
+        {"q": "What is the difference between nominal and real investment returns?", "a": "Nominal returns are the raw percentage your investment grows. Real returns subtract inflation. If your portfolio grows 8% and inflation is 3%, your real return is approximately 5%. Always consider real returns for long-term planning."}
+      ],
+      "related": [
+        {"slug": "retirement", "name": "Retirement Calculator"},
+        {"slug": "dividend", "name": "Dividend Calculator"},
+        {"slug": "etf", "name": "ETF Calculator"},
+        {"slug": "savings", "name": "Savings Calculator"}
+      ]
+    },
+    {
+      "slug": "superannuation",
+      "title": "Superannuation Compound Interest Calculator",
+      "intro": "Project your superannuation balance at retirement. See how employer contributions, salary sacrifice, and compound interest grow your super over time.",
+      "meta_description": "Calculate superannuation compound interest. Project your super balance at retirement with employer contributions, salary sacrifice, and compounding returns.",
+      "category": "FinanceApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "Superannuation is Australia's mandatory retirement savings system. Employers must contribute 11.5% of ordinary time earnings (rising to 12% in 2025) into a super fund, where it is invested and compounds over your working life. For most Australians, super will be their largest asset outside the family home. Understanding how compound interest grows your super is critical for retirement planning.",
+        "subsections": [
+          {
+            "heading": "How Super Compounds Over Time",
+            "text": "Super funds invest in a mix of shares, property, bonds, and cash. Returns are reinvested (compounded) back into the fund. A 30-year-old earning $90,000 with 11.5% employer contributions at 7% returns would accumulate approximately $680,000 in super by age 65 — with roughly 60% of that coming from compound investment returns rather than contributions."
+          },
+          {
+            "heading": "The Impact of Fees on Compounding",
+            "text": "Super fund fees are deducted from your balance each year, reducing the base on which returns compound. A 1% fee difference compounds to tens of thousands of dollars over 30 years. On a $100,000 balance at 7% returns, a 0.5% fee vs 1.5% fee results in approximately $80,000 less at retirement."
+          }
+        ]
+      },
+      "how_to_use": {
+        "text": "Set up our Compound Interest Calculator to model your superannuation growth:",
+        "steps": [
+          {"title": "Enter your current super balance", "detail": "Find this on your latest super statement or log into your fund's online portal."},
+          {"title": "Calculate your monthly employer contribution", "detail": "Multiply your annual salary by the SG rate (11.5%) and divide by 12. For $90,000 salary: $90,000 × 0.115 / 12 = $862.50/month."},
+          {"title": "Add any salary sacrifice or personal contributions", "detail": "If you salary sacrifice $200/month, add this to the employer contribution for a total of $1,062.50/month."},
+          {"title": "Enter your super fund's average return rate", "detail": "Balanced options typically return 7–8% long-term. Conservative options return 5–6%. Growth options may return 8–9% but with more volatility."},
+          {"title": "Set compounding to monthly", "detail": "Super fund returns are calculated daily and credited monthly, so monthly compounding is a good approximation."},
+          {"title": "Set the time horizon to years until age 65", "detail": "Subtract your current age from 65 (or your planned retirement age)."},
+          {"title": "Run a second scenario without salary sacrifice", "detail": "Compare the two results to see exactly how much your voluntary contributions add to your retirement balance."}
+        ]
+      },
+      "applications": {
+        "text": "Superannuation compound interest calculations support several important decisions:",
+        "subsections": [
+          {
+            "heading": "Salary Sacrifice Optimisation",
+            "text": "Determine the optimal amount to salary sacrifice into super. Calculate how different contribution levels ($100, $200, $500/month) affect your final balance, then weigh the tax savings against reduced take-home pay."
+          },
+          {
+            "heading": "Fund and Fee Comparison",
+            "text": "Compare two super funds by running scenarios with different return rates and fee structures. Even small differences compound dramatically over 30+ years."
+          },
+          {
+            "heading": "Insurance Inside Super",
+            "text": "Insurance premiums inside super are deducted from your balance, reducing compounding. Calculate the long-term cost of insurance premiums versus the coverage benefit."
+          },
+          {
+            "heading": "Contribution Gap Analysis",
+            "text": "If you have had periods without employer contributions (career breaks, self-employment), calculate the compounding cost of those gaps and whether catch-up contributions can close them."
+          }
+        ]
+      },
+      "faqs": [
+        {"q": "How much super do I need to retire comfortably?", "a": "The Association of Superannuation Funds of Australia (ASFA) estimates that a comfortable retirement for a couple requires approximately $72,000/year, which needs a super balance of roughly $690,000 (in today's dollars) at retirement. A modest lifestyle requires approximately $46,000/year."},
+        {"q": "Does superannuation compound?", "a": "Yes. Super fund returns are reinvested into your account, where they generate their own returns. Over a 30–40 year working life, compound investment returns typically account for 50–70% of your final super balance."},
+        {"q": "Should I choose a high-growth or balanced super option?", "a": "For those with 15+ years until retirement, high-growth options historically produce better long-term returns despite short-term volatility. The extra 1–2% annual return from growth assets compounds to a significantly larger balance over decades. As you approach retirement, gradually shifting to balanced or conservative options reduces risk."},
+        {"q": "How do super fees affect my retirement balance?", "a": "Fees are deducted from your balance each year, reducing the amount available to compound. Over 30 years, a 1% difference in fees can reduce your final balance by approximately $80,000–$100,000 on an average balance. Always compare fees when choosing a super fund."}
+      ],
+      "related": [
+        {"slug": "retirement", "name": "Retirement Calculator"},
+        {"slug": "investments", "name": "Investment Calculator"},
+        {"slug": "savings", "name": "Savings Calculator"}
+      ]
+    },
+    {
+      "slug": "term-deposit",
+      "title": "Term Deposit Compound Interest Calculator",
+      "intro": "Calculate compound interest on term deposits. Compare rates, terms, and compounding frequencies to find the best return on your fixed-term investment.",
+      "meta_description": "Calculate term deposit compound interest. Compare rates, terms, and compounding frequencies to maximise returns on your fixed-term investment. Free calculator.",
+      "category": "FinanceApplication",
+      "sitemap_priority": 0.6,
+      "background": {
+        "text": "A term deposit is a fixed-term investment where you lock away a lump sum at a guaranteed interest rate for a set period (typically 1 month to 5 years). Unlike savings accounts where rates can change at any time, term deposits offer certainty — you know exactly what you will earn. Understanding how compounding works within a term deposit helps you choose the right product and reinvestment strategy.",
+        "subsections": [
+          {
+            "heading": "How Term Deposit Interest Is Paid",
+            "text": "Term deposits typically pay interest monthly, quarterly, semi-annually, or at maturity. When interest is paid at maturity, it does not compound within the term — you receive a simple interest calculation. When interest is paid periodically and reinvested, compounding occurs. This distinction significantly affects your total return."
+          },
+          {
+            "heading": "The Reinvestment Risk",
+            "text": "When a term deposit matures, you must reinvest at the prevailing rate. If rates have fallen, your next term may earn less. This reinvestment risk is a key consideration when choosing between short and long terms."
+          }
+        ]
+      },
+      "how_to_use": {
+        "text": "Use our Compound Interest Calculator to compare term deposit options:",
+        "steps": [
+          {"title": "Enter the term deposit amount as the principal", "detail": "This is the lump sum you plan to invest. Most term deposits require a minimum of $1,000–$5,000."},
+          {"title": "Set zero for regular contributions", "detail": "Term deposits do not accept additional deposits during the term. Leave the contribution field at $0."},
+          {"title": "Enter the advertised interest rate", "detail": "Use the annual rate quoted by the bank. Ensure you are comparing the same compounding basis across products."},
+          {"title": "Set the compounding frequency", "detail": "Choose monthly, quarterly, or at maturity depending on the product. At maturity = no compounding (simple interest). Monthly or quarterly = compound interest."},
+          {"title": "Set the term in years", "detail": "Convert months to years: 6 months = 0.5 years, 12 months = 1 year, 24 months = 2 years."},
+          {"title": "Compare multiple products", "detail": "Run separate calculations for each term deposit product to compare total returns. Pay attention to compounding frequency — a lower rate with monthly compounding can outperform a higher rate with annual compounding."}
+        ]
+      },
+      "applications": {
+        "text": "Term deposit compound interest calculations help with several financial decisions:",
+        "subsections": [
+          {
+            "heading": "Rate and Term Comparison",
+            "text": "Compare 6-month vs 12-month vs 24-month terms at different rates. Sometimes a shorter term at a slightly lower rate, combined with expected rate rises, produces a better overall return than locking in a long term now."
+          },
+          {
+            "heading": "Laddering Strategy",
+            "text": "Divide your investment across multiple term deposits with staggered maturity dates (e.g. $10K at 6 months, $10K at 12 months, $10K at 24 months). This provides regular access to funds and reduces reinvestment risk."}
+        ]
+      },
+      "faqs": [
+        {"q": "Do term deposits compound interest?", "a": "It depends on the product. If interest is paid at maturity, it is simple interest — no compounding. If interest is paid monthly or quarterly and reinvested, it compounds. Always check the interest payment frequency when comparing term deposits."},
+        {"q": "Is a term deposit better than a savings account?", "a": "Term deposits offer a guaranteed rate for a fixed period, which is valuable when rates are falling. Savings accounts offer flexibility but variable rates. For money you will not need for 6–24 months, term deposits often offer slightly higher rates in exchange for locking your funds."}
+      ],
+      "related": [
+        {"slug": "savings", "name": "Savings Calculator"},
+        {"slug": "fixed-deposit", "name": "Fixed Deposit Calculator"},
+        {"slug": "investments", "name": "Investment Calculator"}
+      ]
+    },
+    {
+      "slug": "student-loan",
+      "title": "Compound Interest Student Loan Calculator",
+      "intro": "See how compound interest affects your student loan. Calculate total repayment amounts and the impact of voluntary extra payments.",
+      "meta_description": "Calculate compound interest on student loans. See total repayment amounts and how extra payments reduce interest costs. Free student loan calculator.",
+      "category": "FinanceApplication",
+      "sitemap_priority": 0.6,
+      "background": {
+        "text": "Student loans can accrue significant compound interest over the life of the loan, especially if repayments are deferred or only minimum payments are made. In Australia, HECS-HELP loans are indexed to inflation rather than charged commercial interest, but the compounding effect of indexation still increases the debt over time. For private student loans or overseas loans with commercial interest rates, the compounding effect is much more pronounced.",
+        "subsections": [
+          {
+            "heading": "HECS-HELP Indexation vs Compound Interest",
+            "text": "Australian HECS-HELP loans do not charge interest in the traditional sense. Instead, they are indexed annually to inflation (CPI). In 2023, indexation was 7.1% — higher than many commercial interest rates. While technically not compound interest, indexation compounds because it is applied to the total debt including previously indexed amounts."
+          },
+          {
+            "heading": "Private Student Loan Compounding",
+            "text": "Private student loans and international student loans typically charge 5–12% interest that compounds during the repayment period. Some loans even compound during the study period (capitalised interest), meaning you graduate with a larger balance than you borrowed."
+          }
+        ]
+      },
+      "how_to_use": {
+        "steps": [
+          {"title": "Enter your total student loan balance", "detail": "Include all loans — HECS-HELP, private loans, and any overseas student debt."},
+          {"title": "Set the interest or indexation rate", "detail": "For HECS-HELP, use the latest CPI indexation rate. For private loans, use the stated interest rate."},
+          {"title": "Choose annual compounding", "detail": "HECS-HELP compounds annually (June indexation). Private loans typically compound monthly."},
+          {"title": "Enter your regular repayment as a negative contribution", "detail": "The calculator models growth — for a loan, you want to see how the balance decreases with repayments over time."},
+          {"title": "Set the repayment period", "detail": "Enter the number of years until the loan is fully repaid."}
+        ]
+      },
+      "applications": {
+        "subsections": [
+          {
+            "heading": "Voluntary Repayment Analysis",
+            "text": "Calculate how making voluntary repayments above the minimum reduces total interest and shortens the loan term. On a $30,000 HECS debt with 4% indexation, a $5,000 voluntary repayment can save thousands in future indexation."
+          },
+          {
+            "heading": "Loan Comparison",
+            "text": "Compare the total cost of a HECS-HELP loan (indexed) versus a private student loan (interest-bearing) for the same course fee."}
+        ]
+      },
+      "faqs": [
+        {"q": "Does HECS-HELP charge compound interest?", "a": "No, but it is indexed annually to inflation (CPI), which has a similar compounding effect. Indexation is applied to the total debt including previously indexed amounts, so the debt grows exponentially if repayments do not keep pace."},
+        {"q": "Should I pay off my student loan early?", "a": "For HECS-HELP, it depends on the indexation rate versus what you could earn by investing the money instead. When indexation is low (2–3%), investing typically outperforms early repayment. When indexation is high (5%+), voluntary repayment becomes more attractive. For private loans with high interest rates, early repayment almost always saves money."}
+      ],
+      "related": [
+        {"slug": "savings", "name": "Savings Calculator"},
+        {"slug": "mortgage", "name": "Mortgage Calculator"},
+        {"slug": "debt-payoff", "name": "Debt Payoff Calculator"}
+      ]
+    },
+    {
+      "slug": "car-loan",
+      "title": "Compound Interest Car Loan Calculator",
+      "intro": "Calculate the true cost of a car loan with compound interest. Compare loan terms, rates, and the impact of balloon payments.",
+      "meta_description": "Calculate compound interest on car loans. Compare rates, terms, and balloon payments to find the cheapest car finance. Free car loan calculator.",
+      "category": "FinanceApplication",
+      "sitemap_priority": 0.6,
+      "background": {
+        "text": "Car loans typically use fixed or variable interest rates that compound daily or monthly. The total interest paid depends on the rate, loan term, and whether a balloon payment is involved. A car is a depreciating asset — it loses value from the moment you drive it off the lot — so minimising loan interest is essential to avoid being underwater (owing more than the car is worth).",
+        "subsections": [
+          {
+            "heading": "Balloon Payments and Compounding",
+            "text": "A balloon payment reduces monthly repayments by deferring a lump sum to the end of the loan. While this lowers the regular payment, you pay more total interest because a larger principal is compounding for longer. On a $30,000 car loan at 7% over 5 years, a $10,000 balloon adds approximately $1,400 in extra interest."
+          }
+        ]
+      },
+      "how_to_use": {
+        "steps": [
+          {"title": "Enter the car loan amount", "detail": "The amount you are borrowing (purchase price minus deposit and trade-in)."},
+          {"title": "Enter the annual interest rate", "detail": "Use the comparison rate, which includes fees and gives a true cost picture."},
+          {"title": "Set compounding to monthly", "detail": "Car loans typically compound monthly."},
+          {"title": "Set the loan term", "detail": "Common terms are 3, 4, or 5 years. Shorter terms mean higher repayments but less total interest."},
+          {"title": "Compare with and without a balloon", "detail": "Run two scenarios to see how a balloon payment affects total cost and monthly commitment."}
+        ]
+      },
+      "applications": {
+        "subsections": [
+          {
+            "heading": "Novated Lease vs Car Loan",
+            "text": "Compare the total cost of a novated lease (which includes tax benefits) versus a traditional car loan. The calculator helps isolate the interest cost of each option for a fair comparison."
+          },
+          {
+            "heading": "Deposit Impact Analysis",
+            "text": "See how a larger deposit reduces total interest. A $5,000 deposit on a $30,000 car at 7% over 5 years saves approximately $1,100 in interest."}
+        ]
+      },
+      "faqs": [
+        {"q": "What is a good interest rate for a car loan?", "a": "As of 2025, good car loan rates start from approximately 5–6% for new cars and 6–8% for used cars. Dealer finance is often 2–4% higher than bank or credit union rates. Always compare the comparison rate, not just the advertised rate."},
+        {"q": "Is a balloon payment worth it on a car loan?", "a": "A balloon payment lowers your monthly repayments but increases total interest paid and leaves you with a large payment at the end. It can be useful if you plan to trade in the car before the loan ends, but otherwise you pay more in total."}
+      ],
+      "related": [
+        {"slug": "mortgage", "name": "Mortgage Calculator"},
+        {"slug": "personal-loan", "name": "Personal Loan Calculator"},
+        {"slug": "savings", "name": "Savings Calculator"}
+      ]
+    }
+  ],
+  "unit-converter": [
+    {
+      "slug": "length",
+      "title": "Length Converter",
+      "intro": "Convert between length units: millimetres, centimetres, metres, kilometres, inches, feet, yards, and miles. Free instant conversions with formulas.",
+      "meta_description": "Free length converter. Convert between mm, cm, m, km, inches, feet, yards, and miles instantly with conversion formulas and reference tables.",
+      "category": "UtilityApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "Length measurement is one of the oldest and most fundamental types of quantification. The metric system (millimetres, centimetres, metres, kilometres) is the international standard, used in science, engineering, and everyday life in most countries. The imperial system (inches, feet, yards, miles) remains common in the United States, and in certain industries worldwide such as construction and aviation.",
+        "subsections": [
+          {
+            "heading": "Metric vs Imperial Systems",
+            "text": "The metric system is decimal-based — each unit is 10, 100, or 1000 times the next. This makes conversions within metric straightforward. Imperial units have irregular ratios (12 inches per foot, 3 feet per yard, 1760 yards per mile), making manual conversion error-prone. Our converter eliminates these calculation errors."
+          },
+          {
+            "heading": "The 1959 International Agreement",
+            "text": "In 1959, English-speaking nations agreed to standardise the inch at exactly 25.4 millimetres. Before this, the US inch and British inch differed slightly, causing precision engineering issues. This agreement is why all modern length conversions are exact and consistent worldwide."
+          }
+        ]
+      },
+      "how_to_use": {
+        "text": "Our Unit Converter makes length conversion instant and accurate:",
+        "steps": [
+          {"title": "Open the Unit Converter", "detail": "Navigate to the converter and select 'Length' from the category dropdown."},
+          {"title": "Select your source unit", "detail": "Choose the unit you are converting from (e.g. millimetres, inches, metres)."},
+          {"title": "Enter the value to convert", "detail": "Type the number you want to convert. The result updates instantly."},
+          {"title": "Select your target unit", "detail": "Choose the unit you want to convert to. Swap source and target with one click."},
+          {"title": "Read the converted result", "detail": "The converter shows the result with appropriate precision. Common conversion formulas are displayed for reference."}
+        ]
+      },
+      "applications": {
+        "text": "Length conversions are used across many fields and everyday situations:",
+        "subsections": [
+          {
+            "heading": "Construction and Building",
+            "text": "Building plans may use metric (Australia, Europe) or imperial (US) measurements. Converting between systems is essential for international projects, importing materials, or working with US-sourced plans and specifications."
+          },
+          {
+            "heading": "Manufacturing and Engineering",
+            "text": "Precision engineering often requires converting between metric and imperial tolerances. A specification of ±0.005 inches equals ±0.127 mm — accuracy that matters in machining and quality control."},
+          {
+            "heading": "Travel and Navigation",
+            "text": "Converting between kilometres and miles is essential when driving in a country that uses a different system. Speed limits, distances, and fuel efficiency all require conversion."},
+          {
+            "heading": "DIY and Home Improvement",
+            "text": "Furniture dimensions, fabric measurements, and room sizes may be listed in either system. Quick conversion ensures you buy the right materials and fit items correctly."}
+        ]
+      },
+      "faqs": [
+        {"q": "How do you convert inches to millimetres?", "a": "Multiply inches by 25.4. For example, 5 inches × 25.4 = 127 mm. This is an exact conversion based on the 1959 international agreement that defined 1 inch = 25.4 mm exactly."},
+        {"q": "How do you convert metres to feet?", "a": "Multiply metres by 3.28084. For example, 2 metres × 3.28084 = 6.56168 feet. To get feet and inches: the whole number is feet (6), multiply the decimal by 12 for inches (0.56168 × 12 = 6.74 inches), so 2 m = 6 ft 6.7 in."},
+        {"q": "How do you convert kilometres to miles?", "a": "Multiply kilometres by 0.621371. For example, 100 km × 0.621371 = 62.1371 miles. A quick approximation: multiply by 0.6 and add 3.5% — 100 km ≈ 63 miles (close enough for mental maths)."},
+        {"q": "Why does the US still use imperial units?", "a": "Historical momentum. The US adopted imperial measurements before the metric system existed and never mandated a full transition. The cost of converting road signs, manufacturing standards, and public infrastructure is estimated in the hundreds of billions of dollars."}
+      ],
+      "related": [
+        {"slug": "area", "name": "Area Converter"},
+        {"slug": "mm-to-inches", "name": "mm to Inches Converter"},
+        {"slug": "meters-to-feet", "name": "Metres to Feet Converter"},
+        {"slug": "km-to-miles", "name": "km to Miles Converter"}
+      ]
+    },
+    {
+      "slug": "weight",
+      "title": "Weight Converter",
+      "intro": "Convert between weight and mass units: kilograms, grams, pounds, ounces, stone, and tonnes. Accurate instant conversions with formulas.",
+      "meta_description": "Free weight converter. Convert between kg, g, lbs, oz, stone, and tonnes instantly with conversion formulas and reference tables.",
+      "category": "UtilityApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "Weight (technically mass) conversion is essential in cooking, health, shipping, science, and international trade. The kilogram is the SI base unit of mass, defined since 2019 by the Planck constant. The pound is defined as exactly 0.45359237 kilograms. Despite the precision of these definitions, everyday weight conversion remains a common need due to the coexistence of metric and imperial systems.",
+        "subsections": [
+          {
+            "heading": "Weight vs Mass — A Technical Distinction",
+            "text": "In everyday language, weight and mass are used interchangeably. Scientifically, mass is the amount of matter in an object (kilograms), while weight is the force gravity exerts on that mass (newtons). For all practical conversion purposes, we convert between mass units — kg, lbs, oz, etc."
+          },
+          {
+            "heading": "The Stone — A British Unit",
+            "text": "The stone (14 pounds or 6.35 kg) is used almost exclusively in the UK and Ireland for expressing human body weight. It is not used in the US (where body weight is in pounds) or in metric countries (where body weight is in kilograms)."
+          }
+        ]
+      },
+      "how_to_use": {
+        "steps": [
+          {"title": "Open the Unit Converter", "detail": "Navigate to the converter and select 'Weight' or 'Mass' from the category dropdown."},
+          {"title": "Select your source unit", "detail": "Choose the unit you are converting from (e.g. kilograms, pounds, ounces)."},
+          {"title": "Enter the value", "detail": "Type the number you want to convert. The result appears instantly."},
+          {"title": "Select your target unit", "detail": "Choose the unit you need. The converter supports kg, g, mg, lbs, oz, stone, and tonnes."},
+          {"title": "Use swap to reverse the conversion", "detail": "Click the swap button to instantly reverse source and target units."}
+        ]
+      },
+      "applications": {
+        "subsections": [
+          {
+            "heading": "Cooking and Recipes",
+            "text": "Recipes from different countries use different units. An American recipe might call for 16 oz of flour, while an Australian one uses 450 g. Accurate conversion is essential for baking, where precision matters."
+          },
+          {
+            "heading": "Health and Fitness",
+            "text": "Tracking body weight across different measurement systems. Convert your weight from kg to lbs or stone depending on where you live and which system your health app or doctor uses."},
+          {
+            "heading": "Shipping and Logistics",
+            "text": "International shipping rates are often quoted per kilogram or per pound. Converting between the two is necessary for calculating costs and comparing carriers."}
+        ]
+      },
+      "faqs": [
+        {"q": "How do you convert kg to lbs?", "a": "Multiply kilograms by 2.20462. For example, 70 kg × 2.20462 = 154.32 lbs. A quick approximation: double the kg and add 10% — 70 kg ≈ 140 + 14 = 154 lbs."},
+        {"q": "How many kilograms are in a stone?", "a": "1 stone equals 6.35029 kilograms, or exactly 14 pounds. The stone is commonly used in the UK and Ireland for body weight. A 12-stone person weighs approximately 76.2 kg or 168 lbs."},
+        {"q": "How do you convert ounces to grams?", "a": "Multiply ounces by 28.3495. For example, 8 oz × 28.3495 = 226.8 g. For fluid ounces (volume), this is a different conversion — see our volume converter."}
+      ],
+      "related": [
+        {"slug": "kg-to-lbs", "name": "kg to lbs Converter"},
+        {"slug": "lbs-to-kg", "name": "lbs to kg Converter"},
+        {"slug": "temperature", "name": "Temperature Converter"}
+      ]
+    },
+    {
+      "slug": "temperature",
+      "title": "Temperature Converter",
+      "intro": "Convert between Celsius, Fahrenheit, and Kelvin temperature scales instantly with formulas and reference points.",
+      "meta_description": "Free temperature converter. Convert between Celsius, Fahrenheit, and Kelvin instantly with conversion formulas, reference points, and scientific context.",
+      "category": "UtilityApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "Temperature measures the thermal energy of a substance. Three scales dominate: Celsius (used worldwide for everyday purposes), Fahrenheit (used in the US for weather and cooking), and Kelvin (used in science and engineering, where zero represents absolute zero). Understanding temperature conversion is essential for cooking, science, weather interpretation, and international communication.",
+        "subsections": [
+          {
+            "heading": "The Three Temperature Scales",
+            "text": "Celsius sets water freezing at 0° and boiling at 100°. Fahrenheit sets water freezing at 32° and boiling at 212°. Kelvin starts at absolute zero (−273.15°C) and uses the same degree spacing as Celsius. Each scale was developed for different reasons: Celsius for scientific convenience, Fahrenheit for precision in everyday weather, and Kelvin for thermodynamic calculations."
+          },
+          {
+            "heading": "Absolute Zero and Kelvin",
+            "text": "Absolute zero (0 K or −273.15°C) is the theoretical lowest possible temperature, where molecular motion ceases. The Kelvin scale is used in physics and chemistry because it directly represents thermal energy without negative numbers."
+          }
+        ]
+      },
+      "how_to_use": {
+        "steps": [
+          {"title": "Open the Unit Converter", "detail": "Navigate to the converter and select 'Temperature' from the category dropdown."},
+          {"title": "Select the source scale", "detail": "Choose Celsius, Fahrenheit, or Kelvin as your starting scale."},
+          {"title": "Enter the temperature value", "detail": "Type the number you want to convert. The result appears instantly in the other scales."},
+          {"title": "Select the target scale", "detail": "Choose the scale you need. The converter shows all three scales simultaneously for reference."}
+        ]
+      },
+      "applications": {
+        "subsections": [
+          {
+            "heading": "Cooking and Baking",
+            "text": "Oven temperatures in recipes vary by country. An American recipe might specify 350°F, which converts to 175°C (actually 176.7°C, but ovens use 25°C increments). Converting correctly is critical for baking success."
+          },
+          {
+            "heading": "Weather and Travel",
+            "text": "When travelling between metric and imperial countries, converting temperature helps you understand weather forecasts and dress appropriately. 30°C is a hot day (86°F), while 0°C is freezing (32°F)."},
+          {
+            "heading": "Science and Engineering",
+            "text": "Scientific calculations often require Kelvin. Room temperature (22°C) is 295.15 K. Thermodynamic equations, gas laws, and material properties all use the Kelvin scale."}
+        ]
+      },
+      "faqs": [
+        {"q": "How do you convert Celsius to Fahrenheit?", "a": "Multiply the Celsius temperature by 9/5, then add 32. For example, 25°C × 9/5 + 32 = 77°F. Our converter does this instantly and shows the formula used."},
+        {"q": "What temperature is the same in Celsius and Fahrenheit?", "a": "−40°C equals −40°F. This is the only point where the two scales intersect. It is extremely cold — roughly the temperature of a harsh Antarctic winter."},
+        {"q": "Why does the US use Fahrenheit?", "a": "The US adopted Fahrenheit in the 18th century through British colonial influence and never switched to Celsius. The Fahrenheit scale offers finer granularity for weather reporting (each degree is smaller than a Celsius degree), which some argue makes it more intuitive for describing outdoor temperatures."}
+      ],
+      "related": [
+        {"slug": "c-to-f", "name": "Celsius to Fahrenheit Converter"},
+        {"slug": "f-to-c", "name": "Fahrenheit to Celsius Converter"},
+        {"slug": "length", "name": "Length Converter"}
+      ]
+    },
+    {
+      "slug": "speed",
+      "title": "Speed Converter",
+      "intro": "Convert between speed units: km/h, mph, knots, m/s, and ft/s. Essential for travel, aviation, maritime, and sports.",
+      "meta_description": "Free speed converter. Convert between km/h, mph, knots, m/s, and ft/s instantly with formulas and real-world reference points.",
+      "category": "UtilityApplication",
+      "sitemap_priority": 0.6,
+      "background": {
+        "text": "Speed conversion is essential when travelling internationally, working in aviation or maritime industries, or comparing vehicle performance across regions. The metric system uses kilometres per hour (km/h), the US uses miles per hour (mph), aviation and maritime use knots (nautical miles per hour), and science uses metres per second (m/s).",
+        "subsections": [
+          {
+            "heading": "Why Aviation Uses Knots",
+            "text": "A knot is one nautical mile per hour. Nautical miles are based on the Earth's circumference (1 nautical mile = 1 minute of latitude), making navigation calculations straightforward. This is why airspeed, wind speed, and maritime speed are all measured in knots worldwide, regardless of the country's general measurement system."
+          }
+        ]
+      },
+      "how_to_use": {
+        "steps": [
+          {"title": "Open the Unit Converter and select 'Speed'", "detail": "Choose the speed category from the dropdown."},
+          {"title": "Select your source unit", "detail": "Choose km/h, mph, knots, m/s, or ft/s."},
+          {"title": "Enter the speed value", "detail": "Type the number. The result updates instantly across all units."},
+          {"title": "Select your target unit", "detail": "Choose the unit you need for your context."}
+        ]
+      },
+      "applications": {
+        "subsections": [
+          {
+            "heading": "Driving Abroad",
+            "text": "Convert speed limits when driving in a country with a different system. 100 km/h = 62 mph. 70 mph = 113 km/h. Quick conversion helps you stay legal and safe."
+          },
+          {
+            "heading": "Aviation and Sailing",
+            "text": "Airspeed indicators read in knots. Converting to km/h or mph helps non-pilots understand aircraft speeds. A typical cruising speed of 450 knots equals approximately 833 km/h or 518 mph."},
+          {
+            "heading": "Sports and Fitness",
+            "text": "Running pace and cycling speed are often measured in km/h or mph depending on the country. Convert between them to compare performance with international benchmarks."}
+        ]
+      },
+      "faqs": [
+        {"q": "How do you convert km/h to mph?", "a": "Divide km/h by 1.60934. For example, 100 km/h ÷ 1.60934 = 62.14 mph. A quick approximation: multiply by 0.6 — 100 km/h ≈ 60 mph."},
+        {"q": "How fast is a knot in km/h?", "a": "1 knot = 1.852 km/h. So 30 knots = 55.56 km/h. Knots are used in aviation and maritime contexts because they are based on nautical miles, which align with the Earth's coordinate system."},
+        {"q": "What is 1 m/s in km/h?", "a": "1 m/s = 3.6 km/h. To convert, multiply by 3.6. For example, 10 m/s = 36 km/h. This is useful for converting scientific measurements to everyday units."}
+      ],
+      "related": [
+        {"slug": "km-to-miles", "name": "km to Miles Converter"},
+        {"slug": "fuel", "name": "Fuel Consumption Converter"},
+        {"slug": "length", "name": "Length Converter"}
+      ]
+    },
+    {
+      "slug": "area",
+      "title": "Area Converter",
+      "intro": "Convert between area units: square metres, square feet, acres, hectares, and more. Essential for real estate, agriculture, and land management.",
+      "meta_description": "Free area converter. Convert between sqm, sqft, acres, hectares, and more instantly with formulas and real-world examples.",
+      "category": "UtilityApplication",
+      "sitemap_priority": 0.6,
+      "background": {
+        "text": "Area conversion is crucial in real estate, agriculture, construction, and land management. Different countries and industries use different area units: square metres and hectares in metric countries, square feet and acres in imperial countries. Australia uses a mix — square metres for buildings and hectares for rural land, with acres still used colloquially in farming.",
+        "subsections": [
+          {
+            "heading": "Hectares vs Acres",
+            "text": "A hectare (10,000 m²) is the metric standard for land area. An acre (4,047 m²) is the imperial equivalent. 1 hectare = 2.471 acres. Australian rural properties are typically measured in hectares, but US and UK properties may use acres."
+          }
+        ]
+      },
+      "how_to_use": {
+        "steps": [
+          {"title": "Open the Unit Converter and select 'Area'", "detail": "Choose the area category from the dropdown."},
+          {"title": "Select your source unit", "detail": "Choose from square metres, square feet, acres, hectares, square kilometres, or square miles."},
+          {"title": "Enter the area value", "detail": "Type the number. Results update instantly across all area units."},
+          {"title": "Select your target unit", "detail": "Choose the unit needed for your application."}
+        ]
+      },
+      "applications": {
+        "subsections": [
+          {
+            "heading": "Real Estate",
+            "text": "Property listings may use square metres (Australia, Europe) or square feet (US, Hong Kong). Convert between them to understand property sizes when comparing international listings."
+          },
+          {
+            "heading": "Agriculture and Farming",
+            "text": "Farm sizes are measured in hectares (Australia, Europe) or acres (US, UK). Converting between them is essential for international agricultural comparisons and commodity calculations."},
+          {
+            "heading": "Construction and Renovation",
+            "text": "Floor plans, tile quantities, and paint coverage are all calculated by area. Convert between units when working with international suppliers or specifications."}
+        ]
+      },
+      "faqs": [
+        {"q": "How do you convert square metres to square feet?", "a": "Multiply square metres by 10.7639. For example, 100 m² × 10.7639 = 1,076.39 sq ft. A quick approximation: multiply by 10.8 or simply multiply by 11 for a rough estimate."},
+        {"q": "How many acres are in a hectare?", "a": "1 hectare = 2.47105 acres. 1 acre = 0.404686 hectares. For a quick approximation, 1 hectare is roughly 2.5 acres."},
+        {"q": "How do you convert square feet to square metres?", "a": "Divide square feet by 10.7639 (or multiply by 0.092903). For example, 1,000 sq ft ÷ 10.7639 = 92.9 m². This is a common conversion for comparing apartment sizes."}
+      ],
+      "related": [
+        {"slug": "length", "name": "Length Converter"},
+        {"slug": "sqm-to-sqft", "name": "sqm to sqft Converter"},
+        {"slug": "acres-to-hectares", "name": "Acres to Hectares Converter"}
+      ]
+    }
+  ],
+  "s-curve": [
+    {
+      "slug": "construction",
+      "title": "S-Curve for Construction Projects",
+      "intro": "Track and forecast construction project progress with an S-Curve. Monitor budget burn rate, earned value, and completion timelines.",
+      "meta_description": "S-Curve calculator for construction projects. Track progress, forecast completion, and monitor budget burn rate with free S-Curve tool.",
+      "category": "BusinessApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "Construction projects rarely progress at a constant rate. The S-Curve is the industry standard tool for visualising and forecasting project progress because it models the natural pattern of construction activity: slow mobilisation at the start, peak activity during the main build phase, and gradual slowdown during finishing and commissioning. This characteristic S shape makes it possible to compare planned versus actual progress and identify problems early.",
+        "subsections": [
+          {
+            "heading": "The Three Phases of a Construction S-Curve",
+            "text": "Phase 1 — Mobilisation and site setup (10–20% of timeline, 5–15% of budget): This phase appears as the flat bottom of the S. Activities include permitting, site preparation, and procurement. Phase 2 — Construction and installation (40–60% of timeline, 50–70% of budget): The steep middle section. This is where the bulk of labour, materials, and cost are consumed. Phase 3 — Finishing and commissioning (20–30% of timeline, 15–25% of budget): The flattening top of the S. Activities include fit-out, testing, and handover."
+          },
+          {
+            "heading": "Why Linear Projections Fail in Construction",
+            "text": "A linear projection assumes equal progress each month. In reality, a $10M project might spend $500K in month 1, $1.2M in month 6, and $300K in month 12. Using a linear budget instead of an S-Curve leads to unrealistic expectations, incorrect cash flow forecasts, and misleading variance reports."
+          }
+        ]
+      },
+      "how_to_use": {
+        "text": "Our S-Curve Calculator is designed for construction project tracking. Follow these steps:",
+        "steps": [
+          {"title": "Enter your project phases", "detail": "Break the project into phases (e.g. Site Setup, Structure, Fit-Out, Commissioning). For each phase, enter the expected duration and budget allocation."},
+          {"title": "Set the total project duration and budget", "detail": "The calculator uses these to scale the S-Curve. Ensure the sum of phase budgets equals the total project budget."},
+          {"title": "Review the baseline S-Curve", "detail": "The calculator generates a planned progress curve showing expected cumulative spend over time. This is your baseline."},
+          {"title": "Enter actual progress data", "detail": "As the project progresses, enter actual cumulative spend or completion percentages. The calculator overlays actual progress on the baseline S-Curve."},
+          {"title": "Analyse variances", "detail": "Compare the planned vs actual curves. If actual is below planned, the project is behind schedule or under budget. If above, it is ahead or over budget. The gap between curves indicates the magnitude of variance."},
+          {"title": "Forecast completion", "detail": "Based on the current trajectory, the calculator can project the expected completion date and final cost."}
+        ]
+      },
+      "applications": {
+        "text": "Construction S-Curves support several critical project management functions:",
+        "subsections": [
+          {
+            "heading": "Cash Flow Forecasting",
+            "text": "Construction projects require significant upfront capital. The S-Curve predicts when peak cash outflows occur, allowing project managers to arrange financing and manage cash reserves accordingly."
+          },
+          {
+            "heading": "Progress Claim Verification",
+            "text": "Contractors submit progress claims based on work completed. Comparing claimed progress against the S-Curve baseline helps identify over-claiming or under-claiming early."},
+          {
+            "heading": "Earned Value Management",
+            "text": "The S-Curve is the visual backbone of Earned Value Management (EVM). Key metrics — Planned Value (PV), Earned Value (EV), and Actual Cost (AC) — are all plotted as curves. Schedule Variance (SV = EV − PV) and Cost Variance (CV = EV − AC) are the gaps between these curves."},
+          {
+            "heading": "Client Reporting",
+            "text": "S-Curves are the most widely understood project progress visualisation. Clients and stakeholders can quickly see whether the project is on track without understanding complex scheduling software."}
+        ]
+      },
+      "faqs": [
+        {"q": "What is an S-Curve in construction?", "a": "An S-Curve in construction is a graph showing cumulative project progress (cost, hours, or completion percentage) over time. It gets its name from the characteristic S shape — slow start (mobilisation), rapid middle (construction), and slow finish (commissioning). It is used to track schedule and budget performance against the plan."},
+        {"q": "How do you create an S-Curve for a construction project?", "a": "List all project phases with their durations and budget allocations. The S-Curve Calculator distributes each phase's cost across its duration using a realistic weighting (more weight in the middle), then accumulates them into the S shape. Enter your data and the calculator generates the curve automatically."},
+        {"q": "What does it mean if actual progress is below the planned S-Curve?", "a": "It means the project is behind schedule or under budget (or both). To distinguish between the two, compare both the Earned Value curve (work performed) and the Actual Cost curve against the Planned Value curve. If EV is below PV, you are behind schedule. If AC is above EV, you are over budget."},
+        {"q": "Can S-Curves predict project completion?", "a": "Yes. By extrapolating the current actual progress curve to 100%, you can estimate when the project will complete and what the final cost will be. This is more accurate than linear projection because it accounts for the natural acceleration and deceleration of project work."}
+      ],
+      "related": [
+        {"slug": "project-management", "name": "Project Management S-Curve"},
+        {"slug": "earned-value", "name": "Earned Value S-Curve"},
+        {"slug": "budget-tracking", "name": "Budget Tracking S-Curve"}
+      ]
+    },
+    {
+      "slug": "project-management",
+      "title": "S-Curve for Project Management",
+      "intro": "Use S-Curves to track project progress, forecast completion, and communicate status to stakeholders across any project type.",
+      "meta_description": "S-Curve calculator for project management. Track progress, forecast completion, and communicate status with free S-Curve tool for any project type.",
+      "category": "BusinessApplication",
+      "sitemap_priority": 0.7,
+      "background": {
+        "text": "The S-Curve is one of the most versatile tools in project management. Originally developed for construction, it is now used across IT, pharmaceutical, manufacturing, and consulting projects. Any project with phased work and cumulative progress can benefit from S-Curve tracking. The visual simplicity of the S-Curve makes it the preferred format for executive reporting and stakeholder communication.",
+        "subsections": [
+          {
+            "heading": "Beyond Construction: S-Curves in Every Industry",
+            "text": "IT projects use S-Curves to track sprint velocity and deployment progress. Pharmaceutical companies use them for clinical trial enrolment and regulatory milestones. Manufacturing uses them for production ramp-up. The underlying pattern — slow start, acceleration, deceleration — applies to virtually any project with sequential phases."
+          },
+          {
+            "heading": "The Baseline vs Actual Comparison",
+            "text": "The power of the S-Curve lies in comparing planned (baseline) progress against actual progress. The baseline is set before the project begins and represents the committed plan. As work proceeds, actual progress is overlaid. Divergences between the two curves are early warning signals that require management attention."
+          }
+        ]
+      },
+      "how_to_use": {
+        "steps": [
+          {"title": "Define project phases and milestones", "detail": "Break your project into 3–8 major phases. For each phase, estimate the duration and the percentage of total effort or budget it represents."},
+          {"title": "Enter the data into the S-Curve Calculator", "detail": "Input each phase with its name, duration, and weight. The calculator generates the baseline S-Curve showing planned cumulative progress."},
+          {"title": "Track actual progress regularly", "detail": "Update the calculator with actual progress at regular intervals (weekly or monthly). The actual curve will overlay the baseline."},
+          {"title": "Review variances and take action", "detail": "Where actual diverges from baseline, investigate the cause. Is the work behind schedule, over budget, or both? Early detection enables early corrective action."},
+          {"title": "Update forecasts", "detail": "Use the current trajectory to update completion date and final cost forecasts. Share these with stakeholders proactively."}
+        ]
+      },
+      "applications": {
+        "subsections": [
+          {
+            "heading": "IT and Software Projects",
+            "text": "Track development velocity, testing progress, and deployment milestones. S-Curves help predict release dates and identify when a project is heading for a delay before it becomes critical."
+          },
+          {
+            "heading": "Executive Dashboards",
+            "text": "S-Curves are ideal for C-suite reporting because they communicate complex project status in a single, intuitive chart. A project that is tracking above the baseline curve is clearly ahead; one below is clearly behind."},
+          {
+            "heading": "Portfolio Management",
+            "text": "Overlay S-Curves for multiple projects to see aggregate portfolio progress and resource demand. This helps identify resource conflicts and optimise allocation across the portfolio."}
+        ]
+      },
+      "faqs": [
+        {"q": "What is the difference between an S-Curve and a Gantt chart?", "a": "A Gantt chart shows individual tasks on a timeline — it is a schedule. An S-Curve shows cumulative progress over time — it is a performance measurement. They complement each other: the Gantt chart drives the schedule, and the S-Curve measures how well you are executing it."},
+        {"q": "How often should I update my S-Curve?", "a": "Monthly updates are standard for most projects. For shorter or more dynamic projects, weekly updates provide earlier warning of variances. The key is consistency — update at regular intervals and compare against the same baseline."},
+        {"q": "Can I use an S-Curve for agile projects?", "a": "Yes. Plot cumulative story points completed vs planned. Agile projects often show a flatter S-Curve with more consistent velocity, but the same principles of baseline comparison and variance analysis apply."}
+      ],
+      "related": [
+        {"slug": "construction", "name": "Construction S-Curve"},
+        {"slug": "earned-value", "name": "Earned Value S-Curve"},
+        {"slug": "budget-tracking", "name": "Budget Tracking S-Curve"}
+      ]
+    }
+  ]
+}

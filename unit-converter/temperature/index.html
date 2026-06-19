@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter | Nexus Web Tools</title>
+  <meta name="description" content="Free temperature converter. Convert between Celsius, Fahrenheit, and Kelvin instantly with conversion formulas, reference points, and scientific context.">
+  <link rel="canonical" href="https://nexuswebtools.com/unit-converter/temperature/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Temperature Converter">
+  <meta property="og:description" content="Free temperature converter. Convert between Celsius, Fahrenheit, and Kelvin instantly with conversion formulas, reference points, and scientific context.">
+  <meta property="og:url" content="https://nexuswebtools.com/unit-converter/temperature/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Web Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Temperature Converter">
+  <meta name="twitter:description" content="Free temperature converter. Convert between Celsius, Fahrenheit, and Kelvin instantly with conversion formulas, reference points, and scientific context.">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Temperature Converter",
+  "description": "Free temperature converter. Convert between Celsius, Fahrenheit, and Kelvin instantly with conversion formulas, reference points, and scientific context.",
+  "url": "https://nexuswebtools.com/unit-converter/temperature/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebApplication",
+    "name": "Unit Converter",
+    "url": "https://nexuswebtools.com/unit-converter/"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nexuswebtools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Unit Converter",
+      "item": "https://nexuswebtools.com/unit-converter/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Temperature Converter",
+      "item": "https://nexuswebtools.com/unit-converter/temperature/"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you convert Celsius to Fahrenheit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the Celsius temperature by 9/5, then add 32. For example, 25\u00b0C \u00d7 9/5 + 32 = 77\u00b0F. Our converter does this instantly and shows the formula used."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What temperature is the same in Celsius and Fahrenheit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u221240\u00b0C equals \u221240\u00b0F. This is the only point where the two scales intersect. It is extremely cold \u2014 roughly the temperature of a harsh Antarctic winter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the US use Fahrenheit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The US adopted Fahrenheit in the 18th century through British colonial influence and never switched to Celsius. The Fahrenheit scale offers finer granularity for weather reporting (each degree is smaller than a Celsius degree), which some argue makes it more intuitive for describing outdoor temperatures."
+      }
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="/style.css?v=1">
+  <style>
+    .niche-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%); padding: 2rem 1rem; text-align: center; border-radius: 8px; margin-bottom: 1.5rem; }
+    .niche-hero h1 { margin: 0 0 0.5rem; color: #1a1a2e; }
+    .niche-hero p { margin: 0 auto; color: #555; max-width: 600px; }
+    .cta-box { background: #fff; border: 2px solid #3b5bdb; border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
+    .cta-box a { display: inline-block; background: #3b5bdb; color: #fff; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+    .cta-box a:hover { background: #2b4bc8; }
+    .niche-content h2 { color: #1a1a2e; margin-top: 2rem; border-bottom: 2px solid #e8f0fe; padding-bottom: 0.3rem; }
+    .niche-content h3 { color: #2d3748; margin-top: 1.5rem; }
+    .niche-content p, .niche-content li { line-height: 1.7; color: #333; }
+    .niche-content ul { padding-left: 1.5rem; }
+    .niche-content ol.steps { padding-left: 1.5rem; }
+    .niche-content ol.steps li { margin-bottom: 0.75rem; }
+    .niche-content ol.steps li p { margin: 0.25rem 0 0; color: #555; font-size: 0.95rem; }
+    .niche-content ul li { margin-bottom: 0.5rem; }
+    details { background: #f8f9fa; border-radius: 6px; margin-bottom: 0.5rem; padding: 0.75rem 1rem; }
+    details summary { cursor: pointer; color: #1a1a2e; font-size: 1rem; }
+    details summary:hover { color: #3b5bdb; }
+    details p { margin: 0.5rem 0 0; color: #444; line-height: 1.6; }
+    .related-tools { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+    .related-tools h3 { margin-top: 0; }
+    .related-tools ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .related-tools li a { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 0.4rem 0.9rem; border-radius: 4px; text-decoration: none; color: #3b5bdb; font-size: 0.9rem; }
+    .related-tools li a:hover { border-color: #3b5bdb; background: #f0f4ff; }
+    .breadcrumb { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+    .breadcrumb a { color: #3b5bdb; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
+      <nav class="nav-ribbon">
+        <a href="/compound-interest/">Compound Interest Calculator</a>
+        <a href="/unit-converter/">Unit Converter</a>
+        <a href="/s-curve/">S-Curve Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container niche-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/unit-converter/">Unit Converter</a> &rsaquo;
+      <strong>Temperature Converter</strong>
+    </nav>
+
+    <section class="niche-hero">
+      <h1>Temperature Converter</h1>
+      <p>Convert between Celsius, Fahrenheit, and Kelvin temperature scales instantly with formulas and reference points.</p>
+    </section>
+
+    <div class="cta-box">
+      <p>Ready to calculate?</p>
+      <a href="/unit-converter/">&rsaquo; Open the Unit Converter</a>
+    </div>
+
+    <h2>Background</h2>
+      <p>Temperature measures the thermal energy of a substance. Three scales dominate: Celsius (used worldwide for everyday purposes), Fahrenheit (used in the US for weather and cooking), and Kelvin (used in science and engineering, where zero represents absolute zero). Understanding temperature conversion is essential for cooking, science, weather interpretation, and international communication.</p>
+    <h3>The Three Temperature Scales</h3>
+      <p>Celsius sets water freezing at 0° and boiling at 100°. Fahrenheit sets water freezing at 32° and boiling at 212°. Kelvin starts at absolute zero (−273.15°C) and uses the same degree spacing as Celsius. Each scale was developed for different reasons: Celsius for scientific convenience, Fahrenheit for precision in everyday weather, and Kelvin for thermodynamic calculations.</p>
+    <h3>Absolute Zero and Kelvin</h3>
+      <p>Absolute zero (0 K or −273.15°C) is the theoretical lowest possible temperature, where molecular motion ceases. The Kelvin scale is used in physics and chemistry because it directly represents thermal energy without negative numbers.</p>
+
+    <h2>How to Use This Calculator</h2>
+      <ol class="steps">
+        <li><strong>Open the Unit Converter</strong><p>Navigate to the converter and select &#x27;Temperature&#x27; from the category dropdown.</p></li>
+        <li><strong>Select the source scale</strong><p>Choose Celsius, Fahrenheit, or Kelvin as your starting scale.</p></li>
+        <li><strong>Enter the temperature value</strong><p>Type the number you want to convert. The result appears instantly in the other scales.</p></li>
+        <li><strong>Select the target scale</strong><p>Choose the scale you need. The converter shows all three scales simultaneously for reference.</p></li>
+      </ol>
+
+    <h2>Applications</h2>
+    <h3>Cooking and Baking</h3>
+      <p>Oven temperatures in recipes vary by country. An American recipe might specify 350°F, which converts to 175°C (actually 176.7°C, but ovens use 25°C increments). Converting correctly is critical for baking success.</p>
+    <h3>Weather and Travel</h3>
+      <p>When travelling between metric and imperial countries, converting temperature helps you understand weather forecasts and dress appropriately. 30°C is a hot day (86°F), while 0°C is freezing (32°F).</p>
+    <h3>Science and Engineering</h3>
+      <p>Scientific calculations often require Kelvin. Room temperature (22°C) is 295.15 K. Thermodynamic equations, gas laws, and material properties all use the Kelvin scale.</p>
+
+
+
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary><strong>How do you convert Celsius to Fahrenheit?</strong></summary>
+      <p>Multiply the Celsius temperature by 9/5, then add 32. For example, 25°C × 9/5 + 32 = 77°F. Our converter does this instantly and shows the formula used.</p>
+    </details>
+    <details>
+      <summary><strong>What temperature is the same in Celsius and Fahrenheit?</strong></summary>
+      <p>−40°C equals −40°F. This is the only point where the two scales intersect. It is extremely cold — roughly the temperature of a harsh Antarctic winter.</p>
+    </details>
+    <details>
+      <summary><strong>Why does the US use Fahrenheit?</strong></summary>
+      <p>The US adopted Fahrenheit in the 18th century through British colonial influence and never switched to Celsius. The Fahrenheit scale offers finer granularity for weather reporting (each degree is smaller than a Celsius degree), which some argue makes it more intuitive for describing outdoor temperatures.</p>
+    </details>
+
+
+    <div class="related-tools">
+      <h3>Related Calculators</h3>
+      <ul>
+        <li><a href="/unit-converter/c-to-f/">Celsius to Fahrenheit Converter</a></li>
+        <li><a href="/unit-converter/f-to-c/">Fahrenheit to Celsius Converter</a></li>
+        <li><a href="/unit-converter/length/">Length Converter</a></li>
+        <li><a href="/compound-interest/">Compound Interest Calculator</a></li>
+        <li><a href="/s-curve/">S-Curve Calculator</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nexus Web Tools. <a href="/compound-interest/">Compound Interest Calculator</a> &middot; <a href="/unit-converter/">Unit Converter</a> &middot; <a href="/s-curve/">S-Curve Calculator</a></p>
+    </div>
+  </footer>
+</body>
+</html>

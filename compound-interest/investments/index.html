@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest Investment Calculator | Nexus Web Tools</title>
+  <meta name="description" content="Calculate compound interest on investments. Project share portfolio, ETF, and managed fund growth with our free investment compound interest calculator.">
+  <link rel="canonical" href="https://nexuswebtools.com/compound-interest/investments/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Compound Interest Investment Calculator">
+  <meta property="og:description" content="Calculate compound interest on investments. Project share portfolio, ETF, and managed fund growth with our free investment compound interest calculator.">
+  <meta property="og:url" content="https://nexuswebtools.com/compound-interest/investments/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Web Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Compound Interest Investment Calculator">
+  <meta name="twitter:description" content="Calculate compound interest on investments. Project share portfolio, ETF, and managed fund growth with our free investment compound interest calculator.">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Compound Interest Investment Calculator",
+  "description": "Calculate compound interest on investments. Project share portfolio, ETF, and managed fund growth with our free investment compound interest calculator.",
+  "url": "https://nexuswebtools.com/compound-interest/investments/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebApplication",
+    "name": "Compound Interest Calculator",
+    "url": "https://nexuswebtools.com/compound-interest/"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nexuswebtools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Compound Interest Calculator",
+      "item": "https://nexuswebtools.com/compound-interest/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Compound Interest Investment Calculator",
+      "item": "https://nexuswebtools.com/compound-interest/investments/"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a realistic return on investments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For diversified Australian shares, a long-term average of 7\u20139% per annum (including reinvested dividends) is reasonable. International shares may return 8\u201310%. Bonds typically return 4\u20136%. These are historical averages \u2014 actual returns vary year to year and can be negative in any given year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I reinvest my dividends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for long-term growth. Reinvested dividends are a major driver of compound returns. Over 25 years, dividend reinvestment can add 50%+ to your total return compared to taking dividends as cash."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does market volatility affect compound returns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Short-term volatility has minimal impact on long-term compound returns. Markets have historically recovered from every downturn. In fact, regular contributions during downturns buy more units at lower prices, which enhances long-term compounding (dollar-cost averaging)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between nominal and real investment returns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nominal returns are the raw percentage your investment grows. Real returns subtract inflation. If your portfolio grows 8% and inflation is 3%, your real return is approximately 5%. Always consider real returns for long-term planning."
+      }
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="/style.css?v=1">
+  <style>
+    .niche-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%); padding: 2rem 1rem; text-align: center; border-radius: 8px; margin-bottom: 1.5rem; }
+    .niche-hero h1 { margin: 0 0 0.5rem; color: #1a1a2e; }
+    .niche-hero p { margin: 0 auto; color: #555; max-width: 600px; }
+    .cta-box { background: #fff; border: 2px solid #3b5bdb; border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
+    .cta-box a { display: inline-block; background: #3b5bdb; color: #fff; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+    .cta-box a:hover { background: #2b4bc8; }
+    .niche-content h2 { color: #1a1a2e; margin-top: 2rem; border-bottom: 2px solid #e8f0fe; padding-bottom: 0.3rem; }
+    .niche-content h3 { color: #2d3748; margin-top: 1.5rem; }
+    .niche-content p, .niche-content li { line-height: 1.7; color: #333; }
+    .niche-content ul { padding-left: 1.5rem; }
+    .niche-content ol.steps { padding-left: 1.5rem; }
+    .niche-content ol.steps li { margin-bottom: 0.75rem; }
+    .niche-content ol.steps li p { margin: 0.25rem 0 0; color: #555; font-size: 0.95rem; }
+    .niche-content ul li { margin-bottom: 0.5rem; }
+    details { background: #f8f9fa; border-radius: 6px; margin-bottom: 0.5rem; padding: 0.75rem 1rem; }
+    details summary { cursor: pointer; color: #1a1a2e; font-size: 1rem; }
+    details summary:hover { color: #3b5bdb; }
+    details p { margin: 0.5rem 0 0; color: #444; line-height: 1.6; }
+    .related-tools { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+    .related-tools h3 { margin-top: 0; }
+    .related-tools ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .related-tools li a { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 0.4rem 0.9rem; border-radius: 4px; text-decoration: none; color: #3b5bdb; font-size: 0.9rem; }
+    .related-tools li a:hover { border-color: #3b5bdb; background: #f0f4ff; }
+    .breadcrumb { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+    .breadcrumb a { color: #3b5bdb; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
+      <nav class="nav-ribbon">
+        <a href="/compound-interest/">Compound Interest Calculator</a>
+        <a href="/unit-converter/">Unit Converter</a>
+        <a href="/s-curve/">S-Curve Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container niche-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/compound-interest/">Compound Interest Calculator</a> &rsaquo;
+      <strong>Compound Interest Investment Calculator</strong>
+    </nav>
+
+    <section class="niche-hero">
+      <h1>Compound Interest Investment Calculator</h1>
+      <p>Project the growth of your investments with compound interest. Model shares, ETFs, managed funds, and recurring investment plans.</p>
+    </section>
+
+    <div class="cta-box">
+      <p>Ready to calculate?</p>
+      <a href="/compound-interest/">&rsaquo; Open the Compound Interest Calculator</a>
+    </div>
+
+    <h2>Background</h2>
+      <p>Investment growth is driven by compound returns — when your earnings (dividends, capital gains, interest) are reinvested, they generate their own earnings. This compounding effect is what turns modest, consistent contributions into substantial wealth over long periods. The Australian share market has returned an average of approximately 9.8% per annum over 30 years, with dividends reinvested.</p>
+    <h3>The Power of Reinvested Dividends</h3>
+      <p>Dividends may seem small — typically 3–5% yield on Australian shares — but when reinvested, they dramatically accelerate compounding. A $10,000 investment in the ASX 200 with dividends reinvested would have grown to approximately $92,000 over 25 years, compared to approximately $58,000 without dividend reinvestment.</p>
+    <h3>Dollar-Cost Averaging and Compounding</h3>
+      <p>Investing a fixed amount at regular intervals (dollar-cost averaging) combines naturally with compound interest. You buy more units when prices are low and fewer when high, while earlier purchases have more time to compound. This strategy reduces timing risk and maximises long-term compound growth.</p>
+
+    <h2>How to Use This Calculator</h2>
+      <p>Model your investment growth using our Compound Interest Calculator with these settings:</p>
+      <ol class="steps">
+        <li><strong>Enter your current investment portfolio value</strong><p>Include shares, ETFs, managed funds, and any other invested assets.</p></li>
+        <li><strong>Enter your regular investment contribution</strong><p>The amount you plan to invest each period. This could be a recurring ETF purchase, managed fund contribution, or share purchase plan.</p></li>
+        <li><strong>Set the contribution frequency</strong><p>Monthly is most common for regular investment plans. Some platforms allow fortnightly or weekly contributions.</p></li>
+        <li><strong>Enter your expected annual return</strong><p>For diversified Australian shares, 7–9% is a reasonable long-term assumption. For international shares, 8–10%. For bonds, 4–6%. Use conservative estimates for planning.</p></li>
+        <li><strong>Choose annual compounding</strong><p>Investment returns typically compound annually in practice, though the exact frequency depends on dividend reinvestment timing.</p></li>
+        <li><strong>Set your investment time horizon</strong><p>Investments should be evaluated over at least 5–7 years. Longer horizons (10–30 years) smooth out market volatility and show the full compounding effect.</p></li>
+      </ol>
+
+    <h2>Applications</h2>
+      <p>Investment compound interest calculations are essential for several planning scenarios:</p>
+    <h3>Portfolio Growth Projections</h3>
+      <p>See how your current portfolio and regular contributions will grow over time. This helps set realistic expectations and stay motivated during market downturns.</p>
+    <h3>Comparing Investment Options</h3>
+      <p>Run scenarios with different return rates to compare conservative (bonds), balanced, and growth (shares) investment strategies. See the trade-off between risk and long-term returns.</p>
+    <h3>Fire Movement Planning</h3>
+      <p>Financial Independence, Retire Early (FIRE) relies on aggressive saving and compound investment returns. Calculate how much you need to invest monthly to reach your FIRE number.</p>
+    <h3>Lump Sum vs Regular Investing</h3>
+      <p>Compare investing a lump sum now versus spreading it over 12 months. Historically, lump sum investing outperforms about 66% of the time, but regular investing reduces timing risk.</p>
+
+
+
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary><strong>What is a realistic return on investments?</strong></summary>
+      <p>For diversified Australian shares, a long-term average of 7–9% per annum (including reinvested dividends) is reasonable. International shares may return 8–10%. Bonds typically return 4–6%. These are historical averages — actual returns vary year to year and can be negative in any given year.</p>
+    </details>
+    <details>
+      <summary><strong>Should I reinvest my dividends?</strong></summary>
+      <p>Yes, for long-term growth. Reinvested dividends are a major driver of compound returns. Over 25 years, dividend reinvestment can add 50%+ to your total return compared to taking dividends as cash.</p>
+    </details>
+    <details>
+      <summary><strong>How does market volatility affect compound returns?</strong></summary>
+      <p>Short-term volatility has minimal impact on long-term compound returns. Markets have historically recovered from every downturn. In fact, regular contributions during downturns buy more units at lower prices, which enhances long-term compounding (dollar-cost averaging).</p>
+    </details>
+    <details>
+      <summary><strong>What is the difference between nominal and real investment returns?</strong></summary>
+      <p>Nominal returns are the raw percentage your investment grows. Real returns subtract inflation. If your portfolio grows 8% and inflation is 3%, your real return is approximately 5%. Always consider real returns for long-term planning.</p>
+    </details>
+
+
+    <div class="related-tools">
+      <h3>Related Calculators</h3>
+      <ul>
+        <li><a href="/compound-interest/retirement/">Retirement Calculator</a></li>
+        <li><a href="/compound-interest/dividend/">Dividend Calculator</a></li>
+        <li><a href="/compound-interest/etf/">ETF Calculator</a></li>
+        <li><a href="/compound-interest/savings/">Savings Calculator</a></li>
+        <li><a href="/unit-converter/">Unit Converter</a></li>
+        <li><a href="/s-curve/">S-Curve Calculator</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nexus Web Tools. <a href="/compound-interest/">Compound Interest Calculator</a> &middot; <a href="/unit-converter/">Unit Converter</a> &middot; <a href="/s-curve/">S-Curve Calculator</a></p>
+    </div>
+  </footer>
+</body>
+</html>

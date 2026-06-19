@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest Student Loan Calculator | Nexus Web Tools</title>
+  <meta name="description" content="Calculate compound interest on student loans. See total repayment amounts and how extra payments reduce interest costs. Free student loan calculator.">
+  <link rel="canonical" href="https://nexuswebtools.com/compound-interest/student-loan/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Compound Interest Student Loan Calculator">
+  <meta property="og:description" content="Calculate compound interest on student loans. See total repayment amounts and how extra payments reduce interest costs. Free student loan calculator.">
+  <meta property="og:url" content="https://nexuswebtools.com/compound-interest/student-loan/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Web Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Compound Interest Student Loan Calculator">
+  <meta name="twitter:description" content="Calculate compound interest on student loans. See total repayment amounts and how extra payments reduce interest costs. Free student loan calculator.">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Compound Interest Student Loan Calculator",
+  "description": "Calculate compound interest on student loans. See total repayment amounts and how extra payments reduce interest costs. Free student loan calculator.",
+  "url": "https://nexuswebtools.com/compound-interest/student-loan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebApplication",
+    "name": "Compound Interest Calculator",
+    "url": "https://nexuswebtools.com/compound-interest/"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nexuswebtools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Compound Interest Calculator",
+      "item": "https://nexuswebtools.com/compound-interest/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Compound Interest Student Loan Calculator",
+      "item": "https://nexuswebtools.com/compound-interest/student-loan/"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does HECS-HELP charge compound interest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, but it is indexed annually to inflation (CPI), which has a similar compounding effect. Indexation is applied to the total debt including previously indexed amounts, so the debt grows exponentially if repayments do not keep pace."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I pay off my student loan early?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For HECS-HELP, it depends on the indexation rate versus what you could earn by investing the money instead. When indexation is low (2\u20133%), investing typically outperforms early repayment. When indexation is high (5%+), voluntary repayment becomes more attractive. For private loans with high interest rates, early repayment almost always saves money."
+      }
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="/style.css?v=1">
+  <style>
+    .niche-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%); padding: 2rem 1rem; text-align: center; border-radius: 8px; margin-bottom: 1.5rem; }
+    .niche-hero h1 { margin: 0 0 0.5rem; color: #1a1a2e; }
+    .niche-hero p { margin: 0 auto; color: #555; max-width: 600px; }
+    .cta-box { background: #fff; border: 2px solid #3b5bdb; border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
+    .cta-box a { display: inline-block; background: #3b5bdb; color: #fff; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+    .cta-box a:hover { background: #2b4bc8; }
+    .niche-content h2 { color: #1a1a2e; margin-top: 2rem; border-bottom: 2px solid #e8f0fe; padding-bottom: 0.3rem; }
+    .niche-content h3 { color: #2d3748; margin-top: 1.5rem; }
+    .niche-content p, .niche-content li { line-height: 1.7; color: #333; }
+    .niche-content ul { padding-left: 1.5rem; }
+    .niche-content ol.steps { padding-left: 1.5rem; }
+    .niche-content ol.steps li { margin-bottom: 0.75rem; }
+    .niche-content ol.steps li p { margin: 0.25rem 0 0; color: #555; font-size: 0.95rem; }
+    .niche-content ul li { margin-bottom: 0.5rem; }
+    details { background: #f8f9fa; border-radius: 6px; margin-bottom: 0.5rem; padding: 0.75rem 1rem; }
+    details summary { cursor: pointer; color: #1a1a2e; font-size: 1rem; }
+    details summary:hover { color: #3b5bdb; }
+    details p { margin: 0.5rem 0 0; color: #444; line-height: 1.6; }
+    .related-tools { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+    .related-tools h3 { margin-top: 0; }
+    .related-tools ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .related-tools li a { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 0.4rem 0.9rem; border-radius: 4px; text-decoration: none; color: #3b5bdb; font-size: 0.9rem; }
+    .related-tools li a:hover { border-color: #3b5bdb; background: #f0f4ff; }
+    .breadcrumb { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+    .breadcrumb a { color: #3b5bdb; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
+      <nav class="nav-ribbon">
+        <a href="/compound-interest/">Compound Interest Calculator</a>
+        <a href="/unit-converter/">Unit Converter</a>
+        <a href="/s-curve/">S-Curve Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container niche-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/compound-interest/">Compound Interest Calculator</a> &rsaquo;
+      <strong>Compound Interest Student Loan Calculator</strong>
+    </nav>
+
+    <section class="niche-hero">
+      <h1>Compound Interest Student Loan Calculator</h1>
+      <p>See how compound interest affects your student loan. Calculate total repayment amounts and the impact of voluntary extra payments.</p>
+    </section>
+
+    <div class="cta-box">
+      <p>Ready to calculate?</p>
+      <a href="/compound-interest/">&rsaquo; Open the Compound Interest Calculator</a>
+    </div>
+
+    <h2>Background</h2>
+      <p>Student loans can accrue significant compound interest over the life of the loan, especially if repayments are deferred or only minimum payments are made. In Australia, HECS-HELP loans are indexed to inflation rather than charged commercial interest, but the compounding effect of indexation still increases the debt over time. For private student loans or overseas loans with commercial interest rates, the compounding effect is much more pronounced.</p>
+    <h3>HECS-HELP Indexation vs Compound Interest</h3>
+      <p>Australian HECS-HELP loans do not charge interest in the traditional sense. Instead, they are indexed annually to inflation (CPI). In 2023, indexation was 7.1% — higher than many commercial interest rates. While technically not compound interest, indexation compounds because it is applied to the total debt including previously indexed amounts.</p>
+    <h3>Private Student Loan Compounding</h3>
+      <p>Private student loans and international student loans typically charge 5–12% interest that compounds during the repayment period. Some loans even compound during the study period (capitalised interest), meaning you graduate with a larger balance than you borrowed.</p>
+
+    <h2>How to Use This Calculator</h2>
+      <ol class="steps">
+        <li><strong>Enter your total student loan balance</strong><p>Include all loans — HECS-HELP, private loans, and any overseas student debt.</p></li>
+        <li><strong>Set the interest or indexation rate</strong><p>For HECS-HELP, use the latest CPI indexation rate. For private loans, use the stated interest rate.</p></li>
+        <li><strong>Choose annual compounding</strong><p>HECS-HELP compounds annually (June indexation). Private loans typically compound monthly.</p></li>
+        <li><strong>Enter your regular repayment as a negative contribution</strong><p>The calculator models growth — for a loan, you want to see how the balance decreases with repayments over time.</p></li>
+        <li><strong>Set the repayment period</strong><p>Enter the number of years until the loan is fully repaid.</p></li>
+      </ol>
+
+    <h2>Applications</h2>
+    <h3>Voluntary Repayment Analysis</h3>
+      <p>Calculate how making voluntary repayments above the minimum reduces total interest and shortens the loan term. On a $30,000 HECS debt with 4% indexation, a $5,000 voluntary repayment can save thousands in future indexation.</p>
+    <h3>Loan Comparison</h3>
+      <p>Compare the total cost of a HECS-HELP loan (indexed) versus a private student loan (interest-bearing) for the same course fee.</p>
+
+
+
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary><strong>Does HECS-HELP charge compound interest?</strong></summary>
+      <p>No, but it is indexed annually to inflation (CPI), which has a similar compounding effect. Indexation is applied to the total debt including previously indexed amounts, so the debt grows exponentially if repayments do not keep pace.</p>
+    </details>
+    <details>
+      <summary><strong>Should I pay off my student loan early?</strong></summary>
+      <p>For HECS-HELP, it depends on the indexation rate versus what you could earn by investing the money instead. When indexation is low (2–3%), investing typically outperforms early repayment. When indexation is high (5%+), voluntary repayment becomes more attractive. For private loans with high interest rates, early repayment almost always saves money.</p>
+    </details>
+
+
+    <div class="related-tools">
+      <h3>Related Calculators</h3>
+      <ul>
+        <li><a href="/compound-interest/savings/">Savings Calculator</a></li>
+        <li><a href="/compound-interest/mortgage/">Mortgage Calculator</a></li>
+        <li><a href="/compound-interest/debt-payoff/">Debt Payoff Calculator</a></li>
+        <li><a href="/unit-converter/">Unit Converter</a></li>
+        <li><a href="/s-curve/">S-Curve Calculator</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nexus Web Tools. <a href="/compound-interest/">Compound Interest Calculator</a> &middot; <a href="/unit-converter/">Unit Converter</a> &middot; <a href="/s-curve/">S-Curve Calculator</a></p>
+    </div>
+  </footer>
+</body>
+</html>
