@@ -411,6 +411,10 @@
         {
           "heading": "Examples of How to Use the Compound Interest Calculator for Different Types of Investments",
           "text": "For example, let's say you want to calculate the compound interest on a $10,000 investment in a high-yield savings account over a period of 5 years with an annual interest rate of 2%. Using the calculator, you can enter these details and see that the total value of your investment after 5 years would be approximately $11,468. Alternatively, let's say you want to calculate the compound interest on a $50,000 investment in a rental property over a period of 10 years with an annual rent increase of 3%. Using the calculator, you can enter these details and see that the total value of your investment after 10 years would be approximately $96,472."
+        },
+        {
+          "heading": "Calculating Total Cost of Investment",
+          "text": "For example, let's say you invested $10,000 in a stock that increased in value to $12,000. Using the calculator, you can determine the total cost of your investment by subtracting the initial investment amount from the final value. In this case, the total cost would be $2,000 ($12,000 - $10,000)."
         }
       ],
       "faqs": [
@@ -621,19 +625,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Term Deposit planning",
-            "text": "Use the tool to plan how term deposit fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Term Deposit optimization",
-            "text": "Compare alternative rates and frequencies for term deposit to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Investment Strategies for Retirement",
+          "text": "For retirees, a term deposit can be an attractive investment option due to its predictable returns and low risk. A term deposit calculator can help you determine the optimal term length and interest rate to maximize your returns while minimizing your risk exposure. For example, if you're 65 years old and want to generate $20,000 in annual retirement income, a 5-year term deposit with an interest rate of 3% per year could provide you with $400 per month in interest payments. This can help supplement your other sources of retirement income and ensure that you have enough money to cover your living expenses."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $10,000 grow to at 3.5% per annum over 2 years for term deposit?",
@@ -652,6 +649,16 @@
         {
           "slug": "term-deposit",
           "name": "Term Deposit Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the term deposit calculator to compare different banks' term deposit rates?",
+          "a": "Yes, you can use our term deposit calculator to compare different banks' term deposit rates. Simply enter the interest rates and terms of each bank's term deposit offer into the calculator and it will show you which bank offers the best deal based on your investment goals and risk tolerance."
+        },
+        {
+          "q": "How does the term deposit calculator take inflation into account?",
+          "a": "Our term deposit calculator assumes a constant inflation rate of 2% per year. However, you can adjust this rate to reflect your own expectations of future inflation. This will help you make more accurate projections of your investment's purchasing power over time."
         }
       ]
     },
