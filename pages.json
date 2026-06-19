@@ -54,19 +54,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Savings planning",
-            "text": "Use the tool to plan how savings fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Savings optimization",
-            "text": "Compare alternative rates and frequencies for savings to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Examples of How to Use the Compound Interest Calculator",
+          "text": "You can use our compound interest calculator to determine the future value of a savings account, an investment portfolio, or even a student loan. For example, you could enter the initial amount of money in your savings account, the annual interest rate, and the number of years you want to save, and the calculator will show you how much that money is expected to grow over time. Alternatively, you can use the calculator to determine the total cost of a loan, including the interest payments, by entering the principal amount, interest rate, and loan term."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $5,000 grow to at 2.5% per annum over 2 years for savings?",
@@ -85,6 +78,16 @@
         {
           "slug": "savings",
           "name": "Savings Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "How does the compound interest calculator work?",
+          "a": "Our compound interest calculator uses a formula to calculate the future value of an investment based on the principal amount, interest rate, and time. The formula takes into account the power of compounding, which can significantly increase the value of your investment over time."
+        },
+        {
+          "q": "Can I use the compound interest calculator for non-investment purposes?",
+          "a": "Yes, our compound interest calculator can be used for any type of loan or debt, as well as for savings goals. It's a versatile tool that can help you understand the impact of compounding on any type of financial situation."
         }
       ]
     },
@@ -142,19 +145,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Mortgage planning",
-            "text": "Use the tool to plan how mortgage fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Mortgage optimization",
-            "text": "Compare alternative rates and frequencies for mortgage to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Example Commercial Mortgage Application",
+          "text": "For example, let's say you want to purchase a commercial building for $1 million with a 20% down payment. Based on current market rates, the monthly mortgage payment would be approximately $5,300 over a 30-year term. This translates to an annual interest rate of 4.5% and a total cost of $1.2 million over the life of the loan. However, please note that commercial mortgages often have different interest rates and terms than residential mortgages, so it's important to consult with a commercial mortgage lender for the most accurate estimate."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $6,000 grow to at 2.7% per annum over 3 years for mortgage?",
@@ -173,6 +169,16 @@
         {
           "slug": "mortgage",
           "name": "Mortgage Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the mortgage calculator for a commercial property?",
+          "a": "Yes, our mortgage calculator can be used to estimate the costs associated with purchasing or refinancing a commercial property. Please note that commercial mortgages have different terms and requirements than residential mortgages."
+        },
+        {
+          "q": "How does the mortgage calculator account for property taxes?",
+          "a": "Our mortgage calculator takes into account the annual property taxes for the loan amount and term. Please enter the property tax rate as a percentage to get an accurate estimate."
         }
       ]
     },
@@ -230,19 +236,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Retirement planning",
-            "text": "Use the tool to plan how retirement fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Retirement optimization",
-            "text": "Compare alternative rates and frequencies for retirement to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Examples of How Much You Could Save with Compound Interest",
+          "text": "For example, let's say you start saving for retirement at age 30 and contribute $5,000 per year until age 65. If the funds earn an average annual return of 7%, by the time you reach retirement age, you could have over $1.2 million in savings. This is just one example, but the power of compound interest can significantly impact your retirement savings."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $7,000 grow to at 2.9% per annum over 4 years for retirement?",
@@ -261,6 +260,16 @@
         {
           "slug": "retirement",
           "name": "Retirement Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "How does compounding time affect my retirement savings?",
+          "a": "Compounding time can significantly impact your retirement savings. The longer you give your money to grow, the more time it has to accumulate interest and grow. For example, if you start saving for retirement at age 25 and don't touch the funds until age 65, you could end up with over $1 million in savings, assuming an average annual return of 7%."
+        },
+        {
+          "q": "Can I use a retirement calculator to estimate my Social Security benefits?",
+          "a": "Yes, many retirement calculators allow you to input your expected Social Security benefits to help you better estimate your overall retirement income. For example, if you expect to receive $20,000 in Social Security benefits per year, the calculator can adjust your other income sources accordingly."
         }
       ]
     },
@@ -406,19 +415,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Superannuation planning",
-            "text": "Use the tool to plan how superannuation fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Superannuation optimization",
-            "text": "Compare alternative rates and frequencies for superannuation to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Additional Examples of How to Use the Calculator",
+          "text": "For example, if you're 35 years old and want to know how much you need to save each month to reach your retirement goal of $1 million by age 65, you can use our calculator to determine that you need to save approximately $400 per month. Or, if you're 45 years old and want to know how much you need to save each month to catch up on lost time and reach your retirement goal by age 70, you can use the calculator to determine that you need to save approximately $600 per month."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $9,000 grow to at 3.3% per annum over 6 years for superannuation?",
@@ -437,6 +439,16 @@
         {
           "slug": "superannuation",
           "name": "Superannuation Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What if I want to calculate my superannuation balance at a future date?",
+          "a": "Our compound interest calculator allows you to enter a future date and see how much your superannuation balance could grow by then."
+        },
+        {
+          "q": "How does the calculator handle taxation of my superannuation contributions?",
+          "a": "Our calculator takes into account the different tax rates for superannuation contributions, so you can get an accurate estimate of how much your superannuation balance will grow over time."
         }
       ]
     },
