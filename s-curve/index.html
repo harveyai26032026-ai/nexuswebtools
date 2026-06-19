@@ -284,9 +284,16 @@ function draw(){
   const tbody=document.querySelector('#summaryTable tbody');
 
   // Compute S-curve values
+  // Raw logistic: starts above 'start' and ends below 'end' due to asymptote.
+  // Normalise so the curve passes exactly through (0, start) and (period, end).
+  const rawStart=1/(1+Math.exp(-steep*(0-period/2)));
+  const rawEnd=1/(1+Math.exp(-steep*(period-period/2)));
+  const rawRange=rawEnd-rawStart;
   const values=[];
   for(let i=0;i<=period;i++){
-    const logistic=start+(end-start)/(1+Math.exp(-steep*(i-period/2)));
+    const raw=1/(1+Math.exp(-steep*(i-period/2)));
+    const normalised=rawRange!==0?(raw-rawStart)/rawRange:0;
+    const logistic=start+normalised*(end-start);
     values.push(logistic);
   }
 
