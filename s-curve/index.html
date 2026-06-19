@@ -6,7 +6,7 @@
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4562423029265065" crossorigin="anonymous"></script>
 <title>S‑Curve Cash‑Flow Model – Nexus Web Tools</title>
-<meta name="description" content="Interactive S‑curve model for project cash‑flow forecasting. Adjust period, steepness, values and units to visualise financing needs.">
+<meta name="description" content="Interactive S‑curve model for project cash‑flow forecasting. Adjust period, steepness, values and units to visualise financing needs. With grid lines and axis labels.">
 <link rel="canonical" href="https://nexuswebtools.com/s-curve/">
 <link rel="icon" href="../favicon.webp" type="image/webp">
 <link rel="apple-touch-icon" href="../favicon.svg">
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Nexus Web Tools">
 <meta property="og:locale" content="en">
 <meta property="og:title" content="S‑Curve Cash‑Flow Model – Nexus Web Tools">
-<meta property="og:description" content="Interactive S‑curve model for project cash‑flow forecasting.">
+<meta property="og:description" content="Interactive S‑curve model for project cash‑flow forecasting with grid lines and axis labels.">
 <meta property="og:url" content="https://nexuswebtools.com/s-curve/">
 <meta property="og:image" content="https://nexuswebtools.com/og.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -32,6 +32,27 @@
   table.ref tbody tr:hover td{background:#eef2ff}
   #summary{margin-top:20px}
   #summary h2{margin-bottom:6px}
+  /* Chart area */
+  .chart-wrap{position:relative;width:100%;margin:1.5rem 0}
+  .chart-wrap svg{display:block;width:100%;height:auto}
+  /* FAQ + Applications */
+  .content-section{margin-top:2.5rem}
+  .content-section h2{color:#1a1a2e;border-bottom:2px solid #e8f0fe;padding-bottom:.3rem;margin-bottom:1rem}
+  .content-section h3{color:#2d3748;margin-top:1.5rem;margin-bottom:.5rem}
+  .content-section p,.content-section li{line-height:1.7;color:#333}
+  .content-section ul{padding-left:1.5rem}
+  .content-section ul li{margin-bottom:.5rem}
+  details{background:#f8f9fa;border-radius:6px;margin-bottom:.5rem;padding:.75rem 1rem}
+  details summary{cursor:pointer;color:#1a1a2e;font-size:1rem;font-weight:600}
+  details summary:hover{color:#3b5bdb}
+  details p{margin:.5rem 0 0;color:#444;line-height:1.6}
+  /* Related tools */
+  .related-tools{background:#f8f9fa;border-radius:8px;padding:1.5rem;margin:2rem 0 0}
+  .related-tools h2{margin-top:0;color:#1a1a2e;border-bottom:2px solid #e8f0fe;padding-bottom:.3rem}
+  .related-links{display:flex;flex-wrap:wrap;gap:.5rem}
+  .related-links a{display:inline-block;background:#fff;border:1px solid #ddd;padding:.4rem .9rem;border-radius:4px;text-decoration:none;color:#3b5bdb;font-size:.9rem}
+  .related-links a:hover{border-color:#3b5bdb;background:#f0f4ff}
+  @media(max-width:600px){.related-links a{font-size:.8rem;padding:.3rem .6rem}}
 </style>
 <script type="application/ld+json">
 {
@@ -39,20 +60,28 @@
   "@type": "WebApplication",
   "name": "S‑Curve Cash‑Flow Model",
   "url": "https://nexuswebtools.com/s-curve/",
-  "description": "Interactive tool to model project cash‑flow using an S‑curve.",
+  "description": "Interactive tool to model project cash‑flow using an S‑curve with axis labels, grid lines, and a summary table.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "All",
-  "browserRequirements": "JavaScript"
+  "browserRequirements": "JavaScript",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
 }
 </script>
-<style>
-.related-tools { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin: 2rem 0 0; }
-.related-tools h2 { margin-top: 0; color: #1a1a2e; border-bottom: 2px solid #e8f0fe; padding-bottom: 0.3rem; }
-.related-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.related-links a { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 0.4rem 0.9rem; border-radius: 4px; text-decoration: none; color: #3b5bdb; font-size: 0.9rem; }
-.related-links a:hover { border-color: #3b5bdb; background: #f0f4ff; }
-@media (max-width: 600px) { .related-links a { font-size: 0.8rem; padding: 0.3rem 0.6rem; } }
-</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is an S-Curve in project management?","acceptedAnswer":{"@type":"Answer","text":"An S-Curve is a graph of cumulative progress (cost, hours, or physical completion) plotted against time. It gets its name from the characteristic S shape: slow progress at the start during mobilisation, rapid gains in the middle during peak construction, and a flattening tail as the project wraps up. It is the standard visual tool for comparing planned vs actual progress and forecasting completion."}},
+    {"@type":"Question","name":"How do you create an S-Curve?","acceptedAnswer":{"@type":"Answer","text":"Break your project into phases, assign duration and budget to each, then plot cumulative cost over time. The logistic function used in this calculator generates the curve automatically — just set the number of periods, steepness, start and end values. You can overlay actual progress data to track variances."}},
+    {"@type":"Question","name":"What does the steepness parameter control?","acceptedAnswer":{"@type":"Answer","text":"The steepness parameter controls how quickly the curve transitions from slow to fast. A low steepness (0.1–0.3) produces a gentle, almost linear curve typical of projects with a long ramp-up. A high steepness (0.8–1.5) creates a sharp S with an abrupt acceleration phase, typical of projects that mobilise quickly and have a concentrated work period."}},
+    {"@type":"Question","name":"What is the difference between planned and actual S-Curves?","acceptedAnswer":{"@type":"Answer","text":"The planned (baseline) S-Curve is set before the project begins and represents expected progress. The actual S-Curve overlays real cumulative data as the project proceeds. When actual falls below planned, the project is behind schedule or under budget. When actual is above, it is ahead or over budget. The gap between the two is the variance."}},
+    {"@type":"Question","name":"How are S-Curves used for cash flow forecasting?","acceptedAnswer":{"@type":"Answer","text":"The S-Curve shows cumulative expenditure over time, which directly maps to cash outflows. By identifying when the curve is steepest (typically the middle third of the project), you can predict peak cash requirements and arrange financing in advance. The summary table shows period-by-period values so you can see exactly how much capital is needed each interval."}},
+    {"@type":"Question","name":"Can S-Curves predict project completion?","acceptedAnswer":{"@type":"Answer","text":"Yes. By extrapolating the actual progress curve to 100%, you can estimate both the expected completion date and the final cost. This is more accurate than linear extrapolation because it accounts for the S-shaped progress pattern. Many project management standards (including PMI's PMBOK) recommend S-Curve analysis for forecasting."}},
+    {"@type":"Question","name":"What is the logistic function behind the S-Curve?","acceptedAnswer":{"@type":"Answer","text":"This calculator uses the logistic function: y = start + (end − start) / (1 + e^(−steepness × (t − midpoint))). The midpoint parameter is set to half the total period. The steepness controls the transition rate. This is a standard model for S-shaped growth used in biology, economics, and engineering."}}
+  ]
+}
+</script>
 </head>
 <body>
 <header class="ribbon">
@@ -68,7 +97,7 @@
 <main>
   <section class="hero">
     <h1>S‑Curve Cash‑Flow Model</h1>
-    <p class="lede">Adjust period, steepness, start/end values and units to visualise project cash‑flow over time.</p>
+    <p class="lede">Adjust period, steepness, start/end values and units to visualise project cash‑flow over time. The chart includes axis labels and grid lines so you can read exact values at any point.</p>
   </section>
   <section id="controls" aria-label="Model controls">
     <div class="grid">
@@ -80,7 +109,9 @@
     </div>
   </section>
   <section id="chart" aria-label="S‑curve chart">
-    <svg id="svg" width="100%" height="400" viewBox="0 0 600 400" preserveAspectRatio="none"></svg>
+    <div class="chart-wrap">
+      <svg id="svg" viewBox="0 0 660 420" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
   </section>
   <section id="summary" aria-label="Cash‑flow summary table">
     <h2>Cash‑flow summary</h2>
@@ -89,9 +120,101 @@
       <tbody></tbody>
     </table>
   </section>
-<section class="related-tools">
-  <h2>Related Calculators</h2>
-  <div class="related-links">
+
+  <!-- ─── How to Use ─── -->
+  <section class="content-section" id="how-to-use">
+    <h2>How to Use This S‑Curve Calculator</h2>
+    <ol>
+      <li><strong>Set the period.</strong> Enter the total number of time intervals (months, quarters, etc.) your project spans.</li>
+      <li><strong>Adjust the steepness.</strong> Low values (0.1–0.3) give a gentle curve; high values (0.8–1.5) give a sharp S. This controls how quickly the project transitions from slow mobilisation to peak activity.</li>
+      <li><strong>Enter start and end values.</strong> Set the cumulative value at the beginning (usually 0) and at project completion (total budget, total hours, or 100%).</li>
+      <li><strong>Choose a unit.</strong> Select $, k$, or % to label the Y-axis and summary table appropriately.</li>
+      <li><strong>Read the chart.</strong> The grid lines and axis labels show exact values. Hover over the curve or check the summary table for period-by-period numbers.</li>
+      <li><strong>Overlay actual progress.</strong> As your project proceeds, compare actual cumulative values against the baseline curve to track variance.</li>
+    </ol>
+  </section>
+
+  <!-- ─── Applications ─── -->
+  <section class="content-section" id="applications">
+    <h2>Applications of the S‑Curve</h2>
+
+    <h3>Construction and Engineering Projects</h3>
+    <p>Construction projects are the classic use case for S-Curves. A typical building project starts slowly during site establishment and approvals (5–15% of total budget in the first 20% of time), accelerates during the main build (50–70% of budget in the middle 40% of time), and decelerates during finishing and commissioning. The S-Curve captures this pattern precisely, enabling accurate cash flow forecasting and progress tracking. For a $50M construction project over 24 months, the S-Curve might show peak monthly expenditure of $4–5M around month 12–14, compared to only $1M in months 1–3.</p>
+
+    <h3>Cash Flow Forecasting and Project Finance</h3>
+    <p>The S-Curve directly maps to cash outflows, making it essential for project finance. By identifying when the curve is steepest, you can predict peak cash requirements and arrange financing in advance. For example, a $200M infrastructure project might need $30–40M in a single quarter during peak construction — the S-Curve quantifies this precisely so lenders can schedule drawdown tranches. The gap between cumulative expenditure (the S-Curve) and cumulative revenue (which may not start until after construction) defines the funding requirement that must be covered by equity or debt.</p>
+
+    <h3>Earned Value Management (EVM)</h3>
+    <p>In EVM, the S-Curve is the visual backbone. Three curves are plotted together: Planned Value (PV, the budget baseline), Earned Value (EV, the value of work actually completed), and Actual Cost (AC, the money actually spent). Schedule Variance (SV = EV − PV) and Cost Variance (CV = EV − AC) are visible as the gaps between these curves. An SPI (Schedule Performance Index) below 1.0 means the project is behind schedule; a CPI below 1.0 means it is over budget. The S-Curve makes these abstract metrics immediately visible.</p>
+
+    <h3>Budget Tracking and Variance Analysis</h3>
+    <p>Comparing actual cumulative spend against the planned S-Curve baseline reveals variances months before they appear in simple budget-vs-actual reports. A $10M project that has spent $4M by month 6 when the baseline expected $3M is 33% over curve — a significant early warning. Unlike linear budget comparisons, the S-Curve accounts for the natural spending pattern, so expected front-loaded or back-loaded spending doesn't trigger false alarms.</p>
+
+    <h3>Resource Planning and Workforce Scheduling</h3>
+    <p>The derivative of the S-Curve is a bell curve showing resource demand rate. Peak workforce demand occurs at the inflection point of the S. For a 24-month project with 500 workers at peak, recruitment must start 3 months before the steep section. Equipment rental, material deliveries, and site facilities all follow the same pattern. Plotting the derivative alongside the S-Curve gives a complete resource planning picture.</p>
+
+    <h3>Financial Forecasting and Market Adoption</h3>
+    <p>Beyond project management, S-Curves model how new products, technologies, and markets grow. The same logistic function describes customer adoption (the Bass diffusion model), revenue growth for startups, and technology lifecycle curves. A SaaS company growing 10% monthly will eventually see growth decelerate as the market saturates — the S-Curve predicts when this happens and helps plan the next product launch.</p>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="content-section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>What is an S-Curve in project management?</summary>
+      <p>An S-Curve is a graph of cumulative progress (cost, hours, or physical completion) plotted against time. It gets its name from the characteristic S shape: slow progress at the start during mobilisation, rapid gains in the middle during peak construction, and a flattening tail as the project wraps up. It is the standard visual tool for comparing planned vs actual progress and forecasting completion.</p>
+    </details>
+
+    <details>
+      <summary>How do you create an S-Curve?</summary>
+      <p>Break your project into phases, assign duration and budget to each, then plot cumulative cost over time. The logistic function used in this calculator generates the curve automatically — just set the number of periods, steepness, start and end values. You can overlay actual progress data to track variances.</p>
+    </details>
+
+    <details>
+      <summary>What does the steepness parameter control?</summary>
+      <p>The steepness parameter controls how quickly the curve transitions from slow to fast. A low steepness (0.1–0.3) produces a gentle, almost linear curve typical of projects with a long ramp-up. A high steepness (0.8–1.5) creates a sharp S with an abrupt acceleration phase, typical of projects that mobilise quickly and have a concentrated work period.</p>
+    </details>
+
+    <details>
+      <summary>What is the difference between planned and actual S-Curves?</summary>
+      <p>The planned (baseline) S-Curve is set before the project begins and represents expected progress. The actual S-Curve overlays real cumulative data as the project proceeds. When actual falls below planned, the project is behind schedule or under budget. When actual is above, it is ahead or over budget. The gap between the two is the variance.</p>
+    </details>
+
+    <details>
+      <summary>How are S-Curves used for cash flow forecasting?</summary>
+      <p>The S-Curve shows cumulative expenditure over time, which directly maps to cash outflows. By identifying when the curve is steepest (typically the middle third of the project), you can predict peak cash requirements and arrange financing in advance. The summary table shows period-by-period values so you can see exactly how much capital is needed each interval.</p>
+    </details>
+
+    <details>
+      <summary>Can S-Curves predict project completion?</summary>
+      <p>Yes. By extrapolating the actual progress curve to 100%, you can estimate both the expected completion date and the final cost. This is more accurate than linear extrapolation because it accounts for the S-shaped progress pattern. Many project management standards (including PMI's PMBOK) recommend S-Curve analysis for forecasting.</p>
+    </details>
+
+    <details>
+      <summary>What is the logistic function behind the S-Curve?</summary>
+      <p>This calculator uses the logistic function: y = start + (end − start) / (1 + e<sup>−steepness × (t − midpoint)</sup>). The midpoint is set to half the total period. The steepness controls the transition rate. This is a standard model for S-shaped growth used in biology, economics, and engineering.</p>
+    </details>
+
+    <details>
+      <summary>How do I read values off the chart?</summary>
+      <p>The chart now includes grid lines and axis labels. The X-axis (horizontal) shows time intervals. The Y-axis (vertical) shows cumulative values in your chosen unit. Each grid line intersection represents a known value. For exact numbers, refer to the cash-flow summary table below the chart, which lists period value, cumulative, and remaining for every interval.</p>
+    </details>
+
+    <details>
+      <summary>What steepness value should I use?</summary>
+      <p>It depends on your project type. Construction projects typically use 0.3–0.6. Software/IT projects often use 0.2–0.4 (flatter curves due to agile sprints). Infrastructure projects with long mobilisation may use 0.2–0.4. Mining and oil &amp; gas projects with sharp EPC phases may use 0.5–0.8. Adjust until the shape matches your project's expected spending pattern.</p>
+    </details>
+
+    <details>
+      <summary>Why does the S-Curve flatten at the start and end?</summary>
+      <p>The flat start represents mobilisation — setting up the site, procuring materials, and ramping up the workforce. Little visible progress is made even though costs are incurred. The flat end represents commissioning, testing, punch-list completion, and handover. Work is winding down and fewer resources are deployed. This pattern is natural and expected; it is not a sign of inefficiency.</p>
+    </details>
+  </section>
+
+  <section class="related-tools">
+    <h2>Related Calculators</h2>
+    <div class="related-links">
       <a href="/s-curve/construction/">S-Curve for Construction Projects</a>
       <a href="/s-curve/project-management/">S-Curve for Project Management</a>
       <a href="/s-curve/financial-forecasting/">S-Curve for Financial Forecasting</a>
@@ -104,8 +227,8 @@
       <a href="/s-curve/earned-value/">S-Curve for Earned Value Management</a>
       <a href="/s-curve/cash-flow/">S-Curve for Cash Flow Projection</a>
       <a href="/s-curve/resource-planning/">S-Curve for Resource Planning</a>
-  </div>
-</section>
+    </div>
+  </section>
 
 </main>
 <footer>
@@ -115,59 +238,131 @@
 <script>
 function fmt(n,d){return n.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})}
 
-function draw(){
-  const period = Math.max(1, parseInt(document.getElementById('period').value));
-  const steep = parseFloat(document.getElementById('steepness').value)||0;
-  const start = parseFloat(document.getElementById('startVal').value)||0;
-  const end = parseFloat(document.getElementById('endVal').value)||0;
-  const unit = document.getElementById('unit').value;
-  const svg = document.getElementById('svg');
-  const tbody = document.querySelector('#summaryTable tbody');
+/* ── Chart constants ── */
+const ML=70, MR=20, MT=20, MB=50;   // margins: left, right, top, bottom
+const CW=660, CH=420;                // total SVG size
+const PW=CW-ML-MR, PH=CH-MT-MB;    // plot area
 
-  // compute S‑curve values for each interval
-  const values = [];
+function el(tag,attrs){
+  const e=document.createElementNS('http://www.w3.org/2000/svg',tag);
+  for(const[k,v]of Object.entries(attrs)) e.setAttribute(k,v);
+  return e;
+}
+
+/* ── Nice axis ticks ── */
+function niceRange(lo,hi,count){
+  if(lo===hi) return [lo];
+  const range=hi-lo;
+  const rough=range/count;
+  const mag=Math.pow(10,Math.floor(Math.log10(rough)));
+  let step;
+  const r=rough/mag;
+  if(r<=1.5) step=1*mag;
+  else if(r<=3) step=2*mag;
+  else if(r<=7) step=5*mag;
+  else step=10*mag;
+  const start=Math.ceil(lo/step)*step;
+  const ticks=[];
+  for(let v=start;v<=hi+step*0.001;v+=step) ticks.push(parseFloat(v.toPrecision(12)));
+  return ticks;
+}
+
+function fmtTick(v,unit){
+  if(Math.abs(v)>=1e6) return (v/1e6).toFixed(1)+'M'+unit;
+  if(Math.abs(v)>=1e3) return (v/1e3).toFixed(1)+'k'+unit;
+  if(Number.isInteger(v)) return v+unit;
+  return v.toFixed(1)+unit;
+}
+
+function draw(){
+  const period=Math.max(1,parseInt(document.getElementById('period').value));
+  const steep=parseFloat(document.getElementById('steepness').value)||0;
+  const start=parseFloat(document.getElementById('startVal').value)||0;
+  const end=parseFloat(document.getElementById('endVal').value)||0;
+  const unit=document.getElementById('unit').value;
+  const svg=document.getElementById('svg');
+  const tbody=document.querySelector('#summaryTable tbody');
+
+  // Compute S-curve values
+  const values=[];
   for(let i=0;i<=period;i++){
-    const logistic = start + (end-start)/(1+Math.exp(-steep*(i - period/2)));
+    const logistic=start+(end-start)/(1+Math.exp(-steep*(i-period/2)));
     values.push(logistic);
   }
 
-  // ---- SVG chart ----
-  const points = values.map((y,i) => {
-    const x = (i/period)*600;
-    const yPx = 400 - ((y-start)/(end-start||1))*400;
-    return {x, y:yPx};
-  });
-  const pathData = points.map((p,i)=> (i===0? 'M':'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' ');
+  const yMin=Math.min(start,Math.min(...values));
+  const yMax=Math.max(end,Math.max(...values));
+  const yPad=(yMax-yMin)*0.05||1;
+  const yLo=yMin-yPad;
+  const yHi=yMax+yPad;
+
+  // Map data → pixel
+  const xScale=i=>ML+(i/period)*PW;
+  const yScale=v=>MT+PH-((v-yLo)/(yHi-yLo))*PH;
+
+  // ── Clear ──
   while(svg.firstChild) svg.removeChild(svg.firstChild);
 
-  const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-  path.setAttribute('d', pathData);
-  path.setAttribute('stroke', '#3b5bdb');
-  path.setAttribute('stroke-width', '2');
-  path.setAttribute('fill', 'none');
-  svg.appendChild(path);
+  // ── Background ──
+  svg.appendChild(el('rect',{x:ML,y:MT,width:PW,height:PH,fill:'#fafbfd',stroke:'#e2e6ee','stroke-width':1}));
 
-  // axis labels
-  const txt = document.createElementNS('http://www.w3.org/2000/svg','text');
-  txt.setAttribute('x', 590);
-  txt.setAttribute('y', 390);
-  txt.setAttribute('font-size','12');
-  txt.setAttribute('text-anchor','end');
-  txt.textContent = unit;
-  svg.appendChild(txt);
-
-  // ---- summary table ----
-  const total = Math.abs(end - start);
-  const u = unit ? ' ' + unit : '';
-  let rows = '';
-  for(let i=0;i<=period;i++){
-    const periodVal = i === 0 ? 0 : Math.max(0, values[i] - values[i-1]);
-    const cumul = i === 0 ? 0 : Math.max(0, values[i] - values[0]);
-    const remaining = Math.max(0, total - cumul);
-    const label = i === 0 ? 'Start' : i === period ? 'End' : String(i);
-    rows += `<tr><td>${label}</td><td>${fmt(periodVal,2)}${u}</td><td>${fmt(cumul,2)}${u}</td><td>${fmt(remaining,2)}${u}</td></tr>`;
+  // ── Y grid lines + labels ──
+  const yTicks=niceRange(yLo,yHi,6);
+  for(const v of yTicks){
+    const y=yScale(v);
+    svg.appendChild(el('line',{x1:ML,y1:y,x2:ML+PW,y2:y,stroke:'#e2e6ee','stroke-width':1,'stroke-dasharray':'4,3'}));
+    svg.appendChild(el('text',{x:ML-6,y:y+4,'text-anchor':'end','font-size':'11',fill:'#666','font-family':'system-ui,sans-serif'})).textContent=fmtTick(v,unit);
   }
-  tbody.innerHTML = rows;
+
+  // ── X grid lines + labels ──
+  const xStep=Math.max(1,Math.ceil(period/12));
+  for(let i=0;i<=period;i+=xStep){
+    const x=xScale(i);
+    svg.appendChild(el('line',{x1:x,y1:MT,x2:x,y2:MT+PH,stroke:'#e2e6ee','stroke-width':1,'stroke-dasharray':'4,3'}));
+    svg.appendChild(el('text',{x:x,y:MT+PH+18,'text-anchor':'middle','font-size':'11',fill:'#666','font-family':'system-ui,sans-serif'})).textContent=i;
+  }
+  // X-axis title
+  svg.appendChild(el('text',{x:ML+PW/2,y:CH-5,'text-anchor':'middle','font-size':'12',fill:'#444','font-family':'system-ui,sans-serif','font-weight':'600'})).textContent='Time interval';
+
+  // ── Y-axis title ──
+  const yTitle=el('text',{x:14,y:MT+PH/2,'text-anchor':'middle','font-size':'12',fill:'#444','font-family':'system-ui,sans-serif','font-weight':'600',transform:`rotate(-90,14,${MT+PH/2})`});
+  yTitle.textContent='Cumulative value'+(unit?' ('+unit+')':'');
+  svg.appendChild(yTitle);
+
+  // ── S-Curve path ──
+  const points=values.map((v,i)=>({x:xScale(i),y:yScale(v)}));
+  const pathData=points.map((p,i)=>(i===0?'M':'L')+p.x.toFixed(1)+','+p.y.toFixed(1)).join(' ');
+  svg.appendChild(el('path',{d:pathData,stroke:'#3b5bdb','stroke-width':2.5,fill:'none','stroke-linecap':'round','stroke-linejoin':'round'}));
+
+  // ── Data dots (sparse) ──
+  const dotStep=Math.max(1,Math.ceil(period/20));
+  for(let i=0;i<=period;i+=dotStep){
+    svg.appendChild(el('circle',{cx:points[i].x,cy:points[i].y,r:3.5,fill:'#3b5bdb',stroke:'#fff','stroke-width':1.5}));
+  }
+  // Always show first and last
+  svg.appendChild(el('circle',{cx:points[0].x,cy:points[0].y,r:3.5,fill:'#3b5bdb',stroke:'#fff','stroke-width':1.5}));
+  svg.appendChild(el('circle',{cx:points[period].x,cy:points[period].y,r:3.5,fill:'#3b5bdb',stroke:'#fff','stroke-width':1.5}));
+
+  // ── Start / End value annotations ──
+  svg.appendChild(el('text',{x:points[0].x+8,y:points[0].y-8,'font-size':'11',fill:'#3b5bdb','font-family':'system-ui,sans-serif','font-weight':'600'})).textContent=fmtTick(values[0],unit);
+  svg.appendChild(el('text',{x:points[period].x-8,y:points[period].y-8,'text-anchor':'end','font-size':'11',fill:'#3b5bdb','font-family':'system-ui,sans-serif','font-weight':'600'})).textContent=fmtTick(values[period],unit);
+
+  // ── Axes ──
+  svg.appendChild(el('line',{x1:ML,y1:MT,x2:ML,y2:MT+PH,stroke:'#999','stroke-width':1.5}));
+  svg.appendChild(el('line',{x1:ML,y1:MT+PH,x2:ML+PW,y2:MT+PH,stroke:'#999','stroke-width':1.5}));
+
+  // ── Summary table ──
+  const total=Math.abs(end-start);
+  const u=unit?' '+unit:'';
+  let rows='';
+  for(let i=0;i<=period;i++){
+    const periodVal=i===0?0:Math.max(0,values[i]-values[i-1]);
+    const cumul=i===0?0:Math.max(0,values[i]-values[0]);
+    const remaining=Math.max(0,total-cumul);
+    const label=i===0?'Start':i===period?'End':String(i);
+    rows+=`<tr><td>${label}</td><td>${fmt(periodVal,2)}${u}</td><td>${fmt(cumul,2)}${u}</td><td>${fmt(remaining,2)}${u}</td></tr>`;
+  }
+  tbody.innerHTML=rows;
 }
 draw();
 </script>
