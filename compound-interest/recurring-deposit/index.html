@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recurring Deposit Calculator | Nexus Web Tools</title>
+  <meta name="description" content="Accurately compute compound interest for recurring deposit in Australia, with AUD amounts, realistic rates, and flexible periods. Free and fast.">
+  <link rel="canonical" href="https://nexuswebtools.com/compound-interest/recurring-deposit/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Recurring Deposit Calculator">
+  <meta property="og:description" content="Accurately compute compound interest for recurring deposit in Australia, with AUD amounts, realistic rates, and flexible periods. Free and fast.">
+  <meta property="og:url" content="https://nexuswebtools.com/compound-interest/recurring-deposit/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Web Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Recurring Deposit Calculator">
+  <meta name="twitter:description" content="Accurately compute compound interest for recurring deposit in Australia, with AUD amounts, realistic rates, and flexible periods. Free and fast.">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Recurring Deposit Calculator",
+  "description": "Accurately compute compound interest for recurring deposit in Australia, with AUD amounts, realistic rates, and flexible periods. Free and fast.",
+  "url": "https://nexuswebtools.com/compound-interest/recurring-deposit/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebApplication",
+    "name": "Compound Interest Calculator",
+    "url": "https://nexuswebtools.com/compound-interest/"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nexuswebtools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Compound Interest Calculator",
+      "item": "https://nexuswebtools.com/compound-interest/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Recurring Deposit Calculator",
+      "item": "https://nexuswebtools.com/compound-interest/recurring-deposit/"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What will $17,000 grow to at 4.9% per annum over 4 years for recurring deposit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 4.9% annually, $17,000 becomes $20,585.00 after 4 years, earning $3,585.00 in interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What will $19,500 grow to at 5.4% per annum over 5 years for recurring deposit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 5.4% annually, $19,500 becomes $25,365.16 after 5 years, earning $5,865.16 in interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What will $22,000 grow to at 5.9% per annum over 6 years for recurring deposit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 5.9% annually, $22,000 becomes $31,031.19 after 6 years, earning $9,031.19 in interest."
+      }
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="/style.css?v=1">
+  <style>
+    .niche-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%); padding: 2rem 1rem; text-align: center; border-radius: 8px; margin-bottom: 1.5rem; }
+    .niche-hero h1 { margin: 0 0 0.5rem; color: #1a1a2e; }
+    .niche-hero p { margin: 0 auto; color: #555; max-width: 600px; }
+    .cta-box { background: #fff; border: 2px solid #3b5bdb; border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
+    .cta-box a { display: inline-block; background: #3b5bdb; color: #fff; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+    .cta-box a:hover { background: #2b4bc8; }
+    .niche-content h2 { color: #1a1a2e; margin-top: 2rem; border-bottom: 2px solid #e8f0fe; padding-bottom: 0.3rem; }
+    .niche-content h3 { color: #2d3748; margin-top: 1.5rem; }
+    .niche-content p, .niche-content li { line-height: 1.7; color: #333; }
+    .niche-content ul { padding-left: 1.5rem; }
+    .niche-content ol.steps { padding-left: 1.5rem; }
+    .niche-content ol.steps li { margin-bottom: 0.75rem; }
+    .niche-content ol.steps li p { margin: 0.25rem 0 0; color: #555; font-size: 0.95rem; }
+    .niche-content ul li { margin-bottom: 0.5rem; }
+    details { background: #f8f9fa; border-radius: 6px; margin-bottom: 0.5rem; padding: 0.75rem 1rem; }
+    details summary { cursor: pointer; color: #1a1a2e; font-size: 1rem; }
+    details summary:hover { color: #3b5bdb; }
+    details p { margin: 0.5rem 0 0; color: #444; line-height: 1.6; }
+    .related-tools { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+    .related-tools h3 { margin-top: 0; }
+    .related-tools ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .related-tools li a { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 0.4rem 0.9rem; border-radius: 4px; text-decoration: none; color: #3b5bdb; font-size: 0.9rem; }
+    .related-tools li a:hover { border-color: #3b5bdb; background: #f0f4ff; }
+    .breadcrumb { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+    .breadcrumb a { color: #3b5bdb; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
+      <nav class="nav-ribbon">
+        <a href="/compound-interest/">Compound Interest Calculator</a>
+        <a href="/unit-converter/">Unit Converter</a>
+        <a href="/s-curve/">S-Curve Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container niche-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/compound-interest/">Compound Interest Calculator</a> &rsaquo;
+      <strong>Recurring Deposit Calculator</strong>
+    </nav>
+
+    <section class="niche-hero">
+      <h1>Recurring Deposit Calculator</h1>
+      <p>Calculate compound interest for recurring deposit using our Australian‑focused calculator.</p>
+    </section>
+
+    <div class="cta-box">
+      <p>Ready to calculate?</p>
+      <a href="/compound-interest/">&rsaquo; Open the Compound Interest Calculator</a>
+    </div>
+
+    <h2>Background</h2>
+      <p>Understanding recurring deposit is essential for Australians managing their finances, especially with fluctuating interest rates.</p>
+    <h3>Why Recurring Deposit matters</h3>
+      <p>In the Australian context, recurring deposit can affect savings, loan repayments, and retirement planning, influencing long‑term wealth.</p>
+    <h3>Key factors</h3>
+      <p>Interest rate, compounding frequency, and term length are crucial when calculating recurring deposit outcomes.</p>
+
+    <h2>How to Use This Calculator</h2>
+      <p>Provide the key details for your recurring deposit and the calculator will compute the result.</p>
+      <ol class="steps">
+        <li><strong>Enter principal</strong><p>Input the starting amount in AUD for the recurring deposit (e.g., $10,000).</p></li>
+        <li><strong>Set annual rate</strong><p>Enter the expected yearly interest rate, such as 4.5% for a recurring deposit scenario.</p></li>
+        <li><strong>Select frequency</strong><p>Choose how often interest compounds (monthly, quarterly, annually, etc.).</p></li>
+        <li><strong>Define term length</strong><p>Specify the number of years you plan to hold the recurring deposit (e.g., 5 years).</p></li>
+        <li><strong>Calculate</strong><p>Press calculate to view the future value and total interest earned.</p></li>
+        <li><strong>Review breakdown</strong><p>Examine the detailed period‑by‑period breakdown to understand compounding effects.</p></li>
+        <li><strong>Adjust parameters</strong><p>Modify any input to see how changes affect the outcome.</p></li>
+      </ol>
+
+    <h2>Applications</h2>
+      <p>Practical uses of the calculator for everyday Australian finance.</p>
+    <h3>Recurring Deposit planning</h3>
+      <p>Use the tool to plan how recurring deposit fits into your financial roadmap, whether saving for a house or managing debt.</p>
+    <h3>Recurring Deposit optimization</h3>
+      <p>Compare alternative rates and frequencies for recurring deposit to optimise returns or minimise repayments in the Australian market.</p>
+
+
+
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary><strong>What will $17,000 grow to at 4.9% per annum over 4 years for recurring deposit?</strong></summary>
+      <p>At 4.9% annually, $17,000 becomes $20,585.00 after 4 years, earning $3,585.00 in interest.</p>
+    </details>
+    <details>
+      <summary><strong>What will $19,500 grow to at 5.4% per annum over 5 years for recurring deposit?</strong></summary>
+      <p>At 5.4% annually, $19,500 becomes $25,365.16 after 5 years, earning $5,865.16 in interest.</p>
+    </details>
+    <details>
+      <summary><strong>What will $22,000 grow to at 5.9% per annum over 6 years for recurring deposit?</strong></summary>
+      <p>At 5.9% annually, $22,000 becomes $31,031.19 after 6 years, earning $9,031.19 in interest.</p>
+    </details>
+
+
+    <div class="related-tools">
+      <h3>Related Calculators</h3>
+      <ul>
+        <li><a href="/compound-interest/recurring-deposit/">Recurring Deposit Calculator</a></li>
+        <li><a href="/unit-converter/">Unit Converter</a></li>
+        <li><a href="/s-curve/">S-Curve Calculator</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nexus Web Tools. <a href="/compound-interest/">Compound Interest Calculator</a> &middot; <a href="/unit-converter/">Unit Converter</a> &middot; <a href="/s-curve/">S-Curve Calculator</a></p>
+    </div>
+  </footer>
+</body>
+</html>

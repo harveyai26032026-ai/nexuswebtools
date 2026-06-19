@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Converter | Nexus Web Tools</title>
+  <meta name="description" content="Free time converter. Convert between seconds, minutes, hours, days, and years instantly.">
+  <link rel="canonical" href="https://nexuswebtools.com/unit-converter/time/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Time Converter">
+  <meta property="og:description" content="Free time converter. Convert between seconds, minutes, hours, days, and years instantly.">
+  <meta property="og:url" content="https://nexuswebtools.com/unit-converter/time/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Web Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Time Converter">
+  <meta name="twitter:description" content="Free time converter. Convert between seconds, minutes, hours, days, and years instantly.">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Time Converter",
+  "description": "Free time converter. Convert between seconds, minutes, hours, days, and years instantly.",
+  "url": "https://nexuswebtools.com/unit-converter/time/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebApplication",
+    "name": "Unit Converter",
+    "url": "https://nexuswebtools.com/unit-converter/"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nexuswebtools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Unit Converter",
+      "item": "https://nexuswebtools.com/unit-converter/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Time Converter",
+      "item": "https://nexuswebtools.com/unit-converter/time/"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you convert minutes to decimal hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 60. 45 min = 0.75 hr. So 2 hr 45 min = 2.75 decimal hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many seconds in a day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "86,400 seconds (24 \u00d7 60 \u00d7 60)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many working days in a year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "~260 (52 weeks \u00d7 5 days) minus ~10\u201312 public holidays = 248\u2013250 working days in Australia."
+      }
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="/style.css?v=1">
+  <style>
+    .niche-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%); padding: 2rem 1rem; text-align: center; border-radius: 8px; margin-bottom: 1.5rem; }
+    .niche-hero h1 { margin: 0 0 0.5rem; color: #1a1a2e; }
+    .niche-hero p { margin: 0 auto; color: #555; max-width: 600px; }
+    .cta-box { background: #fff; border: 2px solid #3b5bdb; border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
+    .cta-box a { display: inline-block; background: #3b5bdb; color: #fff; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+    .cta-box a:hover { background: #2b4bc8; }
+    .niche-content h2 { color: #1a1a2e; margin-top: 2rem; border-bottom: 2px solid #e8f0fe; padding-bottom: 0.3rem; }
+    .niche-content h3 { color: #2d3748; margin-top: 1.5rem; }
+    .niche-content p, .niche-content li { line-height: 1.7; color: #333; }
+    .niche-content ul { padding-left: 1.5rem; }
+    .niche-content ol.steps { padding-left: 1.5rem; }
+    .niche-content ol.steps li { margin-bottom: 0.75rem; }
+    .niche-content ol.steps li p { margin: 0.25rem 0 0; color: #555; font-size: 0.95rem; }
+    .niche-content ul li { margin-bottom: 0.5rem; }
+    details { background: #f8f9fa; border-radius: 6px; margin-bottom: 0.5rem; padding: 0.75rem 1rem; }
+    details summary { cursor: pointer; color: #1a1a2e; font-size: 1rem; }
+    details summary:hover { color: #3b5bdb; }
+    details p { margin: 0.5rem 0 0; color: #444; line-height: 1.6; }
+    .related-tools { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+    .related-tools h3 { margin-top: 0; }
+    .related-tools ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .related-tools li a { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 0.4rem 0.9rem; border-radius: 4px; text-decoration: none; color: #3b5bdb; font-size: 0.9rem; }
+    .related-tools li a:hover { border-color: #3b5bdb; background: #f0f4ff; }
+    .breadcrumb { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+    .breadcrumb a { color: #3b5bdb; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
+      <nav class="nav-ribbon">
+        <a href="/compound-interest/">Compound Interest Calculator</a>
+        <a href="/unit-converter/">Unit Converter</a>
+        <a href="/s-curve/">S-Curve Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container niche-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/unit-converter/">Unit Converter</a> &rsaquo;
+      <strong>Time Converter</strong>
+    </nav>
+
+    <section class="niche-hero">
+      <h1>Time Converter</h1>
+      <p>Convert between seconds, minutes, hours, days, weeks, months, and years.</p>
+    </section>
+
+    <div class="cta-box">
+      <p>Ready to calculate?</p>
+      <a href="/unit-converter/">&rsaquo; Open the Unit Converter</a>
+    </div>
+
+    <h2>Background</h2>
+      <p>Time uses base-60 (sec→min), base-24 (hr→day), and irregular months. These irregularities make manual conversion error-prone, especially for payroll and project planning.</p>
+    <h3>Calendar Irregularity</h3>
+      <p>Months: 28–31 days. Years: 365 (366 leap). Finance uses 30/360, actual/365, or actual/actual conventions.</p>
+    <h3>Decimal Time in Payroll</h3>
+      <p>7 hr 30 min = 7.5 decimal hours. Common source of payroll errors if done manually.</p>
+
+    <h2>How to Use This Calculator</h2>
+      <ol class="steps">
+        <li><strong>Select &#x27;Time&#x27;</strong><p>Choose the category from the dropdown.</p></li>
+        <li><strong>Select your source unit</strong><p>Pick the unit you&#x27;re converting from.</p></li>
+        <li><strong>Enter the value</strong><p>Type the number. Results update instantly.</p></li>
+        <li><strong>Select your target unit</strong><p>Choose the unit you need.</p></li>
+      </ol>
+
+    <h2>Applications</h2>
+    <h3>Payroll and Time Tracking</h3>
+      <p>8 hr 15 min = 8.25 decimal hours. Ensures accurate wage calculations.</p>
+    <h3>Project Planning</h3>
+      <p>90 days ≈ 13 weeks or 3 months. Working days depend on weekends/holidays.</p>
+    <h3>Scientific Calculations</h3>
+      <p>1 ms repeated 86.4M times = 1 day. Rate calculations need precise time conversions.</p>
+
+
+
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary><strong>How do you convert minutes to decimal hours?</strong></summary>
+      <p>Divide by 60. 45 min = 0.75 hr. So 2 hr 45 min = 2.75 decimal hours.</p>
+    </details>
+    <details>
+      <summary><strong>How many seconds in a day?</strong></summary>
+      <p>86,400 seconds (24 × 60 × 60).</p>
+    </details>
+    <details>
+      <summary><strong>How many working days in a year?</strong></summary>
+      <p>~260 (52 weeks × 5 days) minus ~10–12 public holidays = 248–250 working days in Australia.</p>
+    </details>
+
+
+    <div class="related-tools">
+      <h3>Related Calculators</h3>
+      <ul>
+        <li><a href="/compound-interest/">Compound Interest Calculator</a></li>
+        <li><a href="/s-curve/">S-Curve Calculator</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nexus Web Tools. <a href="/compound-interest/">Compound Interest Calculator</a> &middot; <a href="/unit-converter/">Unit Converter</a> &middot; <a href="/s-curve/">S-Curve Calculator</a></p>
+    </div>
+  </footer>
+</body>
+</html>

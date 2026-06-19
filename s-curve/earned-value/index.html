@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-Curve for Earned Value Management | Nexus Web Tools</title>
+  <meta name="description" content="S-Curve for earned value management. Plot PV, EV, and AC curves for variance analysis.">
+  <link rel="canonical" href="https://nexuswebtools.com/s-curve/earned-value/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="S-Curve for Earned Value Management">
+  <meta property="og:description" content="S-Curve for earned value management. Plot PV, EV, and AC curves for variance analysis.">
+  <meta property="og:url" content="https://nexuswebtools.com/s-curve/earned-value/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Web Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="S-Curve for Earned Value Management">
+  <meta name="twitter:description" content="S-Curve for earned value management. Plot PV, EV, and AC curves for variance analysis.">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "S-Curve for Earned Value Management",
+  "description": "S-Curve for earned value management. Plot PV, EV, and AC curves for variance analysis.",
+  "url": "https://nexuswebtools.com/s-curve/earned-value/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebApplication",
+    "name": "S-Curve Calculator",
+    "url": "https://nexuswebtools.com/s-curve/"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nexuswebtools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "S-Curve Calculator",
+      "item": "https://nexuswebtools.com/s-curve/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "S-Curve for Earned Value Management",
+      "item": "https://nexuswebtools.com/s-curve/earned-value/"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Planned Value (PV)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The cumulative budgeted cost of work scheduled. It's the baseline S-Curve, set before the project begins. At any point, PV tells you how much work should have been completed by that date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Earned Value (EV)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The cumulative budgeted cost of work actually performed. If you planned to complete $500K of work and actually completed $400K, EV = $400K. EV is the objective measure of progress."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Schedule Performance Index (SPI)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SPI = EV / PV. If SPI = 0.85, you've completed 85% of the work you planned. An SPI < 1.0 means behind schedule; > 1.0 means ahead. SPI is more useful than SV because it's a ratio (comparable across projects)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you forecast final cost with EVM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Estimate at Completion (EAC) = Budget at Completion (BAC) / CPI. If BAC = $10M and CPI = 0.90, EAC = $11.11M. This assumes the cost efficiency trend continues. For a more optimistic forecast, use EAC = AC + (BAC \u2212 EV)."
+      }
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="/style.css?v=1">
+  <style>
+    .niche-hero { background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%); padding: 2rem 1rem; text-align: center; border-radius: 8px; margin-bottom: 1.5rem; }
+    .niche-hero h1 { margin: 0 0 0.5rem; color: #1a1a2e; }
+    .niche-hero p { margin: 0 auto; color: #555; max-width: 600px; }
+    .cta-box { background: #fff; border: 2px solid #3b5bdb; border-radius: 8px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
+    .cta-box a { display: inline-block; background: #3b5bdb; color: #fff; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+    .cta-box a:hover { background: #2b4bc8; }
+    .niche-content h2 { color: #1a1a2e; margin-top: 2rem; border-bottom: 2px solid #e8f0fe; padding-bottom: 0.3rem; }
+    .niche-content h3 { color: #2d3748; margin-top: 1.5rem; }
+    .niche-content p, .niche-content li { line-height: 1.7; color: #333; }
+    .niche-content ul { padding-left: 1.5rem; }
+    .niche-content ol.steps { padding-left: 1.5rem; }
+    .niche-content ol.steps li { margin-bottom: 0.75rem; }
+    .niche-content ol.steps li p { margin: 0.25rem 0 0; color: #555; font-size: 0.95rem; }
+    .niche-content ul li { margin-bottom: 0.5rem; }
+    details { background: #f8f9fa; border-radius: 6px; margin-bottom: 0.5rem; padding: 0.75rem 1rem; }
+    details summary { cursor: pointer; color: #1a1a2e; font-size: 1rem; }
+    details summary:hover { color: #3b5bdb; }
+    details p { margin: 0.5rem 0 0; color: #444; line-height: 1.6; }
+    .related-tools { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+    .related-tools h3 { margin-top: 0; }
+    .related-tools ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .related-tools li a { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 0.4rem 0.9rem; border-radius: 4px; text-decoration: none; color: #3b5bdb; font-size: 0.9rem; }
+    .related-tools li a:hover { border-color: #3b5bdb; background: #f0f4ff; }
+    .breadcrumb { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+    .breadcrumb a { color: #3b5bdb; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
+      <nav class="nav-ribbon">
+        <a href="/compound-interest/">Compound Interest Calculator</a>
+        <a href="/unit-converter/">Unit Converter</a>
+        <a href="/s-curve/">S-Curve Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container niche-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/s-curve/">S-Curve Calculator</a> &rsaquo;
+      <strong>S-Curve for Earned Value Management</strong>
+    </nav>
+
+    <section class="niche-hero">
+      <h1>S-Curve for Earned Value Management</h1>
+      <p>Visualise EVM metrics with S-Curves: Planned Value, Earned Value, and Actual Cost plotted for schedule and cost variance analysis.</p>
+    </section>
+
+    <div class="cta-box">
+      <p>Ready to calculate?</p>
+      <a href="/s-curve/">&rsaquo; Open the S-Curve Calculator</a>
+    </div>
+
+    <h2>Background</h2>
+      <p>Earned Value Management (EVM) is the gold standard for project performance measurement. The S-Curve is its visual backbone — three curves plotted together: Planned Value (PV, the budget baseline), Earned Value (EV, work performed), and Actual Cost (AC, money spent). The gaps between these curves reveal schedule and cost variance at a glance.</p>
+    <h3>The Three EVM Curves</h3>
+      <p>PV (Planned Value): the baseline S-Curve showing cumulative budgeted cost of work scheduled. EV (Earned Value): cumulative budgeted cost of work actually performed. AC (Actual Cost): cumulative actual expenditure. When EV &lt; PV, you&#x27;re behind schedule. When AC &gt; EV, you&#x27;re over budget.</p>
+    <h3>Key EVM Metrics from S-Curves</h3>
+      <p>Schedule Variance (SV = EV − PV): gap between EV and PV curves. Cost Variance (CV = EV − AC): gap between EV and AC curves. Schedule Performance Index (SPI = EV/PV): ratio of EV to PV. Cost Performance Index (CPI = EV/AC): ratio of EV to AC. Values &lt; 1.0 indicate problems.</p>
+
+    <h2>How to Use This Calculator</h2>
+      <p>Our S-Curve Calculator can be configured for earned value management projects. Follow these steps:</p>
+      <ol class="steps">
+        <li><strong>Define earned value management phases</strong><p>Break the project into major phases with duration and resource/budget allocation.</p></li>
+        <li><strong>Enter phase data</strong><p>Each phase: name, duration, percentage of total effort or budget.</p></li>
+        <li><strong>Generate baseline S-Curve</strong><p>Calculator distributes effort and creates the planned progress curve.</p></li>
+        <li><strong>Track actual progress</strong><p>Update with actual cumulative data at regular intervals.</p></li>
+        <li><strong>Compare and forecast</strong><p>Overlay actual on baseline. Extrapolate for completion estimates.</p></li>
+        <li><strong>Adjust resources</strong><p>Use the forecast to reallocate resources and correct variances.</p></li>
+      </ol>
+
+    <h2>Applications</h2>
+      <p>S-Curves support several critical functions in this domain:</p>
+    <h3>Project Health Dashboard</h3>
+      <p>Three curves on one chart give instant project health. All three converging = on track. EV below PV = behind schedule. AC above EV = over budget. Non-project managers can read this without training.</p>
+    <h3>Forecasting at Completion</h3>
+      <p>EAC = BAC / CPI (assuming current cost efficiency continues). If CPI = 0.85 on a $10M project, EAC = $11.76M. The S-Curve extension shows when you&#x27;ll hit the new budget.</p>
+    <h3>Portfolio-Level EVM</h3>
+      <p>Aggregate PV, EV, and AC across all projects for portfolio-level performance. A single set of curves shows whether the entire portfolio is on track.</p>
+
+
+
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary><strong>What is Planned Value (PV)?</strong></summary>
+      <p>The cumulative budgeted cost of work scheduled. It&#x27;s the baseline S-Curve, set before the project begins. At any point, PV tells you how much work should have been completed by that date.</p>
+    </details>
+    <details>
+      <summary><strong>What is Earned Value (EV)?</strong></summary>
+      <p>The cumulative budgeted cost of work actually performed. If you planned to complete $500K of work and actually completed $400K, EV = $400K. EV is the objective measure of progress.</p>
+    </details>
+    <details>
+      <summary><strong>What is Schedule Performance Index (SPI)?</strong></summary>
+      <p>SPI = EV / PV. If SPI = 0.85, you&#x27;ve completed 85% of the work you planned. An SPI &lt; 1.0 means behind schedule; &gt; 1.0 means ahead. SPI is more useful than SV because it&#x27;s a ratio (comparable across projects).</p>
+    </details>
+    <details>
+      <summary><strong>How do you forecast final cost with EVM?</strong></summary>
+      <p>Estimate at Completion (EAC) = Budget at Completion (BAC) / CPI. If BAC = $10M and CPI = 0.90, EAC = $11.11M. This assumes the cost efficiency trend continues. For a more optimistic forecast, use EAC = AC + (BAC − EV).</p>
+    </details>
+
+
+    <div class="related-tools">
+      <h3>Related Calculators</h3>
+      <ul>
+        <li><a href="/s-curve/construction/">Construction S-Curve</a></li>
+        <li><a href="/s-curve/project-management/">Project Management S-Curve</a></li>
+        <li><a href="/s-curve/budget-tracking/">Budget Tracking S-Curve</a></li>
+        <li><a href="/compound-interest/">Compound Interest Calculator</a></li>
+        <li><a href="/unit-converter/">Unit Converter</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nexus Web Tools. <a href="/compound-interest/">Compound Interest Calculator</a> &middot; <a href="/unit-converter/">Unit Converter</a> &middot; <a href="/s-curve/">S-Curve Calculator</a></p>
+    </div>
+  </footer>
+</body>
+</html>
