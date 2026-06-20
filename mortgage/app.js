@@ -245,31 +245,29 @@ function rentVsBuy(opts,sim){
       '</div>'+
     '</div>'+
     '<div class="rvb-verdict '+vc+'">'+vt+'</div>'+
-    '<div class="rvb-cost-box">'+
-      '<div class="rvb-cost-cols">'+
-        '<div class="rvb-col">'+
-          '<h4>🏠 Buyer costs</h4>'+
-          '<div class="rvb-cost-row"><span>Interest paid</span><span class="cost">'+fmtMoney(fin.cumInt)+'</span></div>'+
-          '<div class="rvb-cost-row"><span>Property tax, insurance, HOA</span><span class="cost">'+fmtMoney(cumOngoing)+'</span></div>'+
-          '<div class="rvb-cost-row"><span>Maintenance</span><span class="cost">'+fmtMoney(cumMaint)+'</span></div>'+
-          '<div class="rvb-cost-row"><span>Stamp duty / transfer tax</span><span class="cost">'+fmtMoney(stamp)+'</span></div>'+
-          '<div class="rvb-cost-row"><span>LMI / PMI</span><span class="cost">'+fmtMoney(lmi)+'</span></div>'+
-          '<div class="rvb-cost-row"><span>Purchase costs</span><span class="cost">'+fmtMoney(purchaseCosts)+'</span></div>'+
-          '<div class="rvb-cost-row rvb-total"><span>Total sunk</span><span class="cost">'+fmtMoney(totalBuySunk)+'</span></div>'+
-        '</div>'+
-        '<div class="rvb-col">'+
-          '<h4>📈 Renter + investor costs</h4>'+
-          '<div class="rvb-cost-row"><span>Rent paid</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
-          '<div class="rvb-cost-row rvb-total"><span>Total rent sunk</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
-          '<h4 style="margin-top:10px">💰 Investment portfolio</h4>'+
-          '<div class="rvb-cost-row"><span>Initial seed (deposit − costs)</span><span class="gain-col">'+fmtMoney(Math.max(0,opts.deposit-stamp-lmi))+'</span></div>'+
-          '<div class="rvb-cost-row"><span>Surplus contributions</span><span class="gain-col">'+fmtMoney(totalInvestContrib-Math.max(0,opts.deposit-stamp-lmi))+'</span></div>'+
-          '<div class="rvb-cost-row"><span>Investment growth</span><span class="gain-col">'+fmtMoney(investGrowth)+'</span></div>'+
-          '<div class="rvb-cost-row rvb-total"><span>Total portfolio</span><span class="gain-col">'+fmtMoney(fin.renterWealth)+'</span></div>'+
-        '</div>'+
+    '<div class="rvb-cost-cols">'+
+      '<div class="rvb-cost-card buy">'+
+        '<h4>🏠 Buyer</h4>'+
+        '<div class="rvb-cost-row"><span>Interest paid</span><span class="cost">'+fmtMoney(fin.cumInt)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Property tax, insurance, HOA</span><span class="cost">'+fmtMoney(cumOngoing)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Maintenance</span><span class="cost">'+fmtMoney(cumMaint)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Stamp duty / transfer tax</span><span class="cost">'+fmtMoney(stamp)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>LMI / PMI</span><span class="cost">'+fmtMoney(lmi)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Purchase costs</span><span class="cost">'+fmtMoney(purchaseCosts)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total"><span>Total sunk</span><span class="cost">'+fmtMoney(totalBuySunk)+'</span></div>'+
       '</div>'+
-      '<div class="rvb-cost-row rvb-total" style="border-top:1px solid var(--ring);padding-top:8px;margin-top:8px"><span>Wealth difference</span><span class="'+(diff>0?'gain-col':'cost')+'">'+(diff>0?'Buyer ahead by '+fmtMoney(diff):diff<0?'Renter ahead by '+fmtMoney(-diff):'Even')+'</span></div>'+
-    '</div>';
+      '<div class="rvb-cost-card rent">'+
+        '<h4>📈 Rent + Invest</h4>'+
+        '<div class="rvb-cost-row"><span>Rent paid</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total"><span>Total rent sunk</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
+        '<h5>💰 Investment portfolio</h5>'+
+        '<div class="rvb-cost-row"><span>Initial seed (deposit − costs)</span><span class="gain-col">'+fmtMoney(Math.max(0,opts.deposit-stamp-lmi))+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Surplus contributions</span><span class="gain-col">'+fmtMoney(totalInvestContrib-Math.max(0,opts.deposit-stamp-lmi))+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Investment growth</span><span class="gain-col">'+fmtMoney(investGrowth)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total"><span>Total portfolio</span><span class="gain-col">'+fmtMoney(fin.renterWealth)+'</span></div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="rvb-cost-row rvb-total rvb-diff-row"><span>Wealth difference</span><span class="'+(diff>0?'gain-col':'cost')+'">'+(diff>0?'Buyer ahead by '+fmtMoney(diff):diff<0?'Renter ahead by '+fmtMoney(-diff):'Even')+'</span></div>';
 
   // ─── Chart ───
   $("#rvbChartWrap").hidden=false;
