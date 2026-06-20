@@ -72,7 +72,7 @@
 }
 </script>
 <link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="calc.css?v=20260702c">
+<link rel="stylesheet" href="calc.css?v=20260702d">
 </head>
 <body>
 <header class="ribbon">
@@ -93,7 +93,7 @@
   </div>
 
   <!-- Ad unit: top -->
-  <div class="ad-slot" style="text-align:center;margin:16px 0;min-height:90px">
+  <div class="ad-slot">
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4562423029265065" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
@@ -191,16 +191,19 @@
     <div id="rvbSection" class="advanced" hidden>
       <p class="hint">Compare the wealth outcome of buying a home vs renting and investing the difference. The model tracks mortgage repayments, interest, maintenance and capital growth against equivalent rent, investment contributions and compound returns.</p>
 
+      <div class="section-divider"><span>🏠 Home Ownership</span></div>
+      <div class="grid">
+        <div class="field"><label for="rvApprec"><strong>Annual property growth %</strong> <span class="help" data-tip="Expected annual property value growth. Historical average is 3–5% in major cities."></span></label><input id="rvApprec" type="number" step="any" value="4"></div>
+        <div class="field"><label for="rvMaint"><strong>Annual maintenance %</strong> <span class="help" data-tip="Estimated annual maintenance cost as a % of property value — typically 1–2%."></span></label><input id="rvMaint" type="number" step="any" value="1"></div>
+      </div>
+
+      <div class="section-divider"><span>📈 Renting &amp; Investing</span></div>
       <div class="grid">
         <div class="field"><label for="rvRent"><strong>Weekly rent</strong> <span class="help" data-tip="The weekly rent for a comparable property in the same area."></span></label><input id="rvRent" type="number" min="0" step="any" value="450"></div>
         <div class="field"><label for="rvRentGrow"><strong>Annual rent increase %</strong> <span class="help" data-tip="Expected annual rent growth — historical average is 2–4% in most markets."></span></label><input id="rvRentGrow" type="number" step="any" value="3"></div>
-        <div class="field"><label for="rvMaint"><strong>Annual maintenance %</strong> <span class="help" data-tip="Estimated annual maintenance cost as a % of property value — typically 1–2%."></span></label><input id="rvMaint" type="number" step="any" value="1"></div>
-        <div class="field"><label for="rvApprec"><strong>Annual property growth %</strong> <span class="help" data-tip="Expected annual property value growth. Historical average is 3–5% in major cities."></span></label><input id="rvApprec" type="number" step="any" value="4"></div>
-      </div>
-      <div class="grid">
         <div class="field"><label for="rvInvRate"><strong>Investment return %/yr</strong> <span class="help" data-tip="Expected annual return on invested savings (stocks, ETFs etc). Historical stock market average is ~7% after inflation."></span></label><input id="rvInvRate" type="number" step="any" value="7"></div>
-        <div class="field"><label for="rvTaxRate"><strong>Marginal tax rate %</strong> <span class="help" data-tip="Your top income tax rate — used to calculate after-tax investment returns for the rent & invest scenario."></span></label><input id="rvTaxRate" type="number" step="any" value="25"></div>
       </div>
+
       <button id="rvbAdvToggle" type="button" class="adv-section-toggle" aria-expanded="false" style="margin-top:12px">⚙️ Advanced costs ▾</button>
       <div id="rvbAdvSection" class="advanced" hidden>
         <p class="hint">Override the base calculator costs &amp; fees for this comparison. Leave blank to inherit the base values.</p>
@@ -292,7 +295,7 @@
   </section>
 
   <!-- Ad unit: bottom -->
-  <div class="ad-slot" style="text-align:center;margin:20px 0;min-height:90px">
+  <div class="ad-slot">
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4562423029265065" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
@@ -321,6 +324,6 @@
   <p>Estimates are for general guidance only and are not financial advice. Interest rates, tax and returns are not guaranteed; consult a licensed financial adviser.</p>
 </footer>
 
-<script src="app.js?v=20260702c" defer></script>
+<script src="app.js?v=20260702d" defer></script>
 </body>
 </html>

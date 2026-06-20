@@ -101,7 +101,6 @@ function rentVsBuy(opts,sim){
   var ppf=sim.ppf,term=opts.term,weeklyRent=val("rvRent")||0;
   var rentGrow=(val("rvRentGrow")||3)/100,maintPct=(val("rvMaint")||1)/100;
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
-  var taxRate=(val("rvTaxRate")||25)/100,postTaxInv=invRate*(1-taxRate/100);
   var propVal=opts.price,annualRepay=sim.stdRepay*ppf+opts.extra*ppf;
   // Read RvB-specific advanced overrides (blank = inherit base)
   var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvStamp=val("rvStamp");
@@ -116,7 +115,7 @@ function rentVsBuy(opts,sim){
     propVal*=(1+apprec);var maint=propVal*maintPct;
     var buyerSpend=annualRepay+annualOngoing+maint;
     var surplus=buyerSpend-rentYr;if(surplus>0)investBal+=surplus;
-    investBal*=(1+postTaxInv);
+    investBal*=(1+invRate);
     var endP=Math.min(yr*ppf,sim.sched.length),endE=null;
     for(var k=sim.sched.length-1;k>=0;k--){if(sim.sched[k].period===endP){endE=sim.sched[k];break}}
     var loanBal=endE?endE.balance:0;
@@ -306,9 +305,9 @@ document.addEventListener("DOMContentLoaded",function(){
   // Comparison toggle — auto-add first scenario on open
   var cmpOpened=false;
   $("#cmpToggle").addEventListener("click",function(){
-    var sec=$("#cmpSection");var hidden=sec.hidden;sec.hidden=!hidden;
-    this.setAttribute("aria-expanded",!hidden);
-    if(!hidden&&!cmpOpened){addComparison();cmpOpened=true;}
+    var sec=$("#cmpSection");var wasHidden=sec.hidden;sec.hidden=!wasHidden;
+    this.setAttribute("aria-expanded",!wasHidden);
+    if(wasHidden&&!cmpOpened){setTimeout(function(){addComparison();cmpOpened=true;},0);}
   });
   $("#addCmp").addEventListener("click",addComparison);
   $("#runCmp").addEventListener("click",function(){

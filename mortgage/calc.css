@@ -1,5 +1,9 @@
 /* Mortgage Calculator — page-specific styles (extends ../style.css) */
-main{max-width:1240px}
+main{max-width:1240px;padding-top:12px}
+
+.ad-slot{margin:10px auto;min-height:90px}
+
+@media(min-width:640px){main{padding-top:34px}.ad-slot{margin:16px auto}}
 
 .crumbs{font-size:.82rem;color:var(--muted);margin-bottom:6px}
 .crumbs a{color:var(--accent);text-decoration:none}
@@ -134,7 +138,7 @@ table.ref tbody tr:hover td{background:#eef2ff}
   .btn-row .adv-toggle{min-width:0}
   h1{font-size:1.6rem}
   .lede{font-size:.98rem}
-  main{padding:24px 12px 40px}
+  main{padding:10px 10px 32px!important}
   .field input,.field select{flex:1 1 100%;max-width:100%;margin-left:0}
   .field{flex-direction:column;align-items:flex-start}
   .field label{width:100%}
