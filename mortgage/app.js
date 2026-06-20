@@ -102,17 +102,26 @@ function drawChart(sim){
   var svg=$("#mainChart"),W=700,H=300,PAD={t:20,r:20,b:40,l:60};
   var iW=W-PAD.l-PAD.r,iH=H-PAD.t-PAD.b,sched=sim.sched;
   if(!sched.length){svg.innerHTML="";return}
-  var years=[],seen={};
-  sched.forEach(function(s){if(!seen[s.year]){seen[s.year]=1;years.push(s)}});
-  if(!seen[sched[sched.length-1].year])years.push(sched[sched.length-1]);
-  var maxY=sim.loan*1.05;
-  function xP(yr){return PAD.l+((yr-1)/sim.term)*iW}
+  // Build per-year cumulative data from ALL periods
+  var yearData={};
+  var cumPrin=0,cumInt=0;
+  sched.forEach(function(s){
+    cumPrin+=s.principal+s.extra;
+    cumInt+=s.interest;
+    yearData[s.year]={year:s.year,balance:s.balance,cumPrin:cumPrin,cumInt:cumInt};
+  });
+  var years=Object.values(yearData).sort(function(a,b){return a.year-b.year});
+  var maxY=Math.max(sim.loan*1.05,(years.length?years[years.length-1].cumInt:0)*1.1,sim.loan);
+  function xP(yr){return PAD.l+((yr)/sim.term)*iW}
   function yP(v){return PAD.t+iH-(v/maxY)*iH}
   var gH="",gV="";
   for(var v=0;v<=maxY;v+=maxY/4){gH+='<line x1="'+PAD.l+'" y1="'+yP(v)+'" x2="'+(W-PAD.r)+'" y2="'+yP(v)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+(PAD.l-6)+'" y="'+(yP(v)+4)+'" text-anchor="end" fill="#8492a6" font-size="11">'+fmtMoney(v)+'</text>'}
-  for(var yr=1;yr<=sim.term;yr+=(sim.term<=10?1:5)){gV+='<line x1="'+xP(yr)+'" y1="'+PAD.t+'" x2="'+xP(yr)+'" y2="'+(H-PAD.b)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+xP(yr)+'" y="'+(H-PAD.b+16)+'" text-anchor="middle" fill="#8492a6" font-size="11">Yr '+yr+'</text>'}
-  var cP=0,cI=0,bA=[{x:PAD.l,y:yP(sim.loan)}],pA=[{x:PAD.l,y:yP(0)}],iA=[{x:PAD.l,y:yP(0)}];
-  years.forEach(function(s){cP+=s.principal+s.extra;cI+=s.interest;var x=xP(s.year);bA.push({x:x,y:yP(s.balance)});pA.push({x:x,y:yP(cP)});iA.push({x:x,y:yP(cI)})});
+  // X-axis: ensure last year always shown
+  var xStep=sim.term<=10?1:5;
+  for(var yr=xStep;yr<=sim.term;yr+=xStep){gV+='<line x1="'+xP(yr)+'" y1="'+PAD.t+'" x2="'+xP(yr)+'" y2="'+(H-PAD.b)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+xP(yr)+'" y="'+(H-PAD.b+16)+'" text-anchor="middle" fill="#8492a6" font-size="11">Yr '+yr+'</text>'}
+  if(sim.term%xStep!==0){gV+='<line x1="'+xP(sim.term)+'" y1="'+PAD.t+'" x2="'+xP(sim.term)+'" y2="'+(H-PAD.b)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+xP(sim.term)+'" y="'+(H-PAD.b+16)+'" text-anchor="middle" fill="#8492a6" font-size="11">Yr '+sim.term+'</text>'}
+  var bA=[{x:PAD.l,y:yP(sim.loan)}],pA=[{x:PAD.l,y:yP(0)}],iA=[{x:PAD.l,y:yP(0)}];
+  years.forEach(function(d){var x=xP(d.year);bA.push({x:x,y:yP(d.balance)});pA.push({x:x,y:yP(d.cumPrin)});iA.push({x:x,y:yP(d.cumInt)})});
   function aL(pts,cl){var l=pts.map(function(p){return p.x+','+p.y}).join(' ');if(!cl)return 'M '+l;var bx=H-PAD.b;return 'M '+pts[0].x+','+bx+' L '+l+' L '+pts[pts.length-1].x+','+bx+' Z'}
   svg.innerHTML='<rect width="'+W+'" height="'+H+'" fill="#f7f8fb" rx="10"/>'+gH+gV+
     '<path d="'+aL(bA,1)+'" fill="rgba(59,91,219,.18)" stroke="none"/><path d="'+aL(bA,0)+'" fill="none" stroke="#3b5bdb" stroke-width="2.5"/>'+
