@@ -303,10 +303,12 @@ document.addEventListener("DOMContentLoaded",function(){
     rentVsBuy(lastOpts,lastSim);
   });
 
-  // Comparison toggle
+  // Comparison toggle — auto-add first scenario on open
+  var cmpOpened=false;
   $("#cmpToggle").addEventListener("click",function(){
     var sec=$("#cmpSection");var hidden=sec.hidden;sec.hidden=!hidden;
     this.setAttribute("aria-expanded",!hidden);
+    if(!hidden&&!cmpOpened){addComparison();cmpOpened=true;}
   });
   $("#addCmp").addEventListener("click",addComparison);
   $("#runCmp").addEventListener("click",function(){
