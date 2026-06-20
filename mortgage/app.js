@@ -55,6 +55,74 @@ function forecastValue(opts){
   return opts.price*Math.pow(1+apprec,opts.term);
 }
 
+/* ─── LOAN SPLIT ─── */
+var splitPeople=[];
+function renderSplitPeople(){
+  var c=$("#splitPeople");
+  if(!splitPeople.length){c.innerHTML='<p class="hint" style="margin:0">No split configured — click "Add person" to divide the loan.</p>';return}
+  var totalPct=splitPeople.reduce(function(s,p){return s+p.pct},0);
+  var valid=Math.abs(totalPct-100)<0.01;
+  var html='<div class="split-grid">';
+  splitPeople.forEach(function(p,i){
+    html+='<div class="split-row">'+
+      '<input type="text" class="split-name" data-idx="'+i+'" value="'+(p.name||'Person '+(i+1))+'" placeholder="Name">'+
+      '<div class="split-pct-wrap">'+
+        '<input type="number" class="split-pct" data-idx="'+i+'" value="'+p.pct+'" min="0" max="100" step="any">'+
+        '<span class="split-pct-label">%</span>'+
+      '</div>'+
+    '</div>';
+  });
+  html+='</div>';
+  html+='<p class="hint" style="margin-top:8px;'+(valid?'':'color:var(--cost);font-weight:600')+'">Total: '+totalPct.toFixed(1)+'%'+(valid?' ✓':' — must equal 100%')+'</p>';
+  c.innerHTML=html;
+  // Wire up change handlers
+  c.querySelectorAll('.split-name').forEach(function(el){
+    el.addEventListener('input',function(){splitPeople[+this.dataset.idx].name=this.value})});
+  c.querySelectorAll('.split-pct').forEach(function(el){
+    el.addEventListener('input',function(){
+      splitPeople[+this.dataset.idx].pct=parseFloat(this.value)||0;
+      renderSplitPeople();
+    })});
+}
+
+function getSplitPeople(){
+  if(!splitPeople.length)return[];
+  var total=splitPeople.reduce(function(s,p){return s+p.pct},0);
+  if(Math.abs(total-100)>=0.01)return[]; // invalid
+  return splitPeople.map(function(p){return{name:p.name||'Person',pct:p.pct/100}});
+}
+
+function renderSplitResults(opts,sim){
+  var el=$("#splitResults");
+  if(!el)return;
+  var people=getSplitPeople();
+  if(!people.length){el.innerHTML='';return}
+  var ongTotal=sim.ongoingYr*opts.term;
+  var upfrontTotal=opts.lmi+opts.stamp+opts.purchaseCosts;
+  var totalCost=sim.totalInt+ongTotal+upfrontTotal;
+  var forecastVal=forecastValue(opts);
+  var netEquity=forecastVal-totalCost;
+  var html='<h3 class="cmp-h">👥 Loan split breakdown</h3><div class="split-cards">';
+  people.forEach(function(p){
+    var pctLabel=(p.pct*100).toFixed(1);
+    html+='<div class="split-person-card">'+
+      '<h4>'+p.name+' <span class="split-pct-badge">'+pctLabel+'%</span></h4>'+
+      '<div class="split-row-val"><span>Share of deposit</span><span class="gain-col">'+fmtMoney(opts.deposit*p.pct)+'</span></div>'+
+      '<div class="split-row-val"><span>Share of loan</span><span>'+fmtMoney(opts.loan*p.pct)+'</span></div>'+
+      '<div class="split-row-val"><span>'+opts.freq+' repayment</span><span class="primary-col">'+fmtMoney((sim.stdRepay+opts.extra)*p.pct)+'</span></div>'+
+      '<div class="split-row-val"><span>Share of interest paid</span><span class="cost">'+fmtMoney(sim.totalInt*p.pct)+'</span></div>'+
+      '<div class="split-row-val"><span>Share of total repaid</span><span>'+fmtMoney(sim.totalRepaid*p.pct)+'</span></div>'+
+      '<div class="split-row-val"><span>Share of ongoing costs</span><span class="cost">'+fmtMoney(ongTotal*p.pct)+'</span></div>'+
+      '<div class="split-row-val"><span>Share of upfront costs</span><span class="cost">'+fmtMoney(upfrontTotal*p.pct)+'</span></div>'+
+      '<div class="split-row-val rvb-total"><span>Share of total cost</span><span class="cost">'+fmtMoney(totalCost*p.pct)+'</span></div>'+
+      '<div class="split-row-val"><span>Share of forecast value</span><span class="gain-col">'+fmtMoney(forecastVal*p.pct)+'</span></div>'+
+      '<div class="split-row-val rvb-total"><span>Net equity</span><span class="gain-col">'+fmtMoney(netEquity*p.pct)+'</span></div>'+
+    '</div>';
+  });
+  html+='</div>';
+  el.innerHTML=html;
+}
+
 function renderResults(opts,sim){
   var depPct=opts.price>0?(opts.deposit/opts.price*100):0;
   $("#results").innerHTML=
@@ -461,6 +529,7 @@ function run(){
   var opts=readInputs();
   lastOpts=opts;lastSim=simulate(opts);
   renderResults(opts,lastSim);
+  renderSplitResults(opts,lastSim);
   drawChart(lastSim,lastOpts);
   renderTable(lastSim,currentScale);
   save();
@@ -489,6 +558,42 @@ document.addEventListener("DOMContentLoaded",function(){
     this.setAttribute("aria-expanded",!hidden);
     this.textContent=hidden?"⚙️ Advanced options ▴":"⚙️ Advanced options ▾";
   });
+
+  // Loan Split toggle
+  $("#splitToggle").addEventListener("click",function(){
+    var sec=$("#splitSection");var hidden=sec.hidden;sec.hidden=!hidden;
+    this.setAttribute("aria-expanded",!hidden);
+    this.textContent=hidden?"👥 Loan Split ▴":"👥 Loan Split ▾";
+  });
+
+  // Add / Remove person
+  function updateSplitBtns(){
+    $("#removePerson").disabled=splitPeople.length<1;
+  }
+  $("#addPerson").addEventListener("click",function(){
+    var n=splitPeople.length;
+    // Default: equal split
+    splitPeople.push({name:"Person "+(n+1),pct:Math.round(100/(n+1)*10)/10});
+    // Redistribute equally
+    var each=Math.round(100/(n+1)*10)/10;
+    splitPeople.forEach(function(p){p.pct=each});
+    // Fix rounding on last person
+    var diff=100-splitPeople.reduce(function(s,p){return s+p.pct},0);
+    splitPeople[splitPeople.length-1].pct=Math.round((splitPeople[splitPeople.length-1].pct+diff)*10)/10;
+    renderSplitPeople();updateSplitBtns();
+  });
+  $("#removePerson").addEventListener("click",function(){
+    if(splitPeople.length<1)return;
+    splitPeople.pop();
+    if(splitPeople.length>0){
+      var each=Math.round(100/splitPeople.length*10)/10;
+      splitPeople.forEach(function(p){p.pct=each});
+      var diff=100-splitPeople.reduce(function(s,p){return s+p.pct},0);
+      splitPeople[splitPeople.length-1].pct=Math.round((splitPeople[splitPeople.length-1].pct+diff)*10)/10;
+    }
+    renderSplitPeople();updateSplitBtns();
+  });
+  renderSplitPeople();
 
   // View toggle: Chart / Table
   $("#viewGraph").addEventListener("click",function(){

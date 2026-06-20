@@ -72,7 +72,7 @@
 }
 </script>
 <link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="calc.css?v=20260702j">
+<link rel="stylesheet" href="calc.css?v=20260702k">
 </head>
 <body>
 <header class="ribbon">
@@ -154,6 +154,17 @@
       </div>
     </div>
 
+    <!-- ════════════════════ LOAN SPLIT ════════════════════ -->
+    <button id="splitToggle" type="button" class="adv-section-toggle" aria-expanded="false">👥 Loan Split ▾</button>
+    <div id="splitSection" class="advanced" hidden>
+      <p class="hint">Split the loan between 2 or more people. Each person's share of repayments, interest and equity is calculated based on their nominated percentage. Percentages must total 100%.</p>
+      <div id="splitPeople"></div>
+      <div class="btn-row">
+        <button id="addPerson" type="button" class="adv-toggle">＋ Add person</button>
+        <button id="removePerson" type="button" class="adv-toggle reset-btn" disabled>− Remove last</button>
+      </div>
+    </div>
+
     <div class="btn-row">
       <button id="calcBtn" type="button" class="adv-toggle primary">Calculate</button>
       <button id="resetBtn" type="button" class="adv-toggle reset-btn">↺ Reset</button>
@@ -161,6 +172,7 @@
 
     <!-- ════════════════════ RESULTS ════════════════════ -->
     <div class="results" id="results" aria-live="polite"></div>
+    <div id="splitResults"></div>
     <p class="hint save-note" id="saveNote">✓ Saved automatically in this browser.</p>
 
     <!-- Chart -->
@@ -328,6 +340,6 @@
   <p>Estimates are for general guidance only and are not financial advice. Interest rates, tax and returns are not guaranteed; consult a licensed financial adviser.</p>
 </footer>
 
-<script src="app.js?v=20260702q" defer></script>
+<script src="app.js?v=20260702r" defer></script>
 </body>
 </html>
