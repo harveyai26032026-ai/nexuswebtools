@@ -681,6 +681,10 @@
         {
           "heading": "Determining the Best Term Deposit Rate for Your Business",
           "text": "The term deposit calculator can also be used to determine the best term deposit rate for your business. By inputting the amount of money you want to invest and the length of time you want to invest it for, the calculator will show you the potential returns based on different interest rates and compounding frequencies. This can help you make informed decisions about how to allocate your business's funds for maximum growth."
+        },
+        {
+          "heading": "Determining the Best Term Deposit Rate for a Business Investment",
+          "text": "The term deposit calculator can help business owners determine the best term deposit rate for their investment by factoring in factors such as the amount of money to be invested, the length of time the money will be invested, and the expected return on investment. For example, if a business owner wants to invest $100,000 for 3 years at an interest rate of 2%, the term deposit calculator would show that the total return on investment would be approximately $106,477. This information can help business owners make informed investment decisions."
         }
       ],
       "faqs": [
@@ -735,6 +739,14 @@
         {
           "q": "How does the term deposit calculator handle multiple term deposits with different interest rates?",
           "a": "The term deposit calculator allows you to input multiple term deposits with different interest rates, and it will calculate the total returns based on those rates. This can be helpful if you have a diversified investment portfolio."
+        },
+        {
+          "q": "Can I use the term deposit calculator to determine the best term deposit rate for my non-profit organization?",
+          "a": "Yes, the term deposit calculator can be used to compare different term deposit rates offered by banks and credit unions for non-profit organizations. The calculator takes into account the specific financial goals and constraints of non-profits, such as fundraising and donation needs."
+        },
+        {
+          "q": "How does the term deposit calculator handle tax implications when calculating returns?",
+          "a": "The term deposit calculator considers tax implications by factoring in the tax rate applied to the investment's return. This helps users understand how much they will actually earn after taxes are taken into account."
         }
       ]
     },
@@ -804,6 +816,10 @@
         {
           "heading": "Comparing Repayment Plans",
           "text": "The student loan calculator can help you compare different repayment plans by inputting the required information for each plan and seeing how much each one will cost you over time. For example, you can input the amount of your loan, the interest rate, and the length of the repayment term to see which plan is the most cost-effective."
+        },
+        {
+          "heading": "Examples of How the Calculator Can Help You Plan Your Payments",
+          "text": "The student loan calculator can help you plan your payments by showing you how different repayment plans will affect your monthly costs. For example, if you have a $30,000 loan with an interest rate of 6% and a 10-year repayment period, the calculator will show you that your monthly payment under the standard repayment plan would be $354. However, if you switch to a longer repayment period or a different repayment plan, such as an income-driven repayment plan, the calculator can help you see how your monthly payments will change."
         }
       ],
       "faqs": [
