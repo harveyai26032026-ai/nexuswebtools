@@ -379,21 +379,26 @@ function rentVsBuy(opts,sim){
   var breakEven=findBreakEvenRent(opts,sim);
   var beNote='';
   if(breakEven===null){
-    beNote='<div class="rvb-note rvb-be">💡 For this property price, loan and growth assumptions, buying builds more wealth than renting at any realistic rent price.</div>';
+    beNote='<div class="rvb-note rvb-be">💡 Under these assumptions, buying builds more wealth than renting at any realistic rent price.</div>';
   }else if(breakEven===0){
     beNote='<div class="rvb-note rvb-be">💡 Even at $0 rent, investing outperforms buying under these assumptions — property growth is too low relative to investment returns.</div>';
   }else{
     var beWeekly=breakEven;
     var beMonthly=breakEven*52/12;
     var curRent=weeklyRent;
-    var diffFromBE=curRent-beWeekly;
-    var beVerdict=diffFromBE<0?
-      'Your rent ('+fmtMoneyFull(curRent)+'/wk) is below break-even — renting + investing builds more wealth.':
-      diffFromBE>0?
-      'Your rent ('+fmtMoneyFull(curRent)+'/wk) is above break-even — buying builds more wealth.':
-      'Your rent is at the break-even point — both paths are roughly equal.';
-    beNote='<div class="rvb-note rvb-be">💡 Break-even rent: <strong>'+fmtMoneyFull(beWeekly)+'/wk</strong> ('+fmtMoneyFull(beMonthly)+'/mo). '+
-      'Rent below this → investing wins. Rent above → buying wins. '+beVerdict+'</div>';
+    var rentSaving=beWeekly-curRent;
+    beNote='<div class="rvb-note rvb-be">'+
+      '<div style="font-size:1.1rem;font-weight:800;margin-bottom:6px">💡 Break-even rent: '+fmtMoneyFull(beWeekly)+'/wk ('+fmtMoneyFull(beMonthly)+'/mo)</div>'+
+      '<div style="margin-bottom:4px">This is the maximum weekly rent at which renting + investing and buying produce the same outcome over '+term+' years, based on your inputs.</div>'+
+      '<div style="font-weight:700;margin-top:8px;padding:8px 12px;border-radius:8px;background:'+(curRent<beWeekly?'#e8f8f0;color:#065f46':'#fef2f2;color:#991b1b')+'">'+
+        (curRent<beWeekly?
+          '✅ Your rent ('+fmtMoneyFull(curRent)+'/wk) is <strong>'+fmtMoneyFull(rentSaving)+'/wk below</strong> break-even — renting + investing is likely to build more wealth.':
+          curRent>beWeekly?
+          '⚠️ Your rent ('+fmtMoneyFull(curRent)+'/wk) is <strong>'+fmtMoneyFull(-rentSaving)+'/wk above</strong> break-even — buying is likely to build more wealth.':
+          '⚖️ Your rent is at the break-even point — both paths produce roughly equal outcomes.')+
+      '</div>'+
+      '<div style="margin-top:8px;font-size:.84rem;color:var(--muted)">If you can rent comparable housing for less than '+fmtMoneyFull(beWeekly)+'/wk, renting + investing is generally more cost-effective. If not, buying is likely the better financial choice.</div>'+
+    '</div>';
   }
 
   // ─── Results ───
