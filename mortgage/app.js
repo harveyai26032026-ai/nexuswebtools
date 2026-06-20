@@ -103,8 +103,15 @@ function rentVsBuy(opts,sim){
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var taxRate=(val("rvTaxRate")||25)/100,postTaxInv=invRate*(1-taxRate/100);
   var propVal=opts.price,annualRepay=sim.stdRepay*ppf+opts.extra*ppf;
-  var annualOngoing=opts.tax+opts.ins+opts.hoa+(opts.lmi/100*opts.loan);
-  var rows=[],investBal=Math.max(0,opts.deposit-opts.stamp),rentYr=weeklyRent*52;
+  // Read RvB-specific advanced overrides (blank = inherit base)
+  var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvStamp=val("rvStamp");
+  var tax=rvTax!==null?rvTax:opts.tax;
+  var ins=rvIns!==null?rvIns:opts.ins;
+  var hoa=rvHOA!==null?rvHOA:opts.hoa;
+  var lmi=rvLMI!==null?rvLMI:opts.lmi;
+  var stamp=rvStamp!==null?rvStamp:opts.stamp;
+  var annualOngoing=tax+ins+hoa+(lmi/100*opts.loan);
+  var rows=[],investBal=Math.max(0,opts.deposit-stamp),rentYr=weeklyRent*52;
   for(var yr=1;yr<=term;yr++){
     propVal*=(1+apprec);var maint=propVal*maintPct;
     var buyerSpend=annualRepay+annualOngoing+maint;
@@ -143,7 +150,7 @@ var cmpCount=0,CMP_COLORS=["#8b5cf6","#ca8a04","#ec4899","#06b6d4","#f97316"];
 function addComparison(){
   cmpCount++;var base=readInputs();
   var div=document.createElement("div");div.className="scenario adv-block";div.id="cmp"+cmpCount;
-  div.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong style="color:var(--accent)">Scenario '+cmpCount+'</strong><button type="button" class="rm-cmp" data-id="cmp'+cmpCount+'" style="border:none;background:none;color:#dc2626;font-weight:700;cursor:pointer;font-size:1.1rem">✕</button></div><div class="grid"><div class="field"><label>Rate %</label><input type="number" step="any" class="cmp-rate" placeholder="'+base.rate+'"></div><div class="field"><label>Term (yr)</label><input type="number" step="1" class="cmp-term" placeholder="'+base.term+'"></div><div class="field"><label>Deposit</label><input type="number" step="any" class="cmp-dep" placeholder="'+Math.round(base.deposit)+'"></div><div class="field"><label>Extra / period</label><input type="number" step="any" class="cmp-extra" placeholder="0"></div></div>';
+  div.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong style="color:var(--accent)">Scenario '+cmpCount+'</strong><button type="button" class="rm-cmp" data-id="cmp'+cmpCount+'" style="border:none;background:none;color:#dc2626;font-weight:700;cursor:pointer;font-size:1.1rem">✕</button></div><div class="grid"><div class="field"><label>Rate %</label><input type="number" step="any" class="cmp-rate" placeholder="'+base.rate+'"></div><div class="field"><label>Term (yr)</label><input type="number" step="1" class="cmp-term" placeholder="'+base.term+'"></div><div class="field"><label>Deposit</label><input type="number" step="any" class="cmp-dep" placeholder="'+Math.round(base.deposit)+'"></div><div class="field"><label>Extra / period</label><input type="number" step="any" class="cmp-extra" placeholder="0"></div></div><details class="cmp-adv-details"><summary>⚙️ Advanced options</summary><div class="grid" style="margin-top:8px"><div class="field"><label>Repayment type</label><select class="cmp-repaytype"><option value="">Inherit</option><option value="pi">P&amp;I</option><option value="io">Interest Only</option></select></div><div class="field"><label>IO period (yr)</label><input type="number" step="1" min="0" class="cmp-io" placeholder="'+base.ioYears+'"></div><div class="field"><label>Property tax /yr</label><input type="number" step="any" min="0" class="cmp-tax" placeholder="'+base.tax+'"></div><div class="field"><label>Insurance /yr</label><input type="number" step="any" min="0" class="cmp-ins" placeholder="'+base.ins+'"></div><div class="field"><label>PMI/LMI %/yr</label><input type="number" step="any" min="0" class="cmp-lmi" placeholder="'+base.lmi+'"></div><div class="field"><label>HOA / strata /yr</label><input type="number" step="any" min="0" class="cmp-hoa" placeholder="'+base.hoa+'"></div><div class="field"><label>Stamp duty (one-off)</label><input type="number" step="any" min="0" class="cmp-stamp" placeholder="'+base.stamp+'"></div></div></details>';
   $("#cmpList").appendChild(div);
   div.querySelector(".rm-cmp").addEventListener("click",function(){div.remove()});
 }
@@ -155,8 +162,15 @@ function runComparison(opts,sim){
     var term=el.querySelector(".cmp-term").value;term=term!==""?parseFloat(term):base.term;
     var dep=el.querySelector(".cmp-dep").value;dep=dep!==""?parseFloat(dep):base.deposit;
     var extra=el.querySelector(".cmp-extra").value;extra=extra!==""?parseFloat(extra):0;
+    var rtEl=el.querySelector(".cmp-repaytype");var repayType=rtEl&&rtEl.value!==""?rtEl.value:base.repayType;
+    var ioEl=el.querySelector(".cmp-io");var ioYears=ioEl&&ioEl.value!==""?parseFloat(ioEl.value):base.ioYears;
+    var taxEl=el.querySelector(".cmp-tax");var tax=taxEl&&taxEl.value!==""?parseFloat(taxEl.value):base.tax;
+    var insEl=el.querySelector(".cmp-ins");var ins=insEl&&insEl.value!==""?parseFloat(insEl.value):base.ins;
+    var lmiEl=el.querySelector(".cmp-lmi");var lmi=lmiEl&&lmiEl.value!==""?parseFloat(lmiEl.value):base.lmi;
+    var hoaEl=el.querySelector(".cmp-hoa");var hoa=hoaEl&&hoaEl.value!==""?parseFloat(hoaEl.value):base.hoa;
+    var stampEl=el.querySelector(".cmp-stamp");var stamp=stampEl&&stampEl.value!==""?parseFloat(stampEl.value):base.stamp;
     var loan=Math.max(0,base.price-dep);
-    var altOpts={price:base.price,deposit:dep,loan:loan,rate:rate,term:term,freq:base.freq,repayType:base.repayType,ioYears:base.ioYears,extra:extra,tax:base.tax,ins:base.ins,lmi:base.lmi,hoa:base.hoa,stamp:base.stamp};
+    var altOpts={price:base.price,deposit:dep,loan:loan,rate:rate,term:term,freq:base.freq,repayType:repayType,ioYears:ioYears,extra:extra,tax:tax,ins:ins,lmi:lmi,hoa:hoa,stamp:stamp};
     results.push({label:"Scenario "+(idx+1),opts:altOpts,sim:simulate(altOpts),color:CMP_COLORS[idx%CMP_COLORS.length]});
   });
   if(!results.length)return;
@@ -277,6 +291,12 @@ document.addEventListener("DOMContentLoaded",function(){
   $("#rvbToggle").addEventListener("click",function(){
     var sec=$("#rvbSection");var hidden=sec.hidden;sec.hidden=!hidden;
     this.setAttribute("aria-expanded",!hidden);
+  });
+  // Rent vs Buy advanced costs toggle
+  $("#rvbAdvToggle").addEventListener("click",function(){
+    var sec=$("#rvbAdvSection");var hidden=sec.hidden;sec.hidden=!hidden;
+    this.setAttribute("aria-expanded",!hidden);
+    this.textContent=hidden?"⚙️ Advanced costs ▴":"⚙️ Advanced costs ▾";
   });
   $("#rvbCalc").addEventListener("click",function(){
     if(!lastSim)run();
