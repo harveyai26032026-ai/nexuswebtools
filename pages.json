@@ -665,6 +665,10 @@
         {
           "heading": "Investment Strategies",
           "text": "The term deposit calculator can also be used to determine the best investment strategy for your business. For example, if you're looking to invest a large sum of money and want to earn interest on it, the calculator can help you determine how long to hold onto the investment to maximize returns. Or, if you're looking to diversify your investment portfolio, the calculator can help you determine the best mix of short-term and long-term investments based on your business goals and risk tolerance."
+        },
+        {
+          "heading": "Determining the Best Term Deposit Rate for Your Business",
+          "text": "The term deposit calculator can also be used to determine the best term deposit rate for your business. By inputting the amount of money you want to invest and the length of time you want to invest it for, the calculator will show you the potential returns based on different interest rates and compounding frequencies. This can help you make informed decisions about how to allocate your business's funds for maximum growth."
         }
       ],
       "faqs": [
@@ -703,6 +707,14 @@
         {
           "q": "How does the term deposit calculator handle taxes when calculating returns?",
           "a": "The term deposit calculator assumes that any interest earned is subject to taxes, so it takes this into account when calculating returns. However, you can adjust the tax rate to reflect your specific situation."
+        },
+        {
+          "q": "Can I use the term deposit calculator to determine the best term deposit rate for my retirement savings?",
+          "a": "Yes, the term deposit calculator can help you compare different term deposit rates and find the one that best suits your retirement savings goals."
+        },
+        {
+          "q": "How does the term deposit calculator handle multiple term deposits with different maturity dates?",
+          "a": "The term deposit calculator allows you to input multiple term deposits with different maturity dates and will calculate the total returns for each one separately."
         }
       ]
     },
@@ -760,19 +772,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Student Loan planning",
-            "text": "Use the tool to plan how student loan fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Student Loan optimization",
-            "text": "Compare alternative rates and frequencies for student loan to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Examples of How the Calculator Can Help with Loan Repayment Planning",
+          "text": "The student loan calculator can help you plan for your loan repayment by providing detailed information on how different repayment plans can impact your monthly payments and overall cost of your loans. For example, if you're considering a graduated repayment plan, the calculator can show you how your payments will change over time and how much you can save compared to a standard repayment plan. Additionally, the calculator can help you identify the best repayment plan for your individual circumstances and financial goals."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $11,000 grow to at 3.7% per annum over 3 years for student loan?",
@@ -791,6 +796,16 @@
         {
           "slug": "student-loan",
           "name": "Student Loan Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the student loan calculator to compare different repayment plans?",
+          "a": "Yes, our student loan calculator allows you to compare different repayment plans and see how they can affect your monthly payments and overall cost of your loans."
+        },
+        {
+          "q": "How does the calculator take into account potential future changes in interest rates?",
+          "a": "Our student loan calculator uses historical interest rate data to estimate future changes, but keep in mind that future interest rate changes are unpredictable and may impact your loan payments."
         }
       ]
     },
@@ -852,6 +867,10 @@
         {
           "heading": "Insurance Benefits",
           "text": "Some credit cards offer insurance benefits, such as travel insurance or purchase protection. Use the calculator to see how much these benefits could be worth in total."
+        },
+        {
+          "heading": "Comparing Credit Cards",
+          "text": "You can use the credit card calculator to compare different credit cards by entering the interest rates and fees for each card. For example, if you're considering two different credit cards with interest rates of 12% and 18%, you can enter those rates into the calculator to see which card will save you more money in interest payments over time."
         }
       ],
       "faqs": [
@@ -943,6 +962,10 @@
         {
           "heading": "Other Ways to Use Our Car Loan Calculator",
           "text": "Our car loan calculator can also help you plan for the future by showing you how much you could save by making extra payments or by adjusting your loan term. For example, if you increase your monthly payment by $100, you could save thousands of dollars in interest and pay off your loan 2-3 years earlier. Or, if you extend your loan term to 7 years instead of 5, you could lower your monthly payment but end up paying more in interest over the life of the loan."
+        },
+        {
+          "heading": "Other Loan Options",
+          "text": "If you're not interested in refinancing your car loan, you may want to consider other loan options. For example, you could use a personal loan for other expenses, such as paying off credit card debt or funding a home improvement project. Keep in mind that personal loans typically have higher interest rates than car loans, so it's important to weigh the pros and cons before making a decision."
         }
       ],
       "faqs": [
@@ -973,6 +996,14 @@
         {
           "q": "Can I use my car as collateral for a personal loan?",
           "a": "It is possible to use your car as collateral for a personal loan, but it's important to consider the potential risks and consequences. If you default on the loan, the lender could repossess your car and sell it to recoup their losses."
+        },
+        {
+          "q": "Can I refinance my car loan to get a better interest rate?",
+          "a": "Yes, you can refinance your car loan to obtain a lower interest rate or more favorable terms. However, it's important to weigh the costs and benefits of refinancing, as it may not always be the best option."
+        },
+        {
+          "q": "How do I know if I'm getting a good deal on my car loan?",
+          "a": "To determine if you're getting a good deal, consider factors such as the interest rate, loan term, and any fees associated with the loan. You can also compare offers from multiple lenders to find the best deal."
         }
       ]
     },
