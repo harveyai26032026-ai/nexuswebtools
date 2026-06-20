@@ -188,6 +188,18 @@ table.ref tbody tr:hover td{background:#eef2ff}
 .rvb-cost-row.rvb-total{font-weight:700;font-size:.88rem;border-top:1px solid var(--ring);padding-top:6px;margin-top:4px}
 .rvb-diff-row{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:10px 16px;margin-top:2px}
 
+/* RvB year-by-year table — grouped headers + column tinting */
+.rvb-buy-head{background:#3b5bdb;color:#fff;border-radius:6px 6px 0 0;font-size:.88rem;letter-spacing:.02em}
+.rvb-rent-head{background:#0f9d6b;color:#fff;border-radius:6px 6px 0 0;font-size:.88rem;letter-spacing:.02em}
+.rvb-diff-head{background:#6b7280;color:#fff;border-radius:6px 6px 0 0;font-size:.88rem;letter-spacing:.02em}
+.rvb-buy-sub{background:#eef0ff;color:#3b5bdb;font-size:.78rem;font-weight:600}
+.rvb-rent-sub{background:#e8f8f0;color:#0f9d6b;font-size:.78rem;font-weight:600}
+#rvbTable td.rvb-buy{background:#f5f7ff}
+#rvbTable td.rvb-rent{background:#f0faf5}
+#rvbTable td.rvb-diff{background:#f9fafb;font-weight:700}
+#rvbTable thead th{vertical-align:middle;padding:6px 8px;border-bottom:2px solid var(--ring)}
+#rvbTable .rvb-th-group th{text-align:center}
+
 /* Comparison summary cards */
 .cmp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}
 .cmp-summary-card{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:14px}

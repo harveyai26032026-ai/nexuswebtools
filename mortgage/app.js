@@ -471,13 +471,43 @@ function rentVsBuy(opts,sim){
 
   // ─── Table ───
   $("#rvbTableHead").hidden=false;
-  $("#rvbTable").innerHTML='<thead><tr><th>Year</th><th>Interest</th><th>Costs+maint</th><th>Total buyer sunk</th><th>Rent</th><th>Surplus invested</th><th>Net invested</th><th>Compound interest</th><th>Portfolio</th><th>Buy equity</th><th>Difference</th></tr></thead><tbody>'+
+  $("#rvbTable").innerHTML=
+    '<thead>'+
+      '<tr class="rvb-th-group">'+
+        '<th rowspan="2">Year</th>'+
+        '<th colspan="4" class="rvb-buy-head">🏠 Buy</th>'+
+        '<th colspan="5" class="rvb-rent-head">📈 Rent + Invest</th>'+
+        '<th rowspan="2" class="rvb-diff-head">Difference</th>'+
+      '</tr>'+
+      '<tr>'+
+        '<th class="rvb-buy-sub">Interest</th>'+
+        '<th class="rvb-buy-sub">Principal</th>'+
+        '<th class="rvb-buy-sub">Costs+main</th>'+
+        '<th class="rvb-buy-sub">Equity</th>'+
+        '<th class="rvb-rent-sub">Rent</th>'+
+        '<th class="rvb-rent-sub">Surplus</th>'+
+        '<th class="rvb-rent-sub">Net invested</th>'+
+        '<th class="rvb-rent-sub">Interest</th>'+
+        '<th class="rvb-rent-sub">Portfolio</th>'+
+      '</tr>'+
+    '</thead><tbody>'+
     rows.map(function(r){
       var d=r.equity-r.renterWealth;
       var c=d>0?'class="gain-col"':d<0?'class="cost"':'';
-      var cumBuySunk=r.cumInt+r.cumOngoingCosts;
       var surplus=r.buyerSpend-r.rentYr;
-      return '<tr><td>'+r.year+'</td><td class="cost">'+fmtMoneyFull(r.yrInt)+'</td><td class="cost">'+fmtMoneyFull(r.yrOngoing+r.yrMaint)+'</td><td class="cost">'+fmtMoneyFull(cumBuySunk)+'</td><td class="cost">'+fmtMoneyFull(r.rentYr)+'</td><td class="gain-col">'+(surplus>=0?fmtMoneyFull(surplus):'−'+fmtMoneyFull(-surplus))+'</td><td class="gain-col">'+fmtMoneyFull(r.netContribs)+'</td><td class="gain-col">'+fmtMoneyFull(r.investGrowthTotal)+'</td><td>'+fmtMoneyFull(r.renterWealth)+'</td><td>'+fmtMoneyFull(r.equity)+'</td><td '+c+'>'+(d>=0?'+':'')+fmtMoneyFull(d)+'</td></tr>';
+      return '<tr>'+
+        '<td>'+r.year+'</td>'+
+        '<td class="rvb-buy cost">'+fmtMoneyFull(r.yrInt)+'</td>'+
+        '<td class="rvb-buy gain-col">'+fmtMoneyFull(r.yrPrin)+'</td>'+
+        '<td class="rvb-buy cost">'+fmtMoneyFull(r.yrOngoing+r.yrMaint)+'</td>'+
+        '<td class="rvb-buy gain-col">'+fmtMoneyFull(r.equity)+'</td>'+
+        '<td class="rvb-rent cost">'+fmtMoneyFull(r.rentYr)+'</td>'+
+        '<td class="rvb-rent gain-col">'+(surplus>=0?fmtMoneyFull(surplus):'−'+fmtMoneyFull(-surplus))+'</td>'+
+        '<td class="rvb-rent gain-col">'+fmtMoneyFull(r.netContribs)+'</td>'+
+        '<td class="rvb-rent gain-col">'+fmtMoneyFull(r.investGrowthTotal)+'</td>'+
+        '<td class="rvb-rent">'+fmtMoneyFull(r.renterWealth)+'</td>'+
+        '<td class="rvb-diff" '+c+'>'+(d>=0?'+':'')+fmtMoneyFull(d)+'</td>'+
+      '</tr>';
     }).join('')+'</tbody>';
 }
 
