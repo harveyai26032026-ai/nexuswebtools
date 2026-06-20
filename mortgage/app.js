@@ -387,12 +387,13 @@ function rentVsBuy(opts,sim){
 
   // ─── Table ───
   $("#rvbTableHead").hidden=false;
-  $("#rvbTable").innerHTML='<thead><tr><th>Year</th><th>Interest</th><th>Costs+maint</th><th>Total buyer sunk</th><th>Rent</th><th>Total rent</th><th>Buy equity</th><th>Rent+invest</th><th>Difference</th></tr></thead><tbody>'+
+  $("#rvbTable").innerHTML='<thead><tr><th>Year</th><th>Interest</th><th>Costs+maint</th><th>Total buyer sunk</th><th>Rent</th><th>Surplus invested</th><th>Net invested</th><th>Compound interest</th><th>Portfolio</th><th>Buy equity</th><th>Difference</th></tr></thead><tbody>'+
     rows.map(function(r){
       var d=r.equity-r.renterWealth;
       var c=d>0?'class="gain-col"':d<0?'class="cost"':'';
       var cumBuySunk=r.cumInt+r.cumOngoingCosts;
-      return '<tr><td>'+r.year+'</td><td class="cost">'+fmtMoneyFull(r.yrInt)+'</td><td class="cost">'+fmtMoneyFull(r.yrOngoing+r.yrMaint)+'</td><td class="cost">'+fmtMoneyFull(cumBuySunk)+'</td><td class="cost">'+fmtMoneyFull(r.rentYr)+'</td><td class="cost">'+fmtMoneyFull(r.cumRent)+'</td><td>'+fmtMoneyFull(r.equity)+'</td><td>'+fmtMoneyFull(r.renterWealth)+'</td><td '+c+'>'+(d>=0?'+':'')+fmtMoneyFull(d)+'</td></tr>';
+      var surplus=r.buyerSpend-r.rentYr;
+      return '<tr><td>'+r.year+'</td><td class="cost">'+fmtMoneyFull(r.yrInt)+'</td><td class="cost">'+fmtMoneyFull(r.yrOngoing+r.yrMaint)+'</td><td class="cost">'+fmtMoneyFull(cumBuySunk)+'</td><td class="cost">'+fmtMoneyFull(r.rentYr)+'</td><td class="gain-col">'+(surplus>=0?fmtMoneyFull(surplus):'−'+fmtMoneyFull(-surplus))+'</td><td class="gain-col">'+fmtMoneyFull(r.netContribs)+'</td><td class="gain-col">'+fmtMoneyFull(r.investGrowthTotal)+'</td><td>'+fmtMoneyFull(r.renterWealth)+'</td><td>'+fmtMoneyFull(r.equity)+'</td><td '+c+'>'+(d>=0?'+':'')+fmtMoneyFull(d)+'</td></tr>';
     }).join('')+'</tbody>';
 }
 

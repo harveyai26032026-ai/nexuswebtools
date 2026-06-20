@@ -1,9 +1,10 @@
 /* Mortgage Calculator — page-specific styles (extends ../style.css) */
 main{max-width:1240px;padding-top:2px !important;padding-bottom:32px !important}
+@media(min-width:640px){main{padding-top:6px !important;padding-bottom:40px !important}}
 
-.ad-slot{margin:6px auto;min-height:60px}
-
-@media(min-width:640px){main{padding-top:6px !important;padding-bottom:40px !important}.ad-slot{margin:8px auto}}
+.ad-slot{margin:4px auto;min-height:0;overflow:hidden}
+.ad-slot:empty{display:none;margin:0;padding:0;height:0}
+.ad-slot ins{display:block;min-height:0}
 
 .crumbs{font-size:.82rem;color:var(--muted);margin-bottom:6px}
 .crumbs a{color:var(--accent);text-decoration:none}
