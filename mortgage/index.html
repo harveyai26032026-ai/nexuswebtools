@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4562423029265065" crossorigin="anonymous"></script>
+<title>Mortgage Calculator — Repayments, Rent vs Buy &amp; Comparison</title>
+<meta name="description" content="Free mortgage calculator with amortisation schedule, rent vs buy comparison, side-by-side scenario modelling and weekly/monthly/yearly toggle.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="Nexus Web Tools">
+<meta name="theme-color" content="#3b5bdb">
+<link rel="canonical" href="https://nexuswebtools.com/mortgage/">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../favicon.webp" type="image/webp">
+<link rel="apple-touch-icon" href="../favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nexus Web Tools">
+<meta property="og:title" content="Mortgage Calculator — Repayments, Rent vs Buy &amp; Comparison">
+<meta property="og:description" content="Calculate mortgage repayments, compare renting vs buying, and model side-by-side scenarios with an interactive amortisation chart.">
+<meta property="og:url" content="https://nexuswebtools.com/mortgage/">
+<meta property="og:image" content="https://nexuswebtools.com/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mortgage Calculator — Repayments, Rent vs Buy &amp; Comparison">
+<meta name="twitter:description" content="Free mortgage calculator with rent vs buy comparison, scenario modelling and amortisation schedule.">
+<meta name="twitter:image" content="https://nexuswebtools.com/og.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://nexuswebtools.com/mortgage/#app",
+      "name": "Mortgage Calculator",
+      "url": "https://nexuswebtools.com/mortgage/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Calculate mortgage repayments with amortisation schedule, compare renting vs buying and investing, and model side-by-side scenarios.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "AUD" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nexuswebtools.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Mortgage Calculator", "item": "https://nexuswebtools.com/mortgage/" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to calculate mortgage repayments",
+      "step": [
+        { "@type": "HowToStep", "name": "Enter property price and deposit", "text": "Type the purchase price and your deposit amount or percentage." },
+        { "@type": "HowToStep", "name": "Set interest rate and loan term", "text": "Enter the annual interest rate and the loan duration in years." },
+        { "@type": "HowToStep", "name": "Add ongoing costs", "text": "Include property tax, home insurance, PMI/LMI, and HOA/strata fees." },
+        { "@type": "HowToStep", "name": "Review repayments", "text": "See your estimated repayment, total interest, and full amortisation schedule." },
+        { "@type": "HowToStep", "name": "Compare scenarios", "text": "Open Rent vs Buy or Mortgage Comparison to model alternatives side by side." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How is a mortgage repayment calculated?","acceptedAnswer":{"@type":"Answer","text":"The standard formula is M = P × r(1+r)^n / ((1+r)^n − 1), where P is the loan principal, r is the monthly interest rate, and n is the total number of monthly payments."}},
+        {"@type":"Question","name":"What is LMI/PMI?","acceptedAnswer":{"@type":"Answer","text":"Lenders Mortgage Insurance (or Private Mortgage Insurance) is required when your deposit is less than 20% of the property value. It protects the lender if you default."}},
+        {"@type":"Question","name":"Is it better to rent or buy?","acceptedAnswer":{"@type":"Answer","text":"It depends on property appreciation, investment returns, and how long you stay. The Rent vs Buy comparison models both paths over your loan term so you can compare net wealth."}},
+        {"@type":"Question","name":"How does an extra repayment save money?","acceptedAnswer":{"@type":"Answer","text":"Extra repayments reduce your principal faster, which means less interest accrues each month. Even small additional payments can shave years off your loan and save thousands in interest."}},
+        {"@type":"Question","name":"What is an amortisation schedule?","acceptedAnswer":{"@type":"Answer","text":"A table showing each payment broken into interest and principal portions. Early payments are mostly interest; over time the principal share grows."}}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="calc.css?v=20260701a">
+</head>
+<body>
+<header class="ribbon">
+  <div class="brand"><a href="/" style="text-decoration:none;color:inherit">🧰 Nexus Web Tools</a></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/#tools">Tools</a>
+    <a href="/compound-interest/">Compound Interest</a>
+    <a href="/s-curve/">S‑Curve Model</a>
+    <a href="https://concrete-calcs.com/">Concrete Calculator</a>
+    <a href="/unit-converter/">Unit Converter</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+</header>
+
+<main>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Mortgage Calculator</span></nav>
+
+  <div class="hero">
+    <h1>Mortgage Calculator</h1>
+    <p class="lede">Calculate home loan repayments with property tax, insurance and LMI — then compare <strong>renting vs buying</strong> or model <strong>side-by-side mortgage scenarios</strong> with an interactive amortisation chart.</p>
+  </div>
+
+  <!-- ════════════════════ SECTION 1: BASE CALCULATOR ════════════════════ -->
+  <section class="tool" aria-label="Mortgage calculator">
+    <div class="grid">
+      <div class="field"><label for="mCcy">Currency</label>
+        <select id="mCcy">
+          <option value="AUD" selected>$ AUD</option>
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="CAD">$ CAD</option>
+          <option value="NZD">$ NZD</option>
+        </select>
+      </div>
+      <div class="field"><label for="mPrice"><strong>Property price</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">The purchase price of the property.</span></span></label><input id="mPrice" type="number" min="0" step="any" value="750000"></div>
+      <div class="field"><label for="mDeposit"><strong>Deposit</strong> <span class="hint-inline">($ or %)</span><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Your upfront cash. Enter a dollar amount or a percentage (e.g. 20) — the calculator auto‑detects which.</span></span></label><input id="mDeposit" type="number" min="0" step="any" value="20"></div>
+      <div class="field"><label for="mDepositMode"><strong>Deposit is</strong></label>
+        <select id="mDepositMode"><option value="pct" selected>Percentage of price</option><option value="amt">Dollar amount</option></select>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="field"><label for="mRate"><strong>Interest rate %</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">The annual nominal interest rate on the loan.</span></span></label><input id="mRate" type="number" step="any" value="6.2"></div>
+      <div class="field"><label for="mTerm"><strong>Loan term (years)</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">The length of the mortgage. Common terms are 25 or 30 years.</span></span></label><input id="mTerm" type="number" min="1" step="1" value="30"></div>
+      <div class="field"><label for="mFreq"><strong>Repayment frequency</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">How often you make repayments. Fortnightly repayments slightly reduce total interest because principal reduces sooner.</span></span></label>
+        <select id="mFreq"><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly" selected>Monthly</option></select>
+      </div>
+      <div class="field"><label for="mRepayType"><strong>Repayment type</strong></label>
+        <select id="mRepayType"><option value="pi" selected>Principal &amp; Interest</option><option value="io">Interest Only</option></select>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="field"><label for="mExtra"><strong>Extra repayment / period</strong> <span class="hint-inline">(optional)</span><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">An additional amount on top of the minimum repayment each period. Even small extras can shave years off the loan.</span></span></label><input id="mExtra" type="number" min="0" step="any" value="0"></div>
+      <div class="field"><label for="mIOYears"><strong>Interest‑only period</strong> <span class="hint-inline">(years, 0 = none)</span><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Number of years at the start where you pay interest only, before switching to P&amp;I.</span></span></label><input id="mIOYears" type="number" min="0" step="1" value="0"></div>
+    </div>
+
+    <div class="section-divider"><span>Ongoing costs</span></div>
+
+    <div class="grid">
+      <div class="field"><label for="mTax"><strong>Annual property tax / rates</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Council rates, land tax, or property tax paid annually. In Australia this is typically council + water rates.</span></span></label><input id="mTax" type="number" min="0" step="any" value="2800"></div>
+      <div class="field"><label for="mIns"><strong>Annual home insurance</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Building + contents insurance per year.</span></span></label><input id="mIns" type="number" min="0" step="any" value="1800"></div>
+      <div class="field"><label for="mLMI"><strong>LMI %/yr</strong> <span class="hint-inline">(0 = off)</span><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Lenders Mortgage Insurance — charged when deposit &lt; 20%. Typical rate 0.5–1.5% of the loan per year, often capitalised into the loan.</span></span></label><input id="mLMI" type="number" min="0" step="any" value="0"></div>
+      <div class="field"><label for="mHOA"><strong>Annual strata/HOA</strong> <span class="hint-inline">(0 = none)</span><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Body corporate / HOA fees for apartments or gated communities.</span></span></label><input id="mHOA" type="number" min="0" step="any" value="0"></div>
+    </div>
+
+    <div class="btn-row">
+      <button id="calcBtn" type="button" class="adv-toggle primary">Calculate</button>
+      <button id="resetBtn" type="button" class="adv-toggle reset-btn">↺ Reset</button>
+    </div>
+
+    <div class="results" id="results" aria-live="polite"></div>
+
+    <p class="hint save-note" id="saveNote">✓ Your inputs are saved automatically in this browser.</p>
+
+    <!-- Chart: amortisation area -->
+    <svg id="mainChart" class="chart" viewBox="0 0 700 300" width="100%" role="img" aria-label="Amortisation chart"></svg>
+    <p class="chart-key" id="mainChartKey"></p>
+
+    <!-- Tab: Graph / Table toggle -->
+    <div class="view-toggle">
+      <button id="viewGraph" type="button" class="vtog active" aria-pressed="true">📈 Chart</button>
+      <button id="viewTable" type="button" class="vtog" aria-pressed="false">📋 Table</button>
+    </div>
+
+    <!-- Amortisation table -->
+    <div id="amortWrap" hidden>
+      <div class="scale-toggle">
+        <span class="scale-lbl">View:</span>
+        <button class="stog" data-scale="weekly">Weekly</button>
+        <button class="stog active" data-scale="monthly">Monthly</button>
+        <button class="stog" data-scale="yearly">Yearly</button>
+      </div>
+      <div class="table-scroll"><table class="ref" id="amortTable"><thead></thead><tbody></tbody></table></div>
+    </div>
+
+    <div class="btn-row" style="margin-top:10px">
+      <button id="exportXls" type="button" class="adv-toggle export-btn">⬇️ Export to Excel</button>
+    </div>
+
+    <!-- ════════════════════ SECTION 2: RENT VS BUY ════════════════════ -->
+    <button id="rvbToggle" type="button" class="adv-toggle" aria-expanded="false">🏠 Rent vs Buy + Invest ▾</button>
+    <div id="rvbSection" class="advanced" hidden>
+      <p class="hint">Compare the wealth outcome of buying a home vs renting and investing the difference. The model tracks mortgage repayments, interest, maintenance and capital growth against equivalent rent, investment contributions and compound returns.</p>
+
+      <div class="grid">
+        <div class="field"><label for="rvRent"><strong>Weekly rent</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">The weekly rent for a comparable property.</span></span></label><input id="rvRent" type="number" min="0" step="any" value="600"></div>
+        <div class="field"><label for="rvRentGrow"><strong>Annual rent increase %</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Assumed annual rent increase — typically 3–4% in Australian capital cities.</span></span></label><input id="rvRentGrow" type="number" step="any" value="3"></div>
+        <div class="field"><label for="rvMaint"><strong>Annual maintenance %</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Annual maintenance as a percentage of property value — typically 1% for houses, 0.5% for apartments.</span></span></label><input id="rvMaint" type="number" step="any" value="1"></div>
+        <div class="field"><label for="rvApprec"><strong>Annual property growth %</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Assumed annual capital growth of the property — Australian long‑term average ≈ 6–7%.</span></span></label><input id="rvApprec" type="number" step="any" value="5"></div>
+      </div>
+      <div class="grid">
+        <div class="field"><label for="rvInvRate"><strong>Investment return %/yr</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Annual return on invested savings (the renter's opportunity). Long‑term stock market average ≈ 7–9%.</span></span></label><input id="rvInvRate" type="number" step="any" value="7"></div>
+        <div class="field"><label for="rvTaxRate"><strong>Marginal tax rate %</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Your income tax bracket — applied to investment earnings to model after‑tax returns.</span></span></label><input id="rvTaxRate" type="number" step="any" value="32.5"></div>
+        <div class="field"><label for="rvStamp"><strong>Stamp duty</strong><span class="help" tabindex="0" role="button" aria-label="Help"><span class="tip">Upfront stamp duty / transfer duty on the purchase. Varies by state — VIC is highest, NT/ACT lowest.</span></span></label><input id="rvStamp" type="number" min="0" step="any" value="40000"></div>
+      </div>
+      <div class="btn-row">
+        <button id="rvbCalc" type="button" class="adv-toggle primary">Compare Rent vs Buy</button>
+      </div>
+      <div id="rvbResults"></div>
+      <div id="rvbChartWrap" hidden>
+        <h3 class="cmp-h">Net wealth over time — Buy vs Rent+Invest</h3>
+        <svg id="rvbChart" class="chart" viewBox="0 0 700 300" width="100%" role="img" aria-label="Rent vs buy comparison chart"></svg>
+        <div id="rvbLegend" class="legend"></div>
+      </div>
+      <h3 class="cmp-h" id="rvbTableHead" hidden>Year-by-year comparison</h3>
+      <div class="table-scroll"><table class="ref" id="rvbTable"></table></div>
+    </div>
+
+    <!-- ════════════════════ SECTION 3: MORTGAGE COMPARISON ════════════════════ -->
+    <button id="cmpToggle" type="button" class="adv-toggle" aria-expanded="false">⚖️ Mortgage Comparison ▾</button>
+    <div id="cmpSection" class="advanced" hidden>
+      <p class="hint">Add one or more alternative mortgages to compare side by side. Leave a field blank to inherit the value from the main calculator — only change the variables you want to test.</p>
+      <div id="cmpList"></div>
+      <div class="btn-row">
+        <button id="addCmp" type="button" class="adv-toggle">＋ Add mortgage</button>
+        <button id="runCmp" type="button" class="adv-toggle primary">Run comparison</button>
+      </div>
+      <div id="cmpSummary"></div>
+      <div id="cmpChartWrap" hidden>
+        <h3 class="cmp-h">Balance remaining — base vs alternatives</h3>
+        <svg id="cmpChart" class="chart" viewBox="0 0 700 300" width="100%" role="img" aria-label="Mortgage comparison chart"></svg>
+        <div id="cmpLegend" class="legend"></div>
+      </div>
+      <h3 class="cmp-h" id="cmpTableHead" hidden>Scenario summary</h3>
+      <div class="table-scroll"><table class="ref" id="cmpTable"></table></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How mortgage repayments are calculated</h2>
+    <p>The standard mortgage repayment formula for a principal‑and‑interest loan is:</p>
+    <p><code>M = P × r(1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1)</code></p>
+    <p>where <code>P</code> is the loan amount (principal), <code>r</code> is the periodic interest rate (annual rate ÷ number of payments per year), and <code>n</code> is the total number of repayments. This calculator simulates every period so it can handle interest‑only periods, extra repayments and changes in frequency exactly.</p>
+
+    <h2 id="example">Worked example: $600,000 loan at 6.2% for 30 years</h2>
+    <table class="ref">
+      <thead><tr><th>Period</th><th>Repayment</th><th>Interest portion</th><th>Principal portion</th><th>Balance remaining</th></tr></thead>
+      <tbody>
+        <tr><td>Month 1</td><td>$3,684</td><td>$3,100</td><td>$584</td><td>$599,416</td></tr>
+        <tr><td>Month 12</td><td>$3,684</td><td>$3,047</td><td>$637</td><td>$590,582</td></tr>
+        <tr><td>Year 5</td><td>$3,684</td><td>$2,750</td><td>$934</td><td>$526,914</td></tr>
+        <tr><td>Year 15</td><td>$3,684</td><td>$1,550</td><td>$2,134</td><td>$297,642</td></tr>
+        <tr><td>Year 30</td><td>$3,684</td><td>$19</td><td>$3,665</td><td>$0</td></tr>
+      </tbody>
+    </table>
+    <p>Over 30 years you repay about <strong>$1,326,240</strong> — $600,000 principal plus <strong>$726,240</strong> in interest. Adding just $200/month extra cuts the term by ~5 years and saves ~$140,000 in interest.</p>
+
+    <h2>Key factors that affect your mortgage</h2>
+    <ul class="benefits">
+      <li><strong>Deposit size.</strong> A 20% deposit avoids LMI and reduces the principal — less interest over the life of the loan.</li>
+      <li><strong>Interest rate.</strong> Even 0.5% difference compounds into tens of thousands over 30 years. Compare carefully.</li>
+      <li><strong>Loan term.</strong> Shorter terms mean higher repayments but dramatically less total interest.</li>
+      <li><strong>Extra repayments.</strong> Small regular extras compound into huge savings — use the comparison tool to see the impact.</li>
+      <li><strong>Repayment frequency.</strong> Fortnightly or weekly repayments slightly reduce total interest because principal reduces sooner.</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently asked questions</h2>
+    <h3>How is a mortgage repayment calculated?</h3>
+    <p>Using the formula <code>M = P × r(1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1)</code> for P&amp;I loans. This calculator simulates every period to handle interest‑only periods and extra repayments exactly.</p>
+    <h3>What is LMI/PMI?</h3>
+    <p>Lenders Mortgage Insurance (LMI) — or Private Mortgage Insurance (PMI) in the US — is required when your deposit is below 20%. It protects the lender, not you. Typical LMI rates are 0.5–1.5% of the loan per year.</p>
+    <h3>Is it better to rent or buy?</h3>
+    <p>It depends on property appreciation, investment returns, and how long you stay. The Rent vs Buy comparison models both paths over your loan term so you can compare net wealth at every year.</p>
+    <h3>How do extra repayments save money?</h3>
+    <p>Extra repayments reduce your principal faster, which means less interest accrues each period. Even small additional payments can shave years off your loan and save thousands in interest.</p>
+    <h3>What is an amortisation schedule?</h3>
+    <p>A table showing each payment broken into interest and principal portions. Early payments are mostly interest; over time the principal share grows as the balance reduces.</p>
+    <h3>What is stamp duty?</h3>
+    <p>A state government tax on property purchases, also called transfer duty. Rates vary by state — Victoria is typically the highest. First‑home buyer concessions may apply.</p>
+  </section>
+
+  <section class="related-tools">
+    <h2>Related Calculators</h2>
+    <div class="related-links">
+      <a href="/compound-interest/">Compound Interest Calculator</a>
+      <a href="/compound-interest/savings/">Savings Calculator</a>
+      <a href="/compound-interest/retirement/">Retirement Calculator</a>
+      <a href="/compound-interest/investments/">Investments Calculator</a>
+      <a href="/compound-interest/home-loan/">Home Loan Calculator</a>
+      <a href="/s-curve/">S‑Curve Model</a>
+      <a href="/unit-converter/">Unit Converter</a>
+      <a href="https://concrete-calcs.com/">Concrete Calculator</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Mortgage Calculator</strong> — free repayment, rent vs buy &amp; scenario comparison tool.</p>
+  <p><a href="/">All tools</a> · <a href="/compound-interest/">Compound Interest</a> · <a href="/s-curve/">S‑Curve Model</a> · <a href="/unit-converter/">Unit Converter</a> · <a href="https://concrete-calcs.com/">Concrete Calculator</a></p>
+  <p>Estimates are for general guidance only and are not financial advice. Interest rates, tax and returns are not guaranteed; consult a licensed financial adviser.</p>
+</footer>
+
+<script src="app.js?v=20260701a" defer></script>
+</body>
+</html>
