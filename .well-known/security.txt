@@ -1,0 +1,5 @@
+Contact: mailto:harvey.ai.26032026@gmail.com
+Preferred-Languages: en
+Canonical: https://nexuswebtools.com/.well-known/security.txt
+
+This policy is for nexuswebtools.com only. We do not offer monetary rewards for vulnerability reports.
