@@ -227,9 +227,9 @@ function rvbDiff(opts,sim,weeklyRent){
   var maint=rvMaintVal!==null&&rvMaintVal!==""?rvMaintVal:opts.maint;
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvLoanFee=val("rvLoanFee"),rvStamp=val("rvStamp"),rvPurchaseCosts=val("rvPurchaseCosts");
-  var tax=rvTax!==null?rvTax:opts.tax,ins=rvIns!==null?rvIns:opts.ins,hoa=rvHOA!==null?rvHOA:opts.hoa;
-  var lmi=rvLMI!==null?rvLMI:opts.lmi,loanFee=rvLoanFee!==null?rvLoanFee:opts.loanFee;
-  var stamp=rvStamp!==null?rvStamp:opts.stamp,purchaseCosts=rvPurchaseCosts!==null?rvPurchaseCosts:opts.purchaseCosts;
+  var tax=rvTax!==null&&rvTax!==''?+rvTax:opts.tax,ins=rvIns!==null&&rvIns!==''?+rvIns:opts.ins,hoa=rvHOA!==null&&rvHOA!==''?+rvHOA:opts.hoa;
+  var lmi=rvLMI!==null&&rvLMI!==''?+rvLMI:opts.lmi,loanFee=rvLoanFee!==null&&rvLoanFee!==''?+rvLoanFee:opts.loanFee;
+  var stamp=rvStamp!==null&&rvStamp!==''?+rvStamp:opts.stamp,purchaseCosts=rvPurchaseCosts!==null&&rvPurchaseCosts!==''?+rvPurchaseCosts:opts.purchaseCosts;
   var annualOngoing=tax+ins+hoa+loanFee;
   var annualOngoingWithMaint=annualOngoing+maint;
   var yearInterest={},yearRepay={};
@@ -286,13 +286,13 @@ function rentVsBuy(opts,sim){
   var propVal=opts.price;
   // Advanced overrides
   var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvLoanFee=val("rvLoanFee"),rvStamp=val("rvStamp"),rvPurchaseCosts=val("rvPurchaseCosts");
-  var tax=rvTax!==null?rvTax:opts.tax;
-  var ins=rvIns!==null?rvIns:opts.ins;
-  var hoa=rvHOA!==null?rvHOA:opts.hoa;
-  var lmi=rvLMI!==null?rvLMI:opts.lmi;
-  var loanFee=rvLoanFee!==null?rvLoanFee:opts.loanFee;
-  var stamp=rvStamp!==null?rvStamp:opts.stamp;
-  var purchaseCosts=rvPurchaseCosts!==null?rvPurchaseCosts:opts.purchaseCosts;
+  var tax=rvTax!==null&&rvTax!==''?+rvTax:opts.tax;
+  var ins=rvIns!==null&&rvIns!==''?+rvIns:opts.ins;
+  var hoa=rvHOA!==null&&rvHOA!==''?+rvHOA:opts.hoa;
+  var lmi=rvLMI!==null&&rvLMI!==''?+rvLMI:opts.lmi;
+  var loanFee=rvLoanFee!==null&&rvLoanFee!==''?+rvLoanFee:opts.loanFee;
+  var stamp=rvStamp!==null&&rvStamp!==''?+rvStamp:opts.stamp;
+  var purchaseCosts=rvPurchaseCosts!==null&&rvPurchaseCosts!==''?+rvPurchaseCosts:opts.purchaseCosts;
   var annualOngoing=tax+ins+hoa+loanFee;
   var annualOngoingWithMaint=annualOngoing+maint;
 
