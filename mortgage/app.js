@@ -619,6 +619,16 @@ function run(){
 document.addEventListener("DOMContentLoaded",function(){
   load();
 
+  // ─── Scroll progress bar ───
+  var scrollFill=document.querySelector(".scroll-bar-fill");
+  if(scrollFill){
+    window.addEventListener("scroll",function(){
+      var docH=document.documentElement.scrollHeight-window.innerHeight;
+      var pct=docH>0?(window.scrollY/docH)*100:0;
+      scrollFill.style.width=Math.min(100,pct)+"%";
+    },{passive:true});
+  }
+
   // Calculate button
   $("#calcBtn").addEventListener("click",run);
 
