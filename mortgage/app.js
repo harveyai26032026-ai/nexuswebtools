@@ -308,6 +308,13 @@ document.addEventListener("DOMContentLoaded",function(){
 
   // Initial calculation
   run();
+
+  // Mobile tap toggle for help tooltips
+  document.addEventListener('click', e => {
+    const h = e.target.closest('.help');
+    if (!h) { document.querySelectorAll('.help.tapped').forEach(t => t.classList.remove('tapped')); return; }
+    h.classList.toggle('tapped');
+  });
 });
 
 })();

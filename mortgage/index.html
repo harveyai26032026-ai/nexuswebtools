@@ -72,7 +72,7 @@
 }
 </script>
 <link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="calc.css?v=20260701c">
+<link rel="stylesheet" href="calc.css?v=20260702a">
 </head>
 <body>
 <header class="ribbon">
@@ -109,17 +109,17 @@
           <option value="HKD">$ HKD</option>
         </select>
       </div>
-      <div class="field"><label for="mPrice"><strong>Property price</strong></label><input id="mPrice" type="number" min="0" step="any" value="400000"></div>
-      <div class="field"><label for="mDeposit"><strong>Deposit</strong></label><input id="mDeposit" type="number" min="0" step="any" value="20"></div>
+      <div class="field"><label for="mPrice"><strong>Property price</strong> <span class="help" data-tip="The total purchase price of the property you want to buy."></span></label><input id="mPrice" type="number" min="0" step="any" value="400000"></div>
+      <div class="field"><label for="mDeposit"><strong>Deposit</strong> <span class="help" data-tip="The upfront amount you pay from savings. A 20% deposit avoids PMI/LMI fees."></span></label><input id="mDeposit" type="number" min="0" step="any" value="20"></div>
       <div class="field"><label for="mDepositMode"><strong>Deposit is</strong></label>
         <select id="mDepositMode"><option value="pct" selected>% of price</option><option value="amt">Dollar amount</option></select>
       </div>
     </div>
 
     <div class="grid">
-      <div class="field"><label for="mRate"><strong>Interest rate %</strong></label><input id="mRate" type="number" step="any" value="6.5"></div>
-      <div class="field"><label for="mTerm"><strong>Loan term (years)</strong></label><input id="mTerm" type="number" min="1" step="1" value="30"></div>
-      <div class="field"><label for="mFreq"><strong>Repayment frequency</strong></label>
+      <div class="field"><label for="mRate"><strong>Interest rate %</strong> <span class="help" data-tip="The annual interest rate on the loan. Even 0.5% difference can save tens of thousands over 30 years."></span></label><input id="mRate" type="number" step="any" value="6.5"></div>
+      <div class="field"><label for="mTerm"><strong>Loan term (years)</strong> <span class="help" data-tip="How long you take to repay the loan. Shorter terms = higher repayments but much less total interest."></span></label><input id="mTerm" type="number" min="1" step="1" value="30"></div>
+      <div class="field"><label for="mFreq"><strong>Repayment frequency</strong> <span class="help" data-tip="More frequent repayments (e.g. fortnightly) slightly reduce total interest because principal reduces sooner."></span></label>
         <select id="mFreq"><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly" selected>Monthly</option></select>
       </div>
     </div>
@@ -128,21 +128,21 @@
     <button id="advToggle" type="button" class="adv-section-toggle" aria-expanded="false">⚙️ Advanced options ▾</button>
     <div id="advSection" class="advanced" hidden>
       <div class="grid">
-        <div class="field"><label for="mRepayType"><strong>Repayment type</strong></label>
+        <div class="field"><label for="mRepayType"><strong>Repayment type</strong> <span class="help" data-tip="Principal & Interest reduces your debt each period. Interest Only means your balance stays the same during the IO period."></span></label>
           <select id="mRepayType"><option value="pi" selected>Principal &amp; Interest</option><option value="io">Interest Only</option></select>
         </div>
-        <div class="field"><label for="mIOYears"><strong>Interest‑only period</strong> <span class="hint-inline">(years)</span></label><input id="mIOYears" type="number" min="0" step="1" value="0"></div>
-        <div class="field"><label for="mExtra"><strong>Extra repayment / period</strong></label><input id="mExtra" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mIOYears"><strong>Interest‑only period</strong> <span class="help" data-tip="How many years you pay interest only before switching to principal & interest. Common for investment loans."></span> <span class="hint-inline">(years)</span></label><input id="mIOYears" type="number" min="0" step="1" value="0"></div>
+        <div class="field"><label for="mExtra"><strong>Extra repayment / period</strong> <span class="help" data-tip="Any additional amount you pay above the minimum. Even small extras can shave years off your loan and save thousands in interest."></span></label><input id="mExtra" type="number" min="0" step="any" value="0"></div>
       </div>
 
       <div class="section-divider"><span>Costs &amp; fees</span></div>
 
       <div class="grid">
-        <div class="field"><label for="mTax"><strong>Annual property tax / rates</strong></label><input id="mTax" type="number" min="0" step="any" value="0"></div>
-        <div class="field"><label for="mIns"><strong>Annual home insurance</strong></label><input id="mIns" type="number" min="0" step="any" value="0"></div>
-        <div class="field"><label for="mLMI"><strong>PMI / LMI %/yr</strong> <span class="hint-inline">(0 = off)</span></label><input id="mLMI" type="number" min="0" step="any" value="0"></div>
-        <div class="field"><label for="mHOA"><strong>Annual HOA / strata</strong> <span class="hint-inline">(0 = none)</span></label><input id="mHOA" type="number" min="0" step="any" value="0"></div>
-        <div class="field"><label for="mStamp"><strong>Stamp duty / transfer tax</strong> <span class="hint-inline">(one‑off)</span></label><input id="mStamp" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mTax"><strong>Annual property tax / rates</strong> <span class="help" data-tip="Annual government tax on the property — called council rates, property tax, or land tax depending on your country."></span></label><input id="mTax" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mIns"><strong>Annual home insurance</strong> <span class="help" data-tip="Annual building and contents insurance premium to cover fire, flood, theft etc."></span></label><input id="mIns" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mLMI"><strong>PMI / LMI %/yr</strong> <span class="help" data-tip="Private Mortgage Insurance (US) or Lenders Mortgage Insurance (AU/UK) — required when your deposit is below 20%. Enter the annual rate as a % of the loan."></span> <span class="hint-inline">(0 = off)</span></label><input id="mLMI" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mHOA"><strong>Annual HOA / strata</strong> <span class="help" data-tip="Homeowners Association fees (US) or body corporate / strata levies (AU/UK) for shared building maintenance."></span> <span class="hint-inline">(0 = none)</span></label><input id="mHOA" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mStamp"><strong>Stamp duty / transfer tax</strong> <span class="help" data-tip="Government tax on property purchases — called stamp duty (AU/UK), transfer tax (US), or registration duty (IN). This is a one-off upfront cost."></span> <span class="hint-inline">(one‑off)</span></label><input id="mStamp" type="number" min="0" step="any" value="0"></div>
       </div>
     </div>
 
@@ -186,14 +186,14 @@
       <p class="hint">Compare the wealth outcome of buying a home vs renting and investing the difference. The model tracks mortgage repayments, interest, maintenance and capital growth against equivalent rent, investment contributions and compound returns.</p>
 
       <div class="grid">
-        <div class="field"><label for="rvRent"><strong>Weekly rent</strong></label><input id="rvRent" type="number" min="0" step="any" value="450"></div>
-        <div class="field"><label for="rvRentGrow"><strong>Annual rent increase %</strong></label><input id="rvRentGrow" type="number" step="any" value="3"></div>
-        <div class="field"><label for="rvMaint"><strong>Annual maintenance %</strong></label><input id="rvMaint" type="number" step="any" value="1"></div>
-        <div class="field"><label for="rvApprec"><strong>Annual property growth %</strong></label><input id="rvApprec" type="number" step="any" value="4"></div>
+        <div class="field"><label for="rvRent"><strong>Weekly rent</strong> <span class="help" data-tip="The weekly rent for a comparable property in the same area."></span></label><input id="rvRent" type="number" min="0" step="any" value="450"></div>
+        <div class="field"><label for="rvRentGrow"><strong>Annual rent increase %</strong> <span class="help" data-tip="Expected annual rent growth — historical average is 2–4% in most markets."></span></label><input id="rvRentGrow" type="number" step="any" value="3"></div>
+        <div class="field"><label for="rvMaint"><strong>Annual maintenance %</strong> <span class="help" data-tip="Estimated annual maintenance cost as a % of property value — typically 1–2%."></span></label><input id="rvMaint" type="number" step="any" value="1"></div>
+        <div class="field"><label for="rvApprec"><strong>Annual property growth %</strong> <span class="help" data-tip="Expected annual property value growth. Historical average is 3–5% in major cities."></span></label><input id="rvApprec" type="number" step="any" value="4"></div>
       </div>
       <div class="grid">
-        <div class="field"><label for="rvInvRate"><strong>Investment return %/yr</strong></label><input id="rvInvRate" type="number" step="any" value="7"></div>
-        <div class="field"><label for="rvTaxRate"><strong>Marginal tax rate %</strong></label><input id="rvTaxRate" type="number" step="any" value="25"></div>
+        <div class="field"><label for="rvInvRate"><strong>Investment return %/yr</strong> <span class="help" data-tip="Expected annual return on invested savings (stocks, ETFs etc). Historical stock market average is ~7% after inflation."></span></label><input id="rvInvRate" type="number" step="any" value="7"></div>
+        <div class="field"><label for="rvTaxRate"><strong>Marginal tax rate %</strong> <span class="help" data-tip="Your top income tax rate — used to calculate after-tax investment returns for the rent & invest scenario."></span></label><input id="rvTaxRate" type="number" step="any" value="25"></div>
       </div>
       <div class="btn-row">
         <button id="rvbCalc" type="button" class="adv-toggle primary">Compare Rent vs Buy</button>
@@ -297,6 +297,6 @@
   <p>Estimates are for general guidance only and are not financial advice. Interest rates, tax and returns are not guaranteed; consult a licensed financial adviser.</p>
 </footer>
 
-<script src="app.js?v=20260701c" defer></script>
+<script src="app.js?v=20260702a" defer></script>
 </body>
 </html>
