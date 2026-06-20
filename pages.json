@@ -727,6 +727,14 @@
         {
           "q": "How does the term deposit calculator handle multiple term deposits with different maturity dates?",
           "a": "The term deposit calculator allows you to input multiple term deposits with different maturity dates and will calculate the total returns for each one separately."
+        },
+        {
+          "q": "Can I use the term deposit calculator to determine the best term deposit rate for my investment portfolio?",
+          "a": "Yes, the term deposit calculator can help you compare different term deposit rates and determine which one is best suited for your investment portfolio."
+        },
+        {
+          "q": "How does the term deposit calculator handle multiple term deposits with different interest rates?",
+          "a": "The term deposit calculator allows you to input multiple term deposits with different interest rates, and it will calculate the total returns based on those rates. This can be helpful if you have a diversified investment portfolio."
         }
       ]
     },
@@ -792,6 +800,10 @@
         {
           "heading": "Examples of How the Calculator Can Help You Plan Your Repayment",
           "text": "The calculator can help you plan your repayment by providing estimated monthly payments under different repayment plans, such as the standard repayment plan or an income-driven repayment plan. It can also help you see how changes in interest rates or loan amount could impact your overall cost of borrowing. For example, if you have a $30,000 loan with a 5% interest rate and a 10-year repayment term, the calculator can estimate your monthly payments under each plan and help you determine which one best fits your financial situation."
+        },
+        {
+          "heading": "Comparing Repayment Plans",
+          "text": "The student loan calculator can help you compare different repayment plans by inputting the required information for each plan and seeing how much each one will cost you over time. For example, you can input the amount of your loan, the interest rate, and the length of the repayment term to see which plan is the most cost-effective."
         }
       ],
       "faqs": [
@@ -895,6 +907,10 @@
         {
           "heading": "Comparing Credit Cards",
           "text": "You can use the credit card calculator to compare different credit cards by entering the interest rates and fees for each card. For example, if you're considering two different credit cards with interest rates of 12% and 18%, you can enter those rates into the calculator to see which card will save you more money in interest payments over time."
+        },
+        {
+          "heading": "Comparing Different Credit Cards",
+          "text": "You can use the credit card calculator to compare different credit cards by entering the interest rates and fees for each card. For example, if you're considering two different credit cards with interest rates of 12% and 18%, you can enter those values into the calculator to see which card will save you more money in interest payments over time. You can also compare different fees associated with each card, such as annual charges or late payment fees."
         }
       ],
       "faqs": [
@@ -994,6 +1010,10 @@
         {
           "heading": "Other Applications for Car Loan Calculators",
           "text": "Car loan calculators can also be used for other purposes beyond just calculating loan payments. For example, you can use a car loan calculator to estimate the total cost of owning a car, including fuel, maintenance, and insurance costs. This can help you determine if buying a new car is financially feasible for you."
+        },
+        {
+          "heading": "Refinancing Your Car Loan",
+          "text": "If you've had your car for a while and interest rates have dropped, you may be able to refinance your loan to get a better rate. For example, if you refinance a $10,000 loan with an interest rate of 7% to a new loan with an interest rate of 5%, you could save over $300 in interest over the life of the loan."
         }
       ],
       "faqs": [
