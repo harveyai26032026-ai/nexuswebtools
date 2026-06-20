@@ -1177,6 +1177,10 @@
         {
           "heading": "Example Calculations",
           "text": "For example, let's say you have a $300,000 home loan with a 3% interest rate and a 30-year term. If you miss one monthly payment of $1,250, your lender may charge a late fee of $50 and increase your interest rate by 1-2%. This could result in an additional $150-$300 per year in interest charges. Additionally, your credit score may be negatively impacted, which could lead to higher interest rates on future loans."
+        },
+        {
+          "heading": "Common Reasons for Refinancing Home Loans",
+          "text": "Many homeowners refinance their loans to take advantage of lower interest rates, switch from an adjustable-rate loan to a fixed-rate loan, or consolidate debt. Other reasons include moving to a shorter loan term, such as from a 30-year loan to a 15-year loan, or refinancing to eliminate private mortgage insurance (PMI)."
         }
       ],
       "faqs": [
@@ -1284,6 +1288,10 @@
         {
           "heading": "Examples of How Personal Loans Can Be Used",
           "text": "Personal loans can be used for a variety of purposes, such as: paying for a wedding or other special event, financing home improvements, consolidating debt, covering unexpected expenses, or funding a small business. For example, if you need to cover the cost of a unexpected medical bill, a personal loan could provide the necessary funds without incurring additional debt or using up your savings."
+        },
+        {
+          "heading": "Other Useful Information",
+          "text": "In addition to the minimum requirements listed above, some lenders may also consider factors such as your credit score, debt-to-income ratio, and employment history when evaluating your application. It's important to check with each lender for their specific requirements and guidelines."
         }
       ],
       "faqs": [
@@ -1314,6 +1322,14 @@
         {
           "q": "How do I know if I'm eligible for a personal loan?",
           "a": "Lenders typically consider factors such as your credit score, income, debt-to-income ratio, and employment history when determining eligibility for a personal loan. You can check your eligibility by comparing your financial information to the lender's requirements."
+        },
+        {
+          "q": "Can I use a personal loan to cover unexpected expenses?",
+          "a": "Yes, personal loans can be used for unexpected expenses such as car repairs or medical bills."
+        },
+        {
+          "q": "How do lenders determine my eligibility for a personal loan?",
+          "a": "Lenders consider factors such as your credit score, income, debt-to-income ratio, and employment history when determining your eligibility for a personal loan."
         }
       ]
     },
@@ -1379,6 +1395,10 @@
         {
           "heading": "Investment Strategies",
           "text": "Using a fixed deposit as part of your investment strategy can provide a stable source of returns. For example, you could consider investing a portion of your emergency fund in a fixed deposit to earn a higher return than a traditional savings account while still maintaining liquidity."
+        },
+        {
+          "heading": "Transferring a Fixed Deposit to Another Bank",
+          "text": "If you want to transfer your fixed deposit to another bank, you can do so by filling out a transfer form and providing the necessary information. The new bank will then handle the transfer of the fixed deposit and any associated interest earnings."
         }
       ],
       "faqs": [
@@ -1482,6 +1502,10 @@
         {
           "heading": "Other Applications of Recurring Deposits",
           "text": "Recurring deposits can also be used for other financial goals, such as saving for a down payment on a house or planning for retirement. By consistently setting aside a fixed amount each month, you can build a sizable nest egg over time."
+        },
+        {
+          "heading": "Retirement Savings",
+          "text": "Using the recurring deposit calculator, you can calculate how much you need to save each month to reach your retirement goals. For example, if you want to accumulate $500,000 by the time you're 65, and you start saving at age 30, you would need to contribute $250 per month for 30 years."
         }
       ],
       "faqs": [
@@ -1512,6 +1536,14 @@
         {
           "q": "How does the calculator take into account inflation when calculating my investment growth?",
           "a": "The calculator uses a historical inflation rate to estimate future inflation, which is then applied to the investment growth calculation. This helps to account for the decreasing purchasing power of money over time."
+        },
+        {
+          "q": "Can I use the recurring deposit calculator for other investment goals, such as saving for a down payment on a house?",
+          "a": "Yes, you can use the calculator for any investment goal where you want to make regular contributions and track the growth of your investment over time."
+        },
+        {
+          "q": "How do I know if I'm on track to meet my investment goals using the recurring deposit calculator?",
+          "a": "The calculator provides a detailed breakdown of your projected returns and investment growth, so you can easily see if you're on track to meet your goals."
         }
       ]
     },
