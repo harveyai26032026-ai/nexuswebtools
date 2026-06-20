@@ -307,11 +307,12 @@ document.addEventListener("DOMContentLoaded",function(){
   $("#cmpToggle").addEventListener("click",function(){
     var sec=$("#cmpSection");var wasHidden=sec.hidden;sec.hidden=!wasHidden;
     this.setAttribute("aria-expanded",!wasHidden);
-    if(wasHidden&&!cmpOpened){setTimeout(function(){addComparison();cmpOpened=true;},0);}
+    if(wasHidden&&!cmpOpened){addComparison();cmpOpened=true;}
   });
   $("#addCmp").addEventListener("click",addComparison);
   $("#runCmp").addEventListener("click",function(){
     if(!lastSim)run();
+    if(!$$("#cmpList .scenario").length)addComparison();
     runComparison(lastOpts,lastSim);
   });
 
