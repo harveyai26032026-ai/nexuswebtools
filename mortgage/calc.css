@@ -148,3 +148,20 @@ table.ref tbody tr:hover td{background:#eef2ff}
 .cmp-adv-details{margin-top:8px;border-top:1px solid var(--border);padding-top:8px}
 .cmp-adv-details summary{cursor:pointer;font-size:.88rem;color:var(--accent);font-weight:600;padding:4px 0;user-select:none}
 .cmp-adv-details summary:hover{text-decoration:underline}
+
+/* RvB detail lines */
+.rvb-detail{font-size:.78rem;color:var(--muted);margin-top:2px;line-height:1.5}
+
+/* RvB cost breakdown box */
+.rvb-cost-box{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:14px 16px;margin:12px 0}
+.rvb-cost-box h4{margin:0 0 8px;font-size:.88rem;color:var(--accent);font-weight:700}
+.rvb-cost-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:.84rem}
+.rvb-cost-row.rvb-total{font-weight:700;font-size:.88rem}
+
+/* Comparison summary cards */
+.cmp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}
+.cmp-summary-card{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:14px}
+.cmp-summary-card .cmp-label{font-size:.88rem;font-weight:700;margin-bottom:4px}
+.cmp-summary-card .cmp-big{font-size:1.3rem;font-weight:800}
+.cmp-summary-card .cmp-sub{font-size:.78rem;color:var(--muted)}
+.cmp-summary-card .cmp-detail{font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.4}
