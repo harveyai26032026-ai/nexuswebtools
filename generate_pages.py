@@ -296,12 +296,13 @@ def render_niche_page(tool_id: str, page: dict) -> str:
   </style>
 </head>
 <body>
-  <header>
+  <header class="ribbon">
     <div class="container">
       <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
       <nav class="nav-ribbon">
 {nav_links}      </nav>
     </div>
+    <div class="scroll-bar"><div class="scroll-bar-fill"></div></div>
   </header>
 
   <main class="container niche-content">
@@ -342,6 +343,7 @@ def render_niche_page(tool_id: str, page: dict) -> str:
       <p>&copy; 2025 Nexus Web Tools. <a href="/compound-interest/">Compound Interest Calculator</a> &middot; <a href="/unit-converter/">Unit Converter</a> &middot; <a href="/s-curve/">S-Curve Calculator</a></p>
     </div>
   </footer>
+<script src="/scroll-bar.js" defer></script>
 </body>
 </html>
 """

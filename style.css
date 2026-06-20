@@ -13,6 +13,19 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Aria
 .ribbon nav a:hover{color:var(--accent);background:rgba(59,91,219,.07)}
 .ribbon nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
+/* Scroll progress bar (sits at bottom of sticky ribbon) */
+.scroll-bar{height:4px;background:rgba(0,0,0,.06);width:100%;overflow:hidden}
+.scroll-bar-fill{height:100%;width:0%;background:var(--accent2);transition:width .12s ease-out;border-radius:0 2px 2px 0}
+
+/* Niche-page header (uses .ribbon for sticky + scroll bar) */
+.ribbon .container{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;max-width:900px}
+.ribbon .site-title{font-weight:700;letter-spacing:.3px;font-size:1.05rem;margin:0}
+.ribbon .site-title a{color:var(--text);text-decoration:none}
+.ribbon .site-title a:hover{color:var(--accent)}
+.ribbon .nav-ribbon{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.ribbon .nav-ribbon a{color:var(--muted);text-decoration:none;font-size:.92rem;padding:.3rem .6rem;border-radius:6px;transition:color .18s ease,background .18s ease}
+.ribbon .nav-ribbon a:hover{color:var(--accent);background:rgba(59,91,219,.07)}
+
 main{max-width:900px;margin:0 auto;padding:34px 16px 50px}
 @media (min-width:640px){main{padding:46px 24px 64px}}
 
