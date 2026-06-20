@@ -431,6 +431,10 @@
         {
           "heading": "Example Application - Retirement Savings",
           "text": "Assume you are 35 years old and want to save $100,000 for retirement in 25 years. If you start saving $5,000 per year and earn an average annual return of 7%, you can use the compound interest calculator to estimate your returns. Based on these assumptions, the calculator will show you that you will have saved over $163,000 by the time you retire, with an estimated return of around 250%. This calculation takes into account the power of compounding and helps you make informed decisions about your retirement savings."
+        },
+        {
+          "heading": "Other Investment Types",
+          "text": "The compound interest calculator can also be used to calculate the total value of other types of investments, such as real estate or collectibles. Simply enter the appropriate details for each investment and the calculator will provide an accurate total value."
         }
       ],
       "faqs": [
@@ -657,6 +661,10 @@
         {
           "heading": "Investment Strategies for Retirement",
           "text": "For retirees, a term deposit can be an attractive investment option due to its predictable returns and low risk. A term deposit calculator can help you determine the optimal term length and interest rate to maximize your returns while minimizing your risk exposure. For example, if you're 65 years old and want to generate $20,000 in annual retirement income, a 5-year term deposit with an interest rate of 3% per year could provide you with $400 per month in interest payments. This can help supplement your other sources of retirement income and ensure that you have enough money to cover your living expenses."
+        },
+        {
+          "heading": "Investment Strategies",
+          "text": "The term deposit calculator can also be used to determine the best investment strategy for your business. For example, if you're looking to invest a large sum of money and want to earn interest on it, the calculator can help you determine how long to hold onto the investment to maximize returns. Or, if you're looking to diversify your investment portfolio, the calculator can help you determine the best mix of short-term and long-term investments based on your business goals and risk tolerance."
         }
       ],
       "faqs": [
@@ -687,6 +695,14 @@
         {
           "q": "How does the term deposit calculator take inflation into account?",
           "a": "Our term deposit calculator assumes a constant inflation rate of 2% per year. However, you can adjust this rate to reflect your own expectations of future inflation. This will help you make more accurate projections of your investment's purchasing power over time."
+        },
+        {
+          "q": "Can I use the term deposit calculator to determine the best term deposit rate for my business?",
+          "a": "Yes, the term deposit calculator can help you compare different term deposit rates offered by various banks and choose the one that best suits your business needs."
+        },
+        {
+          "q": "How does the term deposit calculator handle taxes when calculating returns?",
+          "a": "The term deposit calculator assumes that any interest earned is subject to taxes, so it takes this into account when calculating returns. However, you can adjust the tax rate to reflect your specific situation."
         }
       ]
     },
@@ -832,19 +848,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Credit Card planning",
-            "text": "Use the tool to plan how credit card fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Credit Card optimization",
-            "text": "Compare alternative rates and frequencies for credit card to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Insurance Benefits",
+          "text": "Some credit cards offer insurance benefits, such as travel insurance or purchase protection. Use the calculator to see how much these benefits could be worth in total."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $12,000 grow to at 3.9% per annum over 4 years for credit card?",
@@ -863,6 +872,16 @@
         {
           "slug": "credit-card",
           "name": "Credit Card Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the credit card calculator to compare different credit cards?",
+          "a": "Yes, you can use our credit card calculator to compare different credit cards by entering the details of each card side-by-side."
+        },
+        {
+          "q": "What if I want to make changes to my credit card agreement after using the calculator?",
+          "a": "If you need to make changes to your credit card agreement after using our calculator, you should contact your credit card issuer directly."
         }
       ]
     },
@@ -920,19 +939,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Car Loan planning",
-            "text": "Use the tool to plan how car loan fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Car Loan optimization",
-            "text": "Compare alternative rates and frequencies for car loan to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Other Ways to Use Our Car Loan Calculator",
+          "text": "Our car loan calculator can also help you plan for the future by showing you how much you could save by making extra payments or by adjusting your loan term. For example, if you increase your monthly payment by $100, you could save thousands of dollars in interest and pay off your loan 2-3 years earlier. Or, if you extend your loan term to 7 years instead of 5, you could lower your monthly payment but end up paying more in interest over the life of the loan."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $13,000 grow to at 4.1% per annum over 5 years for car loan?",
@@ -951,6 +963,16 @@
         {
           "slug": "car-loan",
           "name": "Car Loan Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What if I want to make extra payments on my car loan?",
+          "a": "If you want to make extra payments on your car loan, you can use our car loan calculator to see how much faster you can pay off your loan. For example, if you make an extra payment of $500 per year, you could save thousands of dollars in interest and pay off your loan 2-3 years earlier."
+        },
+        {
+          "q": "Can I use my car as collateral for a personal loan?",
+          "a": "It is possible to use your car as collateral for a personal loan, but it's important to consider the potential risks and consequences. If you default on the loan, the lender could repossess your car and sell it to recoup their losses."
         }
       ]
     },
