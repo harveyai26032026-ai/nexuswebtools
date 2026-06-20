@@ -123,9 +123,9 @@ function renderTable(sim,scale){
   var grouped={};
   sched.forEach(function(s){var key=scale==="weekly"?s.period:scale==="monthly"?Math.ceil(s.period/(ppf/12)):s.year;if(!grouped[key])grouped[key]={repay:0,interest:0,principal:0,extra:0,balance:s.balance,period:key};else grouped[key].balance=s.balance;grouped[key].repay+=s.repay;grouped[key].interest+=s.interest;grouped[key].principal+=s.principal;grouped[key].extra+=s.extra});
   var rows=Object.values(grouped),label=scale==="weekly"?"Week":scale==="monthly"?"Month":"Year";
-  table.querySelector("thead").innerHTML='<tr><th>'+label+'</th><th>Repayment</th><th>Interest</th><th>Principal</th><th>Extra</th><th>Balance</th></tr>';
-  var html="";
-  rows.forEach(function(r){html+='<tr><td>'+label+' '+r.period+'</td><td>'+fmtMoneyFull(r.repay)+'</td><td class="cost">'+fmtMoneyFull(r.interest)+'</td><td class="gain-col">'+fmtMoneyFull(r.principal)+'</td><td>'+(r.extra>0?fmtMoneyFull(r.extra):"—")+'</td><td>'+fmtMoneyFull(r.balance)+'</td></tr>'});
+  table.querySelector("thead").innerHTML='<tr><th>'+label+'</th><th>Repayment</th><th>Interest</th><th>Total Interest</th><th>Principal</th><th>Total Principal</th><th>Extra</th><th>Balance</th></tr>';
+  var html="",cumInt=0,cumPrin=0;
+  rows.forEach(function(r){cumInt+=r.interest;cumPrin+=r.principal+r.extra;html+='<tr><td>'+label+' '+r.period+'</td><td>'+fmtMoneyFull(r.repay)+'</td><td class="cost">'+fmtMoneyFull(r.interest)+'</td><td class="cost">'+fmtMoneyFull(cumInt)+'</td><td class="gain-col">'+fmtMoneyFull(r.principal)+'</td><td class="gain-col">'+fmtMoneyFull(cumPrin)+'</td><td>'+(r.extra>0?fmtMoneyFull(r.extra):"—")+'</td><td>'+fmtMoneyFull(r.balance)+'</td></tr>'});
   table.querySelector("tbody").innerHTML=html;
 }
 
