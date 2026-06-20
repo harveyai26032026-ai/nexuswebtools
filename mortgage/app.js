@@ -200,7 +200,7 @@ function rentVsBuy(opts,sim){
       '<div class="rvb-cost-row"><span>Buyer ownership costs</span><span class="cost">'+fmtMoney(cumOngoing+cumMaint+stamp)+'</span></div>'+
       '<div class="rvb-cost-row rvb-total"><span>Buyer total sunk</span><span class="cost">'+fmtMoney(totalBuySunk)+'</span></div>'+
       '<div class="rvb-cost-row"><span>Renter total rent</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
-      '<div class="rvb-cost-row rvb-total" style="border-top:1px solid var(--ring);padding-top:6px"><span>Sunk cost difference</span><span class="'+(totalBuySunk>cumRent?'cost':'gain-col')+'">'+(totalBuySunk>cumRent?'+':'')+fmtMoney(totalBuySunk-cumRent)+' more for buyer</span></div>'+
+      '<div class="rvb-cost-row rvb-total" style="border-top:1px solid var(--ring);padding-top:6px"><span>Sunk cost difference</span><span class="'+(totalBuySunk<cumRent?'gain-col':'cost')+'">'+(totalBuySunk<cumRent?'Buyer pays '+fmtMoney(cumRent-totalBuySunk)+' less':'Buyer pays '+fmtMoney(totalBuySunk-cumRent)+' more')+'</span></div>'+
     '</div>';
 
   // ─── Chart ───
@@ -283,12 +283,14 @@ function runComparison(opts,sim){
     '<div class="cmp-sub">'+opts.freq+' repayment</div>'+
     '<div class="cmp-detail">Loan: '+fmtMoney(opts.loan)+' · '+opts.rate+'% · '+opts.term+'yr</div>'+
     '<div class="cmp-detail"><span class="cost">Interest: '+fmtMoney(sim.totalInt)+'</span></div>'+
-    '<div class="cmp-detail">Total repaid: '+fmtMoney(sim.totalRepaid)+'</div></div>';
+    '<div class="cmp-detail">Total repaid: '+fmtMoney(sim.totalRepaid)+'</div>'+
+    '<div class="cmp-detail" style="margin-top:4px;font-weight:600">Cost of loan: '+fmtMoney(sim.totalInt+(opts.tax+opts.ins+opts.hoa)*opts.term+(opts.lmi/100*opts.loan)*opts.term+opts.stamp)+'</div></div>';
 
   results.forEach(function(r){
     var intSaved=sim.totalInt-r.sim.totalInt;
     var intDiff=intSaved>0?'<span class="gain-col">Saves '+fmtMoney(intSaved)+' interest</span>':
                 intSaved<0?'<span class="cost">Costs '+fmtMoney(Math.abs(intSaved))+' more interest</span>':'';
+    var scenarioCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa)*r.opts.term+(r.opts.lmi/100*r.opts.loan)*r.opts.term+r.opts.stamp;
     html+='<div class="cmp-summary-card" style="border-color:'+r.color+'">'+
       '<div class="cmp-label" style="color:'+r.color+'">'+r.label+'</div>'+
       '<div class="cmp-big" style="color:'+r.color+'">'+fmtMoney(r.sim.stdRepay+r.opts.extra)+'</div>'+
@@ -296,7 +298,8 @@ function runComparison(opts,sim){
       '<div class="cmp-detail">Loan: '+fmtMoney(r.opts.loan)+' · '+r.opts.rate+'% · '+r.opts.term+'yr</div>'+
       '<div class="cmp-detail"><span class="cost">Interest: '+fmtMoney(r.sim.totalInt)+'</span></div>'+
       '<div class="cmp-detail">'+intDiff+'</div>'+
-      '<div class="cmp-detail">Total repaid: '+fmtMoney(r.sim.totalRepaid)+'</div></div>';
+      '<div class="cmp-detail">Total repaid: '+fmtMoney(r.sim.totalRepaid)+'</div>'+
+      '<div class="cmp-detail" style="margin-top:4px;font-weight:600">Cost of loan: '+fmtMoney(scenarioCost)+'</div></div>';
   });
   $("#cmpSummary").innerHTML='<div class="cmp-cards">'+html+'</div>';
 
@@ -322,12 +325,13 @@ function runComparison(opts,sim){
   // ─── Table ───
   $("#cmpTableHead").hidden=false;
   var allR=[{label:"Base",opts:opts,sim:sim,color:"#3b5bdb"}].concat(results);
-  $("#cmpTable").innerHTML='<thead><tr><th></th><th>Rate</th><th>Term</th><th>Repayment</th><th>Total interest</th><th>Interest vs base</th><th>Total repaid</th></tr></thead><tbody>'+
+  $("#cmpTable").innerHTML='<thead><tr><th></th><th>Rate</th><th>Term</th><th>Repayment</th><th>Total interest</th><th>Interest vs base</th><th>Cost of loan</th><th>Total repaid</th></tr></thead><tbody>'+
     allR.map(function(r,i){
       var intVsBase=i===0?'—':(sim.totalInt-r.sim.totalInt);
       var intCls=i===0?'':intVsBase>0?'class="gain-col"':intVsBase<0?'class="cost"':'';
       var intTxt=i===0?'—':(intVsBase>0?'−'+fmtMoney(Math.abs(intVsBase)):(intVsBase<0?'+':'')+fmtMoney(Math.abs(intVsBase)));
-      return '<tr><td style="color:'+r.color+';font-weight:700">'+r.label+'</td><td>'+r.opts.rate+'%</td><td>'+r.opts.term+' yr</td><td>'+fmtMoneyFull(r.sim.stdRepay+r.opts.extra)+'</td><td class="cost">'+fmtMoneyFull(r.sim.totalInt)+'</td><td '+intCls+'>'+intTxt+'</td><td>'+fmtMoneyFull(r.sim.totalRepaid)+'</td></tr>';
+      var colCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa)*r.opts.term+(r.opts.lmi/100*r.opts.loan)*r.opts.term+r.opts.stamp;
+      return '<tr><td style="color:'+r.color+';font-weight:700">'+r.label+'</td><td>'+r.opts.rate+'%</td><td>'+r.opts.term+' yr</td><td>'+fmtMoneyFull(r.sim.stdRepay+r.opts.extra)+'</td><td class="cost">'+fmtMoneyFull(r.sim.totalInt)+'</td><td '+intCls+'>'+intTxt+'</td><td class="cost">'+fmtMoneyFull(colCost)+'</td><td>'+fmtMoneyFull(r.sim.totalRepaid)+'</td></tr>';
     }).join('')+'</tbody>';
 }
 
