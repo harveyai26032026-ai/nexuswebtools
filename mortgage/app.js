@@ -66,7 +66,8 @@ function renderResults(opts,sim){
     '<div class="stat cost" data-tip="The total interest you will pay over the entire loan term at the given rate."><span class="big">'+fmtMoney(sim.totalInt)+'</span><span class="lbl">Total interest</span></div>'+
     '<div class="stat cost" data-tip="Total of all repayments including principal, interest and extra payments."><span class="big">'+fmtMoney(sim.totalRepaid)+'</span><span class="lbl">Total repaid</span></div>'+
     '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'" data-tip="Annual property tax, insurance, HOA/strata and LMI combined. Add these in Advanced options."><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>'+
-    '<div class="stat cost" data-tip="Total interest plus all ongoing costs over the loan term — the true cost of borrowing."><span class="big">'+fmtMoney(sim.totalInt+sim.ongoingYr*opts.term)+'</span><span class="lbl">Total cost of loan</span></div>';
+    '<div class="stat cost" data-tip="Total interest plus all ongoing costs over the loan term — the true cost of borrowing."><span class="big">'+fmtMoney(sim.totalInt+sim.ongoingYr*opts.term)+'</span><span class="lbl">Total cost of loan</span></div>'+
+    '<div class="stat gain" data-tip="Forecast property value minus total interest and ownership costs — your net gain from buying vs staying cash-neutral."><span class="big">'+fmtMoney(forecastValue(opts)-sim.totalInt-sim.ongoingYr*opts.term)+'</span><span class="lbl">Net equity at '+opts.term+'yr</span></div>';
 
   // Collapsible summary table
   var summaryRows=[
@@ -81,7 +82,8 @@ function renderResults(opts,sim){
     {label:'Total principal',value:fmtMoneyFull(sim.totalPrin+sim.totalExtra),cls:'gain-col'},
     {label:'Ongoing costs /yr',value:sim.ongoingYr>0?fmtMoneyFull(sim.ongoingYr):'—'},
     {label:'Total cost of loan',value:fmtMoneyFull(sim.totalInt+sim.ongoingYr*opts.term),cls:'cost'},
-    {label:'Forecast value at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts))}
+    {label:'Forecast value at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts))},
+    {label:'Net equity at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts)-sim.totalInt-sim.ongoingYr*opts.term),cls:'gain-col'}
   ];
   var detailsHtml='<details class="summary-details"><summary>📊 Full loan summary</summary>'+
     '<table class="ref summary-tbl"><tbody>'+
