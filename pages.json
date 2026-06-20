@@ -66,6 +66,10 @@
         {
           "heading": "Savings Plan for Education",
           "text": "The compound interest calculator can also be used to estimate the future value of a savings plan for your child's education. For example, if you start saving $50 per month when your child is born and continue until they are 18 years old, you can input the starting balance, interest rate, and the number of months into the calculator to get an estimate of how much the savings will grow over time. This can help you plan for the future costs of education and ensure that your child has access to the best possible educational opportunities."
+        },
+        {
+          "heading": "Inflation Considerations",
+          "text": "The compound interest calculator can also help you account for inflation by adjusting the interest rate upwards to reflect the decreasing purchasing power of money over time. This is especially important when estimating the future value of savings for long-term financial goals, such as retirement."
         }
       ],
       "faqs": [
@@ -112,6 +116,10 @@
         {
           "q": "How does the compound interest calculator handle inflation?",
           "a": "The calculator takes inflation into account by using the historical inflation rate for the United States, which is estimated based on a variety of economic indicators. This means that your savings will grow in real value over time, rather than just in nominal terms."
+        },
+        {
+          "q": "How can I use the compound interest calculator to estimate the future value of a savings plan for my child's education?",
+          "a": "The compound interest calculator can help you estimate the future value of a savings plan for your child's education by entering the initial deposit amount, interest rate, and number of years until your child starts college. Based on these inputs, the calculator will display the estimated future value of the savings plan."
         }
       ]
     },
@@ -181,6 +189,10 @@
         {
           "heading": "Other Applications",
           "text": "The mortgage calculator can be used for other applications beyond buying or refinancing a home, such as calculating the monthly payments and total interest for a commercial property or rental property. Additionally, the calculator can be used to estimate the impact of prepayment penalties on a loan."
+        },
+        {
+          "heading": "Loan Assumptions",
+          "text": "The mortgage calculator allows you to assume loan terms that may not be available from all lenders. For example, you can input a longer or shorter loan term, or assume a different interest rate. This can help you estimate the potential costs and benefits of various loan options."
         }
       ],
       "faqs": [
@@ -526,6 +538,10 @@
         {
           "heading": "Calculating Your Superannuation Balance at Different Frequencies",
           "text": "You can use the calculator to calculate your superannuation balance at different frequencies, such as quarterly or monthly. This can help you track your superannuation balance over time and make more informed financial decisions."
+        },
+        {
+          "heading": "Examples of How the Calculator Can Help You",
+          "text": "For example, if you're self-employed and want to calculate how much you need to save each year to reach your desired retirement goal, the calculator can help you determine that amount based on your expected retirement age, desired balance, and expected annual contributions. Or, if you want to calculate how much you need to save each month to reach your desired retirement goal in a specific time frame, the calculator can help you with that too."
         }
       ],
       "faqs": [
@@ -572,6 +588,14 @@
         {
           "q": "How does the calculator handle the taxation of my superannuation contributions if I am self-employed?",
           "a": "The calculator takes into account the different taxation rates for self-employed individuals, so you can get an accurate estimate of your superannuation balance."
+        },
+        {
+          "q": "What if I want to calculate my superannuation balance at a different date than my retirement age?",
+          "a": "The calculator allows you to enter your desired retirement age and superannuation balance date separately, so you can calculate your superannuation balance at any point in the future."
+        },
+        {
+          "q": "How does the calculator handle taxation of my superannuation contributions if I am a non-resident of Australia?",
+          "a": "The calculator takes into account the different tax rates and rules for non-resident Australians, so you can get an accurate calculation of your superannuation balance."
         }
       ]
     },
