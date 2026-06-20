@@ -218,6 +218,49 @@ function renderTable(sim,scale){
 }
 
 /* ════════════════════ RENT VS BUY ════════════════════ */
+
+// Helper: run the RvB simulation with a specific weekly rent and return final difference (equity - renter wealth)
+function rvbDiff(opts,sim,weeklyRent){
+  var ppf=sim.ppf,term=opts.term;
+  var rentGrow=(val("rvRentGrow")||3)/100,maintPct=(val("rvMaint")||1)/100;
+  var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
+  var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvLoanFee=val("rvLoanFee"),rvStamp=val("rvStamp"),rvPurchaseCosts=val("rvPurchaseCosts");
+  var tax=rvTax!==null?rvTax:opts.tax,ins=rvIns!==null?rvIns:opts.ins,hoa=rvHOA!==null?rvHOA:opts.hoa;
+  var lmi=rvLMI!==null?rvLMI:opts.lmi,loanFee=rvLoanFee!==null?rvLoanFee:opts.loanFee;
+  var stamp=rvStamp!==null?rvStamp:opts.stamp,purchaseCosts=rvPurchaseCosts!==null?rvPurchaseCosts:opts.purchaseCosts;
+  var annualOngoing=tax+ins+hoa+loanFee;
+  var yearInterest={},yearRepay={};
+  sim.sched.forEach(function(s){if(!yearInterest[s.year])yearInterest[s.year]=0;if(!yearRepay[s.year])yearRepay[s.year]=0;yearInterest[s.year]+=s.interest;yearRepay[s.year]+=s.repay});
+  var propVal=opts.price,investBal=Math.max(0,opts.deposit+stamp+lmi+purchaseCosts);
+  var totalInvestContrib=investBal,totalWithdrawn=0,rentYr=weeklyRent*52,cumInt=0,cumOngoing=0,cumMaint=0;
+  for(var yr=1;yr<=term;yr++){
+    propVal*=(1+apprec);var maint=propVal*maintPct,yrInt=yearInterest[yr]||0,yrMortgage=yearRepay[yr]||0;
+    cumInt+=yrInt;cumOngoing+=annualOngoing;cumMaint+=maint;
+    var buyerSpend=yrMortgage+annualOngoing+maint,surplus=buyerSpend-rentYr;
+    if(surplus>=0){investBal+=surplus;totalInvestContrib+=surplus}else{investBal+=surplus;totalWithdrawn+=(-surplus)}
+    investBal*=(1+invRate);rentYr*=(1+rentGrow);
+  }
+  var endP=Math.min(term*ppf,sim.sched.length),endE=null;
+  for(var k=sim.sched.length-1;k>=0;k--){if(sim.sched[k].period===endP){endE=sim.sched[k];break}}
+  var loanBal=endE?endE.balance:0;
+  return (propVal-loanBal)-investBal; // positive = buying wins, negative = renting wins
+}
+
+// Binary search for break-even weekly rent (where difference ≈ 0)
+function findBreakEvenRent(opts,sim){
+  var lo=0,hi=opts.price/10; // upper bound: 10% of price as weekly rent is extreme
+  // Make sure hi is above break-even
+  if(rvbDiff(opts,sim,hi)>0) return null; // even at extreme rent, buying always wins
+  if(rvbDiff(opts,sim,lo)<0) return 0;    // even at $0 rent, renting wins
+  for(var i=0;i<50;i++){ // ~50 iterations gives penny-level precision
+    var mid=(lo+hi)/2;
+    var d=rvbDiff(opts,sim,mid);
+    if(Math.abs(d)<0.5) return mid; // within 50 cents
+    if(d>0) lo=mid; else hi=mid;
+  }
+  return (lo+hi)/2;
+}
+
 function rentVsBuy(opts,sim){
   var ppf=sim.ppf,term=opts.term,weeklyRent=val("rvRent")||0;
   var rentGrow=(val("rvRentGrow")||3)/100,maintPct=(val("rvMaint")||1)/100;
@@ -320,9 +363,31 @@ function rentVsBuy(opts,sim){
            diff<0?"Renting + investing builds "+fmtMoney(Math.abs(diff))+" more wealth over "+term+" years":
            "Both paths are roughly equal over "+term+" years";
 
+  // ─── Break-even rent guidance ───
+  var breakEven=findBreakEvenRent(opts,sim);
+  var beNote='';
+  if(breakEven===null){
+    beNote='<div class="rvb-note rvb-be">💡 At any realistic rent price, buying still builds more wealth under these assumptions.</div>';
+  }else if(breakEven===0){
+    beNote='<div class="rvb-note rvb-be">💡 Even at $0 rent, investing outperforms buying under these assumptions — property growth is too low relative to investment returns.</div>';
+  }else{
+    var beWeekly=breakEven;
+    var beMonthly=breakEven*52/12;
+    var curRent=weeklyRent;
+    var diffFromBE=curRent-beWeekly;
+    var beVerdict=diffFromBE<0?
+      'Your rent ('+fmtMoneyFull(curRent)+'/wk) is below break-even — buying costs more per period, giving the renter more to invest.':
+      diffFromBE>0?
+      'Your rent ('+fmtMoneyFull(curRent)+'/wk) is above break-even — renting leaves less surplus to invest each period.':
+      'Your rent is at the break-even point.';
+    beNote='<div class="rvb-note rvb-be">💡 Break-even rent: <strong>'+fmtMoneyFull(beWeekly)+'/wk</strong> ('+fmtMoneyFull(beMonthly)+'/mo). '+
+      'At this rent, both paths produce equal wealth over '+term+' years. '+beVerdict+'</div>';
+  }
+
   // ─── Results ───
   $("#rvbResults").innerHTML=
     '<div class="rvb-note">⚖️ Equal outlay: both sides spend the same per period — buyer on mortgage + costs, renter on rent + investing</div>'+
+    beNote+
     '<div class="rvb-cards">'+
       '<div class="rvb-card buy">'+
         '<h3>🏠 Buy</h3>'+

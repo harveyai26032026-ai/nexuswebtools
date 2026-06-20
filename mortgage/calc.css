@@ -171,6 +171,7 @@ table.ref tbody tr:hover td{background:#eef2ff}
 
 /* RvB side-by-side cost tables */
 .rvb-note{background:#f0f4ff;border:1px solid #d0d8f0;border-radius:8px;padding:8px 14px;margin:10px 0;font-size:.84rem;color:#4a5568;text-align:center}
+.rvb-note.rvb-be{background:#fffbeb;border-color:#f5e6a3;color:#7c5e10;text-align:left}
 .rvb-cost-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
 .rvb-cost-card{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:14px 16px}
 .rvb-cost-card.buy{border-color:#3b5bdb}
