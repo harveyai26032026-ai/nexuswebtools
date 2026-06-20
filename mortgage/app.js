@@ -237,7 +237,16 @@ function rvbDiff(opts,sim,weeklyRent){
     propVal*=(1+apprec);var maint=propVal*maintPct,yrInt=yearInterest[yr]||0,yrMortgage=yearRepay[yr]||0;
     cumInt+=yrInt;cumOngoing+=annualOngoing;cumMaint+=maint;
     var buyerSpend=yrMortgage+annualOngoing+maint,surplus=buyerSpend-rentYr;
-    if(surplus>=0){investBal+=surplus;totalInvestContrib+=surplus}else{investBal+=surplus;totalWithdrawn+=(-surplus)}
+    if(surplus>=0){
+      investBal+=surplus;totalInvestContrib+=surplus;
+    }else{
+      // Renter needs more than buyer spends — withdraw from portfolio if funds exist
+      var shortfall=-surplus;
+      var withdrawn=Math.min(shortfall,investBal);
+      investBal-=withdrawn;totalWithdrawn+=withdrawn;
+      // Any remaining shortfall beyond the portfolio is simply not invested (can't go negative)
+    }
+    investBal=Math.max(0,investBal);
     investBal*=(1+invRate);rentYr*=(1+rentGrow);
   }
   var endP=Math.min(term*ppf,sim.sched.length),endE=null;
@@ -325,9 +334,12 @@ function rentVsBuy(opts,sim){
       totalInvestContrib+=surplus;
     }else{
       // Rent costs more than owning — renter draws from portfolio to maintain equal outlay
-      investBal+=surplus; // surplus is negative, so this reduces the balance
-      totalWithdrawn+=(-surplus);
+      var shortfall=-surplus;
+      var withdrawn=Math.min(shortfall,investBal);
+      investBal-=withdrawn;
+      totalWithdrawn+=withdrawn;
     }
+    investBal=Math.max(0,investBal);
     investBal*=(1+invRate);
 
     var endP=Math.min(yr*ppf,sim.sched.length),endE=null;
@@ -367,7 +379,7 @@ function rentVsBuy(opts,sim){
   var breakEven=findBreakEvenRent(opts,sim);
   var beNote='';
   if(breakEven===null){
-    beNote='<div class="rvb-note rvb-be">💡 At any realistic rent price, buying still builds more wealth under these assumptions.</div>';
+    beNote='<div class="rvb-note rvb-be">💡 For this property price, loan and growth assumptions, buying builds more wealth than renting at any realistic rent price.</div>';
   }else if(breakEven===0){
     beNote='<div class="rvb-note rvb-be">💡 Even at $0 rent, investing outperforms buying under these assumptions — property growth is too low relative to investment returns.</div>';
   }else{
@@ -376,12 +388,12 @@ function rentVsBuy(opts,sim){
     var curRent=weeklyRent;
     var diffFromBE=curRent-beWeekly;
     var beVerdict=diffFromBE<0?
-      'Your rent ('+fmtMoneyFull(curRent)+'/wk) is below break-even — buying costs more per period, giving the renter more to invest.':
+      'Your rent ('+fmtMoneyFull(curRent)+'/wk) is below break-even — renting + investing builds more wealth.':
       diffFromBE>0?
-      'Your rent ('+fmtMoneyFull(curRent)+'/wk) is above break-even — renting leaves less surplus to invest each period.':
-      'Your rent is at the break-even point.';
+      'Your rent ('+fmtMoneyFull(curRent)+'/wk) is above break-even — buying builds more wealth.':
+      'Your rent is at the break-even point — both paths are roughly equal.';
     beNote='<div class="rvb-note rvb-be">💡 Break-even rent: <strong>'+fmtMoneyFull(beWeekly)+'/wk</strong> ('+fmtMoneyFull(beMonthly)+'/mo). '+
-      'At this rent, both paths produce equal wealth over '+term+' years. '+beVerdict+'</div>';
+      'Rent below this → investing wins. Rent above → buying wins. '+beVerdict+'</div>';
   }
 
   // ─── Results ───
