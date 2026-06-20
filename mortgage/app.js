@@ -254,6 +254,7 @@ function rentVsBuy(opts,sim){
   var rentYr=weeklyRent*52;
   var cumInt=0,cumOngoing=0,cumMaint=0,cumRent=0;
   var totalInvestContrib=investBal; // seed = deposit + all upfront costs
+  var totalWithdrawn=0;
   var cumPrin=0;
 
   for(var yr=1;yr<=term;yr++){
@@ -269,13 +270,21 @@ function rentVsBuy(opts,sim){
     cumMaint+=maint;
     cumRent+=rentYr;
 
-    // Buyer total cash outflow = mortgage + ongoing + maintenance
+    // ──── Equal outlay model ────
+    // Both buyer and renter spend the same total amount per year.
+    // Buyer: mortgage + ongoing costs + maintenance
+    // Renter: rent + investment contribution (or withdrawal if rent > buyer spend)
     var buyerSpend=yrMortgage+annualOngoing+maint;
-    // Renter total cash outflow = rent
-    // Surplus: whichever side spends less invests the difference
-    var surplus=buyerSpend-rentYr;
+    var surplus=buyerSpend-rentYr; // positive = renter invests surplus; negative = renter withdraws
     var prevBal=investBal;
-    if(surplus>0){investBal+=surplus;totalInvestContrib+=surplus;} // renter invests surplus
+    if(surplus>=0){
+      investBal+=surplus;
+      totalInvestContrib+=surplus;
+    }else{
+      // Rent costs more than owning — renter draws from portfolio to maintain equal outlay
+      investBal+=surplus; // surplus is negative, so this reduces the balance
+      totalWithdrawn+=(-surplus);
+    }
     investBal*=(1+invRate);
 
     var endP=Math.min(yr*ppf,sim.sched.length),endE=null;
@@ -291,15 +300,19 @@ function rentVsBuy(opts,sim){
       rentYr:rentYr,cumRent:cumRent,
       renterWealth:investBal,
       investContrib:totalInvestContrib,
-      investGrowthYr:investBal-(prevBal+(surplus>0?surplus:0)),
-      investGrowthTotal:investBal-totalInvestContrib
+      totalWithdrawn:totalWithdrawn,
+      netContribs:totalInvestContrib-totalWithdrawn,
+      investGrowthYr:investBal-(prevBal+(surplus>=0?surplus:surplus)),
+      investGrowthTotal:investBal-(totalInvestContrib-totalWithdrawn),
+      buyerSpend:buyerSpend
     });
     rentYr*=(1+rentGrow);
   }
 
   var fin=rows[rows.length-1];
   var totalBuySunk=fin.cumInt+cumOngoing+cumMaint+stamp+lmi+purchaseCosts;
-  var investGrowth=fin.renterWealth-totalInvestContrib;
+  var netContribs=totalInvestContrib-totalWithdrawn;
+  var investGrowth=fin.renterWealth-netContribs;
   var surplusContribs=totalInvestContrib-initialSeed;
   var diff=fin.equity-fin.renterWealth;
   var vc=diff>0?"buy-wins":diff<0?"rent-wins":"tie";
@@ -309,6 +322,7 @@ function rentVsBuy(opts,sim){
 
   // ─── Results ───
   $("#rvbResults").innerHTML=
+    '<div class="rvb-note">⚖️ Equal outlay: both sides spend the same per period — buyer on mortgage + costs, renter on rent + investing</div>'+
     '<div class="rvb-cards">'+
       '<div class="rvb-card buy">'+
         '<h3>🏠 Buy</h3>'+
@@ -320,7 +334,7 @@ function rentVsBuy(opts,sim){
         '<h3>📈 Rent + Invest</h3>'+
         '<div class="big">'+fmtMoney(fin.renterWealth)+'</div>'+
         '<div class="sub">Portfolio after '+term+' years</div>'+
-        '<div class="rvb-detail">Invested '+fmtMoney(totalInvestContrib)+' → grew by '+fmtMoney(investGrowth)+'</div>'+
+        '<div class="rvb-detail">Net invested '+fmtMoney(netContribs)+' → grew by '+fmtMoney(investGrowth)+'</div>'+
       '</div>'+
     '</div>'+
     '<div class="rvb-verdict '+vc+'">'+vt+'</div>'+
@@ -346,8 +360,9 @@ function rentVsBuy(opts,sim){
         '<div class="rvb-cost-row"><span>Total rent paid</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
         '<h5>💰 Investment portfolio</h5>'+
         '<div class="rvb-cost-row"><span>Initial seed (deposit + upfront costs saved)</span><span class="gain-col">'+fmtMoney(initialSeed)+'</span></div>'+
-        '<div class="rvb-cost-row"><span>Surplus contributions</span><span class="gain-col">'+fmtMoney(surplusContribs)+'</span></div>'+
-        '<div class="rvb-cost-row rvb-total"><span>Total invested</span><span class="gain-col">'+fmtMoney(totalInvestContrib)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Surplus contributions (mortgage − rent)</span><span class="gain-col">'+fmtMoney(surplusContribs)+'</span></div>'+
+        (totalWithdrawn>0?'<div class="rvb-cost-row"><span>Withdrawals (rent > mortgage years)</span><span class="cost">−'+fmtMoney(totalWithdrawn)+'</span></div>':'')+
+        '<div class="rvb-cost-row rvb-total"><span>Net invested</span><span class="gain-col">'+fmtMoney(netContribs)+'</span></div>'+
         '<div class="rvb-cost-row"><span>Compound interest earned</span><span class="gain-col">'+fmtMoney(investGrowth)+'</span></div>'+
         '<div class="rvb-cost-row rvb-total"><span>Total portfolio</span><span class="gain-col">'+fmtMoney(fin.renterWealth)+'</span></div>'+
       '</div>'+
