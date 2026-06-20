@@ -27,7 +27,7 @@ function readInputs(){
   var depVal=val("mDeposit")||0;
   var deposit=depMode==="pct"?price*(depVal/100):depVal;
   var loan=Math.max(0,price-deposit);
-  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0};
+  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0,maint:val("mMaint")||0};
 }
 
 function simulate(opts){
@@ -46,7 +46,7 @@ function simulate(opts){
     totalInt+=intP;totalPrin+=prinP;totalExtra+=exA;
     sched.push({period:i,year:Math.ceil(i/ppf),repay:repay+exA,interest:intP,principal:prinP,extra:exA,balance:bal});
   }
-  var ongYr=opts.tax+opts.ins+opts.hoa+opts.loanFee;
+  var ongYr=opts.tax+opts.ins+opts.hoa+opts.loanFee+opts.maint;
   return{sched:sched,stdRepay:stdRepay,totalInt:totalInt,totalPrin:totalPrin,totalExtra:totalExtra,totalRepaid:totalPrin+totalInt+totalExtra,ongoingYr:ongYr,loan:loan,term:term,freq:freq,ppf:ppf};
 }
 
@@ -133,7 +133,7 @@ function renderResults(opts,sim){
     '<div class="stat neutral" data-tip="The amount borrowed from the lender: purchase price minus deposit."><span class="big">'+fmtMoney(opts.loan)+'</span><span class="lbl">Loan amount</span></div>'+
     '<div class="stat cost" data-tip="The total interest you will pay over the entire loan term at the given rate."><span class="big">'+fmtMoney(sim.totalInt)+'</span><span class="lbl">Total interest</span></div>'+
     '<div class="stat cost" data-tip="Total of all repayments including principal, interest and extra payments."><span class="big">'+fmtMoney(sim.totalRepaid)+'</span><span class="lbl">Total repaid</span></div>'+
-    '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'" data-tip="Annual property tax, insurance, HOA/strata and loan fees combined. Add these in Advanced options."><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>'+
+    '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'" data-tip="Annual property tax, insurance, HOA/strata, loan fees and maintenance combined. Add these in Advanced options."><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>'+
     '<div class="stat cost" data-tip="Total interest, ongoing costs, LMI, stamp duty and purchase costs over the loan term — the true cost of borrowing."><span class="big">'+fmtMoney(sim.totalInt+sim.ongoingYr*opts.term+opts.lmi+opts.stamp+opts.purchaseCosts)+'</span><span class="lbl">Total cost of loan</span></div>'+
     '<div class="stat gain" data-tip="Forecast property value minus total interest, ownership costs, LMI, stamp duty and purchase costs."><span class="big">'+fmtMoney(forecastValue(opts)-sim.totalInt-sim.ongoingYr*opts.term-opts.lmi-opts.stamp-opts.purchaseCosts)+'</span><span class="lbl">Net equity at '+opts.term+'yr</span></div>';
 
@@ -222,29 +222,30 @@ function renderTable(sim,scale){
 // Helper: run the RvB simulation with a specific weekly rent and return final difference (equity - renter wealth)
 function rvbDiff(opts,sim,weeklyRent){
   var ppf=sim.ppf,term=opts.term;
-  var rentGrow=(val("rvRentGrow")||3)/100,maintPct=(val("rvMaint")||1)/100;
+  var rentGrow=(val("rvRentGrow")||3)/100;
+  var rvMaintVal=val("rvMaint");
+  var maint=rvMaintVal!==null&&rvMaintVal!==""?rvMaintVal:opts.maint;
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvLoanFee=val("rvLoanFee"),rvStamp=val("rvStamp"),rvPurchaseCosts=val("rvPurchaseCosts");
   var tax=rvTax!==null?rvTax:opts.tax,ins=rvIns!==null?rvIns:opts.ins,hoa=rvHOA!==null?rvHOA:opts.hoa;
   var lmi=rvLMI!==null?rvLMI:opts.lmi,loanFee=rvLoanFee!==null?rvLoanFee:opts.loanFee;
   var stamp=rvStamp!==null?rvStamp:opts.stamp,purchaseCosts=rvPurchaseCosts!==null?rvPurchaseCosts:opts.purchaseCosts;
   var annualOngoing=tax+ins+hoa+loanFee;
+  var annualOngoingWithMaint=annualOngoing+maint;
   var yearInterest={},yearRepay={};
   sim.sched.forEach(function(s){if(!yearInterest[s.year])yearInterest[s.year]=0;if(!yearRepay[s.year])yearRepay[s.year]=0;yearInterest[s.year]+=s.interest;yearRepay[s.year]+=s.repay});
   var propVal=opts.price,investBal=Math.max(0,opts.deposit+stamp+lmi+purchaseCosts);
   var totalInvestContrib=investBal,totalWithdrawn=0,rentYr=weeklyRent*52,cumInt=0,cumOngoing=0,cumMaint=0;
   for(var yr=1;yr<=term;yr++){
-    propVal*=(1+apprec);var maint=propVal*maintPct,yrInt=yearInterest[yr]||0,yrMortgage=yearRepay[yr]||0;
+    propVal*=(1+apprec);var yrInt=yearInterest[yr]||0,yrMortgage=yearRepay[yr]||0;
     cumInt+=yrInt;cumOngoing+=annualOngoing;cumMaint+=maint;
-    var buyerSpend=yrMortgage+annualOngoing+maint,surplus=buyerSpend-rentYr;
+    var buyerSpend=yrMortgage+annualOngoingWithMaint,surplus=buyerSpend-rentYr;
     if(surplus>=0){
       investBal+=surplus;totalInvestContrib+=surplus;
     }else{
-      // Renter needs more than buyer spends — withdraw from portfolio if funds exist
       var shortfall=-surplus;
       var withdrawn=Math.min(shortfall,investBal);
       investBal-=withdrawn;totalWithdrawn+=withdrawn;
-      // Any remaining shortfall beyond the portfolio is simply not invested (can't go negative)
     }
     investBal=Math.max(0,investBal);
     investBal*=(1+invRate);rentYr*=(1+rentGrow);
@@ -257,11 +258,17 @@ function rvbDiff(opts,sim,weeklyRent){
 
 // Binary search for break-even weekly rent (where difference ≈ 0)
 function findBreakEvenRent(opts,sim){
-  var lo=0,hi=opts.price/10; // upper bound: 10% of price as weekly rent is extreme
-  // Make sure hi is above break-even
-  if(rvbDiff(opts,sim,hi)>0) return null; // even at extreme rent, buying always wins
-  if(rvbDiff(opts,sim,lo)<0) return 0;    // even at $0 rent, renting wins
-  for(var i=0;i<50;i++){ // ~50 iterations gives penny-level precision
+  var lo=0,hi=opts.price/10; // start: 10% of price as weekly rent
+  // Widen hi until we find where renting wins (diff < 0) or give up at extreme rent
+  var maxRent=opts.price/2; // absolute ceiling: 50% of property price per week is absurd
+  while(rvbDiff(opts,sim,hi)>0 && hi<maxRent) hi*=2;
+  if(rvbDiff(opts,sim,hi)>0){
+    // Even at extreme rent, buying still wins — return the ceiling
+    // This means buying is so advantageous that no realistic rent makes renting equal
+    return maxRent;
+  }
+  if(rvbDiff(opts,sim,lo)<0) return 0; // even at $0 rent, renting wins
+  for(var i=0;i<60;i++){ // ~60 iterations gives sub-penny precision
     var mid=(lo+hi)/2;
     var d=rvbDiff(opts,sim,mid);
     if(Math.abs(d)<0.5) return mid; // within 50 cents
@@ -272,7 +279,9 @@ function findBreakEvenRent(opts,sim){
 
 function rentVsBuy(opts,sim){
   var ppf=sim.ppf,term=opts.term,weeklyRent=val("rvRent")||0;
-  var rentGrow=(val("rvRentGrow")||3)/100,maintPct=(val("rvMaint")||1)/100;
+  var rentGrow=(val("rvRentGrow")||3)/100;
+  var rvMaintVal=val("rvMaint");
+  var maint=rvMaintVal!==null&&rvMaintVal!==""?rvMaintVal:opts.maint;
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var propVal=opts.price;
   // Advanced overrides
@@ -285,6 +294,7 @@ function rentVsBuy(opts,sim){
   var stamp=rvStamp!==null?rvStamp:opts.stamp;
   var purchaseCosts=rvPurchaseCosts!==null?rvPurchaseCosts:opts.purchaseCosts;
   var annualOngoing=tax+ins+hoa+loanFee;
+  var annualOngoingWithMaint=annualOngoing+maint;
 
   // Build yearly interest from amortisation schedule
   var yearInterest={},yearPrincipal={},yearRepay={};
@@ -311,7 +321,6 @@ function rentVsBuy(opts,sim){
 
   for(var yr=1;yr<=term;yr++){
     propVal*=(1+apprec);
-    var maint=propVal*maintPct;
     var yrInt=yearInterest[yr]||0;
     var yrPrin=yearPrincipal[yr]||0;
     var yrMortgage=yearRepay[yr]||0;
@@ -326,7 +335,7 @@ function rentVsBuy(opts,sim){
     // Both buyer and renter spend the same total amount per year.
     // Buyer: mortgage + ongoing costs + maintenance
     // Renter: rent + investment contribution (or withdrawal if rent > buyer spend)
-    var buyerSpend=yrMortgage+annualOngoing+maint;
+    var buyerSpend=yrMortgage+annualOngoingWithMaint;
     var surplus=buyerSpend-rentYr; // positive = renter invests surplus; negative = renter withdraws
     var prevBal=investBal;
     if(surplus>=0){
@@ -378,18 +387,20 @@ function rentVsBuy(opts,sim){
   // ─── Break-even rent guidance ───
   var breakEven=findBreakEvenRent(opts,sim);
   var beNote='';
-  if(breakEven===null){
-    beNote='<div class="rvb-note rvb-be">💡 Under these assumptions, buying builds more wealth than renting at any realistic rent price.</div>';
-  }else if(breakEven===0){
-    beNote='<div class="rvb-note rvb-be">💡 Even at $0 rent, investing outperforms buying under these assumptions — property growth is too low relative to investment returns.</div>';
-  }else{
-    var beWeekly=breakEven;
-    var beMonthly=breakEven*52/12;
-    var curRent=weeklyRent;
-    var rentSaving=beWeekly-curRent;
-    beNote='<div class="rvb-note rvb-be">'+
-      '<div style="font-size:1.1rem;font-weight:800;margin-bottom:6px">💡 Break-even rent: '+fmtMoneyFull(beWeekly)+'/wk ('+fmtMoneyFull(beMonthly)+'/mo)</div>'+
-      '<div style="margin-bottom:4px">This is the maximum weekly rent at which renting + investing and buying produce the same outcome over '+term+' years, based on your inputs.</div>'+
+  var beWeekly=breakEven;
+  var beMonthly=breakEven*52/12;
+  var curRent=weeklyRent;
+  var rentSaving=beWeekly-curRent;
+  var maxRent=opts.price/2;
+  var isCeiling=breakEven>=maxRent*0.99; // hit the ceiling — buying overwhelmingly wins
+  beNote='<div class="rvb-note rvb-be">'+
+    '<div style="font-size:1.1rem;font-weight:800;margin-bottom:6px">💡 Break-even rent: '+fmtMoneyFull(beWeekly)+'/wk ('+fmtMoneyFull(beMonthly)+'/mo)</div>'+
+    (isCeiling?
+      '<div style="margin-bottom:4px">Under these assumptions, buying is so advantageous that even extremely high rents do not make renting + investing equal. Buying is the clear financial choice.</div>':
+    breakEven===0?
+      '<div style="margin-bottom:4px">Even at $0 rent, investing outperforms buying under these assumptions — property growth is too low relative to investment returns.</div>':
+      '<div style="margin-bottom:4px">This is the maximum weekly rent at which renting + investing and buying produce the same outcome over '+term+' years, based on your inputs.</div>')+
+    (!isCeiling&&breakEven>0?
       '<div style="font-weight:700;margin-top:8px;padding:8px 12px;border-radius:8px;background:'+(curRent<beWeekly?'#e8f8f0;color:#065f46':'#fef2f2;color:#991b1b')+'">'+
         (curRent<beWeekly?
           '✅ Your rent ('+fmtMoneyFull(curRent)+'/wk) is <strong>'+fmtMoneyFull(rentSaving)+'/wk below</strong> break-even — renting + investing is likely to build more wealth.':
@@ -397,9 +408,11 @@ function rentVsBuy(opts,sim){
           '⚠️ Your rent ('+fmtMoneyFull(curRent)+'/wk) is <strong>'+fmtMoneyFull(-rentSaving)+'/wk above</strong> break-even — buying is likely to build more wealth.':
           '⚖️ Your rent is at the break-even point — both paths produce roughly equal outcomes.')+
       '</div>'+
-      '<div style="margin-top:8px;font-size:.84rem;color:var(--muted)">If you can rent comparable housing for less than '+fmtMoneyFull(beWeekly)+'/wk, renting + investing is generally more cost-effective. If not, buying is likely the better financial choice.</div>'+
-    '</div>';
-  }
+      '<div style="margin-top:8px;font-size:.84rem;color:var(--muted)">If you can rent comparable housing for less than '+fmtMoneyFull(beWeekly)+'/wk, renting + investing is generally more cost-effective. If not, buying is likely the better financial choice.</div>':
+    isCeiling?
+      '<div style="font-weight:700;margin-top:8px;padding:8px 12px;border-radius:8px;background:#fef2f2;color:#991b1b">🏠 Buying is likely the better financial choice under these assumptions.</div>':
+      '')+
+  '</div>';
 
   // ─── Results ───
   $("#rvbResults").innerHTML=
@@ -567,20 +580,20 @@ function runComparison(opts,sim){
   if(!results.length)return;
 
   // ─── Summary cards ───
-  var baseCost=sim.totalInt+opts.tax*opts.term+opts.ins*opts.term+opts.hoa*opts.term+opts.loanFee*opts.term+opts.stamp+opts.lmi+opts.purchaseCosts;
+  var baseCost=sim.totalInt+opts.tax*opts.term+opts.ins*opts.term+opts.hoa*opts.term+opts.loanFee*opts.term+opts.maint*opts.term+opts.stamp+opts.lmi+opts.purchaseCosts;
   var html='<div class="cmp-summary-card"><div class="cmp-label" style="color:#3b5bdb">Base</div>'+
     '<div class="cmp-big">'+fmtMoney(sim.stdRepay+opts.extra)+'</div>'+
     '<div class="cmp-sub">'+opts.freq+' repayment</div>'+
     '<div class="cmp-detail">Loan: '+fmtMoney(opts.loan)+' · '+opts.rate+'% · '+opts.term+'yr</div>'+
     '<div class="cmp-detail"><span class="cost">Interest: '+fmtMoney(sim.totalInt)+'</span></div>'+
     '<div class="cmp-detail">Total repaid: '+fmtMoney(sim.totalRepaid)+'</div>'+
-    '<div class="cmp-detail" style="margin-top:4px;font-weight:600">Cost of loan: '+fmtMoney(sim.totalInt+(opts.tax+opts.ins+opts.hoa+opts.loanFee)*opts.term+opts.stamp+opts.lmi+opts.purchaseCosts)+'</div></div>';
+    '<div class="cmp-detail" style="margin-top:4px;font-weight:600">Cost of loan: '+fmtMoney(sim.totalInt+(opts.tax+opts.ins+opts.hoa+opts.loanFee+opts.maint)*opts.term+opts.stamp+opts.lmi+opts.purchaseCosts)+'</div></div>';
 
   results.forEach(function(r){
     var intSaved=sim.totalInt-r.sim.totalInt;
     var intDiff=intSaved>0?'<span class="gain-col">Saves '+fmtMoney(intSaved)+' interest</span>':
                 intSaved<0?'<span class="cost">Costs '+fmtMoney(Math.abs(intSaved))+' more interest</span>':'';
-    var scenarioCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa+r.opts.loanFee)*r.opts.term+r.opts.stamp+r.opts.lmi+r.opts.purchaseCosts;
+    var scenarioCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa+r.opts.loanFee+r.opts.maint)*r.opts.term+r.opts.stamp+r.opts.lmi+r.opts.purchaseCosts;
     html+='<div class="cmp-summary-card" style="border-color:'+r.color+'">'+
       '<div class="cmp-label" style="color:'+r.color+'">'+r.label+'</div>'+
       '<div class="cmp-big" style="color:'+r.color+'">'+fmtMoney(r.sim.stdRepay+r.opts.extra)+'</div>'+
@@ -620,7 +633,7 @@ function runComparison(opts,sim){
       var intVsBase=i===0?'—':(sim.totalInt-r.sim.totalInt);
       var intCls=i===0?'':intVsBase>0?'class="gain-col"':intVsBase<0?'class="cost"':'';
       var intTxt=i===0?'—':(intVsBase>0?'−'+fmtMoney(Math.abs(intVsBase)):(intVsBase<0?'+':'')+fmtMoney(Math.abs(intVsBase)));
-      var colCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa+r.opts.loanFee)*r.opts.term+r.opts.stamp+r.opts.lmi+r.opts.purchaseCosts;
+      var colCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa+r.opts.loanFee+r.opts.maint)*r.opts.term+r.opts.stamp+r.opts.lmi+r.opts.purchaseCosts;
       return '<tr><td style="color:'+r.color+';font-weight:700">'+r.label+'</td><td>'+r.opts.rate+'%</td><td>'+r.opts.term+' yr</td><td>'+fmtMoneyFull(r.sim.stdRepay+r.opts.extra)+'</td><td class="cost">'+fmtMoneyFull(r.sim.totalInt)+'</td><td '+intCls+'>'+intTxt+'</td><td class="cost">'+fmtMoneyFull(colCost)+'</td><td>'+fmtMoneyFull(r.sim.totalRepaid)+'</td></tr>';
     }).join('')+'</tbody>';
 }
@@ -648,7 +661,7 @@ function exportXls(opts,sim){
 /* ════════════════════ LOCAL STORAGE ════════════════════ */
 function save(){
   var d={};
-  ["mCcy","mPrice","mDeposit","mDepositMode","mRate","mTerm","mFreq","mRepayType","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp","mPurchaseCosts"].forEach(function(id){
+  ["mCcy","mPrice","mDeposit","mDepositMode","mRate","mTerm","mFreq","mRepayType","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp","mPurchaseCosts","mMaint"].forEach(function(id){
     var e=document.getElementById(id);if(e)d[id]=e.value});
   try{localStorage.setItem(LS_KEY,JSON.stringify(d))}catch(x){}
 }
