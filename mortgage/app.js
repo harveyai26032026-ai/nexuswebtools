@@ -1,819 +1,313 @@
-/* Nexus Web Tools — Mortgage Calculator
-   Core engine + UI wiring + rent-vs-buy + comparison. Pure vanilla JS, no deps. */
-(function () {
-  "use strict";
+/* Nexus Web Tools — Mortgage Calculator v2
+   Simplified base inputs, advanced options, red/green output coding,
+   rent-vs-buy, scenario comparison. Pure vanilla JS. */
+(function(){
+"use strict";
 
-  const FREQ_PER_YEAR = { weekly: 52, fortnightly: 26, monthly: 12 };
-  const $ = (id) => document.getElementById(id);
-  const fmt = (n, cur) =>
-    new Intl.NumberFormat(undefined, { style: "currency", currency: cur, maximumFractionDigits: 0 }).format(isFinite(n) ? n : 0);
-  const fmtD = (n, cur) =>
-    new Intl.NumberFormat(undefined, { style: "currency", currency: cur, maximumFractionDigits: 2 }).format(isFinite(n) ? n : 0);
-  const fmtN = (n) => new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 }).format(isFinite(n) ? n : 0);
-  const fmtP = (n) => new Intl.NumberFormat(undefined, { maximumFractionDigits: 1 }).format(isFinite(n) ? n : 0) + "%";
-  const esc = (s) => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+var FREQ={weekly:52,fortnightly:26,monthly:12};
+var CCY={USD:{s:"$",p:"$"},AUD:{s:"A$",p:"A$"},GBP:{s:"£",p:"£"},EUR:{s:"€",p:"€"},CAD:{s:"C$",p:"C$"},NZD:{s:"NZ$",p:"NZ$"},JPY:{s:"¥",p:"¥"},INR:{s:"₹",p:"₹"},SGD:{s:"S$",p:"S$"},HKD:{s:"HK$",p:"HK$"}};
+var LS_KEY="nwt_mortgage_v2";
 
-  // ════════════════════ MORTGAGE SIMULATION ════════════════════
-  function simulate(opts) {
-    const { price, deposit, depositMode, rate, term, freq, repayType,
-            extra, ioYears, annualTax, annualIns, annualLMI, annualHOA } = opts;
-    const freqPerYear = FREQ_PER_YEAR[freq] || 12;
-    const depositAmt = depositMode === "pct" ? price * deposit / 100 : deposit;
-    const loan = Math.max(price - depositAmt, 0);
-    const periodicRate = rate / 100 / freqPerYear;
-    const totalPeriods = term * freqPerYear;
-    const ioPeriods = (ioYears || 0) * freqPerYear;
-    const lmiAmt = deposit < 20 && depositMode === "pct" && annualLMI > 0
-      ? (annualLMI > 0 ? annualLMI : 0) : (annualLMI > 0 ? annualLMI : 0);
+function $(s){return document.querySelector(s)}
+function $$(s){return document.querySelectorAll(s)}
+function val(id){var e=document.getElementById(id);if(!e)return null;if(e.type==="number")return e.value===""?null:parseFloat(e.value);return e.value}
+function ccySym(){return CCY[val("mCcy")]||CCY.USD}
 
-    // Minimum periodic repayment (P&I or IO)
-    let minRepay;
-    if (repayType === "io" || ioPeriods > 0) {
-      // IO repayment during IO period
-      minRepay = loan * periodicRate;
-    }
-    // P&I repayment for rest of term
-    let piRepay = 0;
-    if (repayType === "pi" || ioPeriods < totalPeriods) {
-      const piPeriods = totalPeriods - ioPeriods;
-      if (periodicRate > 0 && piPeriods > 0) {
-        piRepay = loan * periodicRate * Math.pow(1 + periodicRate, piPeriods)
-                  / (Math.pow(1 + periodicRate, piPeriods) - 1);
-      } else if (periodicRate === 0) {
-        piRepay = loan / piPeriods;
-      }
-    }
+function fmtMoney(v,dec){
+  dec=dec||0;var c=ccySym();var abs=Math.abs(v);var sign=v<0?"−":"";
+  if(abs>=1e6)return c.p+sign+(abs/1e6).toFixed(1)+"M";
+  if(abs>=1e4)return c.p+sign+(abs/1e3).toFixed(0)+"K";
+  return c.p+sign+abs.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g,",");
+}
+function fmtMoneyFull(v){var c=ccySym();return c.p+Math.abs(v).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,",")}
 
-    // Simulate each period
-    let balance = loan;
-    let totalInterest = 0;
-    let totalPrincipal = 0;
-    let totalExtra = 0;
-    const schedule = [];
-    let yearInterest = 0, yearPrincipal = 0, yearExtra = 0, yearBalance = loan;
+function readInputs(){
+  var price=val("mPrice")||0;
+  var depMode=val("mDepositMode");
+  var depVal=val("mDeposit")||0;
+  var deposit=depMode==="pct"?price*(depVal/100):depVal;
+  var loan=Math.max(0,price-deposit);
+  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,stamp:val("mStamp")||0};
+}
 
-    for (let p = 1; p <= totalPeriods; p++) {
-      const yearIdx = Math.floor((p - 1) / freqPerYear);
-      const inIO = p <= ioPeriods || repayType === "io";
-      const interest = balance * periodicRate;
-      const baseRepay = inIO ? Math.max(loan * periodicRate, 0) : piRepay;
-      const availableForPrincipal = baseRepay - interest + extra;
-
-      let principalPaid, actualExtra = 0;
-      if (availableForPrincipal > 0) {
-        principalPaid = Math.min(availableForPrincipal, balance);
-        if (availableForPrincipal > principalPaid) {
-          actualExtra = 0; // already counted
-        }
-        actualExtra = Math.max(extra, 0) > 0 && principalPaid > (baseRepay - interest)
-          ? Math.min(extra, balance - Math.max(baseRepay - interest, 0))
-          : 0;
-        // Simplify: principal from base + extra
-        const fromBase = Math.max(baseRepay - interest, 0);
-        const fromExtra = Math.min(Math.max(extra, 0), balance - fromBase);
-        principalPaid = fromBase + fromExtra;
-        actualExtra = fromExtra;
-      } else {
-        principalPaid = 0;
-        actualExtra = 0;
-      }
-
-      balance -= principalPaid;
-      if (balance < 0) balance = 0;
-
-      totalInterest += interest;
-      totalPrincipal += (principalPaid - actualExtra);
-      totalExtra += actualExtra;
-      yearInterest += interest;
-      yearPrincipal += (principalPaid - actualExtra);
-      yearExtra += actualExtra;
-
-      schedule.push({
-        period: p,
-        repayment: baseRepay + Math.max(extra, 0),
-        interest,
-        principal: principalPaid - actualExtra,
-        extra: actualExtra,
-        balance
-      });
-
-      // Yearly snapshot
-      if (p % freqPerYear === 0 || p === totalPeriods) {
-        const year = yearIdx + 1;
-        schedule[schedule.length - 1]._yearly = {
-          year, yearInterest, yearPrincipal, yearExtra,
-          yearBalance: balance
-        };
-        yearInterest = 0; yearPrincipal = 0; yearExtra = 0;
-      }
-
-      if (balance <= 0) break;
-    }
-
-    const totalRepaid = totalInterest + totalPrincipal + totalExtra;
-    const annualCosts = annualTax + annualIns + lmiAmt + annualHOA;
-
-    return {
-      loan, depositAmt, minRepay: repayType === "io" ? loan * periodicRate : piRepay,
-      totalInterest, totalPrincipal, totalExtra, totalRepaid,
-      annualCosts, totalCost: totalRepaid + annualCosts * term,
-      schedule, term, freqPerYear
-    };
+function simulate(opts){
+  var loan=opts.loan,rate=opts.rate,term=opts.term,freq=opts.freq;
+  var ioYears=opts.ioYears,extra=opts.extra;
+  var ppf=FREQ[freq]||12,r=rate/100/ppf,n=term*ppf;
+  var ioN=Math.min(ioYears*ppf,n);
+  var bal=loan,sched=[],totalInt=0,totalPrin=0,totalExtra=0,stdRepay=0;
+  if(r>0&&n>0)stdRepay=loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  else if(n>0)stdRepay=loan/n;
+  for(var i=1;i<=n&&bal>0.005;i++){
+    var isIO=i<=ioN,intP=bal*r,prinP=0,repay=0;
+    if(isIO){repay=intP}else{repay=stdRepay;prinP=Math.min(repay-intP+extra,bal);if(prinP>=bal){prinP=bal;repay=prinP+intP}}
+    var exA=isIO?0:Math.min(extra,bal-prinP);
+    bal-=(prinP+exA);if(bal<0)bal=0;
+    totalInt+=intP;totalPrin+=prinP;totalExtra+=exA;
+    sched.push({period:i,year:Math.ceil(i/ppf),repay:repay+exA,interest:intP,principal:prinP,extra:exA,balance:bal});
   }
+  var ongYr=opts.tax+opts.ins+opts.hoa+(opts.lmi/100*loan);
+  return{sched:sched,stdRepay:stdRepay,totalInt:totalInt,totalPrin:totalPrin,totalExtra:totalExtra,totalRepaid:totalPrin+totalInt+totalExtra,ongoingYr:ongYr,loan:loan,term:term,freq:freq,ppf:ppf};
+}
 
-  // ════════════════════ RENT VS BUY ════════════════════
-  function rentVsBuy(mortOpts, rvOpts) {
-    const r = simulate(mortOpts);
-    const cur = currency();
-    const freq = mortOpts.freq || "monthly";
-    const fpy = FREQ_PER_YEAR[freq] || 12;
-    const years = mortOpts.term;
-    const loan = r.loan;
+function renderResults(opts,sim){
+  var depPct=opts.price>0?(opts.deposit/opts.price*100):0;
+  $("#results").innerHTML=
+    '<div class="stat primary"><span class="big">'+fmtMoney(sim.stdRepay+opts.extra)+'</span><span class="lbl">'+opts.freq+' repayment</span></div>'+
+    '<div class="stat neutral"><span class="big">'+fmtMoney(opts.loan)+'</span><span class="lbl">Loan amount</span></div>'+
+    '<div class="stat gain"><span class="big">'+fmtMoney(opts.deposit)+'</span><span class="lbl">Deposit ('+depPct.toFixed(0)+'%)</span></div>'+
+    '<div class="stat cost"><span class="big">'+fmtMoney(sim.totalInt)+'</span><span class="lbl">Total interest</span></div>'+
+    '<div class="stat cost"><span class="big">'+fmtMoney(sim.totalRepaid)+'</span><span class="lbl">Total repaid</span></div>'+
+    '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'"><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>';
+}
 
-    // Buy path
-    const buyPath = [];
-    let propValue = mortOpts.price;
-    let buyEquity = mortOpts.price - loan; // deposit = instant equity
-    let buyNetWorth = -mortOpts.depositAmt; // start: deposit spent
-    let cumBuyCosts = mortOpts.depositAmt + rvOpts.stampDuty; // upfront costs
+function drawChart(sim){
+  var svg=$("#mainChart"),W=700,H=300,PAD={t:20,r:20,b:40,l:60};
+  var iW=W-PAD.l-PAD.r,iH=H-PAD.t-PAD.b,sched=sim.sched;
+  if(!sched.length){svg.innerHTML="";return}
+  var years=[],seen={};
+  sched.forEach(function(s){if(!seen[s.year]){seen[s.year]=1;years.push(s)}});
+  if(!seen[sched[sched.length-1].year])years.push(sched[sched.length-1]);
+  var maxY=sim.loan*1.05;
+  function xP(yr){return PAD.l+((yr-1)/sim.term)*iW}
+  function yP(v){return PAD.t+iH-(v/maxY)*iH}
+  var gH="",gV="";
+  for(var v=0;v<=maxY;v+=maxY/4){gH+='<line x1="'+PAD.l+'" y1="'+yP(v)+'" x2="'+(W-PAD.r)+'" y2="'+yP(v)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+(PAD.l-6)+'" y="'+(yP(v)+4)+'" text-anchor="end" fill="#8492a6" font-size="11">'+fmtMoney(v)+'</text>'}
+  for(var yr=1;yr<=sim.term;yr+=(sim.term<=10?1:5)){gV+='<line x1="'+xP(yr)+'" y1="'+PAD.t+'" x2="'+xP(yr)+'" y2="'+(H-PAD.b)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+xP(yr)+'" y="'+(H-PAD.b+16)+'" text-anchor="middle" fill="#8492a6" font-size="11">Yr '+yr+'</text>'}
+  var cP=0,cI=0,bA=[{x:PAD.l,y:yP(sim.loan)}],pA=[{x:PAD.l,y:yP(0)}],iA=[{x:PAD.l,y:yP(0)}];
+  years.forEach(function(s){cP+=s.principal+s.extra;cI+=s.interest;var x=xP(s.year);bA.push({x:x,y:yP(s.balance)});pA.push({x:x,y:yP(cP)});iA.push({x:x,y:yP(cI)})});
+  function aL(pts,cl){var l=pts.map(function(p){return p.x+','+p.y}).join(' ');if(!cl)return 'M '+l;var bx=H-PAD.b;return 'M '+pts[0].x+','+bx+' L '+l+' L '+pts[pts.length-1].x+','+bx+' Z'}
+  svg.innerHTML='<rect width="'+W+'" height="'+H+'" fill="#f7f8fb" rx="10"/>'+gH+gV+
+    '<path d="'+aL(bA,1)+'" fill="rgba(59,91,219,.18)" stroke="none"/><path d="'+aL(bA,0)+'" fill="none" stroke="#3b5bdb" stroke-width="2.5"/>'+
+    '<path d="'+aL(iA,1)+'" fill="rgba(220,38,38,.10)" stroke="none"/><path d="'+aL(iA,0)+'" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,3"/>'+
+    '<path d="'+aL(pA,1)+'" fill="rgba(15,157,107,.12)" stroke="none"/><path d="'+aL(pA,0)+'" fill="none" stroke="#0f9d6b" stroke-width="2"/>';
+  $("#mainChartKey").innerHTML='<span class="key-blue">■ Balance remaining</span> · <span class="key-green">■ Cumulative principal</span> · <span class="key-red">■ Cumulative interest</span>';
+}
 
-    for (let yr = 1; yr <= years; yr++) {
-      // Property appreciation
-      propValue *= (1 + rvOpts.apprec / 100);
-      // Mortgage costs this year (from schedule)
-      const yrData = r.schedule.filter(s => s._yearly && s._yearly.year === yr);
-      const yrMort = yrData.length > 0 ? yrData[0]._yearly : null;
-      const yrMortInterest = yrMort ? yrMort.yearInterest : 0;
-      const yrMortPrincipal = yrMort ? yrMort.yearPrincipal + yrMort.yearExtra : 0;
-      const yrMortRepay = yrMortInterest + yrMortPrincipal;
-      // Ongoing costs
-      const maint = propValue * (rvOpts.maint / 100) / (1 + rvOpts.apprec / 100); // based on start-of-year value
-      const yrOngoing = r.annualCosts + (mortOpts.price * rvOpts.maint / 100); // maintenance on original price for simplicity
-      cumBuyCosts += yrMortRepay + yrOngoing;
-      // Equity = property value - remaining loan balance
-      const endBalance = yrMort ? yrMort.yearBalance : 0;
-      buyEquity = propValue - endBalance;
-      buyPath.push({
-        year: yr, propValue, loanBalance: endBalance, equity: buyEquity,
-        mortRepay: yrMortRepay, mortInterest: yrMortInterest,
-        mortPrincipal: yrMortPrincipal, ongoing: yrOngoing,
-        cumCosts: cumBuyCosts, netWorth: buyEquity - cumBuyCosts + mortOpts.depositAmt
-      });
-    }
+var currentScale="monthly";
+function renderTable(sim,scale){
+  var table=$("#amortTable"),sched=sim.sched,ppf=sim.ppf;
+  if(!sched.length)return;
+  var grouped={};
+  sched.forEach(function(s){var key=scale==="weekly"?s.period:scale==="monthly"?Math.ceil(s.period/(ppf/12)):s.year;if(!grouped[key])grouped[key]={repay:0,interest:0,principal:0,extra:0,balance:s.balance,period:key};else grouped[key].balance=s.balance;grouped[key].repay+=s.repay;grouped[key].interest+=s.interest;grouped[key].principal+=s.principal;grouped[key].extra+=s.extra});
+  var rows=Object.values(grouped),label=scale==="weekly"?"Week":scale==="monthly"?"Month":"Year";
+  table.querySelector("thead").innerHTML='<tr><th>'+label+'</th><th>Repayment</th><th>Interest</th><th>Principal</th><th>Extra</th><th>Balance</th></tr>';
+  var html="";
+  rows.forEach(function(r){html+='<tr><td>'+label+' '+r.period+'</td><td>'+fmtMoneyFull(r.repay)+'</td><td class="cost">'+fmtMoneyFull(r.interest)+'</td><td class="gain-col">'+fmtMoneyFull(r.principal)+'</td><td>'+(r.extra>0?fmtMoneyFull(r.extra):"—")+'</td><td>'+fmtMoneyFull(r.balance)+'</td></tr>'});
+  table.querySelector("tbody").innerHTML=html;
+}
 
-    // Rent path
-    const rentPath = [];
-    let weeklyRent = rvOpts.weeklyRent;
-    let investPool = mortOpts.depositAmt + rvOpts.stampDuty; // same upfront cash invested
-    let cumRentPaid = 0;
-
-    // After-tax investment return
-    const afterTaxReturn = rvOpts.invRate * (1 - rvOpts.taxRate / 100);
-
-    for (let yr = 1; yr <= years; yr++) {
-      // Annual rent
-      const annualRent = weeklyRent * 52;
-      cumRentPaid += annualRent;
-      // Mortgage holder's total annual cost
-      const yrBuy = buyPath[yr - 1];
-      const buyAnnualTotal = yrBuy.mortRepay + yrBuy.ongoing;
-      // Renter invests the difference (if buying costs more)
-      const investDiff = Math.max(buyAnnualTotal - annualRent, 0);
-      // Renter also invests the annual cost difference
-      investPool += investDiff;
-      // Apply investment return
-      investPool *= (1 + afterTaxReturn / 100);
-      // Rent increase
-      weeklyRent *= (1 + rvOpts.rentGrow / 100);
-
-      rentPath.push({
-        year: yr, annualRent, cumRentPaid, investPool,
-        investedThisYear: investDiff
-      });
-    }
-
-    // Crossover point
-    let crossoverYear = null;
-    for (let yr = 1; yr <= years; yr++) {
-      const buyNet = buyPath[yr - 1].equity;
-      const rentNet = rentPath[yr - 1].investPool;
-      if (buyNet > rentNet && !crossoverYear) crossoverYear = yr;
-      if (buyNet < rentNet && crossoverYear) crossoverYear = null; // rent overtakes again
-    }
-
-    return { buyPath, rentPath, crossoverYear };
+function rentVsBuy(opts,sim){
+  var ppf=sim.ppf,term=opts.term,weeklyRent=val("rvRent")||0;
+  var rentGrow=(val("rvRentGrow")||3)/100,maintPct=(val("rvMaint")||1)/100;
+  var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
+  var taxRate=(val("rvTaxRate")||25)/100,postTaxInv=invRate*(1-taxRate/100);
+  var propVal=opts.price,annualRepay=sim.stdRepay*ppf+opts.extra*ppf;
+  var annualOngoing=opts.tax+opts.ins+opts.hoa+(opts.lmi/100*opts.loan);
+  var rows=[],investBal=Math.max(0,opts.deposit-opts.stamp),rentYr=weeklyRent*52;
+  for(var yr=1;yr<=term;yr++){
+    propVal*=(1+apprec);var maint=propVal*maintPct;
+    var buyerSpend=annualRepay+annualOngoing+maint;
+    var surplus=buyerSpend-rentYr;if(surplus>0)investBal+=surplus;
+    investBal*=(1+postTaxInv);
+    var endP=Math.min(yr*ppf,sim.sched.length),endE=null;
+    for(var k=sim.sched.length-1;k>=0;k--){if(sim.sched[k].period===endP){endE=sim.sched[k];break}}
+    var loanBal=endE?endE.balance:0;
+    rows.push({year:yr,propVal:propVal,loanBal:loanBal,equity:propVal-loanBal,renterWealth:investBal});
+    rentYr*=(1+rentGrow);
   }
-
-  // ════════════════════ CHART HELPERS ════════════════════
-  function niceNum(x, round) {
-    const exp = Math.floor(Math.log10(Math.max(x, 1e-10)));
-    const f = x / Math.pow(10, exp);
-    let nf;
-    if (round) nf = f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10;
-    else nf = f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10;
-    return nf * Math.pow(10, exp);
-  }
-  function niceScale(dataMax, targetTicks) {
-    targetTicks = targetTicks || 5;
-    if (!isFinite(dataMax) || dataMax <= 0) return { max: 1, step: 1, ticks: [0, 1] };
-    const range = niceNum(dataMax, false);
-    const step = niceNum(range / (targetTicks - 1), true);
-    const max = Math.ceil(dataMax / step) * step;
-    const ticks = [];
-    for (let v = 0; v <= max + step * 0.5; v += step) ticks.push(v);
-    return { max, step, ticks };
-  }
-  function shortCur(v, cur) {
-    try {
-      return new Intl.NumberFormat(undefined, {
-        style: "currency", currency: cur, notation: "compact", maximumFractionDigits: 1
-      }).format(isFinite(v) ? v : 0);
-    } catch (e) { return Math.round(v).toLocaleString(); }
-  }
-
-  // ════════════════════ MAIN CHART: Amortisation Area ════════════════════
-  function drawMainChart(r, cur) {
-    const svg = $("mainChart");
-    if (!svg || !r.schedule.length) return;
-    const W = 700, H = 300, padL = 58, padR = 14, padT = 14, padB = 30;
-    const plotW = W - padL - padR;
-    const plotH = H - padT - padB;
-    const dataMax = Math.max(r.loan, 1);
-    const sc = niceScale(dataMax, 5);
-    const max = sc.max;
-    const yAt = (v) => (H - padB) - (v / max) * plotH;
-
-    // Yearly aggregates for chart
-    const yearly = [];
-    let cumInterest = 0, cumPrincipal = 0;
-    r.schedule.forEach(s => {
-      cumInterest += s.interest;
-      cumPrincipal += s.principal + s.extra;
-      if (s._yearly) {
-        yearly.push({
-          year: s._yearly.year,
-          balance: s.balance,
-          cumInterest,
-          cumPrincipal
-        });
-      }
-    });
-    if (!yearly.length) return;
-
-    const n = yearly.length;
-    const xStep = plotW / n;
-
-    // Grid
-    let grid = "";
-    sc.ticks.forEach(v => {
-      const y = yAt(v);
-      grid += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W-padR}" y2="${y.toFixed(1)}" stroke="#eef1f7"/>`;
-      grid += `<text x="${padL-6}" y="${(y+3).toFixed(1)}" font-size="9" text-anchor="end" fill="#9aa3b8">${shortCur(v,cur)}</text>`;
-    });
-
-    // Area: remaining balance (blue)
-    let balPts = `M${padL},${yAt(r.loan).toFixed(1)}`;
-    yearly.forEach((y, i) => {
-      balPts += ` L${(padL + i * xStep).toFixed(1)},${yAt(y.balance).toFixed(1)}`;
-    });
-    balPts += ` L${(padL + (n-1)*xStep).toFixed(1)},${(H-padB)} L${padL},${H-padB} Z`;
-
-    // Area: cumulative interest (orange)
-    let intPts = `M${padL},${(H-padB)}`;
-    yearly.forEach((y, i) => {
-      intPts += ` L${(padL + i * xStep).toFixed(1)},${yAt(y.cumInterest).toFixed(1)}`;
-    });
-    intPts += ` L${(padL + (n-1)*xStep).toFixed(1)},${(H-padB)} Z`;
-
-    // Area: cumulative principal (green)
-    let prinPts = `M${padL},${(H-padB)}`;
-    yearly.forEach((y, i) => {
-      prinPts += ` L${(padL + i * xStep).toFixed(1)},${yAt(y.cumPrincipal).toFixed(1)}`;
-    });
-    prinPts += ` L${(padL + (n-1)*xStep).toFixed(1)},${(H-padB)} Z`;
-
-    // X-axis labels
-    let xLabels = "";
-    yearly.forEach((y, i) => {
-      if (i === 0 || i === n - 1 || n <= 15 || y.year % 5 === 0) {
-        xLabels += `<text x="${(padL + i * xStep).toFixed(1)}" y="${H - 10}" font-size="9" text-anchor="middle" fill="#5b647a">Yr ${y.year}</text>`;
-      }
-    });
-
-    svg.innerHTML = `${grid}
-      <line x1="${padL}" y1="${H-padB}" x2="${W-padR}" y2="${H-padB}" stroke="#cfd6e4"/>
-      <path d="${intPts}" fill="#f59e0b" opacity="0.3"/>
-      <path d="${prinPts}" fill="#0f9d6b" opacity="0.35"/>
-      <path d="${balPts}" fill="#3b5bdb" opacity="0.18"/>
-      <polyline points="${yearly.map((y,i) => `${(padL+i*xStep).toFixed(1)},${yAt(y.balance).toFixed(1)}`).join(' ')}" fill="none" stroke="#3b5bdb" stroke-width="2.2" stroke-linejoin="round"/>
-      <polyline points="${yearly.map((y,i) => `${(padL+i*xStep).toFixed(1)},${yAt(y.cumInterest).toFixed(1)}`).join(' ')}" fill="none" stroke="#ca8a04" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="4,3"/>
-      ${xLabels}`;
-
-    $("mainChartKey").innerHTML = `
-      <span class="key-blue">■</span> Balance remaining &nbsp;
-      <span class="key-green">■</span> Cumulative principal &nbsp;
-      <span style="color:#ca8a04">■</span> Cumulative interest`;
-  }
-
-  // ════════════════════ RENT VS BUY CHART ════════════════════
-  function drawRvbChart(rvb, cur) {
-    const svg = $("rvbChart");
-    if (!svg) return;
-    const W = 700, H = 300, padL = 58, padR = 14, padT = 14, padB = 30;
-    const plotW = W - padL - padR, plotH = H - padT - padB;
-    const n = rvb.buyPath.length;
-    if (!n) return;
-
-    const allVals = [
-      ...rvb.buyPath.map(b => b.equity),
-      ...rvb.buyPath.map(b => b.propValue),
-      ...rvb.rentPath.map(r => r.investPool)
-    ];
-    const dataMax = Math.max(...allVals, 1);
-    const sc = niceScale(dataMax, 5);
-    const max = sc.max;
-    const yAt = (v) => (H - padB) - (v / max) * plotH;
-    const xAt = (i) => padL + (i / (n - 1 || 1)) * plotW;
-
-    // Grid
-    let grid = "";
-    sc.ticks.forEach(v => {
-      const y = yAt(v);
-      grid += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W-padR}" y2="${y.toFixed(1)}" stroke="#eef1f7"/>`;
-      grid += `<text x="${padL-6}" y="${(y+3).toFixed(1)}" font-size="9" text-anchor="end" fill="#9aa3b8">${shortCur(v,cur)}</text>`;
-    });
-    grid += `<text x="${xAt(0)}" y="${H-8}" font-size="9" text-anchor="middle" fill="#9aa3b8">Yr 1</text>`;
-    grid += `<text x="${xAt(n-1)}" y="${H-8}" font-size="9" text-anchor="end" fill="#9aa3b8">Yr ${n}</text>`;
-
-    // Lines: Property value, Home equity, Investment pool
-    let propLine = "", equityLine = "", investLine = "";
-    rvb.buyPath.forEach((b, i) => {
-      const x = xAt(i).toFixed(1);
-      propLine += `${i === 0 ? "M" : "L"}${x},${yAt(b.propValue).toFixed(1)} `;
-      equityLine += `${i === 0 ? "M" : "L"}${x},${yAt(b.equity).toFixed(1)} `;
-    });
-    rvb.rentPath.forEach((r, i) => {
-      investLine += `${i === 0 ? "M" : "L"}${xAt(i).toFixed(1)},${yAt(r.investPool).toFixed(1)} `;
-    });
-
-    // Areas under equity and invest pool
-    let equityArea = equityLine + `L${xAt(n-1).toFixed(1)},${(H-padB)} L${xAt(0).toFixed(1)},${(H-padB)} Z`;
-    let investArea = investLine + `L${xAt(n-1).toFixed(1)},${(H-padB)} L${xAt(0).toFixed(1)},${(H-padB)} Z`;
-
-    svg.innerHTML = `${grid}
-      <line x1="${padL}" y1="${H-padB}" x2="${W-padR}" y2="${H-padB}" stroke="#cfd6e4"/>
-      <path d="${investArea}" fill="#0f9d6b" opacity="0.12"/>
-      <path d="${equityArea}" fill="#3b5bdb" opacity="0.12"/>
-      <path d="${propLine}" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,4" stroke-linejoin="round"/>
-      <path d="${equityLine}" fill="none" stroke="#3b5bdb" stroke-width="2.4" stroke-linejoin="round"/>
-      <path d="${investLine}" fill="none" stroke="#0f9d6b" stroke-width="2.4" stroke-linejoin="round"/>`;
-
-    // Dots at final year
-    const lastBuy = rvb.buyPath[n-1];
-    const lastRent = rvb.rentPath[n-1];
-    svg.innerHTML += `
-      <circle cx="${xAt(n-1).toFixed(1)}" cy="${yAt(lastBuy.equity).toFixed(1)}" r="4" fill="#3b5bdb"><title>Home equity Yr ${n}: ${fmt(lastBuy.equity,cur)}</title></circle>
-      <circle cx="${xAt(n-1).toFixed(1)}" cy="${yAt(lastRent.investPool).toFixed(1)}" r="4" fill="#0f9d6b"><title>Investment pool Yr ${n}: ${fmt(lastRent.investPool,cur)}</title></circle>
-      <circle cx="${xAt(n-1).toFixed(1)}" cy="${yAt(lastBuy.propValue).toFixed(1)}" r="3" fill="#8b5cf6"><title>Property value Yr ${n}: ${fmt(lastBuy.propValue,cur)}</title></circle>`;
-
-    $("rvbLegend").innerHTML = `
-      <span class="leg-item"><span class="leg-swatch" style="background:#3b5bdb"></span><strong>Home equity</strong></span>
-      <span class="leg-item"><span class="leg-swatch" style="background:#0f9d6b"></span><strong>Renter's investment pool</strong></span>
-      <span class="leg-item"><span class="leg-swatch" style="background:#8b5cf6;border-style:dashed"></span><strong>Property value</strong></span>`;
-  }
-
-  // ════════════════════ COMPARISON CHART ════════════════════
-  const CMP_COLORS = ["#3b5bdb","#0f9d6b","#d9531e","#8b5cf6","#e11d8f","#0891b2","#ca8a04","#475569"];
-  function drawCmpChart(results, cur) {
-    const svg = $("cmpChart");
-    if (!svg || !results.length) return;
-    const W = 700, H = 300, padL = 58, padR = 14, padT = 14, padB = 30;
-    const plotW = W - padL - padR, plotH = H - padT - padB;
-    const n = results[0].r.schedule.filter(s => s._yearly).length;
-    if (!n) return;
-
-    const dataMax = Math.max(...results.map(s => s.r.loan), 1);
-    const sc = niceScale(dataMax, 5);
-    const max = sc.max;
-    const yAt = (v) => (H - padB) - (v / max) * plotH;
-    const xAt = (i) => padL + (i / (n - 1 || 1)) * plotW;
-
-    let grid = "";
-    sc.ticks.forEach(v => {
-      const y = yAt(v);
-      grid += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W-padR}" y2="${y.toFixed(1)}" stroke="#eef1f7"/>`;
-      grid += `<text x="${padL-6}" y="${(y+3).toFixed(1)}" font-size="9" text-anchor="end" fill="#9aa3b8">${shortCur(v,cur)}</text>`;
-    });
-
-    let lines = "";
-    results.forEach((s, idx) => {
-      const color = CMP_COLORS[idx % CMP_COLORS.length];
-      const yearly = s.r.schedule.filter(x => x._yearly);
-      let pts = yearly.map((y, i) => `${xAt(i).toFixed(1)},${yAt(y._yearly.yearBalance).toFixed(1)}`).join(" ");
-      lines += `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linejoin="round"/>`;
-      const last = yearly[yearly.length - 1];
-      if (last) {
-        const lx = xAt(yearly.length - 1).toFixed(1);
-        lines += `<circle cx="${lx}" cy="${yAt(last._yearly.yearBalance).toFixed(1)}" r="3.5" fill="${color}"><title>${esc(s.label)}: ${fmt(last._yearly.yearBalance,cur)}</title></circle>`;
-      }
-    });
-
-    svg.innerHTML = `${grid}
-      <line x1="${padL}" y1="${H-padB}" x2="${W-padR}" y2="${H-padB}" stroke="#cfd6e4"/>
-      <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${H-padB}" stroke="#d7dce8"/>
-      ${lines}
-      <text x="${xAt(0)}" y="${H-8}" font-size="9" text-anchor="middle" fill="#9aa3b8">Yr 1</text>
-      <text x="${xAt(n-1)}" y="${H-8}" font-size="9" text-anchor="end" fill="#9aa3b8">Yr ${n}</text>`;
-
-    $("cmpLegend").innerHTML = results.map((s, i) => {
-      const c = CMP_COLORS[i % CMP_COLORS.length];
-      return `<span class="leg-item"><span class="leg-swatch" style="background:${c}"></span><strong>${esc(s.label)}</strong> — ${fmt(s.r.totalInterest,cur)} interest</span>`;
-    }).join("");
-  }
-
-  // ════════════════════ READ INPUTS ════════════════════
-  function readMain() {
-    const depMode = $("mDepositMode").value;
-    return {
-      price: parseFloat($("mPrice").value) || 0,
-      deposit: parseFloat($("mDeposit").value) || 0,
-      depositMode: depMode,
-      rate: parseFloat($("mRate").value) || 0,
-      term: parseInt($("mTerm").value) || 30,
-      freq: $("mFreq").value,
-      repayType: $("mRepayType").value,
-      extra: parseFloat($("mExtra").value) || 0,
-      ioYears: parseInt($("mIOYears").value) || 0,
-      annualTax: parseFloat($("mTax").value) || 0,
-      annualIns: parseFloat($("mIns").value) || 0,
-      annualLMI: parseFloat($("mLMI").value) || 0,
-      annualHOA: parseFloat($("mHOA").value) || 0
-    };
-  }
-  function currency() { return $("mCcy").value; }
-
-  let lastResult = null;
-  let currentScale = "monthly";
-
-  // ════════════════════ RUN MAIN CALCULATOR ════════════════════
-  function runMain() {
-    const cur = currency();
-    const opts = readMain();
-    const r = simulate(opts);
-    lastResult = { opts, r };
-
-    const depositAmt = r.depositAmt;
-    const lmiApplies = opts.depositMode === "pct" && opts.deposit < 20;
-    const lmiLabel = lmiApplies ? `<div class="stat"><span class="big">${fmtD(opts.annualLMI * r.loan / 100, cur)}/yr</span><span class="lbl">LMI</span></div>` : "";
-
-    $("results").innerHTML = `
-      <div class="stat highlight"><span class="big">${fmtD(r.minRepay, cur)}</span><span class="lbl">${opts.freq} repayment</span></div>
-      <div class="stat"><span class="big">${fmt(r.loan, cur)}</span><span class="lbl">Loan amount</span></div>
-      <div class="stat"><span class="big">${fmt(depositAmt, cur)}</span><span class="lbl">Deposit${opts.depositMode === "pct" ? " (" + opts.deposit + "%)" : ""}</span></div>
-      <div class="stat"><span class="big">${fmt(r.totalInterest, cur)}</span><span class="lbl">Total interest</span></div>
-      <div class="stat"><span class="big">${fmt(r.totalRepaid, cur)}</span><span class="lbl">Total repaid</span></div>
-      <div class="stat"><span class="big">${fmt(r.annualCosts, cur)}/yr</span><span class="lbl">Ongoing costs</span></div>
-      ${lmiLabel}`;
-
-    drawMainChart(r, cur);
-    buildTable(r, cur);
-  }
-
-  // ════════════════════ AMORTISATION TABLE ════════════════════
-  function buildTable(r, cur) {
-    const scale = currentScale;
-    let html = "";
-    let thead = "", tbody = "";
-
-    if (scale === "yearly") {
-      thead = `<tr><th>Year</th><th>Repayment</th><th>Interest</th><th>Principal</th><th>Extra</th><th>Balance</th></tr>`;
-      r.schedule.filter(s => s._yearly).forEach(s => {
-        const y = s._yearly;
-        tbody += `<tr><td>Year ${y.year}</td><td>${fmt(y.yearInterest + y.yearPrincipal + y.yearExtra, cur)}</td><td>${fmt(y.yearInterest, cur)}</td><td>${fmt(y.yearPrincipal, cur)}</td><td>${fmt(y.yearExtra, cur)}</td><td>${fmt(y.yearBalance, cur)}</td></tr>`;
-      });
-    } else if (scale === "monthly") {
-      thead = `<tr><th>Month</th><th>Repayment</th><th>Interest</th><th>Principal</th><th>Extra</th><th>Balance</th></tr>`;
-      // Convert period numbers to months
-      const periodsPerMonth = r.freqPerYear / 12;
-      let lastMonth = 0;
-      r.schedule.forEach(s => {
-        const month = Math.ceil(s.period / periodsPerMonth);
-        if (month !== lastMonth) {
-          tbody += `<tr><td>Month ${month}</td><td>${fmtD(s.repayment, cur)}</td><td>${fmtD(s.interest, cur)}</td><td>${fmtD(s.principal, cur)}</td><td>${fmtD(s.extra, cur)}</td><td>${fmtD(s.balance, cur)}</td></tr>`;
-          lastMonth = month;
-        }
-      });
-    } else { // weekly
-      thead = `<tr><th>Week</th><th>Repayment</th><th>Interest</th><th>Principal</th><th>Extra</th><th>Balance</th></tr>`;
-      // Show every 4th week for readability (≈monthly)
-      r.schedule.forEach((s, i) => {
-        if (i % 4 === 0 || i === r.schedule.length - 1) {
-          const week = Math.round(s.period * (52 / r.freqPerYear));
-          tbody += `<tr><td>Week ${week}</td><td>${fmtD(s.repayment, cur)}</td><td>${fmtD(s.interest, cur)}</td><td>${fmtD(s.principal, cur)}</td><td>${fmtD(s.extra, cur)}</td><td>${fmtD(s.balance, cur)}</td></tr>`;
-        }
-      });
-    }
-
-    $("amortTable").innerHTML = thead + tbody;
-  }
-
-  // ════════════════════ RENT VS BUY ════════════════════
-  function runRvb() {
-    const cur = currency();
-    const mortOpts = readMain();
-    const rvOpts = {
-      weeklyRent: parseFloat($("rvRent").value) || 0,
-      rentGrow: parseFloat($("rvRentGrow").value) || 0,
-      maint: parseFloat($("rvMaint").value) || 0,
-      apprec: parseFloat($("rvApprec").value) || 0,
-      invRate: parseFloat($("rvInvRate").value) || 0,
-      taxRate: parseFloat($("rvTaxRate").value) || 0,
-      stampDuty: parseFloat($("rvStamp").value) || 0
-    };
-
-    const rvb = rentVsBuy(mortOpts, rvOpts);
-    const n = rvb.buyPath.length;
-    const lastBuy = rvb.buyPath[n - 1];
-    const lastRent = rvb.rentPath[n - 1];
-
-    const diff = lastBuy.equity - lastRent.investPool;
-    const winner = diff > 0 ? "buy" : diff < 0 ? "rent" : "tie";
-
-    $("rvbResults").innerHTML = `
-      <div class="rvb-cards">
-        <div class="rvb-card buy">
-          <h3>🏠 Buy</h3>
-          <div class="big">${fmt(lastBuy.equity, cur)}</div>
-          <div class="sub">Home equity after ${n} years</div>
-          <div class="sub">Property value: ${fmt(lastBuy.propValue, cur)} · Loan: ${fmt(lastBuy.loanBalance, cur)}</div>
-          <div class="sub">Cumulative costs: ${fmt(lastBuy.cumCosts, cur)}</div>
-        </div>
-        <div class="rvb-card rent">
-          <h3>🏡 Rent + Invest</h3>
-          <div class="big">${fmt(lastRent.investPool, cur)}</div>
-          <div class="sub">Investment pool after ${n} years</div>
-          <div class="sub">Cumulative rent paid: ${fmt(lastRent.cumRentPaid, cur)}</div>
-        </div>
-      </div>
-      <div class="rvb-verdict ${winner === "buy" ? "buy-wins" : winner === "rent" ? "rent-wins" : "tie"}">
-        ${winner === "buy" ? `🏠 Buying wins by ${fmt(Math.abs(diff), cur)} — home equity exceeds the renter's investment pool after ${n} years.`
-          : winner === "rent" ? `🏡 Renting + investing wins by ${fmt(Math.abs(diff), cur)} — the investment pool exceeds home equity after ${n} years.`
-          : `🤝 Roughly even after ${n} years — both paths produce similar net wealth.`}
-        ${rvb.crossoverYear ? ` Buying overtakes at year ${rvb.crossoverYear}.` : ""}
-      </div>`;
-
-    drawRvbChart(rvb, cur);
-    $("rvbChartWrap").hidden = false;
-
-    // Table
-    let thead = `<tr><th>Year</th><th>Property value</th><th>Home equity</th><th>Mortgage repay</th><th>Interest</th><th>Ongoing</th><th>Rent paid</th><th>Invest pool</th></tr>`;
-    let tbody = "";
-    for (let i = 0; i < n; i++) {
-      const b = rvb.buyPath[i], r = rvb.rentPath[i];
-      tbody += `<tr>
-        <td>${b.year}</td>
-        <td>${fmt(b.propValue,cur)}</td>
-        <td>${fmt(b.equity,cur)}</td>
-        <td>${fmt(b.mortRepay,cur)}</td>
-        <td>${fmt(b.mortInterest,cur)}</td>
-        <td>${fmt(b.ongoing,cur)}</td>
-        <td>${fmt(r.annualRent,cur)}</td>
-        <td>${fmt(r.investPool,cur)}</td>
-      </tr>`;
-    }
-    $("rvbTable").innerHTML = thead + tbody;
-    $("rvbTableHead").hidden = false;
-  }
-
-  // ════════════════════ MORTGAGE COMPARISON ════════════════════
-  function addCmp() {
-    const list = $("cmpList");
-    const idx = list.children.length + 1;
-    const div = document.createElement("div");
-    div.className = "scenario adv-block";
-    div.innerHTML = `
-      <div class="grid">
-        <div class="field"><label>Label</label><input class="cLabel" type="text" placeholder="Scenario ${idx}" value="Scenario ${idx}"></div>
-        <div class="field"><label>Interest rate %</label><input class="cRate" type="number" step="any" placeholder="same"></div>
-        <div class="field"><label>Loan term (yrs)</label><input class="cTerm" type="number" step="1" placeholder="same"></div>
-        <div class="field"><label>Extra / period</label><input class="cExtra" type="number" step="any" placeholder="same"></div>
-        <div class="field"><label>Deposit %</label><input class="cDeposit" type="number" step="any" placeholder="same"></div>
-      </div>
-      <button type="button" class="rmCmp adv-toggle reset-btn" style="margin-top:8px">Remove</button>`;
-    list.appendChild(div);
-    div.querySelector(".rmCmp").addEventListener("click", () => div.remove());
-  }
-
-  function runCmp() {
-    const cur = currency();
-    const base = readMain();
-    const results = [{ label: "Base", opts: { ...base }, r: simulate(base) }];
-
-    document.querySelectorAll("#cmpList .scenario").forEach(el => {
-      const o = { ...base };
-      const g = (cls) => el.querySelector("." + cls);
-      const ov = (cls, key) => { const n = g(cls); if (n && n.value !== "") o[key] = parseFloat(n.value) || 0; };
-      ov("cRate", "rate");
-      ov("cTerm", "term");
-      ov("cExtra", "extra");
-      const depEl = g("cDeposit");
-      if (depEl && depEl.value !== "") { o.deposit = parseFloat(depEl.value) || 0; o.depositMode = "pct"; }
-      const label = g("cLabel").value || `Scenario ${results.length}`;
-      results.push({ label, opts: o, r: simulate(o) });
-    });
-
-    drawCmpChart(results, cur);
-    $("cmpChartWrap").hidden = false;
-
-    // Summary table
-    let thead = `<tr><th>Scenario</th><th>Rate</th><th>Term</th><th>Deposit</th><th>Loan</th><th>${base.freq} repayment</th><th>Total interest</th><th>Total repaid</th></tr>`;
-    let tbody = results.map(s => {
-      const o = s.opts, r = s.r;
-      return `<tr><td>${esc(s.label)}</td><td>${fmtN(o.rate)}%</td><td>${o.term} yrs</td><td>${o.depositMode === "pct" ? fmtP(o.deposit) : fmt(o.depositAmt,cur)}</td><td>${fmt(r.loan,cur)}</td><td>${fmtD(r.minRepay,cur)}</td><td>${fmt(r.totalInterest,cur)}</td><td>${fmt(r.totalRepaid,cur)}</td></tr>`;
-    }).join("");
-    $("cmpTable").innerHTML = thead + tbody;
-    $("cmpTableHead").hidden = false;
-
-    // Best/worst callout
-    const sorted = [...results].sort((a, b) => a.r.totalInterest - b.r.totalInterest);
-    const best = sorted[0], worst = sorted[sorted.length - 1];
-    const diff = worst.r.totalInterest - best.r.totalInterest;
-    $("cmpSummary").innerHTML = results.length > 1
-      ? `<p class="hint" style="background:var(--soft);border:1px solid var(--ring);border-radius:9px;padding:10px 12px"><strong>${esc(best.label)}</strong> saves ${fmt(diff,cur)} in interest vs <strong>${esc(worst.label)}</strong>. Compare repayment amounts and total cost above.</p>`
-      : "";
-  }
-
-  // ════════════════════ EXCEL EXPORT ════════════════════
-  function xmlEsc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-  function cellN(v) { return `<Cell><Data ss:Type="Number">${isFinite(v)?v:0}</Data></Cell>`; }
-  function cellS(v) { return `<Cell><Data ss:Type="String">${xmlEsc(v)}</Data></Cell>`; }
-  function row(c) { return `<Row>${c.join("")}</Row>`; }
-  function sheet(name,rows) { return `<Worksheet ss:Name="${xmlEsc(name).slice(0,31)}"><Table>${rows.join("")}</Table></Worksheet>`; }
-
-  function buildXls() {
-    if (!lastResult) runMain();
-    const cur = currency();
-    const o = lastResult.opts, r = lastResult.r;
-    const sheets = [];
-
-    // Inputs
-    const s1 = [
-      row([cellS("Nexus Web Tools — Mortgage Model")]),
-      row([cellS("Generated"), cellS(new Date().toLocaleString())]),
-      row([cellS("Currency"), cellS(cur)]),
-      row([]),
-      row([cellS("INPUTS")]),
-      row([cellS("Property price"), cellN(o.price)]),
-      row([cellS("Deposit"), cellN(o.deposit)]),
-      row([cellS("Deposit mode"), cellS(o.depositMode)]),
-      row([cellS("Interest rate %"), cellN(o.rate)]),
-      row([cellS("Loan term (years)"), cellN(o.term)]),
-      row([cellS("Repayment frequency"), cellS(o.freq)]),
-      row([cellS("Repayment type"), cellS(o.repayType)]),
-      row([cellS("Extra / period"), cellN(o.extra)]),
-      row([cellS("Interest-only years"), cellN(o.ioYears)]),
-      row([cellS("Annual property tax"), cellN(o.annualTax)]),
-      row([cellS("Annual insurance"), cellN(o.annualIns)]),
-      row([cellS("Annual LMI %"), cellN(o.annualLMI)]),
-      row([cellS("Annual HOA/strata"), cellN(o.annualHOA)]),
-      row([]),
-      row([cellS("RESULTS")]),
-      row([cellS("Loan amount"), cellN(r.loan)]),
-      row([cellS("Repayment / period"), cellN(r.minRepay)]),
-      row([cellS("Total interest"), cellN(r.totalInterest)]),
-      row([cellS("Total repaid"), cellN(r.totalRepaid)]),
-      row([cellS("Annual ongoing costs"), cellN(r.annualCosts)])
-    ];
-    sheets.push(sheet("Inputs & Summary", s1));
-
-    // Amortisation schedule
-    const s2 = [row([cellS("Period"), cellS("Repayment"), cellS("Interest"), cellS("Principal"), cellS("Extra"), cellS("Balance")])];
-    r.schedule.forEach(s => {
-      s2.push(row([cellN(s.period), cellN(s.repayment), cellN(s.interest), cellN(s.principal), cellN(s.extra), cellN(s.balance)]));
-    });
-    sheets.push(sheet("Amortisation", s2));
-
-    return `<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">${sheets.join("\n")}</Workbook>`;
-  }
-
-  function exportExcel() {
-    if (!lastResult) runMain();
-    const xml = buildXls();
-    const blob = new Blob([xml], { type: "application/vnd.ms-excel" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `mortgage-model-${new Date().toISOString().slice(0,10)}.xls`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(() => URL.revokeObjectURL(url), 1500);
-  }
-
-  // ════════════════════ PERSISTENCE ════════════════════
-  const STORE_KEY = "nwt-mortgage-v1";
-  const MAIN_IDS = ["mCcy","mPrice","mDeposit","mDepositMode","mRate","mTerm","mFreq","mRepayType","mExtra","mIOYears","mTax","mIns","mLMI","mHOA"];
-  const RVB_IDS = ["rvRent","rvRentGrow","rvMaint","rvApprec","rvInvRate","rvTaxRate","rvStamp"];
-  let restoring = false;
-
-  function saveState() {
-    if (restoring) return;
-    try {
-      const main = {};
-      MAIN_IDS.forEach(id => { const el = $(id); if (el) main[id] = el.value; });
-      const rvb = {};
-      RVB_IDS.forEach(id => { const el = $(id); if (el) rvb[id] = el.value; });
-      localStorage.setItem(STORE_KEY, JSON.stringify({ main, rvb }));
-    } catch (e) {}
-  }
-
-  function loadState() {
-    try {
-      const raw = localStorage.getItem(STORE_KEY);
-      if (!raw) return;
-      const data = JSON.parse(raw);
-      restoring = true;
-      if (data.main) Object.keys(data.main).forEach(id => { const el = $(id); if (el) el.value = data.main[id]; });
-      if (data.rvb) Object.keys(data.rvb).forEach(id => { const el = $(id); if (el) el.value = data.rvb[id]; });
-      restoring = false;
-    } catch (e) { restoring = false; }
-  }
-
-  // ════════════════════ EVENT WIRING ════════════════════
-  document.addEventListener("DOMContentLoaded", () => {
-    loadState();
-    runMain();
-
-    // Auto-calculate on input change
-    const debounced = (() => { let t; return () => { clearTimeout(t); t = setTimeout(runMain, 300); }; })();
-    MAIN_IDS.forEach(id => {
-      const el = $(id);
-      if (el) el.addEventListener("input", debounced);
-    });
-    $("calcBtn").addEventListener("click", runMain);
-
-    // Reset
-    $("resetBtn").addEventListener("click", () => {
-      $("mPrice").value = 750000; $("mDeposit").value = 20; $("mDepositMode").value = "pct";
-      $("mRate").value = 6.2; $("mTerm").value = 30; $("mFreq").value = "monthly";
-      $("mRepayType").value = "pi"; $("mExtra").value = 0; $("mIOYears").value = 0;
-      $("mTax").value = 2800; $("mIns").value = 1800; $("mLMI").value = 0; $("mHOA").value = 0;
-      localStorage.removeItem(STORE_KEY);
-      runMain();
-    });
-
-    // Save on change
-    [...MAIN_IDS, ...RVB_IDS].forEach(id => {
-      const el = $(id);
-      if (el) el.addEventListener("change", saveState);
-    });
-
-    // View toggle: Chart / Table
-    $("viewGraph").addEventListener("click", () => {
-      $("viewGraph").classList.add("active"); $("viewGraph").setAttribute("aria-pressed","true");
-      $("viewTable").classList.remove("active"); $("viewTable").setAttribute("aria-pressed","false");
-      $("mainChart").hidden = false; $("mainChartKey").hidden = false;
-      $("amortWrap").hidden = true;
-    });
-    $("viewTable").addEventListener("click", () => {
-      $("viewTable").classList.add("active"); $("viewTable").setAttribute("aria-pressed","true");
-      $("viewGraph").classList.remove("active"); $("viewGraph").setAttribute("aria-pressed","false");
-      $("mainChart").hidden = true; $("mainChartKey").hidden = true;
-      $("amortWrap").hidden = false;
-    });
-
-    // Scale toggle: weekly / monthly / yearly
-    document.querySelectorAll(".stog").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".stog").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentScale = btn.dataset.scale;
-        if (lastResult) buildTable(lastResult.r, currency());
-      });
-    });
-
-    // Export
-    $("exportXls").addEventListener("click", exportExcel);
-
-    // Rent vs Buy
-    $("rvbToggle").addEventListener("click", () => {
-      const sec = $("rvbSection");
-      const open = sec.hidden;
-      sec.hidden = !open;
-      $("rvbToggle").setAttribute("aria-expanded", open);
-      $("rvbToggle").textContent = open ? "🏠 Rent vs Buy + Invest ▴" : "🏠 Rent vs Buy + Invest ▾";
-    });
-    $("rvbCalc").addEventListener("click", runRvb);
-
-    // Mortgage Comparison
-    $("cmpToggle").addEventListener("click", () => {
-      const sec = $("cmpSection");
-      const open = sec.hidden;
-      sec.hidden = !open;
-      $("cmpToggle").setAttribute("aria-expanded", open);
-      $("cmpToggle").textContent = open ? "⚖️ Mortgage Comparison ▴" : "⚖️ Mortgage Comparison ▾";
-    });
-    $("addCmp").addEventListener("click", addCmp);
-    $("runCmp").addEventListener("click", runCmp);
+  var fin=rows[rows.length-1],diff=fin.equity-fin.renterWealth;
+  var vc=diff>0?"buy-wins":diff<0?"rent-wins":"tie";
+  var vt=diff>0?"Buying builds more wealth by "+fmtMoney(Math.abs(diff))+" over "+term+" years":diff<0?"Renting + investing builds more wealth by "+fmtMoney(Math.abs(diff))+" over "+term+" years":"Both paths are roughly equal over "+term+" years";
+  $("#rvbResults").innerHTML='<div class="rvb-cards"><div class="rvb-card buy"><h3>🏠 Buy</h3><div class="big">'+fmtMoney(fin.equity)+'</div><div class="sub">Net equity after '+term+' years</div></div><div class="rvb-card rent"><h3>🏠 Rent + Invest</h3><div class="big">'+fmtMoney(fin.renterWealth)+'</div><div class="sub">Investment portfolio after '+term+' years</div></div></div><div class="rvb-verdict '+vc+'">'+vt+'</div>';
+  $("#rvbChartWrap").hidden=false;
+  var svgEl=$("#rvbChart"),W=700,H=300,PAD={t:20,r:20,b:40,l:60};
+  var iW=W-PAD.l-PAD.r,iH=H-PAD.t-PAD.b;
+  var maxY=Math.max.apply(null,rows.map(function(r){return Math.max(r.equity,r.renterWealth)}))*1.1;
+  if(maxY<1)maxY=1;
+  function xP(y){return PAD.l+((y-1)/term)*iW}
+  function yP(v){return PAD.t+iH-(v/maxY)*iH}
+  var gH="",gV="";
+  for(var v=0;v<=maxY;v+=maxY/4){gH+='<line x1="'+PAD.l+'" y1="'+yP(v)+'" x2="'+(W-PAD.r)+'" y2="'+yP(v)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+(PAD.l-6)+'" y="'+(yP(v)+4)+'" text-anchor="end" fill="#8492a6" font-size="11">'+fmtMoney(v)+'</text>'}
+  for(var y2=1;y2<=term;y2+=(term<=10?1:5)){gV+='<line x1="'+xP(y2)+'" y1="'+PAD.t+'" x2="'+xP(y2)+'" y2="'+(H-PAD.b)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+xP(y2)+'" y="'+(H-PAD.b+16)+'" text-anchor="middle" fill="#8492a6" font-size="11">Yr '+y2+'</text>'}
+  var bP=rows.map(function(r){return xP(r.year)+','+yP(r.equity)}).join(' ');
+  var rP=rows.map(function(r){return xP(r.year)+','+yP(r.renterWealth)}).join(' ');
+  svgEl.innerHTML='<rect width="'+W+'" height="'+H+'" fill="#f7f8fb" rx="10"/>'+gH+gV+'<path d="M '+bP+'" fill="none" stroke="#3b5bdb" stroke-width="2.5"/><path d="M '+rP+'" fill="none" stroke="#0f9d6b" stroke-width="2.5"/>';
+  $("#rvbLegend").innerHTML='<div class="leg-item"><span class="leg-swatch" style="background:#3b5bdb"></span> <strong>Buy — equity</strong></div><div class="leg-item"><span class="leg-swatch" style="background:#0f9d6b"></span> <strong>Rent + invest</strong></div>';
+  $("#rvbTableHead").hidden=false;
+  $("#rvbTable").innerHTML='<thead><tr><th>Year</th><th>Property value</th><th>Loan balance</th><th>Buy equity</th><th>Rent+invest</th><th>Difference</th></tr></thead><tbody>'+rows.map(function(r){var d=r.equity-r.renterWealth;var c=d>0?'class="gain-col"':d<0?'class="cost"':'';return '<tr><td>'+r.year+'</td><td>'+fmtMoneyFull(r.propVal)+'</td><td class="cost">'+fmtMoneyFull(r.loanBal)+'</td><td>'+fmtMoneyFull(r.equity)+'</td><td>'+fmtMoneyFull(r.renterWealth)+'</td><td '+c+'>'+(d>=0?'+':'')+fmtMoneyFull(d)+'</td></tr>'}).join('')+'</tbody>';
+}
+
+var cmpCount=0,CMP_COLORS=["#8b5cf6","#ca8a04","#ec4899","#06b6d4","#f97316"];
+
+function addComparison(){
+  cmpCount++;var base=readInputs();
+  var div=document.createElement("div");div.className="scenario adv-block";div.id="cmp"+cmpCount;
+  div.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong style="color:var(--accent)">Scenario '+cmpCount+'</strong><button type="button" class="rm-cmp" data-id="cmp'+cmpCount+'" style="border:none;background:none;color:#dc2626;font-weight:700;cursor:pointer;font-size:1.1rem">✕</button></div><div class="grid"><div class="field"><label>Rate %</label><input type="number" step="any" class="cmp-rate" placeholder="'+base.rate+'"></div><div class="field"><label>Term (yr)</label><input type="number" step="1" class="cmp-term" placeholder="'+base.term+'"></div><div class="field"><label>Deposit</label><input type="number" step="any" class="cmp-dep" placeholder="'+Math.round(base.deposit)+'"></div><div class="field"><label>Extra / period</label><input type="number" step="any" class="cmp-extra" placeholder="0"></div></div>';
+  $("#cmpList").appendChild(div);
+  div.querySelector(".rm-cmp").addEventListener("click",function(){div.remove()});
+}
+
+function runComparison(opts,sim){
+  var scenarios=$$(".scenario"),base=opts,results=[];
+  scenarios.forEach(function(el,idx){
+    var rate=el.querySelector(".cmp-rate").value;rate=rate!==""?parseFloat(rate):base.rate;
+    var term=el.querySelector(".cmp-term").value;term=term!==""?parseFloat(term):base.term;
+    var dep=el.querySelector(".cmp-dep").value;dep=dep!==""?parseFloat(dep):base.deposit;
+    var extra=el.querySelector(".cmp-extra").value;extra=extra!==""?parseFloat(extra):0;
+    var loan=Math.max(0,base.price-dep);
+    var altOpts={price:base.price,deposit:dep,loan:loan,rate:rate,term:term,freq:base.freq,repayType:base.repayType,ioYears:base.ioYears,extra:extra,tax:base.tax,ins:base.ins,lmi:base.lmi,hoa:base.hoa,stamp:base.stamp};
+    results.push({label:"Scenario "+(idx+1),opts:altOpts,sim:simulate(altOpts),color:CMP_COLORS[idx%CMP_COLORS.length]});
   });
+  if(!results.length)return;
+  var html='<div class="rvb-cards"><div class="rvb-card buy"><h3>Base</h3><div class="big">'+fmtMoney(sim.stdRepay+opts.extra)+'</div><div class="sub">'+opts.freq+' repayment</div><div class="sub" style="margin-top:6px">Total interest: <span class="cost">'+fmtMoney(sim.totalInt)+'</span></div></div>';
+  results.forEach(function(r){html+='<div class="rvb-card rent" style="border-color:'+r.color+'"><h3 style="color:'+r.color+'">'+r.label+'</h3><div class="big" style="color:'+r.color+'">'+fmtMoney(r.sim.stdRepay+r.opts.extra)+'</div><div class="sub">'+r.opts.freq+' repayment</div><div class="sub" style="margin-top:6px">Total interest: <span class="cost">'+fmtMoney(r.sim.totalInt)+'</span></div></div>'});
+  html+='</div>';$("#cmpSummary").innerHTML=html;
+  $("#cmpChartWrap").hidden=false;
+  var svgEl=$("#cmpChart"),W=700,H=300,PAD={t:20,r:20,b:40,l:60};
+  var iW=W-PAD.l-PAD.r,iH=H-PAD.t-PAD.b,maxY=opts.loan*1.05;
+  function xP(yr,mt){return PAD.l+((yr-1)/mt)*iW}
+  function yP(v){return PAD.t+iH-(v/maxY)*iH}
+  var maxTerm=Math.max.apply(null,[opts.term].concat(results.map(function(r){return r.opts.term})));
+  var gH="",gV="";
+  for(var v=0;v<=maxY;v+=maxY/4){gH+='<line x1="'+PAD.l+'" y1="'+yP(v)+'" x2="'+(W-PAD.r)+'" y2="'+yP(v)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+(PAD.l-6)+'" y="'+(yP(v)+4)+'" text-anchor="end" fill="#8492a6" font-size="11">'+fmtMoney(v)+'</text>'}
+  for(var yr=1;yr<=maxTerm;yr+=(maxTerm<=10?1:5)){gV+='<line x1="'+xP(yr,maxTerm)+'" y1="'+PAD.t+'" x2="'+xP(yr,maxTerm)+'" y2="'+(H-PAD.b)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+xP(yr,maxTerm)+'" y="'+(H-PAD.b+16)+'" text-anchor="middle" fill="#8492a6" font-size="11">Yr '+yr+'</text>'}
+  function sampleYr(sched){var pts=[],seen={};sched.forEach(function(s){if(!seen[s.year]){seen[s.year]=1;pts.push(s)}});return pts}
+  var basePts=sampleYr(sim.sched).map(function(s){return xP(s.year,maxTerm)+','+yP(s.balance)}).join(' ');
+  var lines='<path d="M '+basePts+'" fill="none" stroke="#3b5bdb" stroke-width="2.5"/>';
+  results.forEach(function(r){var pts=sampleYr(r.sim.sched).map(function(s){return xP(s.year,maxTerm)+','+yP(s.balance)}).join(' ');lines+='<path d="M '+pts+'" fill="none" stroke="'+r.color+'" stroke-width="2" stroke-dasharray="6,3"/>'});
+  svgEl.innerHTML='<rect width="'+W+'" height="'+H+'" fill="#f7f8fb" rx="10"/>'+gH+gV+lines;
+  var legHtml='<div class="leg-item"><span class="leg-swatch" style="background:#3b5bdb"></span> <strong>Base</strong></div>';
+  results.forEach(function(r){legHtml+='<div class="leg-item"><span class="leg-swatch" style="background:'+r.color+'"></span> <strong>'+r.label+'</strong></div>'});
+  $("#cmpLegend").innerHTML=legHtml;
+  $("#cmpTableHead").hidden=false;
+  var allR=[{label:"Base",opts:opts,sim:sim,color:"#3b5bdb"}].concat(results);
+  $("#cmpTable").innerHTML='<thead><tr><th>Scenario</th><th>Rate</th><th>Term</th><th>Repayment</th><th>Total interest</th><th>Total repaid</th></tr></thead><tbody>'+allR.map(function(r){return '<tr><td style="color:'+r.color+';font-weight:700">'+r.label+'</td><td>'+r.opts.rate+'%</td><td>'+r.opts.term+' yr</td><td>'+fmtMoneyFull(r.sim.stdRepay+r.opts.extra)+'</td><td class="cost">'+fmtMoneyFull(r.sim.totalInt)+'</td><td>'+fmtMoneyFull(r.sim.totalRepaid)+'</td></tr>'}).join('')+'</tbody>';
+}
+
+/* ════════════════════ EXCEL EXPORT ════════════════════ */
+function exportXls(opts,sim){
+  var c=ccySym();
+  var hdr='<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"><Styles><Style ss:ID="hd"><Font ss:Bold="1" ss:Size="11"/></Style><Style ss:ID="cost"><Font ss:Color="#DC2626" ss:Bold="1"/></Style><Style ss:ID="gain"><Font ss:Color="#0F9D6B" ss:Bold="1"/></Style></Styles><Worksheet ss:Name="Amortisation"><Table><Column ss:Width="80"/><Column ss:Width="110"/><Column ss:Width="110"/><Column ss:Width="110"/><Column ss:Width="100"/><Column ss:Width="110"/>';
+  hdr+='<Row><Cell ss:StyleID="hd"><Data ss:Type="String">Period</Data></Cell><Cell ss:StyleID="hd"><Data ss:Type="String">Repayment ('+c.s+')</Data></Cell><Cell ss:StyleID="hd"><Data ss:Type="String">Interest ('+c.s+')</Data></Cell><Cell ss:StyleID="hd"><Data ss:Type="String">Principal ('+c.s+')</Data></Cell><Cell ss:StyleID="hd"><Data ss:Type="String">Extra ('+c.s+')</Data></Cell><Cell ss:StyleID="hd"><Data ss:Type="String">Balance ('+c.s+')</Data></Cell></Row>';
+  var body="";
+  sim.sched.forEach(function(s){
+    body+='<Row><Cell><Data ss:Type="String">'+opts.freq.charAt(0).toUpperCase()+opts.freq.slice(1)+' '+s.period+'</Data></Cell>';
+    body+='<Cell><Data ss:Type="Number">'+s.repay.toFixed(2)+'</Data></Cell>';
+    body+='<Cell ss:StyleID="cost"><Data ss:Type="Number">'+s.interest.toFixed(2)+'</Data></Cell>';
+    body+='<Cell ss:StyleID="gain"><Data ss:Type="Number">'+s.principal.toFixed(2)+'</Data></Cell>';
+    body+='<Cell><Data ss:Type="Number">'+s.extra.toFixed(2)+'</Data></Cell>';
+    body+='<Cell><Data ss:Type="Number">'+s.balance.toFixed(2)+'</Data></Cell></Row>';
+  });
+  var xml=hdr+body+'</Table></Worksheet></Workbook>';
+  var blob=new Blob([xml],{type:"application/vnd.ms-excel"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="mortgage-amortisation.xls";a.click();URL.revokeObjectURL(a.href);
+}
+
+/* ════════════════════ LOCAL STORAGE ════════════════════ */
+function save(){
+  var d={};
+  ["mCcy","mPrice","mDeposit","mDepositMode","mRate","mTerm","mFreq","mRepayType","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mStamp"].forEach(function(id){
+    var e=document.getElementById(id);if(e)d[id]=e.value});
+  try{localStorage.setItem(LS_KEY,JSON.stringify(d))}catch(x){}
+}
+function load(){
+  try{var d=JSON.parse(localStorage.getItem(LS_KEY));if(!d)return;
+  Object.keys(d).forEach(function(id){var e=document.getElementById(id);if(e)e.value=d[id]})}catch(x){}
+}
+
+/* ════════════════════ MAIN ════════════════════ */
+var lastSim=null,lastOpts=null;
+
+function run(){
+  var opts=readInputs();
+  lastOpts=opts;lastSim=simulate(opts);
+  renderResults(opts,lastSim);
+  drawChart(lastSim);
+  renderTable(lastSim,currentScale);
+  save();
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+  load();
+
+  // Calculate button
+  $("#calcBtn").addEventListener("click",run);
+
+  // Reset
+  $("#resetBtn").addEventListener("click",function(){
+    ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mStamp"].forEach(function(id){
+      var e=document.getElementById(id);if(e)e.value=""});
+    $("#mCcy").value="USD";$("#mDepositMode").value="pct";
+    $("#mFreq").value="monthly";$("#mRepayType").value="pi";
+    localStorage.removeItem(LS_KEY);
+    $("#results").innerHTML="";$("#mainChart").innerHTML="";$("#mainChartKey").innerHTML="";
+    $("#amortWrap").hidden=true;
+  });
+
+  // Advanced toggle
+  $("#advToggle").addEventListener("click",function(){
+    var sec=$("#advSection");var hidden=sec.hidden;sec.hidden=!hidden;
+    this.setAttribute("aria-expanded",!hidden);
+    this.textContent=hidden?"⚙️ Advanced options ▴":"⚙️ Advanced options ▾";
+  });
+
+  // View toggle: Chart / Table
+  $("#viewGraph").addEventListener("click",function(){
+    $("#amortWrap").hidden=true;$("#mainChart").style.display="";
+    this.classList.add("active");$("#viewTable").classList.remove("active");
+  });
+  $("#viewTable").addEventListener("click",function(){
+    $("#amortWrap").hidden=false;$("#mainChart").style.display="none";
+    this.classList.add("active");$("#viewGraph").classList.remove("active");
+    if(lastSim)renderTable(lastSim,currentScale);
+  });
+
+  // Scale toggle
+  $$(".stog").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      $$(".stog").forEach(function(b){b.classList.remove("active")});
+      this.classList.add("active");currentScale=this.dataset.scale;
+      if(lastSim)renderTable(lastSim,currentScale);
+    });
+  });
+
+  // Rent vs Buy toggle
+  $("#rvbToggle").addEventListener("click",function(){
+    var sec=$("#rvbSection");var hidden=sec.hidden;sec.hidden=!hidden;
+    this.setAttribute("aria-expanded",!hidden);
+  });
+  $("#rvbCalc").addEventListener("click",function(){
+    if(!lastSim)run();
+    rentVsBuy(lastOpts,lastSim);
+  });
+
+  // Comparison toggle
+  $("#cmpToggle").addEventListener("click",function(){
+    var sec=$("#cmpSection");var hidden=sec.hidden;sec.hidden=!hidden;
+    this.setAttribute("aria-expanded",!hidden);
+  });
+  $("#addCmp").addEventListener("click",addComparison);
+  $("#runCmp").addEventListener("click",function(){
+    if(!lastSim)run();
+    runComparison(lastOpts,lastSim);
+  });
+
+  // Export
+  $("#exportXls").addEventListener("click",function(){
+    if(!lastSim)run();
+    exportXls(lastOpts,lastSim);
+  });
+
+  // Auto-calculate on input change
+  ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mStamp"].forEach(function(id){
+    var e=document.getElementById(id);if(e)e.addEventListener("input",run)});
+  ["mCcy","mDepositMode","mFreq","mRepayType"].forEach(function(id){
+    var e=document.getElementById(id);if(e)e.addEventListener("change",run)});
+
+  // Initial calculation
+  run();
+});
+
 })();
