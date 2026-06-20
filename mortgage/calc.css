@@ -170,7 +170,10 @@ table.ref tbody tr:hover td{background:#eef2ff}
 
 /* RvB cost breakdown box */
 .rvb-cost-box{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:14px 16px;margin:12px 0}
-.rvb-cost-box h4{margin:0 0 8px;font-size:.88rem;color:var(--accent);font-weight:700}
+.rvb-cost-box h4{margin:0 0 8px;font-size:.88rem;font-weight:700}
+.rvb-cost-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rvb-col h4{color:var(--accent);margin:0 0 6px;font-size:.84rem}
+.rvb-col h4:first-child{margin-top:0}
 .rvb-cost-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:.84rem}
 .rvb-cost-row.rvb-total{font-weight:700;font-size:.88rem}
 

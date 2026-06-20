@@ -178,9 +178,10 @@ function rentVsBuy(opts,sim){
   });
 
   var rows=[];
-  var investBal=Math.max(0,opts.deposit-stamp);
+  var investBal=Math.max(0,opts.deposit-stamp-lmi);
   var rentYr=weeklyRent*52;
   var cumInt=0,cumOngoing=0,cumMaint=0,cumRent=0;
+  var totalInvestContrib=investBal; // seed = deposit minus stamp & LMI
 
   for(var yr=1;yr<=term;yr++){
     propVal*=(1+apprec);
@@ -199,7 +200,7 @@ function rentVsBuy(opts,sim){
     // Renter total cash outflow = rent
     // Surplus: whichever side spends less invests the difference
     var surplus=buyerSpend-rentYr;
-    if(surplus>0){investBal+=surplus;} // renter invests surplus
+    if(surplus>0){investBal+=surplus;totalInvestContrib+=surplus;} // renter invests surplus
     investBal*=(1+invRate);
 
     var endP=Math.min(yr*ppf,sim.sched.length),endE=null;
@@ -220,6 +221,7 @@ function rentVsBuy(opts,sim){
 
   var fin=rows[rows.length-1];
   var totalBuySunk=fin.cumInt+cumOngoing+cumMaint+stamp+lmi+purchaseCosts;
+  var investGrowth=fin.renterWealth-totalInvestContrib;
   var diff=fin.equity-fin.renterWealth;
   var vc=diff>0?"buy-wins":diff<0?"rent-wins":"tie";
   var vt=diff>0?"Buying builds "+fmtMoney(Math.abs(diff))+" more wealth over "+term+" years":
@@ -234,27 +236,39 @@ function rentVsBuy(opts,sim){
         '<div class="big">'+fmtMoney(fin.equity)+'</div>'+
         '<div class="sub">Net equity after '+term+' years</div>'+
         '<div class="rvb-detail">Property '+fmtMoney(fin.propVal)+' − loan '+fmtMoney(fin.loanBal)+'</div>'+
-        '<div class="rvb-detail" style="margin-top:6px"><span class="cost">Interest paid: '+fmtMoney(fin.cumInt)+'</span></div>'+
-        '<div class="rvb-detail"><span class="cost">Ownership costs: '+fmtMoney(cumOngoing+cumMaint+stamp+lmi)+'</span></div>'+
-        '<div class="rvb-detail"><span class="cost">Total sunk: '+fmtMoney(totalBuySunk)+'</span></div>'+
       '</div>'+
       '<div class="rvb-card rent">'+
         '<h3>📈 Rent + Invest</h3>'+
         '<div class="big">'+fmtMoney(fin.renterWealth)+'</div>'+
         '<div class="sub">Portfolio after '+term+' years</div>'+
-        '<div class="rvb-detail">Started with '+fmtMoney(Math.max(0,opts.deposit-stamp))+'</div>'+
-        '<div class="rvb-detail" style="margin-top:6px"><span class="cost">Rent paid: '+fmtMoney(cumRent)+'</span></div>'+
-        '<div class="rvb-detail"><span class="cost">Total sunk: '+fmtMoney(cumRent)+'</span></div>'+
+        '<div class="rvb-detail">Invested '+fmtMoney(totalInvestContrib)+' → grew by '+fmtMoney(investGrowth)+'</div>'+
       '</div>'+
     '</div>'+
     '<div class="rvb-verdict '+vc+'">'+vt+'</div>'+
     '<div class="rvb-cost-box">'+
-      '<h4>Cost breakdown</h4>'+
-      '<div class="rvb-cost-row"><span>Buyer interest</span><span class="cost">'+fmtMoney(fin.cumInt)+'</span></div>'+
-      '<div class="rvb-cost-row"><span>Buyer ownership costs</span><span class="cost">'+fmtMoney(cumOngoing+cumMaint+stamp+lmi)+'</span></div>'+
-      '<div class="rvb-cost-row rvb-total"><span>Buyer total sunk</span><span class="cost">'+fmtMoney(totalBuySunk)+'</span></div>'+
-      '<div class="rvb-cost-row"><span>Renter total rent</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
-      '<div class="rvb-cost-row rvb-total" style="border-top:1px solid var(--ring);padding-top:6px"><span>Sunk cost difference</span><span class="'+(totalBuySunk<cumRent?'gain-col':'cost')+'">'+(totalBuySunk<cumRent?'Buyer pays '+fmtMoney(cumRent-totalBuySunk)+' less':'Buyer pays '+fmtMoney(totalBuySunk-cumRent)+' more')+'</span></div>'+
+      '<div class="rvb-cost-cols">'+
+        '<div class="rvb-col">'+
+          '<h4>🏠 Buyer costs</h4>'+
+          '<div class="rvb-cost-row"><span>Interest paid</span><span class="cost">'+fmtMoney(fin.cumInt)+'</span></div>'+
+          '<div class="rvb-cost-row"><span>Property tax, insurance, HOA</span><span class="cost">'+fmtMoney(cumOngoing)+'</span></div>'+
+          '<div class="rvb-cost-row"><span>Maintenance</span><span class="cost">'+fmtMoney(cumMaint)+'</span></div>'+
+          '<div class="rvb-cost-row"><span>Stamp duty / transfer tax</span><span class="cost">'+fmtMoney(stamp)+'</span></div>'+
+          '<div class="rvb-cost-row"><span>LMI / PMI</span><span class="cost">'+fmtMoney(lmi)+'</span></div>'+
+          '<div class="rvb-cost-row"><span>Purchase costs</span><span class="cost">'+fmtMoney(purchaseCosts)+'</span></div>'+
+          '<div class="rvb-cost-row rvb-total"><span>Total sunk</span><span class="cost">'+fmtMoney(totalBuySunk)+'</span></div>'+
+        '</div>'+
+        '<div class="rvb-col">'+
+          '<h4>📈 Renter + investor costs</h4>'+
+          '<div class="rvb-cost-row"><span>Rent paid</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
+          '<div class="rvb-cost-row rvb-total"><span>Total rent sunk</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
+          '<h4 style="margin-top:10px">💰 Investment portfolio</h4>'+
+          '<div class="rvb-cost-row"><span>Initial seed (deposit − costs)</span><span class="gain-col">'+fmtMoney(Math.max(0,opts.deposit-stamp-lmi))+'</span></div>'+
+          '<div class="rvb-cost-row"><span>Surplus contributions</span><span class="gain-col">'+fmtMoney(totalInvestContrib-Math.max(0,opts.deposit-stamp-lmi))+'</span></div>'+
+          '<div class="rvb-cost-row"><span>Investment growth</span><span class="gain-col">'+fmtMoney(investGrowth)+'</span></div>'+
+          '<div class="rvb-cost-row rvb-total"><span>Total portfolio</span><span class="gain-col">'+fmtMoney(fin.renterWealth)+'</span></div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="rvb-cost-row rvb-total" style="border-top:1px solid var(--ring);padding-top:8px;margin-top:8px"><span>Wealth difference</span><span class="'+(diff>0?'gain-col':'cost')+'">'+(diff>0?'Buyer ahead by '+fmtMoney(diff):diff<0?'Renter ahead by '+fmtMoney(-diff):'Even')+'</span></div>'+
     '</div>';
 
   // ─── Chart ───
