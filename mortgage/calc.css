@@ -84,7 +84,7 @@ input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 
 /* Chart */
 #mainChart,#rvbChart,#cmpChart{margin-top:16px;background:var(--soft);border:1px solid var(--ring);border-radius:10px}
 .chart-key{font-size:.78rem;color:var(--muted);text-align:center;margin:.4em 0 0}
-.key-blue{color:#3b5bdb}.key-green{color:#0f9d6b}.key-red{color:#dc2626}.key-purple{color:#8b5cf6}.key-orange{color:#ca8a04}
+.key-blue{color:#3b5bdb}.key-green{color:#0f9d6b}.key-red{color:#dc2626}.key-amber{color:#f59e0b}.key-purple{color:#8b5cf6}.key-orange{color:#ca8a04}
 
 /* View toggle: Chart / Table */
 .view-toggle{display:flex;gap:0;margin-top:14px;border:1px solid var(--ring);border-radius:9px;overflow:hidden;width:100%;max-width:280px}

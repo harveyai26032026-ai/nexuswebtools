@@ -98,7 +98,7 @@ function renderResults(opts,sim){
   $("#results").insertAdjacentHTML("afterend",detailsHtml);
 }
 
-function drawChart(sim){
+function drawChart(sim,opts){
   var svg=$("#mainChart"),W=700,H=300,PAD={t:20,r:20,b:40,l:60};
   var iW=W-PAD.l-PAD.r,iH=H-PAD.t-PAD.b,sched=sim.sched;
   if(!sched.length){svg.innerHTML="";return}
@@ -111,7 +111,10 @@ function drawChart(sim){
     yearData[s.year]={year:s.year,balance:s.balance,cumPrin:cumPrin,cumInt:cumInt};
   });
   var years=Object.values(yearData).sort(function(a,b){return a.year-b.year});
-  var maxY=Math.max(sim.loan*1.05,(years.length?years[years.length-1].cumInt:0)*1.1,sim.loan);
+  // Property value forecast per year
+  var apprec=(val("rvApprec")||4)/100;
+  var finalPropVal=opts.price*Math.pow(1+apprec,opts.term);
+  var maxY=Math.max(sim.loan*1.05,(years.length?years[years.length-1].cumInt:0)*1.1,sim.loan,finalPropVal*1.05);
   function xP(yr){return PAD.l+((yr)/sim.term)*iW}
   function yP(v){return PAD.t+iH-(v/maxY)*iH}
   var gH="",gV="";
@@ -121,13 +124,15 @@ function drawChart(sim){
   for(var yr=xStep;yr<=sim.term;yr+=xStep){gV+='<line x1="'+xP(yr)+'" y1="'+PAD.t+'" x2="'+xP(yr)+'" y2="'+(H-PAD.b)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+xP(yr)+'" y="'+(H-PAD.b+16)+'" text-anchor="middle" fill="#8492a6" font-size="11">Yr '+yr+'</text>'}
   if(sim.term%xStep!==0){gV+='<line x1="'+xP(sim.term)+'" y1="'+PAD.t+'" x2="'+xP(sim.term)+'" y2="'+(H-PAD.b)+'" stroke="#e2e6ef" stroke-width="1"/><text x="'+xP(sim.term)+'" y="'+(H-PAD.b+16)+'" text-anchor="middle" fill="#8492a6" font-size="11">Yr '+sim.term+'</text>'}
   var bA=[{x:PAD.l,y:yP(sim.loan)}],pA=[{x:PAD.l,y:yP(0)}],iA=[{x:PAD.l,y:yP(0)}];
-  years.forEach(function(d){var x=xP(d.year);bA.push({x:x,y:yP(d.balance)});pA.push({x:x,y:yP(d.cumPrin)});iA.push({x:x,y:yP(d.cumInt)})});
+  var vA=[{x:PAD.l,y:yP(opts.price)}];
+  years.forEach(function(d){var x=xP(d.year);bA.push({x:x,y:yP(d.balance)});pA.push({x:x,y:yP(d.cumPrin)});iA.push({x:x,y:yP(d.cumInt)});vA.push({x:x,y:yP(opts.price*Math.pow(1+apprec,d.year))})});
   function aL(pts,cl){var l=pts.map(function(p){return p.x+','+p.y}).join(' ');if(!cl)return 'M '+l;var bx=H-PAD.b;return 'M '+pts[0].x+','+bx+' L '+l+' L '+pts[pts.length-1].x+','+bx+' Z'}
   svg.innerHTML='<rect width="'+W+'" height="'+H+'" fill="#f7f8fb" rx="10"/>'+gH+gV+
+    '<path d="'+aL(vA,1)+'" fill="rgba(245,158,11,.08)" stroke="none"/><path d="'+aL(vA,0)+'" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8,4"/>'+
     '<path d="'+aL(bA,1)+'" fill="rgba(59,91,219,.18)" stroke="none"/><path d="'+aL(bA,0)+'" fill="none" stroke="#3b5bdb" stroke-width="2.5"/>'+
     '<path d="'+aL(iA,1)+'" fill="rgba(220,38,38,.10)" stroke="none"/><path d="'+aL(iA,0)+'" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,3"/>'+
     '<path d="'+aL(pA,1)+'" fill="rgba(15,157,107,.12)" stroke="none"/><path d="'+aL(pA,0)+'" fill="none" stroke="#0f9d6b" stroke-width="2"/>';
-  $("#mainChartKey").innerHTML='<span class="key-blue">■ Balance remaining</span> · <span class="key-green">■ Total principal paid</span> · <span class="key-red">■ Total interest paid</span>';
+  $("#mainChartKey").innerHTML='<span class="key-amber">■ Property value (forecast)</span> · <span class="key-blue">■ Balance remaining</span> · <span class="key-green">■ Total principal paid</span> · <span class="key-red">■ Total interest paid</span>';
 }
 
 var currentScale="monthly";
@@ -426,7 +431,7 @@ function run(){
   var opts=readInputs();
   lastOpts=opts;lastSim=simulate(opts);
   renderResults(opts,lastSim);
-  drawChart(lastSim);
+  drawChart(lastSim,lastOpts);
   renderTable(lastSim,currentScale);
   save();
 }
