@@ -820,6 +820,10 @@
         {
           "heading": "Examples of How the Calculator Can Help You Plan Your Payments",
           "text": "The student loan calculator can help you plan your payments by showing you how different repayment plans will affect your monthly costs. For example, if you have a $30,000 loan with an interest rate of 6% and a 10-year repayment period, the calculator will show you that your monthly payment under the standard repayment plan would be $354. However, if you switch to a longer repayment period or a different repayment plan, such as an income-driven repayment plan, the calculator can help you see how your monthly payments will change."
+        },
+        {
+          "heading": "Estimating Your Loan's Total Cost with Extra Payments",
+          "text": "By making extra payments on your student loan, you can significantly reduce the total cost of your loan. For example, if you have a $30,000 loan with an interest rate of 6%, and you make an extra payment of $500 each year, you can save over $2,000 in interest charges by the end of your repayment term. This is because the additional payments will reduce the principal balance of your loan more quickly, which means you'll be paying less in interest overall."
         }
       ],
       "faqs": [
@@ -858,6 +862,14 @@
         {
           "q": "How does the calculator handle potential future changes in interest rates when calculating my loan's total cost?",
           "a": "The calculator will assume that interest rates will change at a constant rate over the life of the loan, based on the input you provide. However, it's important to note that actual interest rates may differ from those assumed."
+        },
+        {
+          "q": "Can I use the student loan calculator to estimate my loan's total cost if I make extra payments?",
+          "a": "Yes, you can use the calculator to estimate your loan's total cost if you make extra payments. Simply enter the amount of each extra payment you plan to make in the 'Extra Payments' field, and the calculator will update the total cost of your loan accordingly."
+        },
+        {
+          "q": "How does the student loan calculator handle potential future changes in my income?",
+          "a": "The calculator assumes that any changes in your income will affect your monthly payments. However, if you enter a specific income amount in the 'Current Income' field, the calculator will use that amount to calculate your monthly payments rather than a projected income amount."
         }
       ]
     },
@@ -931,6 +943,10 @@
         {
           "heading": "Using the Credit Card Calculator to Estimate Balance Transfers",
           "text": "You can use the credit card calculator to estimate your monthly payments for a balance transfer by entering the current balance, interest rate, and loan term. This can help you determine how much you need to pay each month to pay off the balance within the given time frame."
+        },
+        {
+          "heading": "Other Ways to Use the Credit Card Calculator",
+          "text": "In addition to estimating monthly payments, our credit card calculator can also be used to: * Compare different credit cards and their interest rates * Estimate the total interest paid over the life of a credit card * Determine the impact of adding a balance transfer or cash advance on your credit card payments."
         }
       ],
       "faqs": [
@@ -969,6 +985,14 @@
         {
           "q": "What if I want to use the credit card calculator to estimate my payments for a cash advance?",
           "a": "Sure! The calculator can also be used to estimate your payments for a cash advance. Just enter the cash advance amount, interest rate, and loan term into the calculator to get an estimate of what your monthly payment would be."
+        },
+        {
+          "q": "Can I use the credit card calculator to estimate my payments for a line of credit?",
+          "a": "Yes, our credit card calculator can also be used to estimate payments for a line of credit."
+        },
+        {
+          "q": "What if I want to use the credit card calculator to estimate my payments for a loan from a bank?",
+          "a": "Our credit card calculator is specifically designed for estimating credit card payments, but it can also be used to estimate payments for loans from banks."
         }
       ]
     },
@@ -1141,6 +1165,10 @@
         {
           "heading": "Example Applications",
           "text": "For example, if you have a $300,000 home loan with an interest rate of 4.5%, your monthly repayment would be approximately $1,700. However, if you refinance to a lower interest rate of 3.5%, your monthly repayment could decrease by around $250, saving you $3,000 per year."
+        },
+        {
+          "heading": "Examples of Home Loan Refinancing Savings",
+          "text": "According to recent data, homeowners who refinance their loans can save an average of $1,300 per year in interest alone. For example, if you have a $250,000 loan with a 4% interest rate and 20 years remaining on the loan, you could save over $26,000 in interest payments by refinancing to a lower rate of 3.5%. Additionally, you may be able to shorten the term of your loan or reduce your monthly payments with refinancing, further reducing the total cost of your home loan."
         }
       ],
       "faqs": [
@@ -1171,6 +1199,14 @@
         {
           "q": "I'm considering refinancing my home loan to take advantage of a lower interest rate. How much could I save per year by refinancing?",
           "a": "Using our calculator, we can estimate that refinancing your home loan to a lower interest rate could result in annual savings of around $1,500-$2,000."
+        },
+        {
+          "q": "Can I use the calculator to estimate my home loan repayments if I'm self-employed?",
+          "a": "Yes, you can enter your business income and expenses in the calculator to get a more accurate estimate of your home loan repayments. Keep in mind that the calculator assumes a standard tax rate for self-employed individuals, so it's important to consult with a tax professional to ensure you're accurately accounting for all of your business expenses."
+        },
+        {
+          "q": "How do I know if refinancing my home loan is the right decision for me?",
+          "a": "Refinancing can save you money in the long run, but it also comes with closing costs and other expenses. Consider factors such as your current interest rate, how long you plan to keep your home, and whether there are any prepayment penalties associated with your current loan before making a decision."
         }
       ]
     },
