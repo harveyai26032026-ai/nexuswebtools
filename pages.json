@@ -1066,6 +1066,10 @@
         {
           "heading": "Refinancing Your Car Loan",
           "text": "If you've had your car for a while and interest rates have dropped, you may be able to refinance your loan to get a better rate. For example, if you refinance a $10,000 loan with an interest rate of 7% to a new loan with an interest rate of 5%, you could save over $300 in interest over the life of the loan."
+        },
+        {
+          "heading": "Refinancing Options",
+          "text": "If you're current interest rate is higher than market rates, you may want to consider refinancing your car loan. You can refinance with the same lender or shop around for a better deal with a different lender. Some lenders offer discounts for customers who have a good payment history or who finance a larger down payment. Doing your research and comparing rates can help you find the best deal for your situation."
         }
       ],
       "faqs": [
@@ -1169,6 +1173,10 @@
         {
           "heading": "Examples of Home Loan Refinancing Savings",
           "text": "According to recent data, homeowners who refinance their loans can save an average of $1,300 per year in interest alone. For example, if you have a $250,000 loan with a 4% interest rate and 20 years remaining on the loan, you could save over $26,000 in interest payments by refinancing to a lower rate of 3.5%. Additionally, you may be able to shorten the term of your loan or reduce your monthly payments with refinancing, further reducing the total cost of your home loan."
+        },
+        {
+          "heading": "Example Calculations",
+          "text": "For example, let's say you have a $300,000 home loan with a 3% interest rate and a 30-year term. If you miss one monthly payment of $1,250, your lender may charge a late fee of $50 and increase your interest rate by 1-2%. This could result in an additional $150-$300 per year in interest charges. Additionally, your credit score may be negatively impacted, which could lead to higher interest rates on future loans."
         }
       ],
       "faqs": [
@@ -1207,6 +1215,14 @@
         {
           "q": "How do I know if refinancing my home loan is the right decision for me?",
           "a": "Refinancing can save you money in the long run, but it also comes with closing costs and other expenses. Consider factors such as your current interest rate, how long you plan to keep your home, and whether there are any prepayment penalties associated with your current loan before making a decision."
+        },
+        {
+          "q": "How much will my monthly repayments change if I miss a payment?",
+          "a": "Your monthly repayments will increase by 5-10% of the missed payment amount, depending on your lender's policies."
+        },
+        {
+          "q": "Can I use the calculator to estimate my home loan repayments if I have a fixed interest rate?",
+          "a": "Yes, the calculator can help you estimate your monthly repayments for a fixed-rate home loan. Just enter the loan amount, term, and interest rate to see your estimated repayments."
         }
       ]
     },
@@ -1355,19 +1371,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Fixed Deposit planning",
-            "text": "Use the tool to plan how fixed deposit fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Fixed Deposit optimization",
-            "text": "Compare alternative rates and frequencies for fixed deposit to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Other Applications of Fixed Deposits",
+          "text": "Fixed deposits can also be used for other purposes, such as saving for a down payment on a house or investing in a small business. For example, if you save $10,000 in a fixed deposit with an interest rate of 2% per year and let it grow for 5 years, you could potentially earn $200 in interest. This can help you build a larger nest egg for the future."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $16,000 grow to at 4.7% per annum over 3 years for fixed deposit?",
@@ -1386,6 +1395,16 @@
         {
           "slug": "fixed-deposit",
           "name": "Fixed Deposit Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I withdraw my fixed deposit before maturity?",
+          "a": "Yes, you can withdraw your fixed deposit before maturity, but there may be penalties and fees associated with early withdrawal."
+        },
+        {
+          "q": "How do I calculate the interest earned on my fixed deposit?",
+          "a": "You can use a compound interest calculator to determine the interest earned on your fixed deposit. The formula is: Interest = Principal x Rate x Time."
         }
       ]
     },
@@ -1443,19 +1462,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Recurring Deposit planning",
-            "text": "Use the tool to plan how recurring deposit fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Recurring Deposit optimization",
-            "text": "Compare alternative rates and frequencies for recurring deposit to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Additional Applications",
+          "text": "Recurring deposits can also be used for other purposes, such as saving for a down payment on a home or retirement. For example, if you want to save $50,000 for a down payment on a house in 10 years, you could set up a recurring deposit of $500 per month and earn interest on the total amount saved."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $17,000 grow to at 4.9% per annum over 4 years for recurring deposit?",
@@ -1474,6 +1486,16 @@
         {
           "slug": "recurring-deposit",
           "name": "Recurring Deposit Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I make adjustments to my recurring deposit amount after it's been set up?",
+          "a": "Yes, you can make changes to your recurring deposit amount at any time. However, please note that there may be fees associated with making changes to an existing recurring deposit."
+        },
+        {
+          "q": "How does the calculator take into account inflation when calculating my investment growth?",
+          "a": "The calculator uses a historical inflation rate to estimate future inflation, which is then applied to the investment growth calculation. This helps to account for the decreasing purchasing power of money over time."
         }
       ]
     },
