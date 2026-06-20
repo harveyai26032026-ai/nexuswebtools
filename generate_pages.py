@@ -35,6 +35,7 @@ SITE_URL = "https://nexuswebtools.com"
 # Core tools (these pages already exist — we link TO them, never overwrite)
 CORE_TOOLS = {
     "compound-interest": {"name": "Compound Interest Calculator", "path": "/compound-interest/"},
+    "mortgage":          {"name": "Mortgage Calculator",          "path": "/mortgage/"},
     "unit-converter":    {"name": "Unit Converter",               "path": "/unit-converter/"},
     "s-curve":           {"name": "S-Curve Calculator",           "path": "/s-curve/"},
 }
@@ -237,10 +238,7 @@ def render_niche_page(tool_id: str, page: dict) -> str:
             related_html += f'        <li><a href="{cdata["path"]}">{esc(cdata["name"])}</a></li>\n'
 
     # ── Build: Nav links ──
-    nav_links = "".join(
-        f'        <a href="{cdata["path"]}">{esc(cdata["name"])}</a>\n'
-        for cdata in CORE_TOOLS.values()
-    )
+    nav_links = '        <a href="/">Home</a>\n        <a href="/#tools">Tools</a>\n'
 
     # ── Build: FAQ JSON-LD script tag ──
     faq_script = ""
