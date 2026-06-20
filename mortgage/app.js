@@ -27,7 +27,7 @@ function readInputs(){
   var depVal=val("mDeposit")||0;
   var deposit=depMode==="pct"?price*(depVal/100):depVal;
   var loan=Math.max(0,price-deposit);
-  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,stamp:val("mStamp")||0};
+  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0};
 }
 
 function simulate(opts){
@@ -46,7 +46,7 @@ function simulate(opts){
     totalInt+=intP;totalPrin+=prinP;totalExtra+=exA;
     sched.push({period:i,year:Math.ceil(i/ppf),repay:repay+exA,interest:intP,principal:prinP,extra:exA,balance:bal});
   }
-  var ongYr=opts.tax+opts.ins+opts.hoa+(opts.lmi/100*loan);
+  var ongYr=opts.tax+opts.ins+opts.hoa+opts.lmi+opts.loanFee;
   return{sched:sched,stdRepay:stdRepay,totalInt:totalInt,totalPrin:totalPrin,totalExtra:totalExtra,totalRepaid:totalPrin+totalInt+totalExtra,ongoingYr:ongYr,loan:loan,term:term,freq:freq,ppf:ppf};
 }
 
@@ -65,9 +65,9 @@ function renderResults(opts,sim){
     '<div class="stat neutral" data-tip="The amount borrowed from the lender: purchase price minus deposit."><span class="big">'+fmtMoney(opts.loan)+'</span><span class="lbl">Loan amount</span></div>'+
     '<div class="stat cost" data-tip="The total interest you will pay over the entire loan term at the given rate."><span class="big">'+fmtMoney(sim.totalInt)+'</span><span class="lbl">Total interest</span></div>'+
     '<div class="stat cost" data-tip="Total of all repayments including principal, interest and extra payments."><span class="big">'+fmtMoney(sim.totalRepaid)+'</span><span class="lbl">Total repaid</span></div>'+
-    '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'" data-tip="Annual property tax, insurance, HOA/strata and LMI combined. Add these in Advanced options."><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>'+
-    '<div class="stat cost" data-tip="Total interest plus all ongoing costs over the loan term — the true cost of borrowing."><span class="big">'+fmtMoney(sim.totalInt+sim.ongoingYr*opts.term)+'</span><span class="lbl">Total cost of loan</span></div>'+
-    '<div class="stat gain" data-tip="Forecast property value minus total interest and ownership costs — your net gain from buying vs staying cash-neutral."><span class="big">'+fmtMoney(forecastValue(opts)-sim.totalInt-sim.ongoingYr*opts.term)+'</span><span class="lbl">Net equity at '+opts.term+'yr</span></div>';
+    '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'" data-tip="Annual property tax, insurance, HOA/strata, LMI and loan fees combined. Add these in Advanced options."><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>'+
+    '<div class="stat cost" data-tip="Total interest, ongoing costs, stamp duty and purchase costs over the loan term — the true cost of borrowing."><span class="big">'+fmtMoney(sim.totalInt+sim.ongoingYr*opts.term+opts.stamp+opts.purchaseCosts)+'</span><span class="lbl">Total cost of loan</span></div>'+
+    '<div class="stat gain" data-tip="Forecast property value minus total interest, ownership costs, stamp duty and purchase costs."><span class="big">'+fmtMoney(forecastValue(opts)-sim.totalInt-sim.ongoingYr*opts.term-opts.stamp-opts.purchaseCosts)+'</span><span class="lbl">Net equity at '+opts.term+'yr</span></div>';
 
   // Collapsible summary table
   var summaryRows=[
@@ -81,9 +81,11 @@ function renderResults(opts,sim){
     {label:'Total repaid',value:fmtMoneyFull(sim.totalRepaid)},
     {label:'Total principal',value:fmtMoneyFull(sim.totalPrin+sim.totalExtra),cls:'gain-col'},
     {label:'Ongoing costs /yr',value:sim.ongoingYr>0?fmtMoneyFull(sim.ongoingYr):'—'},
-    {label:'Total cost of loan',value:fmtMoneyFull(sim.totalInt+sim.ongoingYr*opts.term),cls:'cost'},
+    {label:'Stamp duty',value:fmtMoneyFull(opts.stamp)},
+    {label:'Purchase costs',value:fmtMoneyFull(opts.purchaseCosts)},
+    {label:'Total cost of loan',value:fmtMoneyFull(sim.totalInt+sim.ongoingYr*opts.term+opts.stamp+opts.purchaseCosts),cls:'cost'},
     {label:'Forecast value at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts))},
-    {label:'Net equity at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts)-sim.totalInt-sim.ongoingYr*opts.term),cls:'gain-col'}
+    {label:'Net equity at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts)-sim.totalInt-sim.ongoingYr*opts.term-opts.stamp-opts.purchaseCosts),cls:'gain-col'}
   ];
   var detailsHtml='<details class="summary-details"><summary>📊 Full loan summary</summary>'+
     '<table class="ref summary-tbl"><tbody>'+
@@ -139,13 +141,15 @@ function rentVsBuy(opts,sim){
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var propVal=opts.price;
   // Advanced overrides
-  var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvStamp=val("rvStamp");
+  var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvLoanFee=val("rvLoanFee"),rvStamp=val("rvStamp"),rvPurchaseCosts=val("rvPurchaseCosts");
   var tax=rvTax!==null?rvTax:opts.tax;
   var ins=rvIns!==null?rvIns:opts.ins;
   var hoa=rvHOA!==null?rvHOA:opts.hoa;
   var lmi=rvLMI!==null?rvLMI:opts.lmi;
+  var loanFee=rvLoanFee!==null?rvLoanFee:opts.loanFee;
   var stamp=rvStamp!==null?rvStamp:opts.stamp;
-  var annualOngoing=tax+ins+hoa+(lmi/100*opts.loan);
+  var purchaseCosts=rvPurchaseCosts!==null?rvPurchaseCosts:opts.purchaseCosts;
+  var annualOngoing=tax+ins+hoa+lmi+loanFee;
 
   // Build yearly interest from amortisation schedule
   var yearInterest={},yearPrincipal={},yearRepay={};
@@ -200,7 +204,7 @@ function rentVsBuy(opts,sim){
   }
 
   var fin=rows[rows.length-1];
-  var totalBuySunk=fin.cumInt+cumOngoing+cumMaint+stamp;
+  var totalBuySunk=fin.cumInt+cumOngoing+cumMaint+stamp+purchaseCosts;
   var diff=fin.equity-fin.renterWealth;
   var vc=diff>0?"buy-wins":diff<0?"rent-wins":"tie";
   var vt=diff>0?"Buying builds "+fmtMoney(Math.abs(diff))+" more wealth over "+term+" years":
@@ -283,9 +287,11 @@ function addComparison(){
       '<div class="field"><label>IO period (yr)</label><input type="number" step="1" min="0" class="cmp-io" placeholder="'+base.ioYears+'"></div>'+
       '<div class="field"><label>Property tax /yr</label><input type="number" step="any" min="0" class="cmp-tax" placeholder="'+base.tax+'"></div>'+
       '<div class="field"><label>Insurance /yr</label><input type="number" step="any" min="0" class="cmp-ins" placeholder="'+base.ins+'"></div>'+
-      '<div class="field"><label>PMI/LMI %/yr</label><input type="number" step="any" min="0" class="cmp-lmi" placeholder="'+base.lmi+'"></div>'+
+      '<div class="field"><label>PMI/LMI $/yr</label><input type="number" step="any" min="0" class="cmp-lmi" placeholder="'+base.lmi+'"></div>'+
+      '<div class="field"><label>Loan fee $/yr</label><input type="number" step="any" min="0" class="cmp-loanfee" placeholder="'+base.loanFee+'"></div>'+
       '<div class="field"><label>HOA / strata /yr</label><input type="number" step="any" min="0" class="cmp-hoa" placeholder="'+base.hoa+'"></div>'+
       '<div class="field"><label>Stamp duty (one-off)</label><input type="number" step="any" min="0" class="cmp-stamp" placeholder="'+base.stamp+'"></div>'+
+      '<div class="field"><label>Purchase costs (one-off)</label><input type="number" step="any" min="0" class="cmp-purchasecosts" placeholder="'+base.purchaseCosts+'"></div>'+
     '</div></details>';
   $("#cmpList").appendChild(div);
   div.querySelector(".rm-cmp").addEventListener("click",function(){div.remove()});
@@ -305,27 +311,29 @@ function runComparison(opts,sim){
     var lmiEl=el.querySelector(".cmp-lmi");var lmi=lmiEl&&lmiEl.value!==""?parseFloat(lmiEl.value):base.lmi;
     var hoaEl=el.querySelector(".cmp-hoa");var hoa=hoaEl&&hoaEl.value!==""?parseFloat(hoaEl.value):base.hoa;
     var stampEl=el.querySelector(".cmp-stamp");var stamp=stampEl&&stampEl.value!==""?parseFloat(stampEl.value):base.stamp;
+    var loanFeeEl=el.querySelector(".cmp-loanfee");var loanFee=loanFeeEl&&loanFeeEl.value!==""?parseFloat(loanFeeEl.value):base.loanFee;
+    var purchaseCostsEl=el.querySelector(".cmp-purchasecosts");var purchaseCosts=purchaseCostsEl&&purchaseCostsEl.value!==""?parseFloat(purchaseCostsEl.value):base.purchaseCosts;
     var loan=Math.max(0,base.price-dep);
-    var altOpts={price:base.price,deposit:dep,loan:loan,rate:rate,term:term,freq:base.freq,repayType:repayType,ioYears:ioYears,extra:extra,tax:tax,ins:ins,lmi:lmi,hoa:hoa,stamp:stamp};
+    var altOpts={price:base.price,deposit:dep,loan:loan,rate:rate,term:term,freq:base.freq,repayType:repayType,ioYears:ioYears,extra:extra,tax:tax,ins:ins,lmi:lmi,hoa:hoa,loanFee:loanFee,stamp:stamp,purchaseCosts:purchaseCosts};
     results.push({label:"Scenario "+(idx+1),opts:altOpts,sim:simulate(altOpts),color:CMP_COLORS[idx%CMP_COLORS.length]});
   });
   if(!results.length)return;
 
   // ─── Summary cards ───
-  var baseCost=sim.totalInt+sim.totalRepaid*0+opts.tax*opts.term+opts.ins*opts.term+opts.hoa*opts.term+(opts.lmi/100*opts.loan)*opts.term+opts.stamp;
+  var baseCost=sim.totalInt+opts.tax*opts.term+opts.ins*opts.term+opts.hoa*opts.term+opts.lmi*opts.term+opts.loanFee*opts.term+opts.stamp+opts.purchaseCosts;
   var html='<div class="cmp-summary-card"><div class="cmp-label" style="color:#3b5bdb">Base</div>'+
     '<div class="cmp-big">'+fmtMoney(sim.stdRepay+opts.extra)+'</div>'+
     '<div class="cmp-sub">'+opts.freq+' repayment</div>'+
     '<div class="cmp-detail">Loan: '+fmtMoney(opts.loan)+' · '+opts.rate+'% · '+opts.term+'yr</div>'+
     '<div class="cmp-detail"><span class="cost">Interest: '+fmtMoney(sim.totalInt)+'</span></div>'+
     '<div class="cmp-detail">Total repaid: '+fmtMoney(sim.totalRepaid)+'</div>'+
-    '<div class="cmp-detail" style="margin-top:4px;font-weight:600">Cost of loan: '+fmtMoney(sim.totalInt+(opts.tax+opts.ins+opts.hoa)*opts.term+(opts.lmi/100*opts.loan)*opts.term+opts.stamp)+'</div></div>';
+    '<div class="cmp-detail" style="margin-top:4px;font-weight:600">Cost of loan: '+fmtMoney(sim.totalInt+(opts.tax+opts.ins+opts.hoa+opts.lmi+opts.loanFee)*opts.term+opts.stamp+opts.purchaseCosts)+'</div></div>';
 
   results.forEach(function(r){
     var intSaved=sim.totalInt-r.sim.totalInt;
     var intDiff=intSaved>0?'<span class="gain-col">Saves '+fmtMoney(intSaved)+' interest</span>':
                 intSaved<0?'<span class="cost">Costs '+fmtMoney(Math.abs(intSaved))+' more interest</span>':'';
-    var scenarioCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa)*r.opts.term+(r.opts.lmi/100*r.opts.loan)*r.opts.term+r.opts.stamp;
+    var scenarioCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa+r.opts.lmi+r.opts.loanFee)*r.opts.term+r.opts.stamp+r.opts.purchaseCosts;
     html+='<div class="cmp-summary-card" style="border-color:'+r.color+'">'+
       '<div class="cmp-label" style="color:'+r.color+'">'+r.label+'</div>'+
       '<div class="cmp-big" style="color:'+r.color+'">'+fmtMoney(r.sim.stdRepay+r.opts.extra)+'</div>'+
@@ -365,7 +373,7 @@ function runComparison(opts,sim){
       var intVsBase=i===0?'—':(sim.totalInt-r.sim.totalInt);
       var intCls=i===0?'':intVsBase>0?'class="gain-col"':intVsBase<0?'class="cost"':'';
       var intTxt=i===0?'—':(intVsBase>0?'−'+fmtMoney(Math.abs(intVsBase)):(intVsBase<0?'+':'')+fmtMoney(Math.abs(intVsBase)));
-      var colCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa)*r.opts.term+(r.opts.lmi/100*r.opts.loan)*r.opts.term+r.opts.stamp;
+      var colCost=r.sim.totalInt+(r.opts.tax+r.opts.ins+r.opts.hoa+r.opts.lmi+r.opts.loanFee)*r.opts.term+r.opts.stamp+r.opts.purchaseCosts;
       return '<tr><td style="color:'+r.color+';font-weight:700">'+r.label+'</td><td>'+r.opts.rate+'%</td><td>'+r.opts.term+' yr</td><td>'+fmtMoneyFull(r.sim.stdRepay+r.opts.extra)+'</td><td class="cost">'+fmtMoneyFull(r.sim.totalInt)+'</td><td '+intCls+'>'+intTxt+'</td><td class="cost">'+fmtMoneyFull(colCost)+'</td><td>'+fmtMoneyFull(r.sim.totalRepaid)+'</td></tr>';
     }).join('')+'</tbody>';
 }
@@ -393,7 +401,7 @@ function exportXls(opts,sim){
 /* ════════════════════ LOCAL STORAGE ════════════════════ */
 function save(){
   var d={};
-  ["mCcy","mPrice","mDeposit","mDepositMode","mRate","mTerm","mFreq","mRepayType","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mStamp"].forEach(function(id){
+  ["mCcy","mPrice","mDeposit","mDepositMode","mRate","mTerm","mFreq","mRepayType","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp","mPurchaseCosts"].forEach(function(id){
     var e=document.getElementById(id);if(e)d[id]=e.value});
   try{localStorage.setItem(LS_KEY,JSON.stringify(d))}catch(x){}
 }
@@ -422,7 +430,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
   // Reset
   $("#resetBtn").addEventListener("click",function(){
-    ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mStamp"].forEach(function(id){
+    ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp","mPurchaseCosts"].forEach(function(id){
       var e=document.getElementById(id);if(e)e.value=""});
     $("#mCcy").value="USD";$("#mDepositMode").value="pct";
     $("#mFreq").value="monthly";$("#mRepayType").value="pi";
@@ -495,7 +503,7 @@ document.addEventListener("DOMContentLoaded",function(){
   });
 
   // Auto-calculate on input change
-  ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mStamp"].forEach(function(id){
+  ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp","mPurchaseCosts"].forEach(function(id){
     var e=document.getElementById(id);if(e)e.addEventListener("input",run)});
   ["mCcy","mDepositMode","mFreq","mRepayType"].forEach(function(id){
     var e=document.getElementById(id);if(e)e.addEventListener("change",run)});

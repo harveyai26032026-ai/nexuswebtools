@@ -146,9 +146,11 @@
       <div class="grid">
         <div class="field"><label for="mTax"><strong>Annual property tax / rates</strong> <span class="help" data-tip="Annual government tax on the property — called council rates, property tax, or land tax depending on your country."></span></label><input id="mTax" type="number" min="0" step="any" value="0"></div>
         <div class="field"><label for="mIns"><strong>Annual home insurance</strong> <span class="help" data-tip="Annual building and contents insurance premium to cover fire, flood, theft etc."></span></label><input id="mIns" type="number" min="0" step="any" value="0"></div>
-        <div class="field"><label for="mLMI"><strong>PMI / LMI %/yr</strong> <span class="help" data-tip="Private Mortgage Insurance (US) or Lenders Mortgage Insurance (AU/UK) — required when your deposit is below 20%. Enter the annual rate as a % of the loan."></span> <span class="hint-inline">(0 = off)</span></label><input id="mLMI" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mLMI"><strong>PMI / LMI</strong> <span class="help" data-tip="Private Mortgage Insurance (US) or Lenders Mortgage Insurance (AU/UK) — required when your deposit is below 20%. Enter the annual dollar cost."></span> <span class="hint-inline">($/yr, 0 = off)</span></label><input id="mLMI" type="number" min="0" step="any" value="0"></div>
         <div class="field"><label for="mHOA"><strong>Annual HOA / strata</strong> <span class="help" data-tip="Homeowners Association fees (US) or body corporate / strata levies (AU/UK) for shared building maintenance."></span> <span class="hint-inline">(0 = none)</span></label><input id="mHOA" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mLoanFee"><strong>Annual loan / facility fee</strong> <span class="help" data-tip="Annual package, offset-account or facility fees charged by the lender on top of interest."></span> <span class="hint-inline">($/yr, 0 = none)</span></label><input id="mLoanFee" type="number" min="0" step="any" value="0"></div>
         <div class="field"><label for="mStamp"><strong>Stamp duty / transfer tax</strong> <span class="help" data-tip="Government tax on property purchases — called stamp duty (AU/UK), transfer tax (US), or registration duty (IN). This is a one-off upfront cost."></span> <span class="hint-inline">(one‑off)</span></label><input id="mStamp" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mPurchaseCosts"><strong>Purchase costs</strong> <span class="help" data-tip="One-off upfront costs such as conveyancing, building inspection, loan establishment and settlement fees. Added to the total cost of buying."></span> <span class="hint-inline">(one‑off)</span></label><input id="mPurchaseCosts" type="number" min="0" step="any" value="0"></div>
       </div>
     </div>
 
@@ -210,9 +212,11 @@
         <div class="grid">
           <div class="field"><label for="rvTax"><strong>Annual property tax / rates</strong> <span class="help" data-tip="Override the base calculator property tax for the rent vs buy analysis."></span></label><input id="rvTax" type="number" min="0" step="any" placeholder="Inherit"></div>
           <div class="field"><label for="rvIns"><strong>Annual home insurance</strong> <span class="help" data-tip="Override the base calculator insurance for the rent vs buy analysis."></span></label><input id="rvIns" type="number" min="0" step="any" placeholder="Inherit"></div>
-          <div class="field"><label for="rvLMI"><strong>PMI / LMI %/yr</strong> <span class="help" data-tip="Override the base calculator PMI/LMI for the rent vs buy analysis."></span></label><input id="rvLMI" type="number" min="0" step="any" placeholder="Inherit"></div>
+          <div class="field"><label for="rvLMI"><strong>PMI / LMI $/yr</strong> <span class="help" data-tip="Override the base calculator PMI/LMI for the rent vs buy analysis."></span></label><input id="rvLMI" type="number" min="0" step="any" placeholder="Inherit"></div>
           <div class="field"><label for="rvHOA"><strong>Annual HOA / strata</strong> <span class="help" data-tip="Override the base calculator HOA/strata for the rent vs buy analysis."></span></label><input id="rvHOA" type="number" min="0" step="any" placeholder="Inherit"></div>
+          <div class="field"><label for="rvLoanFee"><strong>Annual loan / facility fee</strong> <span class="help" data-tip="Override the base calculator loan fee for the rent vs buy analysis."></span></label><input id="rvLoanFee" type="number" min="0" step="any" placeholder="Inherit"></div>
           <div class="field"><label for="rvStamp"><strong>Stamp duty / transfer tax</strong> <span class="help" data-tip="Override the base calculator stamp duty for the rent vs buy analysis."></span> <span class="hint-inline">(one-off)</span></label><input id="rvStamp" type="number" min="0" step="any" placeholder="Inherit"></div>
+          <div class="field"><label for="rvPurchaseCosts"><strong>Purchase costs</strong> <span class="help" data-tip="Override the base calculator purchase costs for the rent vs buy analysis."></span> <span class="hint-inline">(one-off)</span></label><input id="rvPurchaseCosts" type="number" min="0" step="any" placeholder="Inherit"></div>
         </div>
       </div>
 
@@ -324,6 +328,6 @@
   <p>Estimates are for general guidance only and are not financial advice. Interest rates, tax and returns are not guaranteed; consult a licensed financial adviser.</p>
 </footer>
 
-<script src="app.js?v=20260702j" defer></script>
+<script src="app.js?v=20260702k" defer></script>
 </body>
 </html>
