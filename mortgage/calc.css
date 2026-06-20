@@ -1,9 +1,9 @@
 /* Mortgage Calculator — page-specific styles (extends ../style.css) */
-main{max-width:1240px;padding-top:12px}
+main{max-width:1240px;padding-top:4px}
 
 .ad-slot{margin:10px auto;min-height:90px}
 
-@media(min-width:640px){main{padding-top:34px}.ad-slot{margin:16px auto}}
+@media(min-width:640px){main{padding-top:14px}.ad-slot{margin:16px auto}}
 
 .crumbs{font-size:.82rem;color:var(--muted);margin-bottom:6px}
 .crumbs a{color:var(--accent);text-decoration:none}
@@ -21,7 +21,7 @@ main{max-width:1240px;padding-top:12px}
 @media(hover:none){.help::before{opacity:0;transition:none}.help.tapped::before{opacity:1}}
 
 /* Form container + responsive field grid */
-.tool{background:var(--soft,#f7f8fb);border:1px solid var(--ring);border-radius:14px;padding:14px 12px;margin:18px 0;box-shadow:0 8px 24px rgba(20,30,60,.06)}
+.tool{background:var(--soft,#f7f8fb);border:1px solid var(--ring);border-radius:14px;padding:14px 12px;margin:10px 0;box-shadow:0 8px 24px rgba(20,30,60,.06)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px 16px}
 .field{display:flex;align-items:center;gap:8px;margin:0;min-width:0}
 .field input,.field select{flex:0 0 190px;width:190px;max-width:190px;margin-left:auto;height:2.7rem;line-height:1.25;text-overflow:ellipsis}
@@ -151,6 +151,15 @@ table.ref tbody tr:hover td{background:#eef2ff}
 
 /* RvB detail lines */
 .rvb-detail{font-size:.78rem;color:var(--muted);margin-top:2px;line-height:1.5}
+
+/* Collapsible summary table */
+.summary-details{margin-top:14px;border:1px solid var(--ring);border-radius:10px;background:#fff;overflow:hidden}
+.summary-details summary{padding:12px 16px;font-weight:700;font-size:.92rem;cursor:pointer;color:var(--accent);user-select:none;transition:background .12s ease}
+.summary-details summary:hover{background:var(--soft)}
+.summary-tbl{margin:0;border:none}
+.summary-tbl th{text-align:left;font-weight:600;color:var(--muted);white-space:nowrap;width:45%}
+.summary-tbl td{text-align:right;font-weight:600}
+.summary-tbl tbody tr:last-child td,.summary-tbl tbody tr:last-child th{border-bottom:none}
 
 /* RvB cost breakdown box */
 .rvb-cost-box{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:14px 16px;margin:12px 0}

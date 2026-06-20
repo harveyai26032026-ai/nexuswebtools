@@ -50,15 +50,47 @@ function simulate(opts){
   return{sched:sched,stdRepay:stdRepay,totalInt:totalInt,totalPrin:totalPrin,totalExtra:totalExtra,totalRepaid:totalPrin+totalInt+totalExtra,ongoingYr:ongYr,loan:loan,term:term,freq:freq,ppf:ppf};
 }
 
+function forecastValue(opts){
+  var apprec=(val("rvApprec")||4)/100;
+  return opts.price*Math.pow(1+apprec,opts.term);
+}
+
 function renderResults(opts,sim){
   var depPct=opts.price>0?(opts.deposit/opts.price*100):0;
   $("#results").innerHTML=
     '<div class="stat primary"><span class="big">'+fmtMoney(sim.stdRepay+opts.extra)+'</span><span class="lbl">'+opts.freq+' repayment</span></div>'+
-    '<div class="stat neutral"><span class="big">'+fmtMoney(opts.loan)+'</span><span class="lbl">Loan amount</span></div>'+
+    '<div class="stat neutral"><span class="big">'+fmtMoney(opts.price)+'</span><span class="lbl">Purchase price</span></div>'+
+    '<div class="stat neutral"><span class="big">'+fmtMoney(forecastValue(opts))+'</span><span class="lbl">Forecast value at '+opts.term+'yr</span></div>'+
     '<div class="stat gain"><span class="big">'+fmtMoney(opts.deposit)+'</span><span class="lbl">Deposit ('+depPct.toFixed(0)+'%)</span></div>'+
     '<div class="stat cost"><span class="big">'+fmtMoney(sim.totalInt)+'</span><span class="lbl">Total interest</span></div>'+
     '<div class="stat cost"><span class="big">'+fmtMoney(sim.totalRepaid)+'</span><span class="lbl">Total repaid</span></div>'+
-    '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'"><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>';
+    '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'"><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>'+
+    '<div class="stat cost"><span class="big">'+fmtMoney(sim.totalInt+sim.ongoingYr*opts.term)+'</span><span class="lbl">Total cost of loan</span></div>';
+
+  // Collapsible summary table
+  var summaryRows=[
+    {label:'Purchase price',value:fmtMoneyFull(opts.price)},
+    {label:'Deposit',value:fmtMoneyFull(opts.deposit)+' ('+depPct.toFixed(1)+'%)'},
+    {label:'Loan amount',value:fmtMoneyFull(opts.loan)},
+    {label:'Interest rate',value:opts.rate+'%'},
+    {label:'Loan term',value:opts.term+' years ('+opts.freq+')'},
+    {label:opts.freq.charAt(0).toUpperCase()+opts.freq.slice(1)+' repayment',value:fmtMoneyFull(sim.stdRepay+opts.extra),cls:'primary'},
+    {label:'Total interest',value:fmtMoneyFull(sim.totalInt),cls:'cost'},
+    {label:'Total repaid',value:fmtMoneyFull(sim.totalRepaid)},
+    {label:'Total principal',value:fmtMoneyFull(sim.totalPrin+sim.totalExtra),cls:'gain-col'},
+    {label:'Ongoing costs /yr',value:sim.ongoingYr>0?fmtMoneyFull(sim.ongoingYr):'—'},
+    {label:'Total cost of loan',value:fmtMoneyFull(sim.totalInt+sim.ongoingYr*opts.term),cls:'cost'},
+    {label:'Forecast value at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts))}
+  ];
+  var detailsHtml='<details class="summary-details"><summary>📊 Full loan summary</summary>'+
+    '<table class="ref summary-tbl"><tbody>'+
+    summaryRows.map(function(r){
+      return '<tr><th>'+r.label+'</th><td'+(r.cls?' class="'+r.cls+'"':'')+'>'+r.value+'</td></tr>';
+    }).join('')+
+    '</tbody></table></details>';
+  var existing=$("#results").parentNode.querySelector(".summary-details");
+  if(existing)existing.remove();
+  $("#results").insertAdjacentHTML("afterend",detailsHtml);
 }
 
 function drawChart(sim){
@@ -81,7 +113,7 @@ function drawChart(sim){
     '<path d="'+aL(bA,1)+'" fill="rgba(59,91,219,.18)" stroke="none"/><path d="'+aL(bA,0)+'" fill="none" stroke="#3b5bdb" stroke-width="2.5"/>'+
     '<path d="'+aL(iA,1)+'" fill="rgba(220,38,38,.10)" stroke="none"/><path d="'+aL(iA,0)+'" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,3"/>'+
     '<path d="'+aL(pA,1)+'" fill="rgba(15,157,107,.12)" stroke="none"/><path d="'+aL(pA,0)+'" fill="none" stroke="#0f9d6b" stroke-width="2"/>';
-  $("#mainChartKey").innerHTML='<span class="key-blue">■ Balance remaining</span> · <span class="key-green">■ Cumulative principal</span> · <span class="key-red">■ Cumulative interest</span>';
+  $("#mainChartKey").innerHTML='<span class="key-blue">■ Balance remaining</span> · <span class="key-green">■ Total principal paid</span> · <span class="key-red">■ Total interest paid</span>';
 }
 
 var currentScale="monthly";
@@ -221,7 +253,7 @@ function rentVsBuy(opts,sim){
 
   // ─── Table ───
   $("#rvbTableHead").hidden=false;
-  $("#rvbTable").innerHTML='<thead><tr><th>Year</th><th>Interest</th><th>Costs+maint</th><th>Cum. buyer sunk</th><th>Rent</th><th>Cum. rent</th><th>Buy equity</th><th>Rent+invest</th><th>Difference</th></tr></thead><tbody>'+
+  $("#rvbTable").innerHTML='<thead><tr><th>Year</th><th>Interest</th><th>Costs+maint</th><th>Total buyer sunk</th><th>Rent</th><th>Total rent</th><th>Buy equity</th><th>Rent+invest</th><th>Difference</th></tr></thead><tbody>'+
     rows.map(function(r){
       var d=r.equity-r.renterWealth;
       var c=d>0?'class="gain-col"':d<0?'class="cost"':'';
