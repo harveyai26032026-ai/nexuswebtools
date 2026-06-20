@@ -927,6 +927,10 @@
         {
           "heading": "Comparing Different Credit Cards",
           "text": "You can use the credit card calculator to compare different credit cards by entering the interest rates and fees for each card. For example, if you're considering two different credit cards with interest rates of 12% and 18%, you can enter those values into the calculator to see which card will save you more money in interest payments over time. You can also compare different fees associated with each card, such as annual charges or late payment fees."
+        },
+        {
+          "heading": "Using the Credit Card Calculator to Estimate Balance Transfers",
+          "text": "You can use the credit card calculator to estimate your monthly payments for a balance transfer by entering the current balance, interest rate, and loan term. This can help you determine how much you need to pay each month to pay off the balance within the given time frame."
         }
       ],
       "faqs": [
@@ -957,6 +961,14 @@
         {
           "q": "What if I want to make changes to my credit card agreement after using the calculator?",
           "a": "If you need to make changes to your credit card agreement after using our calculator, you should contact your credit card issuer directly."
+        },
+        {
+          "q": "Can I use the credit card calculator to estimate my monthly payments for a balance transfer?",
+          "a": "Yes, you can use the calculator to estimate your monthly payments for a balance transfer. Simply enter the current balance, interest rate, and loan term into the calculator to get an estimate of what your monthly payment would be."
+        },
+        {
+          "q": "What if I want to use the credit card calculator to estimate my payments for a cash advance?",
+          "a": "Sure! The calculator can also be used to estimate your payments for a cash advance. Just enter the cash advance amount, interest rate, and loan term into the calculator to get an estimate of what your monthly payment would be."
         }
       ]
     },
@@ -1125,19 +1137,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Home Loan planning",
-            "text": "Use the tool to plan how home loan fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Home Loan optimization",
-            "text": "Compare alternative rates and frequencies for home loan to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Example Applications",
+          "text": "For example, if you have a $300,000 home loan with an interest rate of 4.5%, your monthly repayment would be approximately $1,700. However, if you refinance to a lower interest rate of 3.5%, your monthly repayment could decrease by around $250, saving you $3,000 per year."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $14,000 grow to at 4.3% per annum over 6 years for home loan?",
@@ -1156,6 +1161,16 @@
         {
           "slug": "home-loan",
           "name": "Home Loan Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "How much will my monthly repayments change if I increase my loan amount by $10,000?",
+          "a": "Using our home loan calculator, we can see that increasing the loan amount by $10,000 will result in a approximately $75-$100 increase in the monthly repayment amount."
+        },
+        {
+          "q": "I'm considering refinancing my home loan to take advantage of a lower interest rate. How much could I save per year by refinancing?",
+          "a": "Using our calculator, we can estimate that refinancing your home loan to a lower interest rate could result in annual savings of around $1,500-$2,000."
         }
       ]
     },
@@ -1213,19 +1228,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Personal Loan planning",
-            "text": "Use the tool to plan how personal loan fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Personal Loan optimization",
-            "text": "Compare alternative rates and frequencies for personal loan to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Examples of How Personal Loans Can Be Used",
+          "text": "Personal loans can be used for a variety of purposes, such as: paying for a wedding or other special event, financing home improvements, consolidating debt, covering unexpected expenses, or funding a small business. For example, if you need to cover the cost of a unexpected medical bill, a personal loan could provide the necessary funds without incurring additional debt or using up your savings."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $15,000 grow to at 4.5% per annum over 2 years for personal loan?",
@@ -1244,6 +1252,16 @@
         {
           "slug": "personal-loan",
           "name": "Personal Loan Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use a personal loan to consolidate debt?",
+          "a": "Yes, personal loans can be used for debt consolidation. By combining multiple debts into one loan with a lower interest rate and a single monthly payment, you may be able to simplify your finances and save money on interest."
+        },
+        {
+          "q": "How do I know if I'm eligible for a personal loan?",
+          "a": "Lenders typically consider factors such as your credit score, income, debt-to-income ratio, and employment history when determining eligibility for a personal loan. You can check your eligibility by comparing your financial information to the lender's requirements."
         }
       ]
     },
