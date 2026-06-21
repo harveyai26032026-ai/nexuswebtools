@@ -29,7 +29,8 @@ function readInputs(){
   var loan=Math.max(0,price-deposit);
   var maintPct=val("mMaint")||0;
   var maint=price*maintPct/100;
-  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0,maint:maint,maintPct:maintPct};
+  var inflation=(val("mInflation")||2.5)/100;
+  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0,maint:maint,maintPct:maintPct,inflation:inflation};
 }
 
 function simulate(opts){
@@ -224,7 +225,7 @@ function renderTable(sim,scale){
 // Helper: run the RvB simulation with a specific weekly rent and return final difference (equity - renter wealth)
 function rvbDiff(opts,sim,weeklyRent){
   var ppf=sim.ppf,term=opts.term;
-  var rentGrow=(val("rvRentGrow")||3)/100;
+  var infl=opts.inflation;
   var rvMaintVal=val("rvMaint");
   var maintPct=rvMaintVal!==null&&rvMaintVal!==""?+rvMaintVal:opts.maintPct;
   var apprec=(val("mApprec")||val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
@@ -237,12 +238,14 @@ function rvbDiff(opts,sim,weeklyRent){
   sim.sched.forEach(function(s){if(!yearInterest[s.year])yearInterest[s.year]=0;if(!yearRepay[s.year])yearRepay[s.year]=0;yearInterest[s.year]+=s.interest;yearRepay[s.year]+=s.repay});
   var propVal=opts.price,investBal=Math.max(0,opts.deposit+stamp+lmi+purchaseCosts);
   var totalInvestContrib=investBal,totalWithdrawn=0,rentYr=weeklyRent*52,cumInt=0,cumOngoing=0,cumMaint=0;
+  var ongoingYr=annualOngoing;
   for(var yr=1;yr<=term;yr++){
     propVal*=(1+apprec);
     var yrMaint=propVal*maintPct/100;
+    ongoingYr*=(1+infl);
     var yrInt=yearInterest[yr]||0,yrMortgage=yearRepay[yr]||0;
-    cumInt+=yrInt;cumOngoing+=annualOngoing;cumMaint+=yrMaint;
-    var buyerSpend=yrMortgage+annualOngoing+yrMaint,surplus=buyerSpend-rentYr;
+    cumInt+=yrInt;cumOngoing+=ongoingYr;cumMaint+=yrMaint;
+    var buyerSpend=yrMortgage+ongoingYr+yrMaint,surplus=buyerSpend-rentYr;
     if(surplus>=0){
       investBal+=surplus;totalInvestContrib+=surplus;
     }else{
@@ -251,7 +254,7 @@ function rvbDiff(opts,sim,weeklyRent){
       investBal-=withdrawn;totalWithdrawn+=withdrawn;
     }
     investBal=Math.max(0,investBal);
-    investBal*=(1+invRate);rentYr*=(1+rentGrow);
+    investBal*=(1+invRate);rentYr*=(1+infl);
   }
   var endP=Math.min(term*ppf,sim.sched.length),endE=null;
   for(var k=sim.sched.length-1;k>=0;k--){if(sim.sched[k].period===endP){endE=sim.sched[k];break}}
@@ -292,7 +295,7 @@ function findBreakEvenRent(opts,sim){
 
 function rentVsBuy(opts,sim){
   var ppf=sim.ppf,term=opts.term,weeklyRent=val("rvRent")||0;
-  var rentGrow=(val("rvRentGrow")||3)/100;
+  var infl=opts.inflation;
   var rvMaintVal=val("rvMaint");
   var maintPct=rvMaintVal!==null&&rvMaintVal!==""?+rvMaintVal:opts.maintPct;
   var apprec=(val("mApprec")||val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
@@ -330,17 +333,19 @@ function rentVsBuy(opts,sim){
   var totalInvestContrib=investBal; // seed = deposit + all upfront costs
   var totalWithdrawn=0;
   var cumPrin=0;
+  var ongoingYr=annualOngoing;
 
   for(var yr=1;yr<=term;yr++){
     propVal*=(1+apprec);
     var yrMaint=propVal*maintPct/100;
+    ongoingYr*=(1+infl);
     var yrInt=yearInterest[yr]||0;
     var yrPrin=yearPrincipal[yr]||0;
     var yrMortgage=yearRepay[yr]||0;
 
     cumInt+=yrInt;
     cumPrin+=yrPrin;
-    cumOngoing+=annualOngoing;
+    cumOngoing+=ongoingYr;
     cumMaint+=yrMaint;
     cumRent+=rentYr;
 
@@ -348,7 +353,7 @@ function rentVsBuy(opts,sim){
     // Both buyer and renter spend the same total amount per year.
     // Buyer: mortgage + ongoing costs + maintenance
     // Renter: rent + investment contribution (or withdrawal if rent > buyer spend)
-    var buyerSpend=yrMortgage+annualOngoing+yrMaint;
+    var buyerSpend=yrMortgage+ongoingYr+yrMaint;
     var surplus=buyerSpend-rentYr; // positive = renter invests surplus; negative = renter withdraws
     var prevBal=investBal;
     if(surplus>=0){
@@ -383,7 +388,7 @@ function rentVsBuy(opts,sim){
       investGrowthTotal:investBal-(totalInvestContrib-totalWithdrawn),
       buyerSpend:buyerSpend
     });
-    rentYr*=(1+rentGrow);
+    rentYr*=(1+infl);
   }
 
   var fin=rows[rows.length-1];
@@ -748,7 +753,7 @@ document.addEventListener("DOMContentLoaded",function(){
   $("#resetBtn").addEventListener("click",function(){
     ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp"].forEach(function(id){
       var e=document.getElementById(id);if(e)e.value=""});
-    $("#mPurchaseCosts").value=0;$("#mMaint").value=1;
+    $("#mPurchaseCosts").value=0;$("#mMaint").value=1;$("#mApprec").value="";$("#mInflation").value="";
     $("#mCcy").value="USD";$("#mDepositMode").value="pct";
     $("#mFreq").value="monthly";$("#mRepayType").value="pi";
     localStorage.removeItem(LS_KEY);
