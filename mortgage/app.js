@@ -131,9 +131,9 @@ function renderResults(opts,sim){
   $("#results").innerHTML=
     '<div class="stat neutral" data-tip="The total purchase price of the property before any deposit or fees."><span class="big">'+fmtMoney(opts.price)+'</span><span class="lbl">Purchase price</span></div>'+
     '<div class="stat gain" data-tip="The upfront amount you pay from savings. A 20% deposit avoids PMI/LMI fees."><span class="big">'+fmtMoney(opts.deposit)+'</span><span class="lbl">Deposit ('+depPct.toFixed(0)+'%)</span></div>'+
-    '<div class="stat neutral" data-tip="The amount borrowed from the lender: purchase price minus deposit."><span class="big">'+fmtMoney(opts.loan)+'</span><span class="lbl">Loan amount</span></div>'+
+    '<div class="stat cost" data-tip="The amount borrowed from the lender: purchase price minus deposit."><span class="big">'+fmtMoney(opts.loan)+'</span><span class="lbl">Loan amount</span></div>'+
     '<div class="stat primary" data-tip="The minimum amount you must pay the lender each period to stay on schedule."><span class="big">'+fmtMoney(sim.stdRepay+opts.extra)+'</span><span class="lbl">'+opts.freq+' repayment</span></div>'+
-    '<div class="stat neutral" data-tip="Estimated property value after '+opts.term+' years at the assumed capital growth rate. Set this in Advanced options."><span class="big">'+fmtMoney(forecastValue(opts))+'</span><span class="lbl">Forecast value at '+opts.term+'yr</span></div>'+
+    '<div class="stat gain" data-tip="Estimated property value after '+opts.term+' years at the assumed capital growth rate. Set this in Advanced options."><span class="big">'+fmtMoney(forecastValue(opts))+'</span><span class="lbl">Forecast value at '+opts.term+'yr</span></div>'+
     '<div class="stat cost" data-tip="The total interest you will pay over the entire loan term at the given rate."><span class="big">'+fmtMoney(sim.totalInt)+'</span><span class="lbl">Total interest ('+fmtMoney(sim.totalInt/opts.term/12)+'/mo)</span></div>'+
     '<div class="stat cost" data-tip="Total of all repayments including principal, interest and extra payments."><span class="big">'+fmtMoney(sim.totalRepaid)+'</span><span class="lbl">Total repaid</span></div>'+
     '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'" data-tip="Annual property tax, insurance, HOA/strata, loan fees and maintenance combined. Add these in Advanced options."><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>'+
@@ -142,21 +142,21 @@ function renderResults(opts,sim){
 
   // Collapsible summary table
   var summaryRows=[
-    {label:'Purchase price',value:fmtMoneyFull(opts.price)},
-    {label:'Deposit',value:fmtMoneyFull(opts.deposit)+' ('+depPct.toFixed(1)+'%)'},
-    {label:'Loan amount',value:fmtMoneyFull(opts.loan)},
+    {label:'Purchase price',value:fmtMoneyFull(opts.price),cls:'neutral'},
+    {label:'Deposit',value:fmtMoneyFull(opts.deposit)+' ('+depPct.toFixed(1)+'%)',cls:'gain-col'},
+    {label:'Loan amount',value:fmtMoneyFull(opts.loan),cls:'cost'},
     {label:'Interest rate',value:opts.rate+'%'},
     {label:'Loan term',value:opts.term+' years ('+opts.freq+')'},
     {label:opts.freq.charAt(0).toUpperCase()+opts.freq.slice(1)+' repayment',value:fmtMoneyFull(sim.stdRepay+opts.extra),cls:'primary'},
     {label:'Total interest',value:fmtMoneyFull(sim.totalInt),cls:'cost'},
-    {label:'Total repaid',value:fmtMoneyFull(sim.totalRepaid)},
+    {label:'Total repaid',value:fmtMoneyFull(sim.totalRepaid),cls:'cost'},
     {label:'Total principal',value:fmtMoneyFull(sim.totalPrin+sim.totalExtra),cls:'gain-col'},
-    {label:'Ongoing costs /yr',value:sim.ongoingYr>0?fmtMoneyFull(sim.ongoingYr):'—'},
-    {label:'LMI / PMI',value:fmtMoneyFull(opts.lmi)},
-    {label:'Stamp duty',value:fmtMoneyFull(opts.stamp)},
-    {label:'Purchase costs',value:fmtMoneyFull(opts.purchaseCosts)},
+    {label:'Ongoing costs /yr',value:sim.ongoingYr>0?fmtMoneyFull(sim.ongoingYr):'—',cls:sim.ongoingYr>0?'cost':''},
+    {label:'LMI / PMI',value:fmtMoneyFull(opts.lmi),cls:opts.lmi>0?'cost':''},
+    {label:'Stamp duty',value:fmtMoneyFull(opts.stamp),cls:opts.stamp>0?'cost':''},
+    {label:'Purchase costs',value:fmtMoneyFull(opts.purchaseCosts),cls:opts.purchaseCosts>0?'cost':''},
     {label:'Total cost of loan',value:fmtMoneyFull(sim.totalInt+sim.ongoingYr*opts.term+opts.lmi+opts.stamp+opts.purchaseCosts),cls:'cost'},
-    {label:'Forecast value at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts))},
+    {label:'Forecast value at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts)),cls:'gain-col'},
     {label:'Net equity at '+opts.term+'yr',value:fmtMoneyFull(forecastValue(opts)-sim.totalInt-sim.ongoingYr*opts.term-opts.lmi-opts.stamp-opts.purchaseCosts),cls:'gain-col'}
   ];
   var detailsHtml='<details class="summary-details"><summary>📊 Full loan summary</summary>'+
