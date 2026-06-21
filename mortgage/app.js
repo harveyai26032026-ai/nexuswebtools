@@ -538,8 +538,8 @@ function rentVsBuy(opts,sim){
         '<th class="rvb-rent-sub">Rent</th>'+
         '<th class="rvb-rent-sub">Surplus</th>'+
         '<th class="rvb-rent-sub">Contrib.</th>'+
-        '<th class="rvb-rent-sub">Growth (yr)</th>'+
-        '<th class="rvb-rent-sub">Growth to date</th>'+
+        '<th class="rvb-rent-sub">Invest. return (yr)</th>'+
+        '<th class="rvb-rent-sub">Invest. return total</th>'+
         '<th class="rvb-rent-sub">Portfolio</th>'+
         '<th class="rvb-rent-sub">Net profit</th>'+
       '</tr>'+
