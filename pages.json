@@ -1760,6 +1760,10 @@
         {
           "heading": "Investment Strategies",
           "text": "Using the compound interest calculator, you can explore different investment strategies and see how they can impact your long-term financial goals. For example, you can calculate the future value of a diversified portfolio of stocks and bonds, or compare the potential return on investment of different asset classes. The calculator can also help you identify the optimal mix of assets to achieve your desired returns while minimizing risk."
+        },
+        {
+          "heading": "Retirement Planning",
+          "text": "Using the compound interest calculator can help you plan for retirement by estimating the growth of your retirement savings over time. For example, if you're 30 years old and want to retire in 35 years, you can enter the initial investment amount, interest rate, and time period to see how much you need to save each month to reach your retirement goals. The calculator will also show you the total return on your investments over the entire time period."
         }
       ],
       "faqs": [
@@ -1847,19 +1851,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Dividend planning",
-            "text": "Use the tool to plan how dividend fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Dividend optimization",
-            "text": "Compare alternative rates and frequencies for dividend to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Understanding Dividend Yield and Its Impact on Investment Strategies",
+          "text": "Dividend yield is a crucial metric for evaluating the performance of dividend-paying stocks. By dividing the annual dividend payment by the stock's current price, you can gauge the potential return on investment. For example, if a stock has an annual dividend payment of $1 and its current price is $50, the dividend yield would be 2%. This information can help inform your investment decisions, such as determining the optimal time to buy or sell a stock."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $20,000 grow to at 5.5% per annum over 2 years for dividend?",
@@ -1878,6 +1875,16 @@
         {
           "slug": "dividend",
           "name": "Dividend Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the dividend calculator for multiple stocks at once?",
+          "a": "Yes, you can input multiple stock tickers or symbols in the tool to calculate the dividends for each one simultaneously."
+        },
+        {
+          "q": "How often do I need to run the dividend calculator?",
+          "a": "You should recalculate the dividends annually, or whenever there are changes in the company's dividend payments or payout ratio."
         }
       ]
     },
