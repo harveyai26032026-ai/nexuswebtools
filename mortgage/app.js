@@ -27,7 +27,9 @@ function readInputs(){
   var depVal=val("mDeposit")||0;
   var deposit=depMode==="pct"?price*(depVal/100):depVal;
   var loan=Math.max(0,price-deposit);
-  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0,maint:val("mMaint")||0};
+  var maintPct=val("mMaint")||0;
+  var maint=price*maintPct/100;
+  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0,maint:maint};
 }
 
 function simulate(opts){
@@ -224,7 +226,7 @@ function rvbDiff(opts,sim,weeklyRent){
   var ppf=sim.ppf,term=opts.term;
   var rentGrow=(val("rvRentGrow")||3)/100;
   var rvMaintVal=val("rvMaint");
-  var maint=rvMaintVal!==null&&rvMaintVal!==""?rvMaintVal:opts.maint;
+  var maint=rvMaintVal!==null&&rvMaintVal!==""?opts.price*rvMaintVal/100:opts.maint;
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvLoanFee=val("rvLoanFee"),rvStamp=val("rvStamp"),rvPurchaseCosts=val("rvPurchaseCosts");
   var tax=rvTax!==null&&rvTax!==''?+rvTax:opts.tax,ins=rvIns!==null&&rvIns!==''?+rvIns:opts.ins,hoa=rvHOA!==null&&rvHOA!==''?+rvHOA:opts.hoa;
@@ -291,7 +293,7 @@ function rentVsBuy(opts,sim){
   var ppf=sim.ppf,term=opts.term,weeklyRent=val("rvRent")||0;
   var rentGrow=(val("rvRentGrow")||3)/100;
   var rvMaintVal=val("rvMaint");
-  var maint=rvMaintVal!==null&&rvMaintVal!==""?rvMaintVal:opts.maint;
+  var maint=rvMaintVal!==null&&rvMaintVal!==""?opts.price*rvMaintVal/100:opts.maint;
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var propVal=opts.price;
   // Advanced overrides
@@ -718,7 +720,7 @@ document.addEventListener("DOMContentLoaded",function(){
   $("#resetBtn").addEventListener("click",function(){
     ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp"].forEach(function(id){
       var e=document.getElementById(id);if(e)e.value=""});
-    $("#mPurchaseCosts").value=4000;$("#mMaint").value=4000;
+    $("#mPurchaseCosts").value=0;$("#mMaint").value=1;
     $("#mCcy").value="USD";$("#mDepositMode").value="pct";
     $("#mFreq").value="monthly";$("#mRepayType").value="pi";
     localStorage.removeItem(LS_KEY);
