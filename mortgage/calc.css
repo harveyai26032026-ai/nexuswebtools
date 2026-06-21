@@ -202,6 +202,7 @@ table.ref tbody tr:hover td{background:#eef2ff}
 #rvbTable td.rvb-diff{background:#f9fafb;font-weight:700}
 #rvbTable thead th{vertical-align:middle;padding:6px 8px;border-bottom:2px solid var(--ring)}
 #rvbTable .rvb-th-group th{text-align:center}
+#rvbTable tfoot .rvb-totals td{font-weight:700;border-top:2px solid var(--ring);background:#f3f4f6;padding:8px}
 
 /* Comparison summary cards */
 .cmp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}

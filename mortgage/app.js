@@ -29,7 +29,7 @@ function readInputs(){
   var loan=Math.max(0,price-deposit);
   var maintPct=val("mMaint")||0;
   var maint=price*maintPct/100;
-  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0,maint:maint};
+  return{price:price,deposit:deposit,loan:loan,rate:val("mRate")||0,term:val("mTerm")||30,freq:val("mFreq")||"monthly",repayType:val("mRepayType")||"pi",ioYears:val("mIOYears")||0,extra:val("mExtra")||0,tax:val("mTax")||0,ins:val("mIns")||0,lmi:val("mLMI")||0,hoa:val("mHOA")||0,loanFee:val("mLoanFee")||0,stamp:val("mStamp")||0,purchaseCosts:val("mPurchaseCosts")||0,maint:maint,maintPct:maintPct};
 }
 
 function simulate(opts){
@@ -226,22 +226,23 @@ function rvbDiff(opts,sim,weeklyRent){
   var ppf=sim.ppf,term=opts.term;
   var rentGrow=(val("rvRentGrow")||3)/100;
   var rvMaintVal=val("rvMaint");
-  var maint=rvMaintVal!==null&&rvMaintVal!==""?opts.price*rvMaintVal/100:opts.maint;
+  var maintPct=rvMaintVal!==null&&rvMaintVal!==""?+rvMaintVal:opts.maintPct;
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var rvTax=val("rvTax"),rvIns=val("rvIns"),rvLMI=val("rvLMI"),rvHOA=val("rvHOA"),rvLoanFee=val("rvLoanFee"),rvStamp=val("rvStamp"),rvPurchaseCosts=val("rvPurchaseCosts");
   var tax=rvTax!==null&&rvTax!==''?+rvTax:opts.tax,ins=rvIns!==null&&rvIns!==''?+rvIns:opts.ins,hoa=rvHOA!==null&&rvHOA!==''?+rvHOA:opts.hoa;
   var lmi=rvLMI!==null&&rvLMI!==''?+rvLMI:opts.lmi,loanFee=rvLoanFee!==null&&rvLoanFee!==''?+rvLoanFee:opts.loanFee;
   var stamp=rvStamp!==null&&rvStamp!==''?+rvStamp:opts.stamp,purchaseCosts=rvPurchaseCosts!==null&&rvPurchaseCosts!==''?+rvPurchaseCosts:opts.purchaseCosts;
   var annualOngoing=tax+ins+hoa+loanFee;
-  var annualOngoingWithMaint=annualOngoing+maint;
   var yearInterest={},yearRepay={};
   sim.sched.forEach(function(s){if(!yearInterest[s.year])yearInterest[s.year]=0;if(!yearRepay[s.year])yearRepay[s.year]=0;yearInterest[s.year]+=s.interest;yearRepay[s.year]+=s.repay});
   var propVal=opts.price,investBal=Math.max(0,opts.deposit+stamp+lmi+purchaseCosts);
   var totalInvestContrib=investBal,totalWithdrawn=0,rentYr=weeklyRent*52,cumInt=0,cumOngoing=0,cumMaint=0;
   for(var yr=1;yr<=term;yr++){
-    propVal*=(1+apprec);var yrInt=yearInterest[yr]||0,yrMortgage=yearRepay[yr]||0;
-    cumInt+=yrInt;cumOngoing+=annualOngoing;cumMaint+=maint;
-    var buyerSpend=yrMortgage+annualOngoingWithMaint,surplus=buyerSpend-rentYr;
+    propVal*=(1+apprec);
+    var yrMaint=propVal*maintPct/100;
+    var yrInt=yearInterest[yr]||0,yrMortgage=yearRepay[yr]||0;
+    cumInt+=yrInt;cumOngoing+=annualOngoing;cumMaint+=yrMaint;
+    var buyerSpend=yrMortgage+annualOngoing+yrMaint,surplus=buyerSpend-rentYr;
     if(surplus>=0){
       investBal+=surplus;totalInvestContrib+=surplus;
     }else{
@@ -293,7 +294,7 @@ function rentVsBuy(opts,sim){
   var ppf=sim.ppf,term=opts.term,weeklyRent=val("rvRent")||0;
   var rentGrow=(val("rvRentGrow")||3)/100;
   var rvMaintVal=val("rvMaint");
-  var maint=rvMaintVal!==null&&rvMaintVal!==""?opts.price*rvMaintVal/100:opts.maint;
+  var maintPct=rvMaintVal!==null&&rvMaintVal!==""?+rvMaintVal:opts.maintPct;
   var apprec=(val("rvApprec")||4)/100,invRate=(val("rvInvRate")||7)/100;
   var propVal=opts.price;
   // Advanced overrides
@@ -306,7 +307,6 @@ function rentVsBuy(opts,sim){
   var stamp=rvStamp!==null&&rvStamp!==''?+rvStamp:opts.stamp;
   var purchaseCosts=rvPurchaseCosts!==null&&rvPurchaseCosts!==''?+rvPurchaseCosts:opts.purchaseCosts;
   var annualOngoing=tax+ins+hoa+loanFee;
-  var annualOngoingWithMaint=annualOngoing+maint;
 
   // Build yearly interest from amortisation schedule
   var yearInterest={},yearPrincipal={},yearRepay={};
@@ -333,6 +333,7 @@ function rentVsBuy(opts,sim){
 
   for(var yr=1;yr<=term;yr++){
     propVal*=(1+apprec);
+    var yrMaint=propVal*maintPct/100;
     var yrInt=yearInterest[yr]||0;
     var yrPrin=yearPrincipal[yr]||0;
     var yrMortgage=yearRepay[yr]||0;
@@ -340,14 +341,14 @@ function rentVsBuy(opts,sim){
     cumInt+=yrInt;
     cumPrin+=yrPrin;
     cumOngoing+=annualOngoing;
-    cumMaint+=maint;
+    cumMaint+=yrMaint;
     cumRent+=rentYr;
 
     // ──── Equal outlay model ────
     // Both buyer and renter spend the same total amount per year.
     // Buyer: mortgage + ongoing costs + maintenance
     // Renter: rent + investment contribution (or withdrawal if rent > buyer spend)
-    var buyerSpend=yrMortgage+annualOngoingWithMaint;
+    var buyerSpend=yrMortgage+annualOngoing+yrMaint;
     var surplus=buyerSpend-rentYr; // positive = renter invests surplus; negative = renter withdraws
     var prevBal=investBal;
     if(surplus>=0){
@@ -371,7 +372,7 @@ function rentVsBuy(opts,sim){
     rows.push({
       year:yr,propVal:propVal,loanBal:loanBal,equity:equity,
       yrInt:yrInt,cumInt:cumInt,yrPrin:yrPrin,cumPrin:cumPrin,
-      yrOngoing:annualOngoing,yrMaint:maint,
+      yrOngoing:annualOngoing,yrMaint:yrMaint,cumMaint:cumMaint,
       cumOngoingCosts:cumOngoing+cumMaint+(yr===1?stamp+lmi:0),
       rentYr:rentYr,cumRent:cumRent,
       renterWealth:investBal,
@@ -524,18 +525,19 @@ function rentVsBuy(opts,sim){
     '<thead>'+
       '<tr class="rvb-th-group">'+
         '<th rowspan="2">Year</th>'+
-        '<th colspan="4" class="rvb-buy-head">🏠 Buy</th>'+
+        '<th colspan="5" class="rvb-buy-head">🏠 Buy</th>'+
         '<th colspan="7" class="rvb-rent-head">📈 Rent + Invest</th>'+
         '<th rowspan="2" class="rvb-diff-head">Difference</th>'+
       '</tr>'+
       '<tr>'+
         '<th class="rvb-buy-sub">Interest</th>'+
         '<th class="rvb-buy-sub">Principal</th>'+
-        '<th class="rvb-buy-sub">Costs+main</th>'+
+        '<th class="rvb-buy-sub">Costs</th>'+
+        '<th class="rvb-buy-sub">Maint.</th>'+
         '<th class="rvb-buy-sub">Equity</th>'+
         '<th class="rvb-rent-sub">Rent</th>'+
         '<th class="rvb-rent-sub">Surplus</th>'+
-        '<th class="rvb-rent-sub">Net invested</th>'+
+        '<th class="rvb-rent-sub">Contrib.</th>'+
         '<th class="rvb-rent-sub">Growth (yr)</th>'+
         '<th class="rvb-rent-sub">Growth to date</th>'+
         '<th class="rvb-rent-sub">Portfolio</th>'+
@@ -551,18 +553,35 @@ function rentVsBuy(opts,sim){
         '<td>'+r.year+'</td>'+
         '<td class="rvb-buy cost">'+fmtMoneyFull(r.yrInt)+'</td>'+
         '<td class="rvb-buy gain-col">'+fmtMoneyFull(r.yrPrin)+'</td>'+
-        '<td class="rvb-buy cost">'+fmtMoneyFull(r.yrOngoing+r.yrMaint)+'</td>'+
+        '<td class="rvb-buy cost">'+fmtMoneyFull(r.yrOngoing)+'</td>'+
+        '<td class="rvb-buy cost">'+fmtMoneyFull(r.yrMaint)+'</td>'+
         '<td class="rvb-buy gain-col">'+fmtMoneyFull(r.equity)+'</td>'+
         '<td class="rvb-rent cost">'+fmtMoneyFull(r.rentYr)+'</td>'+
         '<td class="rvb-rent gain-col">'+(surplus>=0?fmtMoneyFull(surplus):'−'+fmtMoneyFull(-surplus))+'</td>'+
-        '<td class="rvb-rent gain-col">'+fmtMoneyFull(r.netContribs)+'</td>'+
+        '<td class="rvb-rent gain-col">'+fmtMoneyFull(surplus>=0?surplus:-surplus)+'</td>'+
         '<td class="rvb-rent gain-col">'+fmtMoneyFull(r.investGrowthYr)+'</td>'+
         '<td class="rvb-rent gain-col">'+fmtMoneyFull(r.investGrowthTotal)+'</td>'+
         '<td class="rvb-rent">'+fmtMoneyFull(r.renterWealth)+'</td>'+
         '<td class="rvb-rent '+(renterProfit>=0?'gain-col':'cost')+'">'+fmtMoneyFull(renterProfit)+'</td>'+
         '<td class="rvb-diff" '+c+'>'+(d>=0?'+':'')+fmtMoneyFull(d)+'</td>'+
       '</tr>';
-    }).join('')+'</tbody>';
+    }).join('')+'</tbody>'+
+    '<tfoot><tr class="rvb-totals">'+
+      '<td><strong>Total</strong></td>'+
+      '<td class="rvb-buy cost">'+fmtMoneyFull(fin.cumInt)+'</td>'+
+      '<td class="rvb-buy gain-col">'+fmtMoneyFull(fin.cumPrin)+'</td>'+
+      '<td class="rvb-buy cost">'+fmtMoneyFull(cumOngoing)+'</td>'+
+      '<td class="rvb-buy cost">'+fmtMoneyFull(cumMaint)+'</td>'+
+      '<td class="rvb-buy gain-col">'+fmtMoneyFull(fin.equity)+'</td>'+
+      '<td class="rvb-rent cost">'+fmtMoneyFull(cumRent)+'</td>'+
+      '<td class="rvb-rent">—</td>'+
+      '<td class="rvb-rent gain-col">'+fmtMoneyFull(netContribs)+'</td>'+
+      '<td class="rvb-rent">—</td>'+
+      '<td class="rvb-rent gain-col">'+fmtMoneyFull(investGrowth)+'</td>'+
+      '<td class="rvb-rent">'+fmtMoneyFull(fin.renterWealth)+'</td>'+
+      '<td class="rvb-rent '+(fin.renterWealth-netContribs-cumRent>=0?'gain-col':'cost')+'">'+fmtMoneyFull(fin.renterWealth-netContribs-cumRent)+'</td>'+
+      '<td class="rvb-diff '+(diff>0?'gain-col':'cost')+'">'+(diff>0?'+':'')+fmtMoneyFull(diff)+'</td>'+
+    '</tr></tfoot>';
 }
 
 /* ════════════════════ MORTGAGE COMPARISON ════════════════════ */
