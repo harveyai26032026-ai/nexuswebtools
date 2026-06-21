@@ -1764,6 +1764,10 @@
         {
           "heading": "Retirement Planning",
           "text": "Using the compound interest calculator can help you plan for retirement by estimating the growth of your retirement savings over time. For example, if you're 30 years old and want to retire in 35 years, you can enter the initial investment amount, interest rate, and time period to see how much you need to save each month to reach your retirement goals. The calculator will also show you the total return on your investments over the entire time period."
+        },
+        {
+          "heading": "Influence of Fees on Crypto Investments",
+          "text": "For example, let's say you invest $10,000 in Bitcoin and Ethereum with an average annual return of 20%. With a 1% trading fee, your total profit after one year would be $2,465. However, if the fee is higher at 2%, your profit drops to $1,837. This demonstrates how fees can significantly impact your long-term returns."
         }
       ],
       "faqs": [
@@ -1794,6 +1798,10 @@
         {
           "q": "How does the calculator handle inflation?",
           "a": "Our compound interest calculator assumes a constant inflation rate of 2% per year. If you need to account for different inflation rates, please let us know and we can modify the calculator accordingly."
+        },
+        {
+          "q": "How does the calculator handle taxes?",
+          "a": "The calculator assumes that all gains are subject to capital gains tax, but you can adjust the tax rate if needed."
         }
       ]
     },
