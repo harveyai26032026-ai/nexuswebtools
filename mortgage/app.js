@@ -462,7 +462,7 @@ function rentVsBuy(opts,sim){
         '<div class="rvb-cost-row rvb-total"><span>Total upfront</span><span class="cost">'+fmtMoney(opts.deposit+stamp+lmi+purchaseCosts)+'</span></div>'+
         '<h5>📈 Growth</h5>'+
         '<div class="rvb-cost-row"><span>Principal repaid</span><span class="gain-col">'+fmtMoney(fin.cumPrin)+'</span></div>'+
-        '<div class="rvb-cost-row"><span>Capital growth ('+opts.apprec.toFixed(1)+'%/yr)</span><span class="gain-col">'+fmtMoney(fin.propVal-opts.price)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Capital growth ('+(apprec*100).toFixed(1)+'%/yr)</span><span class="gain-col">'+fmtMoney(fin.propVal-opts.price)+'</span></div>'+
         '<div class="rvb-cost-row rvb-total"><span>Property value at '+term+'yr</span><span class="gain-col">'+fmtMoney(fin.propVal)+'</span></div>'+
         '<h5>💸 Costs sunk</h5>'+
         '<div class="rvb-cost-row"><span>Interest paid</span><span class="cost">'+fmtMoney(fin.cumInt)+'</span></div>'+
