@@ -476,8 +476,8 @@ function rentVsBuy(opts,sim){
       '<div class="rvb-cost-card rent">'+
         '<h4>📈 Rent + Invest</h4>'+
         '<h5>💰 Upfront</h5>'+
-        '<div class="rvb-cost-row"><span>Deposit saved (invested)</span><span class="gain-col">'+fmtMoney(opts.deposit)+'</span></div>'+
-        '<div class="rvb-cost-row"><span>Stamp, LMI, costs saved</span><span class="gain-col">'+fmtMoney(stamp+lmi+purchaseCosts)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Deposit (invested instead)</span><span class="gain-col">'+fmtMoney(opts.deposit)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>—</span><span>—</span></div>'+
         '<div class="rvb-cost-row"><span>—</span><span>—</span></div>'+
         '<div class="rvb-cost-row"><span>—</span><span>—</span></div>'+
         '<div class="rvb-cost-row rvb-total"><span>Total seed invested</span><span class="gain-col">'+fmtMoney(initialSeed)+'</span></div>'+
