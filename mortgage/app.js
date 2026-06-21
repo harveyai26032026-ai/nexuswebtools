@@ -472,7 +472,10 @@ function rentVsBuy(opts,sim){
         '<div class="rvb-cost-row"><span>Maintenance</span><span class="cost">'+fmtMoney(cumMaint)+'</span></div>'+
         '<div class="rvb-cost-row rvb-total"><span>Total costs sunk</span><span class="cost">'+fmtMoney(fin.cumInt+cumOngoing+cumMaint)+'</span></div>'+
         '<h5>🏆 Wealth at '+term+'yr</h5>'+
-        '<div class="rvb-cost-row rvb-total rvb-final"><span>Property − loan</span><span class="gain-col">'+fmtMoney(fin.equity)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total rvb-final"><span>Property value</span><span class="gain-col">'+fmtMoney(fin.propVal)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total"><span>Less: loan outstanding</span><span class="cost">−'+fmtMoney(fin.loanBal)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total"><span>Net equity</span><span class="gain-col">'+fmtMoney(fin.equity)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total rvb-final"><span>Net profit (value − all payments)</span><span class="'+(fin.propVal-totalBuySunk>=0?'gain-col':'cost')+'">'+fmtMoney(fin.propVal-totalBuySunk)+'</span></div>'+
       '</div>'+
       /* ── RENTER ── */
       '<div class="rvb-cost-card rent">'+
@@ -494,6 +497,7 @@ function rentVsBuy(opts,sim){
         '<div class="rvb-cost-row rvb-total"><span>Total costs sunk</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
         '<h5>🏆 Wealth at '+term+'yr</h5>'+
         '<div class="rvb-cost-row rvb-total rvb-final"><span>Investment portfolio</span><span class="gain-col">'+fmtMoney(fin.renterWealth)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total rvb-final"><span>Net profit (portfolio − costs − contributions − rent)</span><span class="'+(fin.renterWealth-netContribs-cumRent>=0?'gain-col':'cost')+'">'+fmtMoney(fin.renterWealth-netContribs-cumRent)+'</span></div>'+
       '</div>'+
     '</div>'+
     '<div class="rvb-cost-row rvb-total rvb-diff-row"><span>Wealth difference</span><span class="'+(diff>0?'gain-col':'cost')+'">'+(diff>0?'Buyer ahead by '+fmtMoney(diff):diff<0?'Renter ahead by '+fmtMoney(-diff):'Even')+'</span></div>';
@@ -521,7 +525,7 @@ function rentVsBuy(opts,sim){
       '<tr class="rvb-th-group">'+
         '<th rowspan="2">Year</th>'+
         '<th colspan="4" class="rvb-buy-head">🏠 Buy</th>'+
-        '<th colspan="5" class="rvb-rent-head">📈 Rent + Invest</th>'+
+        '<th colspan="7" class="rvb-rent-head">📈 Rent + Invest</th>'+
         '<th rowspan="2" class="rvb-diff-head">Difference</th>'+
       '</tr>'+
       '<tr>'+
@@ -532,14 +536,17 @@ function rentVsBuy(opts,sim){
         '<th class="rvb-rent-sub">Rent</th>'+
         '<th class="rvb-rent-sub">Surplus</th>'+
         '<th class="rvb-rent-sub">Net invested</th>'+
-        '<th class="rvb-rent-sub">Interest</th>'+
+        '<th class="rvb-rent-sub">Growth (yr)</th>'+
+        '<th class="rvb-rent-sub">Growth to date</th>'+
         '<th class="rvb-rent-sub">Portfolio</th>'+
+        '<th class="rvb-rent-sub">Net profit</th>'+
       '</tr>'+
     '</thead><tbody>'+
     rows.map(function(r){
       var d=r.equity-r.renterWealth;
       var c=d>0?'class="gain-col"':d<0?'class="cost"':'';
       var surplus=r.buyerSpend-r.rentYr;
+      var renterProfit=r.renterWealth-r.netContribs-r.cumRent;
       return '<tr>'+
         '<td>'+r.year+'</td>'+
         '<td class="rvb-buy cost">'+fmtMoneyFull(r.yrInt)+'</td>'+
@@ -549,8 +556,10 @@ function rentVsBuy(opts,sim){
         '<td class="rvb-rent cost">'+fmtMoneyFull(r.rentYr)+'</td>'+
         '<td class="rvb-rent gain-col">'+(surplus>=0?fmtMoneyFull(surplus):'−'+fmtMoneyFull(-surplus))+'</td>'+
         '<td class="rvb-rent gain-col">'+fmtMoneyFull(r.netContribs)+'</td>'+
+        '<td class="rvb-rent gain-col">'+fmtMoneyFull(r.investGrowthYr)+'</td>'+
         '<td class="rvb-rent gain-col">'+fmtMoneyFull(r.investGrowthTotal)+'</td>'+
         '<td class="rvb-rent">'+fmtMoneyFull(r.renterWealth)+'</td>'+
+        '<td class="rvb-rent '+(renterProfit>=0?'gain-col':'cost')+'">'+fmtMoneyFull(renterProfit)+'</td>'+
         '<td class="rvb-diff" '+c+'>'+(d>=0?'+':'')+fmtMoneyFull(d)+'</td>'+
       '</tr>';
     }).join('')+'</tbody>';
