@@ -716,8 +716,9 @@ document.addEventListener("DOMContentLoaded",function(){
 
   // Reset
   $("#resetBtn").addEventListener("click",function(){
-    ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp","mPurchaseCosts"].forEach(function(id){
+    ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp"].forEach(function(id){
       var e=document.getElementById(id);if(e)e.value=""});
+    $("#mPurchaseCosts").value=4000;$("#mMaint").value=4000;
     $("#mCcy").value="USD";$("#mDepositMode").value="pct";
     $("#mFreq").value="monthly";$("#mRepayType").value="pi";
     localStorage.removeItem(LS_KEY);
