@@ -1330,6 +1330,14 @@
         {
           "q": "How do lenders determine my eligibility for a personal loan?",
           "a": "Lenders consider factors such as your credit score, income, debt-to-income ratio, and employment history when determining your eligibility for a personal loan."
+        },
+        {
+          "q": "Can I use a personal loan to cover medical expenses?",
+          "a": "Yes, personal loans can be used to cover unexpected medical expenses, such as doctor visits, hospital stays, or prescription medication."
+        },
+        {
+          "q": "How do lenders determine my credit score for a personal loan?",
+          "a": "Lenders typically use a combination of factors to determine your credit score, including your payment history, credit utilization, and credit mix. A good credit score can help you qualify for better interest rates and terms on your personal loan."
         }
       ]
     },
@@ -1399,6 +1407,10 @@
         {
           "heading": "Transferring a Fixed Deposit to Another Bank",
           "text": "If you want to transfer your fixed deposit to another bank, you can do so by filling out a transfer form and providing the necessary information. The new bank will then handle the transfer of the fixed deposit and any associated interest earnings."
+        },
+        {
+          "heading": "Other Ways to Use Your Fixed Deposit",
+          "text": "In addition to earning interest, you can also use your fixed deposit for other purposes. For example, you could use it as collateral for a loan or investment, or transfer it to another bank for more favorable terms. You could also consider using a portion of your fixed deposit for charitable donations or estate planning."
         }
       ],
       "faqs": [
@@ -1437,6 +1449,14 @@
         {
           "q": "How do I calculate the interest earned on a joint fixed deposit?",
           "a": "The interest earned on a joint fixed deposit is calculated based on the total amount deposited and the number of account holders. You can use our calculator to estimate the interest earned on a joint fixed deposit."
+        },
+        {
+          "q": "Can I use my fixed deposit as collateral for a loan?",
+          "a": "Yes, you can use your fixed deposit as collateral for a loan. However, the interest earned on the deposit will be forfeited if the loan is not repaid."
+        },
+        {
+          "q": "How do I calculate the taxes owed on my fixed deposit?",
+          "a": "The taxes owed on your fixed deposit will depend on the interest earned and your tax bracket. You can consult with a tax professional or use an online tax calculator to determine your tax liability."
         }
       ]
     },
@@ -1701,19 +1721,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Crypto planning",
-            "text": "Use the tool to plan how crypto fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Crypto optimization",
-            "text": "Compare alternative rates and frequencies for crypto to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Other Applications",
+          "text": "Our compound interest calculator can be used in a variety of situations beyond personal finance. For example, it can help businesses calculate the growth of investments, loans, or savings over time. It can also be used to estimate the future value of pensions or retirement accounts. By inputting the appropriate numbers and time periods, you can get a better understanding of how your money will grow or shrink over time."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $19,000 grow to at 5.3% per annum over 6 years for crypto?",
@@ -1732,6 +1745,16 @@
         {
           "slug": "crypto",
           "name": "Crypto Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the compound interest calculator for multiple assets?",
+          "a": "Yes, you can use our compound interest calculator to calculate the growth of multiple assets. Simply enter each asset's principal amount, interest rate, and time period into the calculator separately."
+        },
+        {
+          "q": "How does the calculator handle inflation?",
+          "a": "Our compound interest calculator assumes a constant inflation rate of 2% per year. If you need to account for different inflation rates, please let us know and we can modify the calculator accordingly."
         }
       ]
     },
