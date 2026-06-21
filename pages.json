@@ -1506,6 +1506,10 @@
         {
           "heading": "Retirement Savings",
           "text": "Using the recurring deposit calculator, you can calculate how much you need to save each month to reach your retirement goals. For example, if you want to accumulate $500,000 by the time you're 65, and you start saving at age 30, you would need to contribute $250 per month for 30 years."
+        },
+        {
+          "heading": "Other Investment Goals",
+          "text": "The recurring deposit calculator can also help you plan for other investment goals, such as saving for a down payment on a house. Simply enter the amount you want to save and the time frame for your goal, and the calculator will provide an estimated total amount needed based on the expected return on your investment."
         }
       ],
       "faqs": [
@@ -1544,6 +1548,14 @@
         {
           "q": "How do I know if I'm on track to meet my investment goals using the recurring deposit calculator?",
           "a": "The calculator provides a detailed breakdown of your projected returns and investment growth, so you can easily see if you're on track to meet your goals."
+        },
+        {
+          "q": "Can I make changes to my recurring deposit amount after it's been set up?",
+          "a": "Yes, you can modify your recurring deposit amount at any time. Keep in mind that any changes will affect the total amount invested and the projected return."
+        },
+        {
+          "q": "How does the calculator account for inflation when calculating my investment growth?",
+          "a": "The calculator uses a historical inflation rate to estimate the impact of inflation on your investment. This helps you understand how much your investment will be worth in real terms over time."
         }
       ]
     },
