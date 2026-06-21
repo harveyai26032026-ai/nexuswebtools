@@ -256,23 +256,33 @@ function rvbDiff(opts,sim,weeklyRent){
   return (propVal-loanBal)-investBal; // positive = buying wins, negative = renting wins
 }
 
-// Binary search for break-even weekly rent (where difference ≈ 0)
+// Binary search for break-even weekly rent (where buying equity ≈ renter portfolio)
+// Key insight: at LOW rent the renter invests a big surplus → renting wins (diff < 0)
+//              at HIGH rent the renter's portfolio gets drained → buying wins (diff > 0)
+// The break-even is the MAXIMUM rent where renting still ties or beats buying.
 function findBreakEvenRent(opts,sim){
-  var lo=0,hi=opts.price/10; // start: 10% of price as weekly rent
-  // Widen hi until we find where renting wins (diff < 0) or give up at extreme rent
-  var maxRent=opts.price/2; // absolute ceiling: 50% of property price per week is absurd
-  while(rvbDiff(opts,sim,hi)>0 && hi<maxRent) hi*=2;
-  if(rvbDiff(opts,sim,hi)>0){
-    // Even at extreme rent, buying still wins — return the ceiling
-    // This means buying is so advantageous that no realistic rent makes renting equal
-    return maxRent;
+  var maxRent=opts.price; // absolute ceiling for search
+  // At rent=0: renter invests entire buyer spend as surplus → renting wins
+  // At very high rent: renter depletes portfolio → buying wins
+  var lo=0;
+  var diffAtZero=rvbDiff(opts,sim,0);
+  if(diffAtZero>=0){
+    // Buying wins even at $0 rent — property leverage dominates
+    return 0; // no break-even exists; buying always wins
   }
-  if(rvbDiff(opts,sim,lo)<0) return 0; // even at $0 rent, renting wins
-  for(var i=0;i<60;i++){ // ~60 iterations gives sub-penny precision
+  // Find a hi where buying wins (diff > 0)
+  var hi=opts.price/20; // start search at 5% of property price per week
+  while(rvbDiff(opts,sim,hi)<=0 && hi<maxRent) hi*=2;
+  if(rvbDiff(opts,sim,hi)<=0){
+    // Renting wins even at extreme rent — shouldn't normally happen
+    return -1; // renting always wins
+  }
+  // Binary search: lo = renting wins, hi = buying wins
+  for(var i=0;i<80;i++){ // ~80 iterations for sub-penny precision
     var mid=(lo+hi)/2;
     var d=rvbDiff(opts,sim,mid);
-    if(Math.abs(d)<0.5) return mid; // within 50 cents
-    if(d>0) lo=mid; else hi=mid;
+    if(Math.abs(d)<0.5) return mid;
+    if(d>0) hi=mid; else lo=mid; // d>0 = buying wins → break-even is lower
   }
   return (lo+hi)/2;
 }
@@ -387,20 +397,29 @@ function rentVsBuy(opts,sim){
   // ─── Break-even rent guidance ───
   var breakEven=findBreakEvenRent(opts,sim);
   var beNote='';
-  var beWeekly=breakEven;
-  var beMonthly=breakEven*52/12;
-  var curRent=weeklyRent;
-  var rentSaving=beWeekly-curRent;
-  var maxRent=opts.price/2;
-  var isCeiling=breakEven>=maxRent*0.99; // hit the ceiling — buying overwhelmingly wins
-  beNote='<div class="rvb-note rvb-be">'+
-    '<div style="font-size:1.1rem;font-weight:800;margin-bottom:6px">💡 Break-even rent: '+fmtMoneyFull(beWeekly)+'/wk ('+fmtMoneyFull(beMonthly)+'/mo)</div>'+
-    (isCeiling?
-      '<div style="margin-bottom:4px">Under these assumptions, buying is so advantageous that even extremely high rents do not make renting + investing equal. Buying is the clear financial choice.</div>':
-    breakEven===0?
-      '<div style="margin-bottom:4px">Even at $0 rent, investing outperforms buying under these assumptions — property growth is too low relative to investment returns.</div>':
-      '<div style="margin-bottom:4px">This is the maximum weekly rent at which renting + investing and buying produce the same outcome over '+term+' years, based on your inputs.</div>')+
-    (!isCeiling&&breakEven>0?
+  var maxRent=opts.price;
+  var buyingAlwaysWins=(breakEven===0);
+  var rentingAlwaysWins=(breakEven===-1);
+  if(buyingAlwaysWins){
+    beNote='<div class="rvb-note rvb-be">'+
+      '<div style="font-size:1.1rem;font-weight:800;margin-bottom:6px">💡 Break-even rent: not reachable</div>'+
+      '<div style="margin-bottom:4px">Under these assumptions, buying builds more wealth than renting + investing at <strong>any</strong> rent level. Property growth and leverage outweigh any investment returns the renter could earn.</div>'+
+      '<div style="font-weight:700;margin-top:8px;padding:8px 12px;border-radius:8px;background:#fef2f2;color:#991b1b">🏠 Buying is the clear financial choice under these assumptions.</div>'+
+      '</div>';
+  }else if(rentingAlwaysWins){
+    beNote='<div class="rvb-note rvb-be">'+
+      '<div style="font-size:1.1rem;font-weight:800;margin-bottom:6px">💡 Break-even rent: not reachable</div>'+
+      '<div style="margin-bottom:4px">Under these assumptions, renting + investing builds more wealth than buying at <strong>any</strong> rent level. Investment returns significantly outpace property growth.</div>'+
+      '<div style="font-weight:700;margin-top:8px;padding:8px 12px;border-radius:8px;background:#e8f8f0;color:#065f46">📈 Renting + investing is the clear financial choice under these assumptions.</div>'+
+      '</div>';
+  }else{
+    var beWeekly=breakEven;
+    var beMonthly=breakEven*52/12;
+    var curRent=weeklyRent;
+    var rentSaving=beWeekly-curRent;
+    beNote='<div class="rvb-note rvb-be">'+
+      '<div style="font-size:1.1rem;font-weight:800;margin-bottom:6px">💡 Break-even rent: '+fmtMoneyFull(beWeekly)+'/wk ('+fmtMoneyFull(beMonthly)+'/mo)</div>'+
+      '<div style="margin-bottom:4px">This is the <strong>maximum</strong> weekly rent at which renting + investing and buying produce the same outcome over '+term+' years. Below this rent, renting + investing builds more wealth; above it, buying does.</div>'+
       '<div style="font-weight:700;margin-top:8px;padding:8px 12px;border-radius:8px;background:'+(curRent<beWeekly?'#e8f8f0;color:#065f46':'#fef2f2;color:#991b1b')+'">'+
         (curRent<beWeekly?
           '✅ Your rent ('+fmtMoneyFull(curRent)+'/wk) is <strong>'+fmtMoneyFull(rentSaving)+'/wk below</strong> break-even — renting + investing is likely to build more wealth.':
@@ -408,11 +427,9 @@ function rentVsBuy(opts,sim){
           '⚠️ Your rent ('+fmtMoneyFull(curRent)+'/wk) is <strong>'+fmtMoneyFull(-rentSaving)+'/wk above</strong> break-even — buying is likely to build more wealth.':
           '⚖️ Your rent is at the break-even point — both paths produce roughly equal outcomes.')+
       '</div>'+
-      '<div style="margin-top:8px;font-size:.84rem;color:var(--muted)">If you can rent comparable housing for less than '+fmtMoneyFull(beWeekly)+'/wk, renting + investing is generally more cost-effective. If not, buying is likely the better financial choice.</div>':
-    isCeiling?
-      '<div style="font-weight:700;margin-top:8px;padding:8px 12px;border-radius:8px;background:#fef2f2;color:#991b1b">🏠 Buying is likely the better financial choice under these assumptions.</div>':
-      '')+
-  '</div>';
+      '<div style="margin-top:8px;font-size:.84rem;color:var(--muted)">If you can rent comparable housing for less than '+fmtMoneyFull(beWeekly)+'/wk, renting + investing is generally more cost-effective. If not, buying is likely the better financial choice.</div>'+
+      '</div>';
+  }
 
   // ─── Results ───
   $("#rvbResults").innerHTML=
