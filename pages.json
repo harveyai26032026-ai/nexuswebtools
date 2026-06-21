@@ -1633,19 +1633,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Annuity planning",
-            "text": "Use the tool to plan how annuity fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Annuity optimization",
-            "text": "Compare alternative rates and frequencies for annuity to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Example Annuity Purchase",
+          "text": "For example, let's say you are a 65-year-old retiree who wants to purchase an immediate annuity to provide a guaranteed income stream for the rest of your life. If you choose a $10,000 annual payment amount and a 5-year guarantee period, the calculator will show you that this would cost approximately $240,000. However, if you want to increase the payment amount to $12,000 per year, the cost would be around $360,000. This can help you make an informed decision about how much to invest in an annuity."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $18,000 grow to at 5.1% per annum over 5 years for annuity?",
@@ -1664,6 +1657,16 @@
         {
           "slug": "annuity",
           "name": "Annuity Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use an annuity calculator to compare different types of annuities?",
+          "a": "Yes, our annuity calculator allows you to compare different types of annuities based on their interest rates, fees, and other factors. This can help you determine which type of annuity is best for your financial goals."
+        },
+        {
+          "q": "How do I know if an annuity is right for me?",
+          "a": "Annuities can be a good option for those who want a guaranteed income stream in retirement or who are looking to reduce their investment risk. However, they may not be the best choice for everyone, so it's important to consider your individual financial goals and circumstances before deciding whether an annuity is right for you."
         }
       ]
     },
@@ -1725,6 +1728,10 @@
         {
           "heading": "Other Applications",
           "text": "Our compound interest calculator can be used in a variety of situations beyond personal finance. For example, it can help businesses calculate the growth of investments, loans, or savings over time. It can also be used to estimate the future value of pensions or retirement accounts. By inputting the appropriate numbers and time periods, you can get a better understanding of how your money will grow or shrink over time."
+        },
+        {
+          "heading": "Investment Strategies",
+          "text": "Using the compound interest calculator, you can explore different investment strategies and see how they can impact your long-term financial goals. For example, you can calculate the future value of a diversified portfolio of stocks and bonds, or compare the potential return on investment of different asset classes. The calculator can also help you identify the optimal mix of assets to achieve your desired returns while minimizing risk."
         }
       ],
       "faqs": [
