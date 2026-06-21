@@ -129,11 +129,11 @@ function renderSplitResults(opts,sim){
 function renderResults(opts,sim){
   var depPct=opts.price>0?(opts.deposit/opts.price*100):0;
   $("#results").innerHTML=
-    '<div class="stat primary" data-tip="The minimum amount you must pay the lender each period to stay on schedule."><span class="big">'+fmtMoney(sim.stdRepay+opts.extra)+'</span><span class="lbl">'+opts.freq+' repayment</span></div>'+
     '<div class="stat neutral" data-tip="The total purchase price of the property before any deposit or fees."><span class="big">'+fmtMoney(opts.price)+'</span><span class="lbl">Purchase price</span></div>'+
-    '<div class="stat neutral" data-tip="Estimated property value after '+opts.term+' years at the assumed capital growth rate. Set this in Advanced options."><span class="big">'+fmtMoney(forecastValue(opts))+'</span><span class="lbl">Forecast value at '+opts.term+'yr</span></div>'+
     '<div class="stat gain" data-tip="The upfront amount you pay from savings. A 20% deposit avoids PMI/LMI fees."><span class="big">'+fmtMoney(opts.deposit)+'</span><span class="lbl">Deposit ('+depPct.toFixed(0)+'%)</span></div>'+
     '<div class="stat neutral" data-tip="The amount borrowed from the lender: purchase price minus deposit."><span class="big">'+fmtMoney(opts.loan)+'</span><span class="lbl">Loan amount</span></div>'+
+    '<div class="stat primary" data-tip="The minimum amount you must pay the lender each period to stay on schedule."><span class="big">'+fmtMoney(sim.stdRepay+opts.extra)+'</span><span class="lbl">'+opts.freq+' repayment</span></div>'+
+    '<div class="stat neutral" data-tip="Estimated property value after '+opts.term+' years at the assumed capital growth rate. Set this in Advanced options."><span class="big">'+fmtMoney(forecastValue(opts))+'</span><span class="lbl">Forecast value at '+opts.term+'yr</span></div>'+
     '<div class="stat cost" data-tip="The total interest you will pay over the entire loan term at the given rate."><span class="big">'+fmtMoney(sim.totalInt)+'</span><span class="lbl">Total interest ('+fmtMoney(sim.totalInt/opts.term/12)+'/mo)</span></div>'+
     '<div class="stat cost" data-tip="Total of all repayments including principal, interest and extra payments."><span class="big">'+fmtMoney(sim.totalRepaid)+'</span><span class="lbl">Total repaid</span></div>'+
     '<div class="stat '+(sim.ongoingYr>0?'cost':'neutral')+'" data-tip="Annual property tax, insurance, HOA/strata, loan fees and maintenance combined. Add these in Advanced options."><span class="big">'+(sim.ongoingYr>0?fmtMoney(sim.ongoingYr)+'/yr':'—')+'</span><span class="lbl">Ongoing costs</span></div>'+
