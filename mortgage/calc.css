@@ -186,6 +186,9 @@ table.ref tbody tr:hover td{background:#eef2ff}
 .rvb-cost-card h5{margin:10px 0 6px;font-size:.82rem;font-weight:700;color:var(--accent)}
 .rvb-cost-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:.84rem}
 .rvb-cost-row.rvb-total{font-weight:700;font-size:.88rem;border-top:1px solid var(--ring);padding-top:6px;margin-top:4px}
+.rvb-cost-row.rvb-final{font-size:1.1rem;padding:10px 0 2px;margin-top:8px;border-top:2px solid var(--accent)}
+.rvb-cost-card.buy .rvb-final{border-color:#3b5bdb}
+.rvb-cost-card.rent .rvb-final{border-color:#0f9d6b}
 .rvb-diff-row{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:10px 16px;margin-top:2px}
 
 /* RvB year-by-year table — grouped headers + column tinting */

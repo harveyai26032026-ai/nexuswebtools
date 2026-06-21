@@ -451,39 +451,47 @@ function rentVsBuy(opts,sim){
     '</div>'+
     '<div class="rvb-verdict '+vc+'">'+vt+'</div>'+
     '<div class="rvb-cost-cols">'+
+      /* ── BUYER ── */
       '<div class="rvb-cost-card buy">'+
         '<h4>🏠 Buyer</h4>'+
-        '<h5>💳 Upfront capital</h5>'+
+        '<h5>💰 Upfront</h5>'+
         '<div class="rvb-cost-row"><span>Deposit (initial equity)</span><span class="gain-col">'+fmtMoney(opts.deposit)+'</span></div>'+
         '<div class="rvb-cost-row"><span>Stamp duty / transfer tax</span><span class="cost">'+fmtMoney(stamp)+'</span></div>'+
         '<div class="rvb-cost-row"><span>LMI / PMI</span><span class="cost">'+fmtMoney(lmi)+'</span></div>'+
         '<div class="rvb-cost-row"><span>Purchase costs</span><span class="cost">'+fmtMoney(purchaseCosts)+'</span></div>'+
         '<div class="rvb-cost-row rvb-total"><span>Total upfront</span><span class="cost">'+fmtMoney(opts.deposit+stamp+lmi+purchaseCosts)+'</span></div>'+
-        '<h5>📈 Equity built</h5>'+
-        '<div class="rvb-cost-row"><span>Deposit (initial equity)</span><span class="gain-col">'+fmtMoney(opts.deposit)+'</span></div>'+
+        '<h5>📈 Growth</h5>'+
         '<div class="rvb-cost-row"><span>Principal repaid</span><span class="gain-col">'+fmtMoney(fin.cumPrin)+'</span></div>'+
-        '<div class="rvb-cost-row"><span>Capital growth</span><span class="gain-col">'+fmtMoney(fin.propVal-opts.price)+'</span></div>'+
-        '<div class="rvb-cost-row rvb-total"><span>Total equity</span><span class="gain-col">'+fmtMoney(fin.equity)+'</span></div>'+
-        '<h5>💸 Ongoing costs sunk</h5>'+
+        '<div class="rvb-cost-row"><span>Capital growth ('+opts.apprec.toFixed(1)+'%/yr)</span><span class="gain-col">'+fmtMoney(fin.propVal-opts.price)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total"><span>Property value at '+term+'yr</span><span class="gain-col">'+fmtMoney(fin.propVal)+'</span></div>'+
+        '<h5>💸 Costs sunk</h5>'+
         '<div class="rvb-cost-row"><span>Interest paid</span><span class="cost">'+fmtMoney(fin.cumInt)+'</span></div>'+
         '<div class="rvb-cost-row"><span>Property tax, insurance, HOA</span><span class="cost">'+fmtMoney(cumOngoing)+'</span></div>'+
         '<div class="rvb-cost-row"><span>Maintenance</span><span class="cost">'+fmtMoney(cumMaint)+'</span></div>'+
-        '<div class="rvb-cost-row rvb-total"><span>Total ongoing sunk</span><span class="cost">'+fmtMoney(fin.cumInt+cumOngoing+cumMaint)+'</span></div>'+
+        '<div class="rvb-cost-row rvb-total"><span>Total costs sunk</span><span class="cost">'+fmtMoney(fin.cumInt+cumOngoing+cumMaint)+'</span></div>'+
+        '<h5>🏆 Wealth at '+term+'yr</h5>'+
+        '<div class="rvb-cost-row rvb-total rvb-final"><span>Property − loan</span><span class="gain-col">'+fmtMoney(fin.equity)+'</span></div>'+
       '</div>'+
+      /* ── RENTER ── */
       '<div class="rvb-cost-card rent">'+
         '<h4>📈 Rent + Invest</h4>'+
-        '<h5>💰 Initial seed</h5>'+
-        '<div class="rvb-cost-row"><span>Deposit saved (not paid to bank)</span><span class="gain-col">'+fmtMoney(opts.deposit)+'</span></div>'+
-        '<div class="rvb-cost-row"><span>Upfront costs saved (stamp, LMI, etc.)</span><span class="gain-col">'+fmtMoney(stamp+lmi+purchaseCosts)+'</span></div>'+
+        '<h5>💰 Upfront</h5>'+
+        '<div class="rvb-cost-row"><span>Deposit saved (invested)</span><span class="gain-col">'+fmtMoney(opts.deposit)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>Stamp, LMI, costs saved</span><span class="gain-col">'+fmtMoney(stamp+lmi+purchaseCosts)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>—</span><span>—</span></div>'+
+        '<div class="rvb-cost-row"><span>—</span><span>—</span></div>'+
         '<div class="rvb-cost-row rvb-total"><span>Total seed invested</span><span class="gain-col">'+fmtMoney(initialSeed)+'</span></div>'+
-        '<h5>💸 Rent sunk</h5>'+
-        '<div class="rvb-cost-row"><span>Total rent paid</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
-        '<h5>📈 Portfolio growth</h5>'+
-        '<div class="rvb-cost-row"><span>Surplus contributions (mortgage − rent)</span><span class="gain-col">'+fmtMoney(surplusContribs)+'</span></div>'+
-        (totalWithdrawn>0?'<div class="rvb-cost-row"><span>Withdrawals (rent > mortgage years)</span><span class="cost">−'+fmtMoney(totalWithdrawn)+'</span></div>':'')+
+        '<h5>📈 Growth</h5>'+
+        '<div class="rvb-cost-row"><span>Surplus contributed (mortgage − rent)</span><span class="gain-col">'+fmtMoney(surplusContribs)+'</span></div>'+
+        (totalWithdrawn>0?'<div class="rvb-cost-row"><span>Withdrawals (rent &gt; mortgage)</span><span class="cost">−'+fmtMoney(totalWithdrawn)+'</span></div>':'<div class="rvb-cost-row"><span>—</span><span>—</span></div>')+
         '<div class="rvb-cost-row rvb-total"><span>Net invested</span><span class="gain-col">'+fmtMoney(netContribs)+'</span></div>'+
-        '<div class="rvb-cost-row"><span>Compound interest earned</span><span class="gain-col">'+fmtMoney(investGrowth)+'</span></div>'+
-        '<div class="rvb-cost-row rvb-total"><span>Total portfolio</span><span class="gain-col">'+fmtMoney(fin.renterWealth)+'</span></div>'+
+        '<h5>💸 Costs sunk</h5>'+
+        '<div class="rvb-cost-row"><span>Total rent paid</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
+        '<div class="rvb-cost-row"><span>—</span><span>—</span></div>'+
+        '<div class="rvb-cost-row"><span>—</span><span>—</span></div>'+
+        '<div class="rvb-cost-row rvb-total"><span>Total costs sunk</span><span class="cost">'+fmtMoney(cumRent)+'</span></div>'+
+        '<h5>🏆 Wealth at '+term+'yr</h5>'+
+        '<div class="rvb-cost-row rvb-total rvb-final"><span>Investment portfolio</span><span class="gain-col">'+fmtMoney(fin.renterWealth)+'</span></div>'+
       '</div>'+
     '</div>'+
     '<div class="rvb-cost-row rvb-total rvb-diff-row"><span>Wealth difference</span><span class="'+(diff>0?'gain-col':'cost')+'">'+(diff>0?'Buyer ahead by '+fmtMoney(diff):diff<0?'Renter ahead by '+fmtMoney(-diff):'Even')+'</span></div>';
