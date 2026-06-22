@@ -1919,6 +1919,10 @@
         {
           "heading": "Dividend Reinvestment Plans (DRIPs)",
           "text": "Dividend Reinvestment Plans (DRIPs) allow you to automatically reinvest your dividends into additional shares of the same stock. For example, if a company declares a $1 dividend and you have 100 shares of that stock, you can use the dividend calculator to determine how many additional shares you'll receive through the DRIP. Let's say the DRIP price is $50 per share. After reinvesting your $1 dividend, you'll now own 100 shares x $50 per share = $5,000 worth of stock."
+        },
+        {
+          "heading": "Examples of Dividend Payments",
+          "text": "For example, let's say you own 100 shares of Apple (AAPL) and the company declares a $0.75 dividend per share. You would receive a total of $75 in dividend payments ($0.75 x 100 shares). If you also own 50 shares of Microsoft (MSFT) and that company declares a $0.40 dividend per share, you would receive an additional $20 in dividend payments ($0.40 x 50 shares)."
         }
       ],
       "faqs": [
@@ -2022,6 +2026,10 @@
         {
           "heading": "Bond Laddering",
           "text": "By using the bond calculator to ladder your bonds, you can earn more interest over time. For example, if you invest $10,000 in a 5-year bond with an interest rate of 3%, you will earn $1,500 in interest over the 5 years. If you then use the calculator to ladder your bonds by investing the interest earned each year into a new 5-year bond with an interest rate of 3%, you can earn an additional $750 in interest over the next 5 years, for a total of $2,250. This can help you reach your financial goals faster."
+        },
+        {
+          "heading": "Other Investment Options",
+          "text": "The bond calculator can also help you compare the performance of your bond with other investment options, such as stocks or mutual funds. This can help you make informed decisions about your investment portfolio and ensure that it aligns with your financial goals."
         }
       ],
       "faqs": [
