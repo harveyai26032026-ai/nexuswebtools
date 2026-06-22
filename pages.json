@@ -2074,6 +2074,10 @@
         {
           "heading": "Multiple Bond Investments",
           "text": "For example, if you invest $10,000 in a 5-year bond with an interest rate of 4%, and then invest an additional $5,000 in the same bond after 2 years, the estimated future value of your investment would be $16,379.82. By using the bond calculator to estimate the future value of multiple bonds, you can make more informed investment decisions and track the performance of your investments over time."
+        },
+        {
+          "heading": "Other Bond Investment Options",
+          "text": "In addition to investing in individual bonds, there are other ways to invest in bonds. For example, you could invest in a bond mutual fund or exchange-traded fund (ETF), which can provide diversification and professional management of your bond portfolio."
         }
       ],
       "faqs": [
@@ -2173,6 +2177,10 @@
         {
           "heading": "Tracking Investment Growth",
           "text": "To track your investment growth using the mutual fund calculator, simply input your initial investment amount and the time period being calculated. The tool will display the future value of your investment based on the inputs you provide."
+        },
+        {
+          "heading": "Tax-Efficient Investing",
+          "text": "The mutual fund calculator can help you estimate the impact of taxes on your investment returns by allowing you to enter your marginal tax rate. This can be particularly useful for investors in higher tax brackets, as it allows them to see how their investments will grow over time after factoring in taxes."
         }
       ],
       "faqs": [
@@ -2211,6 +2219,14 @@
         {
           "q": "How does the mutual fund calculator handle inflation when calculating returns?",
           "a": "The mutual fund calculator assumes a constant rate of inflation over the time period being calculated, but you can also enter your own inflation rate if it varies."
+        },
+        {
+          "q": "Can I use the mutual fund calculator to estimate the impact of fees on my investment returns?",
+          "a": "Yes, the mutual fund calculator allows you to account for fees when calculating your investment returns."
+        },
+        {
+          "q": "How does the mutual fund calculator handle dividends when calculating returns?",
+          "a": "The calculator assumes that any dividends received are reinvested in the mutual fund, and this is reflected in the calculated returns."
         }
       ]
     },
