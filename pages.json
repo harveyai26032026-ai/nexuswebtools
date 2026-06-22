@@ -2157,19 +2157,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Mutual Fund planning",
-            "text": "Use the tool to plan how mutual fund fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Mutual Fund optimization",
-            "text": "Compare alternative rates and frequencies for mutual fund to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Examples of How to Use the Mutual Fund Calculator for Retirement Planning",
+          "text": "The mutual fund calculator can be a valuable tool for retirement planning. For example, you could use it to estimate how much money you will need saved for retirement based on your expected retirement age and desired standard of living. You could also use the calculator to determine how much you should contribute to your retirement accounts each year to reach your retirement goals."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $22,000 grow to at 5.9% per annum over 4 years for mutual fund?",
@@ -2188,6 +2181,16 @@
         {
           "slug": "mutual-fund",
           "name": "Mutual Fund Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the mutual fund calculator to compare different investment options?",
+          "a": "Yes, the mutual fund calculator can be used to compare different investment options based on their potential returns and risks. For example, you could compare a mutual fund to a stock or bond portfolio, or even a real estate investment trust (REIT)."
+        },
+        {
+          "q": "How often should I use the mutual fund calculator to track my investment growth?",
+          "a": "It's a good idea to use the mutual fund calculator regularly, such as every quarter or once a year, to track your investment growth and make adjustments as needed. This can help you stay on top of your investment goals and ensure that they are aligned with your current financial situation."
         }
       ]
     },
