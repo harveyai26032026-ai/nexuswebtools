@@ -1804,6 +1804,10 @@
         {
           "heading": "Tax Implications",
           "text": "It's important to consider tax implications when using the compound interest calculator. The calculator assumes that all earnings are reinvested at the same interest rate as the initial investment. However, if you receive dividends or other forms of income, those amounts may be subject to taxation. Be sure to factor in any taxes owed on these earnings when calculating your total compound interest."
+        },
+        {
+          "heading": "Investment Planning for Retirement",
+          "text": "Using the compound interest calculator, you can determine how much you need to save each month to reach your retirement goals. For example, if you want to retire in 30 years and your current age is 25, you can input these numbers and see that you need to save approximately $1,800 per month to reach your goal. This can help you prioritize your investments and make informed decisions about how to allocate your money."
         }
       ],
       "faqs": [
@@ -2002,6 +2006,10 @@
         {
           "heading": "Other Applications",
           "text": "In addition to calculating the cost of individual bonds, our calculator can also help you estimate the cost of a bond portfolio. For example, if you have a diversified bond portfolio with 10 different bonds, each with a face value of $1,000 and maturity dates spread evenly throughout the year, you can use our calculator to estimate the total cost of the portfolio. By entering the face values and maturity dates of each bond, the calculator will provide you with an estimate of the total cost of the portfolio, including the compound interest over the entire term of the bonds."
+        },
+        {
+          "heading": "Multiple Bonds",
+          "text": "For example, let's say you want to invest in two bonds with different interest rates and maturity dates. Using the bond calculator, you can determine the total cost of each bond and compare them side by side. This will help you make an informed decision about which bond is best for your investment strategy."
         }
       ],
       "faqs": [
