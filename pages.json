@@ -1903,6 +1903,10 @@
         {
           "heading": "Determining the best time to reinvest dividends",
           "text": "To maximize your investment returns, you may want to consider reinvesting dividends at the lowest price possible after the ex-dividend date. This can help you take advantage of any potential market dips and increase your overall returns."
+        },
+        {
+          "heading": "Dividend Reinvestment Plans",
+          "text": "Some companies offer Dividend Reinvestment Plans (DRIPs) that allow you to automatically reinvest your dividends into additional shares of the company. This can be a great way to grow your investment over time and potentially increase your returns."
         }
       ],
       "faqs": [
@@ -1994,19 +1998,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Bond planning",
-            "text": "Use the tool to plan how bond fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Bond optimization",
-            "text": "Compare alternative rates and frequencies for bond to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Other Applications",
+          "text": "In addition to calculating the cost of individual bonds, our calculator can also help you estimate the cost of a bond portfolio. For example, if you have a diversified bond portfolio with 10 different bonds, each with a face value of $1,000 and maturity dates spread evenly throughout the year, you can use our calculator to estimate the total cost of the portfolio. By entering the face values and maturity dates of each bond, the calculator will provide you with an estimate of the total cost of the portfolio, including the compound interest over the entire term of the bonds."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $21,000 grow to at 5.7% per annum over 3 years for bond?",
@@ -2025,6 +2022,16 @@
         {
           "slug": "bond",
           "name": "Bond Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What if I want to pay off my bond early?",
+          "a": "If you want to pay off your bond early, you may be able to do so with a prepayment penalty. The amount of the penalty will depend on the terms of your bond and the interest rate."
+        },
+        {
+          "q": "Can I use the bond calculator for multiple bonds?",
+          "a": "Yes, our bond calculator can help you calculate the total cost of multiple bonds. Simply enter the amounts and terms of each bond, and the calculator will provide you with an estimate of the total cost."
         }
       ]
     },
