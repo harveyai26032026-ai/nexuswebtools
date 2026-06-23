@@ -303,7 +303,7 @@ def render_niche_page(tool_id: str, page: dict) -> str:
         <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
+      <div class="brand"><a href="/">Nexus Web Tools</a></div>
       <nav class="nav-ribbon">
 {nav_links}      </nav>
       <div class="ribbon-search">
