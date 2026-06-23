@@ -1,51 +1,70 @@
-/* Policy pages shared stylesheet — content & form only, ribbon handled by style.css + nav.css */
-.policy-content, .container {
-  max-width: 800px;
+/* Policy pages — content only, NOT the ribbon */
+.policy-content {
+  max-width: 700px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 40px 20px 60px;
 }
-h1, h2, h3 {
-  color: var(--text);
+.policy-content h1 {
+  font-size: 2rem;
+  margin-bottom: 0.6em;
 }
-p {
-  margin-bottom: 1rem;
+.policy-content h2 {
+  margin-top: 2.5em;
+  font-size: 1.25rem;
 }
-ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
+.policy-content p, .policy-content ul {
+  max-width: 64ch;
+  margin-left: 0;
 }
-/* Form styling */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.policy-content ul {
+  padding-left: 1.4em;
 }
-label {
-  font-weight: bold;
+.policy-content a {
+  color: var(--accent);
 }
-input, textarea, select {
-  padding: 0.5rem;
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 11px 14px;
   border: 1px solid var(--ring);
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
   font-family: inherit;
-  background: #fff;
 }
-input:focus, textarea:focus, select:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
+.form-group .hint {
+  font-size: 0.82rem;
+  color: var(--muted);
 }
-button[type="submit"] {
-  background: var(--accent);
+input[type="submit"] {
+  background: var(--accent2);
   color: #fff;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
+  padding: 12px 28px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
-  transition: background .15s ease;
+  cursor: pointer;
 }
-button[type="submit"]:hover {
-  background: #2b4bc8;
+input[type="submit"]:hover {
+  opacity: 0.92;
+}
+.alert-success {
+  display: none;
+  padding: 14px 18px;
+  background: #edf9f1;
+  color: var(--accent2);
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-weight: 600;
 }

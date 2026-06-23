@@ -1836,6 +1836,10 @@
         {
           "heading": "Investment Planning for Retirement",
           "text": "Using the compound interest calculator, you can determine how much you need to save each month to reach your retirement goals. For example, if you want to retire in 30 years and your current age is 25, you can input these numbers and see that you need to save approximately $1,800 per month to reach your goal. This can help you prioritize your investments and make informed decisions about how to allocate your money."
+        },
+        {
+          "heading": "Different Investment Strategies",
+          "text": "For example, if you input a 50/50 stocks/bonds investment strategy and an investment horizon of 10 years, the calculator will display the compound interest for that scenario. This can help you compare the potential returns of different investment strategies and make informed decisions about your investments."
         }
       ],
       "faqs": [
@@ -1870,6 +1874,14 @@
         {
           "q": "How does the calculator handle taxes?",
           "a": "The calculator assumes that all gains are subject to capital gains tax, but you can adjust the tax rate if needed."
+        },
+        {
+          "q": "How does the calculator handle different investment horizons?",
+          "a": "The calculator allows you to input different investment horizons (e.g. 5 years, 10 years, etc.) and will display the compound interest for each horizon."
+        },
+        {
+          "q": "Can I use the calculator to compare different investment strategies?",
+          "a": "Yes, the calculator allows you to input different investment strategies (e.g. 50/50 stocks/bonds, 100% stocks, etc.) and will display the resulting compound interest."
         }
       ]
     },
