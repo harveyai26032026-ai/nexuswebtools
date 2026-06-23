@@ -63,7 +63,8 @@
   .ribbon-search input{width:0}
   .ribbon-search.open input,.ribbon-search input:focus{width:130px}
 }
+/* Always show hamburger; drawer works on all widths */
 @media(min-width:641px){
-  .hamburger{display:none}
-  .drawer,.drawer-overlay{display:none!important}
+  .hamburger{display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:none; background:none; cursor:pointer; padding:0; flex-shrink:0;}
+  /* keep drawer functionality on larger screens */
 }

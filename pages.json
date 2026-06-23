@@ -2098,6 +2098,10 @@
         {
           "heading": "Investing a Lump Sum",
           "text": "If you want to invest a lump sum in bonds, the bond calculator can help you determine how much you need to invest to reach your target bond amount. For example, if you want to invest $10,000 in a bond with a maturity date of 5 years and an interest rate of 4%, the calculator will tell you that you need to invest $9,723.69 to reach your target bond amount. This can help you plan your investment strategy and make informed decisions about your bond portfolio."
+        },
+        {
+          "heading": "Additional Investment Options",
+          "text": "You can also use the bond calculator to calculate the monthly payments for other investment options, such as stocks or real estate. Simply enter the details of your investment in the appropriate fields and the calculator will provide you with the monthly payment amount."
         }
       ],
       "faqs": [
@@ -2308,6 +2312,10 @@
         {
           "heading": "Real-World Examples of Compound Interest in Action",
           "text": "For example, let's say you invested $10,000 in a stock that returned 8% annually over the course of 10 years. Using the compound interest calculator, we can see that the value of your investment would grow to approximately $23,645 by the end of the 10-year period. This is just one example of how compound interest can help your investments grow over time."
+        },
+        {
+          "heading": "Applications for Real Estate Investors",
+          "text": "The compound interest calculator can be particularly useful for real estate investors who are looking to grow their portfolios over time. By inputting the purchase price, mortgage amount, and expected rental income of a property, the calculator can estimate the potential return on investment (ROI) over time. For example, if you purchase a property for $100,000 with a mortgage of $80,000, and expect to generate $10,000 in rental income per year, the calculator can estimate the potential ROI on your investment over 5 years. This information can help real estate investors make informed decisions about where to allocate their money for maximum growth."
         }
       ],
       "faqs": [
@@ -2338,6 +2346,14 @@
         {
           "q": "Can I use the compound interest calculator to estimate the return on my investments?",
           "a": "Yes, the compound interest calculator can be used to estimate the return on your investments. Simply enter the initial principal amount, interest rate, and time period into the calculator, and it will provide you with an estimate of the return on your investment."
+        },
+        {
+          "q": "How do I compare different investment options using the compound interest calculator?",
+          "a": "The compound interest calculator allows you to input multiple investment options and compare their estimated values side-by-side. This can help you make informed decisions about where to allocate your money for maximum growth."
+        },
+        {
+          "q": "Can I use the compound interest calculator to estimate the impact of taxes on my investments?",
+          "a": "Yes, the calculator allows you to input tax rates and amounts to account for taxes on your investment returns. This can help you better understand the after-tax value of your investments."
         }
       ]
     },
