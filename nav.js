@@ -126,18 +126,37 @@
     SITEMAP.forEach(function(item) {
       var cls = item.tier ? ' class="dn-tier1"' : '';
       var ext = item.external ? ' <span class="dn-external">↗</span>' : '';
-      html += '<li><a href="' + item.href + '"' + cls + '>' + item.label + ext + '</a></li>';
+      html += '<li class="has-children">';
       if (item.children) {
+        html += '<button class="drawer-toggle" aria-label="Expand '+item.label+'">▶</button>';
+      }
+      html += '<a href="' + item.href + '"' + cls + '>' + item.label + ext + '</a>';
+      if (item.children) {
+        html += '<ul class="drawer-sub">';
         item.children.forEach(function(ch) {
           html += '<li><a href="' + ch.href + '" class="dn-tier2">' + ch.label + '</a></li>';
         });
+        html += '</ul>';
       }
+      html += '</li>';
     });
     html += '</ul>';
     drawer.innerHTML = html;
     document.body.appendChild(drawer);
 
-    // Close handlers
+    // Attach toggle listeners for collapsible sub‑menus
+    function attachToggles(){
+      var toggles = drawerObj.drawer.querySelectorAll('.drawer-toggle');
+      toggles.forEach(function(btn){
+        btn.addEventListener('click',function(e){
+          e.stopPropagation(); // prevent link navigation
+          var li = btn.parentNode; // the <li class="has-children">
+          li.classList.toggle('open');
+        });
+      });
+    }
+    attachToggles();
+    // Close handlers already set above
     overlay.addEventListener('click', close);
     drawer.querySelector('.drawer-close').addEventListener('click', close);
     return { overlay: overlay, drawer: drawer };

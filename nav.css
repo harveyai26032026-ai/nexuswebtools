@@ -35,16 +35,27 @@
 .drawer-close{border:none;background:none;cursor:pointer;padding:4px;display:flex;align-items:center}
 .drawer-close svg{width:20px;height:20px;stroke:var(--text);stroke-width:2;fill:none}
 
-/* ── Drawer nav ── */
-.drawer-nav{list-style:none;margin:0;padding:0}
-.drawer-nav li{margin:0}
-.drawer-nav a{display:flex;align-items:center;padding:.55rem 1rem;color:var(--text);text-decoration:none;font-size:.92rem;transition:background .12s}
-.drawer-nav a:hover{background:rgba(59,91,219,.06);color:var(--accent)}
-.drawer-nav .dn-tier1{font-weight:700;padding:.7rem 1rem;border-top:1px solid var(--ring);margin-top:2px}
-.drawer-nav .dn-tier1:first-child{border-top:none;margin-top:0}
-.drawer-nav .dn-tier2{padding-left:2rem;font-weight:400;font-size:.86rem;color:var(--muted)}
-.drawer-nav .dn-tier2:hover{color:var(--accent)}
-.drawer-nav .dn-external{font-size:.75rem;opacity:.55;margin-left:.3rem}
+.drawer-nav .drawer-sub {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.drawer-nav .has-children.open > .drawer-sub {
+  display: block;
+}
+.drawer-nav .drawer-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  font-size: .9rem;
+  line-height: 1;
+  color: var(--muted);
+}
+.drawer-nav .has-children.open > .drawer-toggle {
+  transform: rotate(90deg);
+}
 
 /* ── Responsive ── */
 @media(max-width:640px){
