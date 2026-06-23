@@ -1,9 +1,8 @@
 /* ── Hamburger button ── */
 .hamburger{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;cursor:pointer;padding:0;flex-shrink:0}
 .hamburger svg{width:22px;height:22px;stroke:var(--text);stroke-width:2;stroke-linecap:round;fill:none}
+/* Hamburger icon always visible — never swap to X */
 .hamburger .icon-close{display:none}
-.hamburger.open .icon-open{display:none}
-.hamburger.open .icon-close{display:block}
 
 /* ── Search bar in ribbon ── */
 .ribbon-search{display:flex;align-items:center;flex-shrink:0;position:relative;margin-left:auto}
@@ -35,6 +34,32 @@
 .drawer-close{border:none;background:none;cursor:pointer;padding:4px;display:flex;align-items:center}
 .drawer-close svg{width:20px;height:20px;stroke:var(--text);stroke-width:2;fill:none}
 
+/* ── Drawer navigation links ── */
+/* Match site font/colour — no blue, no underline */
+.drawer-nav{list-style:none;margin:0;padding:8px 0}
+.drawer-nav li{position:relative}
+.drawer-nav a{
+  display:block;padding:.5rem 16px;
+  color:var(--text);text-decoration:none;
+  font-family:inherit;font-size:.92rem;line-height:1.4;
+  transition:background .1s;
+}
+.drawer-nav a:hover{background:rgba(59,91,219,.06)}
+/* Tier-1 links (top-level tools) — normal weight */
+.drawer-nav a.dn-tier1{font-weight:500}
+/* Parent items with chevron children — BOLD */
+.drawer-nav .has-children > a.dn-tier1{font-weight:700}
+.drawer-nav .has-children > a{font-weight:700}
+/* Tier-2 sub-links — slightly smaller, lighter */
+.drawer-nav a.dn-tier2{
+  font-size:.86rem;font-weight:400;color:var(--muted);
+  padding:.38rem 16px .38rem 32px;
+}
+.drawer-nav a.dn-tier2:hover{color:var(--text)}
+/* External link indicator */
+.drawer-nav .dn-external{font-size:.8rem;color:var(--muted);margin-left:2px}
+
+/* ── Collapsible sub-menus ── */
 .drawer-nav .drawer-sub {
   display: none;
   list-style: none;

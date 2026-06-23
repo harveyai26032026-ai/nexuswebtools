@@ -156,14 +156,16 @@
       });
     }
     attachToggles();
-    // Close handlers already set above
-    overlay.addEventListener('click', close);
-    drawer.querySelector('.drawer-close').addEventListener('click', close);
+    // Close handlers — close drawer AND reset hamburger icon
+    overlay.addEventListener('click', function() { close(); resetHamburger(); });
+    drawer.querySelector('.drawer-close').addEventListener('click', function() { close(); resetHamburger(); });
     return { overlay: overlay, drawer: drawer };
   }
 
   /* ─── Drawer open/close ─── */
   var drawerObj = null;
+  var btn = document.querySelector('.hamburger');
+
   function open() {
     if (!drawerObj) drawerObj = buildDrawer();
     drawerObj.drawer.classList.add('open');
@@ -176,16 +178,18 @@
     drawerObj.overlay.classList.remove('visible');
     document.body.style.overflow = '';
   }
+  function resetHamburger() {
+    if (btn) btn.classList.remove('open');
+  }
 
-  // Hamburger toggle
-  var btn = document.querySelector('.hamburger');
+  // Hamburger toggle — always keeps the hamburger icon visible
   if (btn) btn.addEventListener('click', function() {
     if (drawerObj && drawerObj.drawer.classList.contains('open')) {
       close();
-      btn.classList.remove('open');
+      // Don't add .open — hamburger icon stays as hamburger
     } else {
       open();
-      btn.classList.add('open');
+      // Don't add .open — hamburger icon stays as hamburger
     }
   });
 
