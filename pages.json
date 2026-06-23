@@ -1975,6 +1975,10 @@
         {
           "heading": "Comparing Dividend Yields Across Stocks",
           "text": "To see how much more or less a particular stock's dividend yield is compared to the overall market, you can input the ticker symbol of a stock with a known dividend yield and run the calculator. For example, if you want to compare the dividend yield of Apple (AAPL) to the S&P 500 index, you would input 'AAPL' in the first field and 'SP500' in the second field. The calculator will then show you how much higher or lower Apple's dividend yield is compared to the overall market."
+        },
+        {
+          "heading": "Tracking Dividends from Multiple Stocks",
+          "text": "Using the dividend calculator, you can track the dividends of multiple stocks and see how they contribute to your overall investment portfolio. For example, if you hold 10 shares of XYZ stock and receive a $0.50 dividend per share, the calculator will show you the total estimated dividend payment of $5.00 for that stock. By entering the ticker symbols for multiple stocks, you can see how much you're earning in dividends from each one and make informed decisions about your investments."
         }
       ],
       "faqs": [
@@ -2009,6 +2013,14 @@
         {
           "q": "How do I know if my stock is eligible for dividend payments?",
           "a": "You can check your stock's dividend history and eligibility criteria on financial websites such as Yahoo Finance or Edgar."
+        },
+        {
+          "q": "Can I use the dividend calculator to track the dividends of multiple stocks at once?",
+          "a": "Yes, you can use the dividend calculator to track the dividends of multiple stocks at once. Simply enter the ticker symbols for each stock in the 'Enter Stock Symbols' field and the calculator will display the total estimated dividend payments for all of them."
+        },
+        {
+          "q": "How often do I need to run the dividend calculator to get an accurate estimate of my dividend income?",
+          "a": "It's a good idea to run the dividend calculator on a regular basis, such as quarterly or annually, to ensure that your estimated dividend income is up-to-date and reflects any changes in your stock holdings. However, you can also run the calculator whenever you receive a dividend payment to verify that the estimate is accurate."
         }
       ]
     },
@@ -2110,6 +2122,10 @@
         {
           "heading": "Additional Applications",
           "text": "For example, if you invest $10,000 in a 5-year bond at an interest rate of 3%, your bond will be worth $10,627 after 5 years. If you invest an additional $5,000 in the same bond, your total investment will be worth $15,627 after 5 years."
+        },
+        {
+          "heading": "Example Applications",
+          "text": "The bond calculator can be used in a variety of ways to help you plan your investments. For example, if you're considering investing $10,000 in a 5-year bond with an interest rate of 3%, the tool can help you estimate how much your investment could grow to over that time frame. Or, if you're looking to invest a lump sum of $20,000 and want to know how much you could expect to have after 10 years, the bond calculator can provide you with that information as well."
         }
       ],
       "faqs": [
@@ -2443,19 +2459,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Real Estate planning",
-            "text": "Use the tool to plan how real estate fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Real Estate optimization",
-            "text": "Compare alternative rates and frequencies for real estate to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Other Applications of the Calculator",
+          "text": "The real estate calculator can also be used for other purposes, such as estimating the potential return on investment for a fixer-upper property or comparing the cost of renting versus buying a home. By inputting different numbers and scenarios, users can get a better understanding of their financial situation and make more informed decisions."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $24,000 grow to at 6.3% per annum over 6 years for real estate?",
@@ -2474,6 +2483,16 @@
         {
           "slug": "real-estate",
           "name": "Real Estate Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are the tax implications of selling a rental property?",
+          "a": "Selling a rental property can have significant tax implications, including capital gains tax and depreciation recapture. It's important to consult with a tax professional before making a decision."
+        },
+        {
+          "q": "How does the calculator take into account the impact of inflation on real estate values?",
+          "a": "The calculator uses historical data on inflation rates to estimate how much an investment property's value may increase or decrease over time. However, it's important to note that inflation can have a significant impact on long-term real estate investments."
         }
       ]
     },
