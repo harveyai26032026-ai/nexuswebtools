@@ -2106,6 +2106,10 @@
         {
           "heading": "Additional Investment Options",
           "text": "You can also use the bond calculator to calculate the monthly payments for other investment options, such as stocks or real estate. Simply enter the details of your investment in the appropriate fields and the calculator will provide you with the monthly payment amount."
+        },
+        {
+          "heading": "Additional Applications",
+          "text": "For example, if you invest $10,000 in a 5-year bond at an interest rate of 3%, your bond will be worth $10,627 after 5 years. If you invest an additional $5,000 in the same bond, your total investment will be worth $15,627 after 5 years."
         }
       ],
       "faqs": [
@@ -2324,6 +2328,10 @@
         {
           "heading": "Comparing Investment Options",
           "text": "Use the compound interest calculator to compare different investment options by entering the expected returns and risks of each option. The calculator will provide an estimated return on investment for each option, allowing you to make informed decisions about your investments."
+        },
+        {
+          "heading": "Estimating the impact of inflation on your investments",
+          "text": "Using the compound interest calculator, you can estimate the impact of inflation on your investments by entering the expected rate of inflation. The calculator will then show you how much your investment portfolio is expected to decrease in value over time due to inflation."
         }
       ],
       "faqs": [
@@ -2370,6 +2378,14 @@
         {
           "q": "Can I use the compound interest calculator to estimate the impact of fees on my investments?",
           "a": "Yes, you can use the compound interest calculator to estimate the impact of fees on your investments. Simply enter the estimated fee rate and the calculator will provide an estimated return on your investment after fees."
+        },
+        {
+          "q": "Can I use the compound interest calculator to estimate the impact of dividend reinvestment on my investments?",
+          "a": "Yes, you can use the compound interest calculator to estimate the impact of dividend reinvestment on your investments. By entering the dividend reinvestment rate and the number of shares purchased with each dividend, you can see how much your investment portfolio will grow over time."
+        },
+        {
+          "q": "How do I use the compound interest calculator to estimate the impact of capital gains tax on my investments?",
+          "a": "To estimate the impact of capital gains tax on your investments using the compound interest calculator, you will need to enter the tax rate and the frequency of capital gains realizations. The calculator will then show you how much of your investment returns are absorbed by taxes."
         }
       ]
     },
