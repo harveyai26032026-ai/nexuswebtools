@@ -1955,6 +1955,10 @@
         {
           "heading": "Example of How to Use the Dividend Calculator for Multiple Stocks",
           "text": "For example, let's say you own shares of Apple (AAPL) and Microsoft (MSFT). To calculate the potential dividend income from both stocks, simply enter the ticker symbols for each stock in the 'Stocks' field. The calculator will then apply the current dividend yield for each stock to determine the total potential dividend income for the portfolio."
+        },
+        {
+          "heading": "Comparing Dividend Yields Across Stocks",
+          "text": "To see how much more or less a particular stock's dividend yield is compared to the overall market, you can input the ticker symbol of a stock with a known dividend yield and run the calculator. For example, if you want to compare the dividend yield of Apple (AAPL) to the S&P 500 index, you would input 'AAPL' in the first field and 'SP500' in the second field. The calculator will then show you how much higher or lower Apple's dividend yield is compared to the overall market."
         }
       ],
       "faqs": [
@@ -2078,6 +2082,10 @@
         {
           "heading": "Other Bond Investment Options",
           "text": "In addition to investing in individual bonds, there are other ways to invest in bonds. For example, you could invest in a bond mutual fund or exchange-traded fund (ETF), which can provide diversification and professional management of your bond portfolio."
+        },
+        {
+          "heading": "Investing a Lump Sum",
+          "text": "If you want to invest a lump sum in bonds, the bond calculator can help you determine how much you need to invest to reach your target bond amount. For example, if you want to invest $10,000 in a bond with a maturity date of 5 years and an interest rate of 4%, the calculator will tell you that you need to invest $9,723.69 to reach your target bond amount. This can help you plan your investment strategy and make informed decisions about your bond portfolio."
         }
       ],
       "faqs": [
