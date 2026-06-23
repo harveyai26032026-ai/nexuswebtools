@@ -5,25 +5,29 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* Unified stacked-centered ribbon (matches concrete + calculator pages) */
-.ribbon{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 18px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring);position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(20,30,60,.04)}
-.brand{font-weight:700;letter-spacing:.3px;font-size:1.05rem}
-.ribbon nav{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.ribbon nav a{color:var(--muted);text-decoration:none;font-size:.92rem;padding:.3rem .6rem;border-radius:6px;transition:color .18s ease,background .18s ease}
+/* ── Ribbon: single-row sticky header ── */
+.ribbon{display:flex;align-items:center;padding:0 18px;height:52px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring);position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(20,30,60,.04)}
+.ribbon-inner{display:flex;align-items:center;width:100%;max-width:900px;margin:0 auto;gap:6px;height:100%}
+.ribbon .brand{font-weight:700;letter-spacing:.3px;font-size:1.05rem;white-space:nowrap;margin-right:4px}
+.ribbon .brand a{color:var(--text);text-decoration:none}
+.ribbon .brand a:hover{color:var(--accent)}
+.ribbon nav{display:flex;align-items:center;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
+.ribbon nav::-webkit-scrollbar{display:none}
+.ribbon nav a{color:var(--muted);text-decoration:none;font-size:.88rem;padding:.3rem .55rem;border-radius:6px;white-space:nowrap;transition:color .15s,background .15s}
 .ribbon nav a:hover{color:var(--accent);background:rgba(59,91,219,.07)}
 .ribbon nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-/* Scroll progress bar (sits at bottom of sticky ribbon) */
-.scroll-bar{height:4px;background:rgba(0,0,0,.06);width:100%;overflow:hidden}
+/* Scroll progress bar */
+.scroll-bar{height:3px;background:rgba(0,0,0,.06);width:100%;overflow:hidden;position:absolute;bottom:0;left:0}
 .scroll-bar-fill{height:100%;width:0%;background:var(--accent2);transition:width .12s ease-out;border-radius:0 2px 2px 0}
 
-/* Niche-page header (uses .ribbon for sticky + scroll bar) */
-.ribbon .container{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;max-width:900px}
-.ribbon .site-title{font-weight:700;letter-spacing:.3px;font-size:1.05rem;margin:0}
+/* Niche-page header: site-title inherits brand style */
+.ribbon .site-title{font-weight:700;letter-spacing:.3px;font-size:1.05rem;margin:0;white-space:nowrap;margin-right:4px}
 .ribbon .site-title a{color:var(--text);text-decoration:none}
 .ribbon .site-title a:hover{color:var(--accent)}
-.ribbon .nav-ribbon{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.ribbon .nav-ribbon a{color:var(--muted);text-decoration:none;font-size:.92rem;padding:.3rem .6rem;border-radius:6px;transition:color .18s ease,background .18s ease}
+.ribbon .nav-ribbon{display:flex;align-items:center;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
+.ribbon .nav-ribbon::-webkit-scrollbar{display:none}
+.ribbon .nav-ribbon a{color:var(--muted);text-decoration:none;font-size:.88rem;padding:.3rem .55rem;border-radius:6px;white-space:nowrap;transition:color .15s,background .15s}
 .ribbon .nav-ribbon a:hover{color:var(--accent);background:rgba(59,91,219,.07)}
 
 main{max-width:900px;margin:0 auto;padding:34px 16px 50px}
