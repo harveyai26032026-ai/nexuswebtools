@@ -146,7 +146,7 @@
 
     // Attach toggle listeners for collapsible sub‑menus
     function attachToggles(){
-      var toggles = drawerObj.drawer.querySelectorAll('.drawer-toggle');
+      var toggles = drawer.querySelectorAll('.drawer-toggle');
       toggles.forEach(function(btn){
         btn.addEventListener('click',function(e){
           e.stopPropagation(); // prevent link navigation
