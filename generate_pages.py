@@ -266,6 +266,7 @@ def render_niche_page(tool_id: str, page: dict) -> str:
   <script type="application/ld+json">{json.dumps(json_ld, indent=2)}</script>
   <script type="application/ld+json">{json.dumps(breadcrumb, indent=2)}</script>
 {faq_script}  <link rel="stylesheet" href="/style.css?v=1">
+  <link rel="stylesheet" href="/nav.css">
   <style>
     .niche-hero {{ background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%); padding: 2rem 1rem; text-align: center; border-radius: 8px; margin-bottom: 1.5rem; }}
     .niche-hero h1 {{ margin: 0 0 0.5rem; color: #1a1a2e; }}
@@ -297,10 +298,18 @@ def render_niche_page(tool_id: str, page: dict) -> str:
 </head>
 <body>
   <header class="ribbon">
-    <div class="container">
+    <div class="ribbon-inner">
+      <button class="hamburger" aria-label="Open menu">
+        <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
       <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
       <nav class="nav-ribbon">
 {nav_links}      </nav>
+      <div class="ribbon-search">
+        <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        <input type="text" placeholder="Search tools…" autocomplete="off">
+      </div>
     </div>
     <div class="scroll-bar"><div class="scroll-bar-fill"></div></div>
   </header>
@@ -344,6 +353,7 @@ def render_niche_page(tool_id: str, page: dict) -> str:
     </div>
   </footer>
 <script src="/scroll-bar.js" defer></script>
+<script src="/nav.js" defer></script>
 </body>
 </html>
 """

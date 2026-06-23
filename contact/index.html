@@ -16,20 +16,29 @@
   }
   </script>
   <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/policy.css">
 </head>
 <body>
   <header class="ribbon">
-    <div class="container">
-      <h1 class="site-title"><a href="/">Nexus Web Tools</a></h1>
-      <nav class="nav-ribbon">
-        <a href="/">Home</a>
-        <a href="/">Tools</a>
-        <a href="#faq">FAQ</a>
-      </nav>
+  <div class="ribbon-inner">
+    <button class="hamburger" aria-label="Open menu">
+      <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="brand"><a href="/" style="text-decoration:none;color:inherit">🧰 Nexus Web Tools</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#tools">Tools</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="ribbon-search">
+      <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <input type="text" placeholder="Search tools…" autocomplete="off">
     </div>
-    <div class="scroll-bar"><div class="scroll-bar-fill"></div></div>
-  </header>
+  </div>
+  <div class="scroll-bar"><div class="scroll-bar-fill"></div></div>
+</header>
 
   <main class="container">
     <h1>Contact Us</h1>
@@ -64,5 +73,6 @@
     <p>&copy; 2026 Nexus Web Tools</p>
   </footer>
   <script src="/scroll-bar.js" defer></script>
+<script src="/nav.js" defer></script>
 </body>
 </html>

@@ -1,19 +1,11 @@
-/* Policy pages shared stylesheet */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #fff;
-  margin: 0;
-  padding: 0;
-}
-.container {
+/* Policy pages shared stylesheet — content & form only, ribbon handled by style.css + nav.css */
+.policy-content, .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 1rem;
 }
 h1, h2, h3 {
-  color: #1a1a2e;
+  color: var(--text);
 }
 p {
   margin-bottom: 1rem;
@@ -22,26 +14,7 @@ ul {
   margin-left: 1.5rem;
   margin-bottom: 1rem;
 }
-footer.site-footer {
-  background: #f8f9fa;
-  padding: 1rem 0;
-  text-align: center;
-  font-size: 0.9rem;
-}
-nav.nav-ribbon {
-  background: #3b5bdb;
-  padding: 0.5rem;
-  text-align: center;
-}
-nav.nav-ribbon a {
-  color: #fff;
-  margin: 0 0.5rem;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav.nav-ribbon a:hover {
-  text-decoration: underline;
-}
+/* Form styling */
 form {
   display: flex;
   flex-direction: column;
@@ -52,19 +25,27 @@ label {
 }
 input, textarea, select {
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
   font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
 }
-button {
-  background: #3b5bdb;
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+button[type="submit"] {
+  background: var(--accent);
   color: #fff;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: 600;
+  transition: background .15s ease;
 }
-button:hover {
+button[type="submit"]:hover {
   background: #2b4bc8;
 }
