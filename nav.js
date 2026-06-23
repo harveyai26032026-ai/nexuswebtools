@@ -180,8 +180,13 @@
   // Hamburger toggle
   var btn = document.querySelector('.hamburger');
   if (btn) btn.addEventListener('click', function() {
-    if (drawerObj && drawerObj.drawer.classList.contains('open')) close();
-    else open();
+    if (drawerObj && drawerObj.drawer.classList.contains('open')) {
+      close();
+      btn.classList.remove('open');
+    } else {
+      open();
+      btn.classList.add('open');
+    }
   });
 
   /* ─── Search ─── */
