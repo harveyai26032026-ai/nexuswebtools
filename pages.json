@@ -2229,6 +2229,10 @@
         {
           "heading": "Tax-Efficient Investing",
           "text": "The mutual fund calculator can help you estimate the impact of taxes on your investment returns by allowing you to enter your marginal tax rate. This can be particularly useful for investors in higher tax brackets, as it allows them to see how their investments will grow over time after factoring in taxes."
+        },
+        {
+          "heading": "Other Useful Applications",
+          "text": "The mutual fund calculator can also be used for other investment-related calculations, such as estimating the impact of inflation on your investments or calculating the potential returns of a diversified portfolio. For example, you could use the calculator to estimate how much your investment portfolio could grow over a set period of time if you added a new investment each year, or how much you could save in taxes by investing in a tax-advantaged account."
         }
       ],
       "faqs": [
@@ -2275,6 +2279,14 @@
         {
           "q": "How does the mutual fund calculator handle dividends when calculating returns?",
           "a": "The calculator assumes that any dividends received are reinvested in the mutual fund, and this is reflected in the calculated returns."
+        },
+        {
+          "q": "Can I use the mutual fund calculator to estimate the impact of investment minimums on my returns?",
+          "a": "Yes, the mutual fund calculator can help you estimate the impact of investment minimums on your returns."
+        },
+        {
+          "q": "How does the mutual fund calculator handle exchange-traded funds (ETFs) when calculating returns?",
+          "a": "The mutual fund calculator can handle ETFs by calculating their returns based on the underlying asset prices."
         }
       ]
     },
