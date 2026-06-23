@@ -2160,6 +2160,14 @@
         {
           "q": "What if I want to invest a lump sum?",
           "a": "The bond calculator can also help you calculate the total amount you need to invest to reach your target amount. Simply enter the lump sum amount and the duration of the bond in the calculator, and it will give you an estimate of the interest you can earn."
+        },
+        {
+          "q": "What if I want to sell my bond before maturity?",
+          "a": "The bond calculator can help you determine the potential impact of selling your bond before maturity. Keep in mind that selling a bond before maturity may result in a loss of principal or a lower return than expected."
+        },
+        {
+          "q": "Can I use the bond calculator to compare different bonds?",
+          "a": "Yes, you can use the bond calculator to compare different bonds by entering the relevant details for each bond. This can help you make an informed decision about which bond to invest in."
         }
       ]
     },
@@ -2475,6 +2483,18 @@
         {
           "heading": "Other Applications of the Calculator",
           "text": "The real estate calculator can also be used for other purposes, such as estimating the potential return on investment for a fixer-upper property or comparing the cost of renting versus buying a home. By inputting different numbers and scenarios, users can get a better understanding of their financial situation and make more informed decisions."
+        },
+        {
+          "heading": "Other Applications",
+          "text": "The real estate calculator can also be used for other applications such as estimating the value of a portfolio of rental properties or calculating the potential return on investment for a real estate investment. By entering the details of multiple properties or investments, the calculator can provide a comprehensive analysis of your real estate holdings and help you make informed decisions about your investment strategy."
+        },
+        {
+          "heading": "Calculating the value of a property with unique features",
+          "text": "The calculator can accommodate properties with custom features such as a private movie theater or a swimming pool. Simply enter the details of your property's unique features and the calculator will provide an accurate estimate of its value."
+        },
+        {
+          "heading": "Estimating the Value of a Property Before Construction",
+          "text": "The calculator can be used to estimate the potential value of a property before it is built, based on factors such as location, zoning laws, and market conditions."
         }
       ],
       "faqs": [
@@ -2505,6 +2525,30 @@
         {
           "q": "How does the calculator take into account the impact of inflation on real estate values?",
           "a": "The calculator uses historical data on inflation rates to estimate how much an investment property's value may increase or decrease over time. However, it's important to note that inflation can have a significant impact on long-term real estate investments."
+        },
+        {
+          "q": "Can I use the calculator to estimate the value of a property that is not yet built?",
+          "a": "Yes, you can use the calculator to estimate the value of a property that is still in the planning or construction phase. Simply enter the estimated completion date and the calculator will take into account the time value of money."
+        },
+        {
+          "q": "How do I account for closing costs when using the calculator?",
+          "a": "Closing costs can be added to the purchase price of the property in the calculator. This will give you a more accurate estimate of the total cost of the property, including both the purchase price and the closing costs."
+        },
+        {
+          "q": "What are the potential risks involved in investing in real estate?",
+          "a": "The calculator takes into account potential risks such as market fluctuations, property damage, and vacancy rates."
+        },
+        {
+          "q": "How do I determine the optimal time to sell a rental property?",
+          "a": "The calculator can help you determine the best time to sell based on current market conditions and your investment goals."
+        },
+        {
+          "q": "What are the potential returns on investment for a real estate investment?",
+          "a": "The calculator can provide estimates of potential returns on investment based on factors such as location, property type, and market conditions."
+        },
+        {
+          "q": "How do I account for maintenance and repair costs when using the calculator?",
+          "a": "The calculator allows you to enter maintenance and repair costs separately or as a percentage of the property's value."
         }
       ]
     },
@@ -2562,19 +2606,24 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Business Loan planning",
-            "text": "Use the tool to plan how business loan fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Business Loan optimization",
-            "text": "Compare alternative rates and frequencies for business loan to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Examples of Business Loan Uses",
+          "text": "Some common uses for business loans include financing inventory purchases, covering operating expenses during slow periods, and investing in marketing campaigns. With a business loan calculator, you can determine how much you may be able to borrow for these purposes and what your monthly payments could be."
+        },
+        {
+          "heading": "Loan Amount and Term Length",
+          "text": "Our business loan calculator can help you determine the appropriate loan amount and term length based on your business's financial projections and cash flow. For example, if you project $100,000 in revenue for the next year and want to borrow $50,000, our calculator can help you determine a suitable loan amount and repayment term of 2-3 years."
+        },
+        {
+          "heading": "Loan-to-Value (LTV) Ratio",
+          "text": "A business loan calculator can help you determine your loan-to-value (LTV) ratio by analyzing the value of your business and the amount borrowed. This information can be useful in determining your eligibility for a loan and the interest rate you may qualify for."
+        },
+        {
+          "heading": "Other Financing Options",
+          "text": "In addition to business loans, there are other financing options available for businesses. For example, you may be eligible for a line of credit or a small business administration (SBA) loan. A business loan calculator can help you determine which financing option is best for your business based on your financial situation and goals."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $25,000 grow to at 6.5% per annum over 2 years for business loan?",
@@ -2593,6 +2642,32 @@
         {
           "slug": "business-loan",
           "name": "Business Loan Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use a business loan calculator to determine how much I can borrow?",
+          "a": "Yes, a business loan calculator can help you determine how much you can borrow based on your business's financial information and other factors such as your credit score and cash flow."
+        },
+        {
+          "q": "How do I know if I qualify for a business loan?",
+          "a": "To determine if you qualify for a business loan, lenders typically consider factors such as your credit score, cash flow, debt-to-income ratio, and the purpose of the loan. You can use a business loan calculator to get an estimate of how much you may be able to borrow and what interest rate you may qualify for."
+        },
+        {
+          "q": "Can I use a business loan calculator to determine my loan-to-value ratio?",
+          "a": "Yes, our business loan calculator can help you determine your loan-to-value ratio based on the value of your business and the amount you want to borrow."
+        },
+        {
+          "q": "How do I know if my business is eligible for a loan from this lender?",
+          "a": "Our lender has specific eligibility criteria for business loans, including minimum revenue requirements and a good credit history. You can check your eligibility by providing some basic information on our calculator."
+        },
+        {
+          "q": "Can I use a business loan calculator to determine my loan term?",
+          "a": "Yes, a business loan calculator can help you determine the loan term based on your desired repayment period and the amount borrowed."
+        },
+        {
+          "q": "How do I know if my business has enough collateral for a loan?",
+          "a": "A business loan calculator can help you determine if your business has enough collateral by analyzing your assets and liabilities. However, it's important to note that lenders may have different requirements and criteria for determining collateral."
         }
       ]
     },
@@ -2650,19 +2725,24 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Monthly planning",
-            "text": "Use the tool to plan how monthly fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Monthly optimization",
-            "text": "Compare alternative rates and frequencies for monthly to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Maximizing Retirement Savings",
+          "text": "Use compound interest to grow your retirement savings over time. Our calculator can help you determine how much you need to save each month to reach your retirement goals."
+        },
+        {
+          "heading": "Real-World Examples of Compound Interest in Action",
+          "text": "For example, if you invest $10,000 and earn an average annual return of 7%, after 30 years the value of your investment will be over $50,000. This is due to the compounding effect of interest over time."
+        },
+        {
+          "heading": "Examples of Compound Interest in Financial Planning",
+          "text": "For example, let's say you have $10,000 to invest and you expect to earn 5% interest per year. After 10 years, you would have earned $6,479 in interest, bringing your total balance to $16,479. However, if you leave the money invested for another 10 years, you could potentially earn an additional $3,852 in interest, bringing your total balance to $20,331. This is just one example of how compound interest can help your investments grow over time."
+        },
+        {
+          "heading": "How does compound interest affect my investment goals?",
+          "text": "Compound interest can have a significant impact on the growth of your investments over time. For example, if you invest $10,000 at an annual rate of 5% for 30 years, you could have over $30,000 in savings. However, if you wait another 10 years to start saving, the total amount saved could be over $60,000 due to the power of compounding."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $26,000 grow to at 6.7% per annum over 3 years for monthly?",
@@ -2681,6 +2761,32 @@
         {
           "slug": "monthly",
           "name": "Monthly Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "How does compound interest work for different investment horizons?",
+          "a": "Use our calculator to see how the power of compounding can grow your savings over time, from short-term goals to long-term retirement."
+        },
+        {
+          "q": "What are some common ways to use compound interest in financial planning?",
+          "a": "Compound interest can help you save for a down payment on a house, fund a child's education, or build a retirement nest egg. Use our calculator to explore these and other applications."
+        },
+        {
+          "q": "How does compound interest affect my investment goals?",
+          "a": "Understanding the power of compound interest can help you make informed decisions about your investments and achieve your financial objectives."
+        },
+        {
+          "q": "Can I use compound interest to save for retirement?",
+          "a": "Yes, compound interest can be a powerful tool for building retirement savings over time."
+        },
+        {
+          "q": "How does compound interest affect my investment goals if I have a variable income?",
+          "a": "Compound interest can still have a significant impact on your investment goals even with a variable income. By understanding how to manage your investments and adjusting your strategy based on your income, you can still make the most of compound interest."
+        },
+        {
+          "q": "Can I use compound interest to save for multiple goals at once?",
+          "a": "Yes, you can use compound interest to save for multiple financial goals simultaneously. By using a multi-goal savings strategy and taking advantage of compound interest, you can reach your goals faster."
         }
       ]
     },
@@ -2738,19 +2844,20 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Daily planning",
-            "text": "Use the tool to plan how daily fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Daily optimization",
-            "text": "Compare alternative rates and frequencies for daily to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Example 1: Calculating the Cost of a Car Loan",
+          "text": "Assume you want to buy a car worth $20,000 with a down payment of $3,000 and a 5-year loan term. If the interest rate is 6%, the total cost of the loan including interest and fees would be approximately $24,781. This calculation can help you plan your budget and make informed financial decisions."
+        },
+        {
+          "heading": "Example Use Cases",
+          "text": "Here are a few examples of how you can use the compound interest calculator: 1. Calculate the growth of your retirement savings over time, taking into account regular contributions and investment returns. 2. Determine the total cost of a loan, including interest payments and fees, to help you make informed financial decisions. 3. Estimate the future value of an investment portfolio, considering both the initial investment and any ongoing contributions or dividends."
+        },
+        {
+          "heading": "Real World Examples",
+          "text": "For example, let's say you have a $200,000 mortgage with an interest rate of 4% and a 30-year term. Using the compound interest calculator, you can see that over the life of the loan, you will pay a total of $167,859 in interest. This can help you better understand the financial implications of your mortgage decision."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $27,000 grow to at 6.9% per annum over 4 years for daily?",
@@ -2769,6 +2876,32 @@
         {
           "slug": "daily",
           "name": "Daily Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the compound interest calculator for a loan?",
+          "a": "Yes, you can use the compound interest calculator to calculate the total cost of a loan over time, including interest and fees."
+        },
+        {
+          "q": "How does the compound interest calculator handle inflation?",
+          "a": "The compound interest calculator assumes that the inflation rate is constant over the entire period of the loan. If you want to account for changing inflation rates, please let us know and we can provide an updated calculation."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a savings account?",
+          "a": "Yes, you can use the compound interest calculator to calculate the growth of a savings account over time."
+        },
+        {
+          "q": "How does the compound interest calculator handle different interest periods?",
+          "a": "The calculator allows you to enter the interest period in years or months, and it will automatically convert it to the corresponding number of payments."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a mortgage?",
+          "a": "Yes, you can use the compound interest calculator to calculate the total interest paid on a mortgage over its lifetime."
+        },
+        {
+          "q": "How does the compound interest calculator handle different types of investments?",
+          "a": "The compound interest calculator can handle a variety of investment types, including stocks, bonds, and mutual funds. Simply enter the appropriate interest rate and time period for your investment."
         }
       ]
     },
@@ -2826,19 +2959,16 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Quarterly planning",
-            "text": "Use the tool to plan how quarterly fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Quarterly optimization",
-            "text": "Compare alternative rates and frequencies for quarterly to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Example Use Case: Retirement Planning",
+          "text": "Use the compound interest calculator to estimate how much you need to save each month for retirement based on your desired retirement income and life expectancy. This can help you create a realistic savings plan and avoid running out of money in retirement."
+        },
+        {
+          "heading": "Retirement Planning",
+          "text": "Use the compound interest calculator to estimate the future value of your retirement savings account based on regular contributions and a growth rate that takes into account inflation and market fluctuations. This can help you plan for a comfortable retirement and make informed decisions about when to start drawing from your savings."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $28,000 grow to at 7.1% per annum over 5 years for quarterly?",
@@ -2857,6 +2987,24 @@
         {
           "slug": "quarterly",
           "name": "Quarterly Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the compound interest calculator for a loan?",
+          "a": "Yes, you can use the compound interest calculator to calculate the total cost of a loan over time, including interest and fees."
+        },
+        {
+          "q": "How does the compound interest calculator handle inflation?",
+          "a": "The compound interest calculator assumes that the interest rate is fixed and does not account for inflation. If you need to calculate the present value of a future amount in today's dollars, you can use an inflation calculator instead."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a savings account?",
+          "a": "Yes, you can use the compound interest calculator to calculate the growth of a savings account over time."
+        },
+        {
+          "q": "How does the compound interest calculator handle different interest periods?",
+          "a": "The compound interest calculator allows you to select the interest period that best fits your needs, whether it's monthly, quarterly, or annually."
         }
       ]
     },
@@ -2914,19 +3062,20 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Annually planning",
-            "text": "Use the tool to plan how annually fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Annually optimization",
-            "text": "Compare alternative rates and frequencies for annually to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Example Application: Retirement Savings",
+          "text": "Use the compound interest calculator to estimate how much you need to save each month for retirement. Enter your current age, desired retirement age, and expected annual returns, and the calculator will show you how much you need to save to reach your retirement goals."
+        },
+        {
+          "heading": "Retirement Planning",
+          "text": "Use the compound interest calculator to estimate the future value of your retirement savings based on regular contributions and a growth rate. This can help you determine how much you need to save each month to reach your retirement goals."
+        },
+        {
+          "heading": "Real Estate Investments",
+          "text": "The compound interest calculator can help real estate investors estimate the future value of their rental properties based on expected rent increases and property appreciation. For example, if you have a rental property that appreciates in value by 3% per year and the rent increases by 2% per year, you can use the calculator to see how much the property's value will grow over time."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $29,000 grow to at 7.3% per annum over 6 years for annually?",
@@ -2945,6 +3094,32 @@
         {
           "slug": "annually",
           "name": "Annually Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the compound interest calculator for a loan?",
+          "a": "Yes, you can use the compound interest calculator to calculate the total cost of a loan over time, including interest and fees."
+        },
+        {
+          "q": "How do I calculate the future value of an investment using the compound interest calculator?",
+          "a": "To calculate the future value of an investment using the compound interest calculator, enter the initial amount, interest rate, and time period, and the calculator will display the future value."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a mortgage?",
+          "a": "Yes, you can use the compound interest calculator to calculate the total interest paid on a mortgage over its term."
+        },
+        {
+          "q": "How do I calculate the present value of an investment using the compound interest calculator?",
+          "a": "To calculate the present value of an investment using the compound interest calculator, enter the initial investment amount, the interest rate, and the number of years in the calculator."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a retirement savings plan?",
+          "a": "Yes, you can use the compound interest calculator to estimate the future value of your retirement savings based on regular contributions and expected returns."
+        },
+        {
+          "q": "How do I calculate the present value of an investment using the compound interest calculator if the investment is in a tax-deferred account?",
+          "a": "To calculate the present value of an investment in a tax-deferred account using the compound interest calculator, you will need to subtract any taxes that would be due on the investment's earnings."
         }
       ]
     },
@@ -3002,19 +3177,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Continuous planning",
-            "text": "Use the tool to plan how continuous fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Continuous optimization",
-            "text": "Compare alternative rates and frequencies for continuous to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Example Use Case: Comparing Loan Options",
+          "text": "Use the continuous calculator to compare the total cost of different loan options over time. For example, you could input the terms for a 5-year and a 10-year loan with different interest rates and see which one is more expensive in the long run."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $30,000 grow to at 7.5% per annum over 2 years for continuous?",
@@ -3033,6 +3201,16 @@
         {
           "slug": "continuous",
           "name": "Continuous Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the continuous calculator for more than one loan or investment at a time?",
+          "a": "Yes, you can input multiple loans or investments into the continuous calculator and it will calculate the compound interest for each of them separately."
+        },
+        {
+          "q": "How does the continuous calculator handle different interest rates for different periods?",
+          "a": "The continuous calculator allows you to specify different interest rates for different periods, and it will calculate the compound interest based on these rates."
         }
       ]
     },

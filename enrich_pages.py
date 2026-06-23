@@ -5,8 +5,8 @@ Zero token cost — runs entirely on local hardware.
 
 Usage:
   python3 enrich_pages.py [--model MODEL] [--batch N] [--dry-run]
-  
-Defaults: model=gemma4, batch=5 (process 5 pages per run)
+
+Defaults: model=llama2:7b, batch=5 (process 5 pages per run)
 """
 import json, subprocess, sys, re, time, os
 from pathlib import Path
@@ -22,7 +22,7 @@ def run_ollama(prompt: str, model: str = MODEL, timeout: int = 180) -> str:
         "model": model,
         "prompt": prompt,
         "stream": False,
-        "options": {"num_predict": 1024, "temperature": 0.7}
+        "options": {"num_predict": 4096, "temperature": 0.3}
     }).encode()
     req = urllib.request.Request(
         "http://localhost:11434/api/generate",
@@ -32,10 +32,15 @@ def run_ollama(prompt: str, model: str = MODEL, timeout: int = 180) -> str:
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         result = json.loads(resp.read().decode())
     text = result.get("response", "").strip()
-    # Strip <think>...</think> blocks (some models emit them)
-    text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL).strip()
+    # Strip ``` blocks (some models emit them)
+    text = re.sub(r'```.*?```', '', text, flags=re.DOTALL).strip()
     # Strip "Thinking...\n...\n...done thinking." blocks
     text = re.sub(r'Thinking\.\.\..*?done thinking\.', '', text, flags=re.DOTALL).strip()
+    # Strip leading conversational text ("Here is the..." etc.) by truncating
+    # everything before the first '{' if present.
+    json_start = text.find('{')
+    if json_start > 0:
+        text = text[json_start:]
     return text
 
 def build_prompt(page: dict, tool_type: str) -> str:
@@ -44,13 +49,14 @@ def build_prompt(page: dict, tool_type: str) -> str:
     intro = page.get('intro', '')
     existing_faqs = page.get('faq', [])
     existing_q = [f['q'] for f in existing_faqs] if existing_faqs else []
-    
+
     prompt = f"""You are an SEO content writer. For the page "{title}" ({tool_type} tool), generate:
-1. Two additional FAQ questions and answers (under 80 words each) that are NOT already covered by these existing questions: {json.dumps(existing_q)}
+1. Two additional FAQ questions and answers (under 60 words each) that are NOT already covered by these existing questions: {json.dumps(existing_q)}
 2. One additional "Applications" subsection (heading + 2-3 sentences with specific numbers/examples)
 
-Reply ONLY with valid JSON in this exact format, no other text:
-{{"extra_faq": [{{"q": "question", "a": "answer"}}, {{"q": "question", "a": "answer"}}], "extra_application": {{"heading": "heading text", "text": "paragraph with specific numbers and examples"}}}}"""
+Output ONLY raw JSON, no markdown, no explanation, no preamble. Start with {{ and end with }}.
+Format: {{"extra_faq": [{{"q": "...", "a": "..."}}, {{"q": "...", "a": "..."}}], "extra_application": {{"heading": "...", "text": "..."}}}}
+"""
     return prompt
 
 def parse_response(text: str) -> dict | None:
@@ -67,12 +73,12 @@ def parse_response(text: str) -> dict | None:
 def enrich_page(page: dict, tool_type: str, model: str, dry_run: bool) -> bool:
     """Enrich a single page with additional content. Returns True if updated."""
     prompt = build_prompt(page, tool_type)
-    
+
     if dry_run:
         print(f"  [DRY-RUN] Would prompt for: {page['slug']}")
         print(f"  Prompt preview: {prompt[:120]}...")
         return False
-    
+
     try:
         response = run_ollama(prompt, model)
     except subprocess.TimeoutExpired:
@@ -81,15 +87,15 @@ def enrich_page(page: dict, tool_type: str, model: str, dry_run: bool) -> bool:
     except Exception as e:
         print(f"  ❌ Error for {page['slug']}: {e}")
         return False
-    
+
     parsed = parse_response(response)
     if not parsed:
         print(f"  ⚠️ Could not parse response for {page['slug']}")
         print(f"  Raw: {response[:200]}")
         return False
-    
+
     updated = False
-    
+
     # Add extra FAQs
     extra_faq = parsed.get('extra_faq', [])
     if extra_faq and isinstance(extra_faq, list):
@@ -102,7 +108,7 @@ def enrich_page(page: dict, tool_type: str, model: str, dry_run: bool) -> bool:
                 if fq['q'].lower().strip() not in existing_q:
                     page['faq'].append(fq)
                     updated = True
-    
+
     # Add extra application
     extra_app = parsed.get('extra_application')
     if extra_app and isinstance(extra_app, dict) and 'heading' in extra_app and 'text' in extra_app:
@@ -112,12 +118,12 @@ def enrich_page(page: dict, tool_type: str, model: str, dry_run: bool) -> bool:
         if extra_app['heading'].lower().strip() not in existing_headings:
             page['applications'].append(extra_app)
             updated = True
-    
+
     if updated:
         print(f"  ✅ Enriched: {page['slug']} (+{len(extra_faq)} FAQ, +1 app)")
     else:
         print(f"  ⏭️ No new content for: {page['slug']}")
-    
+
     return updated
 
 def main():
@@ -128,13 +134,13 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Show what would be done")
     parser.add_argument("--tool", choices=["compound-interest", "unit-converter", "s-curve"], help="Only process one tool type")
     args = parser.parse_args()
-    
+
     if not PAGES_JSON.exists():
         print(f"❌ {PAGES_JSON} not found")
         sys.exit(1)
-    
+
     data = json.load(open(PAGES_JSON))
-    
+
     # Build work queue: (tool_id, page_index, page)
     queue = []
     for tool_id, pages in data.items():
@@ -147,27 +153,27 @@ def main():
             if n_faq >= 5 and n_app >= 4:
                 continue
             queue.append((tool_id, i, page))
-    
+
     if not queue:
         print("All pages already enriched! Nothing to do.")
         return
-    
+
     # Process up to batch size
     to_process = queue[:args.batch]
     print(f"📋 Processing {len(to_process)} of {len(queue)} remaining pages (model={args.model})")
-    
+
     updated_count = 0
     for tool_id, idx, page in to_process:
         print(f"\n🔍 [{tool_id}] {page['slug']}")
         if enrich_page(page, tool_id, args.model, args.dry_run):
             updated_count += 1
         time.sleep(1)  # Gentle pacing
-    
+
     # Save updated pages.json
     if updated_count > 0 and not args.dry_run:
         json.dump(data, open(PAGES_JSON, 'w'), indent=2, ensure_ascii=False)
         print(f"\n💾 Saved {updated_count} updates to pages.json")
-        
+
         # Regenerate HTML
         gen_script = Path(__file__).parent / "generate_pages.py"
         if gen_script.exists():
