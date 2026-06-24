@@ -3626,6 +3626,10 @@
         {
           "heading": "Example Application: Non-Traditional Retirement Age",
           "text": "For example, let's say you want to retire at the age of 50. If you enter a retirement age of 50 and a life expectancy of 85 years old, the calculator will show you how much you need to save each month to reach your retirement goal. The results will take into account the longer time frame and lower expected returns due to the non-traditional retirement age."
+        },
+        {
+          "heading": "Expected Return on Investments",
+          "text": "You can use the calculator to estimate your expected return on investments by entering a percentage. For example, if you expect to earn an average annual return of 7%, enter '7%' in the 'Expected Return' field. The calculator will then provide an estimate of how much your retirement savings can grow over time."
         }
       ],
       "faqs": [
