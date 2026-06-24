@@ -3729,6 +3729,10 @@
         {
           "heading": "Accounting for Inflation",
           "text": "The education fund calculator takes into account the effects of inflation on the estimated cost of education. This means that as time passes and your child grows older, the cost of education is expected to increase due to inflation. By accounting for this, you can better plan and prepare for the future costs of educating your child."
+        },
+        {
+          "heading": "Examples of How to Use the Calculator for Multiple Children",
+          "text": "For example, if you have two children, one entering kindergarten and the other entering 9th grade, you can use the calculator to estimate the total cost of their educations over the next 18 years. You can also adjust the calculator's estimates based on your children's desired majors or fields of study."
         }
       ],
       "faqs": [
@@ -3824,19 +3828,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Emergency Fund planning",
-            "text": "Use the tool to plan how emergency fund fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Emergency Fund optimization",
-            "text": "Compare alternative rates and frequencies for emergency fund to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "How much should I save for unexpected expenses?",
+          "text": "Consider saving 3-6 months' worth of living expenses in an easily accessible savings account, such as a high-yield savings account or a money market fund. This will provide a cushion for unexpected expenses, such as car repairs or medical bills, without sacrificing your long-term financial goals."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $35,000 grow to at 8.5% per annum over 2 years for emergency fund?",
@@ -3855,6 +3852,16 @@
         {
           "slug": "emergency-fund",
           "name": "Emergency Fund Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What if I have multiple sources of income? Can I include them all in my emergency fund calculator?",
+          "a": "Yes, you can enter multiple sources of income on the calculator. Simply provide the total amount of each source and the calculator will automatically calculate the total emergency fund needed."
+        },
+        {
+          "q": "I'm self-employed and have irregular income. How do I use the emergency fund calculator?",
+          "a": "For irregular income, you can enter the average monthly income over the past year and the calculator will assume a consistent level of income. Alternatively, you can enter your actual income for the past year and the calculator will calculate the total emergency fund needed based on that."
         }
       ]
     },
