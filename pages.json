@@ -3261,6 +3261,10 @@
         {
           "heading": "Using the continuous calculator for portfolio management",
           "text": "You can use the continuous calculator to manage your investment portfolio by comparing the performance of different assets, such as stocks, bonds, and mutual funds. By inputting the initial investment amount, time horizon, and expected returns for each asset, the calculator will show you how much each asset is expected to grow over time, and which ones are likely to be the most profitable."
+        },
+        {
+          "heading": "Example 1: Calculating Compound Interest for Multiple Loans",
+          "text": "For example, let's say you have two loans, one with an interest rate of 5% and a term of 5 years, and the other with an interest rate of 8% and a term of 7 years. Using the continuous calculator, you can enter both loans simultaneously and see how much interest you will owe for each loan over their respective terms. This can help you better understand your overall financial situation and make more informed decisions about managing your debt."
         }
       ],
       "faqs": [
@@ -3618,6 +3622,10 @@
         {
           "heading": "Expected Returns on Investments",
           "text": "The early retirement calculator can help you estimate your expected returns on investments based on historical data and industry averages. This information can be used to inform your investment strategy and ensure that you're on track to meet your retirement savings goals."
+        },
+        {
+          "heading": "Example Application: Non-Traditional Retirement Age",
+          "text": "For example, let's say you want to retire at the age of 50. If you enter a retirement age of 50 and a life expectancy of 85 years old, the calculator will show you how much you need to save each month to reach your retirement goal. The results will take into account the longer time frame and lower expected returns due to the non-traditional retirement age."
         }
       ],
       "faqs": [
