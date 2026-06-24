@@ -3677,6 +3677,10 @@
         {
           "heading": "Example Calculation for Multiple Children",
           "text": "For example, if you have two children, ages 5 and 8, and you want to save $10,000 each for their college education, you'll need to save $20,000 total. With a 5% interest rate, it will take approximately 17 years to reach your goal if you start saving now. However, if you wait until your children are 10 and 13 years old, it will take over 20 years to reach your goal."
+        },
+        {
+          "heading": "Planning for Special Education Needs",
+          "text": "The education fund calculator can also help you plan for special education needs, such as therapy sessions or personalized tutoring. Please provide details on the specific services required and their estimated cost to get an accurate estimate."
         }
       ],
       "faqs": [
@@ -3707,6 +3711,14 @@
         {
           "q": "How do I know if my child will attend college?",
           "a": "We assume that your child will attend college unless you specify otherwise. If your child doesn't plan to attend college, please let us know and we can adjust the calculation accordingly."
+        },
+        {
+          "q": "What if my child chooses not to attend college?",
+          "a": "The calculator will still provide an estimate of the education fund needed, based on your inputted assumptions."
+        },
+        {
+          "q": "How do I account for inflation in my calculations?",
+          "a": "You can adjust the calculator's settings to include an inflation factor, which will help you account for rising costs over time."
         }
       ]
     },
