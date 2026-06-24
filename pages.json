@@ -2856,6 +2856,10 @@
         {
           "heading": "Real World Examples",
           "text": "For example, let's say you have a $200,000 mortgage with an interest rate of 4% and a 30-year term. Using the compound interest calculator, you can see that over the life of the loan, you will pay a total of $167,859 in interest. This can help you better understand the financial implications of your mortgage decision."
+        },
+        {
+          "heading": "Examples of Compound Interest Calculator Applications",
+          "text": "Here are some examples of how you can use the compound interest calculator: 1. To determine the total cost of a loan, including interest charges, over a specific repayment period. 2. To compare the long-term financial impact of different investment strategies, such as saving vs. investing in the stock market. 3. To calculate the future value of a retirement account or other long-term investment, and to determine how much you need to save each month to reach your retirement goals."
         }
       ],
       "faqs": [
@@ -2910,6 +2914,14 @@
         {
           "q": "How does the compound interest calculator handle different investment strategies?",
           "a": "The compound interest calculator can handle a variety of investment strategies, including dollar-cost averaging and lump-sum investing."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a business loan?",
+          "a": "Yes, you can use the compound interest calculator for a business loan by entering the loan amount, interest rate, and repayment term. The calculator will show you how much the loan will cost over time, including the total interest paid."
+        },
+        {
+          "q": "How does the compound interest calculator handle different inflation rates?",
+          "a": "The compound interest calculator allows you to enter an inflation rate as a percentage. The calculator will then adjust the principal and interest amounts based on the inflation rate, so you can see how much your investment or loan will be worth over time in real terms."
         }
       ]
     },
@@ -2979,6 +2991,10 @@
         {
           "heading": "Real World Examples",
           "text": "For example, let's say you have $10,000 in a retirement account and you contribute $2,000 per year. Using the compound interest calculator, you can see how much your savings could grow over 20 years if you earn an average annual return of 7% and inflation is 3%. The result: your savings could grow to over $50,000 by the end of the 20-year period."
+        },
+        {
+          "heading": "Example Calculation for a Retirement Account",
+          "text": "Assume you have a retirement account with an initial balance of $10,000, and you contribute $5,000 per year. If the account earns 6% interest per year, compounded annually, how much will it be worth in 20 years? Using the compound interest calculator, we can see that the account will be worth approximately $137,000 after 20 years."
         }
       ],
       "faqs": [
@@ -3025,6 +3041,14 @@
         {
           "q": "How does the compound interest calculator handle different investment options?",
           "a": "The calculator allows you to enter different investment returns and inflation rates, so you can see how different investment strategies would impact your savings over time."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a mortgage?",
+          "a": "Yes, you can use the compound interest calculator to calculate the total interest paid on a mortgage over its term."
+        },
+        {
+          "q": "How does the compound interest calculator handle different tax rates?",
+          "a": "The compound interest calculator assumes that all interest earned is subject to the same tax rate. If you have different tax rates for different parts of your investment, please adjust the calculations accordingly."
         }
       ]
     },
@@ -3217,6 +3241,14 @@
         {
           "heading": "Comparing Multiple Investment Options",
           "text": "Use the continuous calculator to compare the total cost of different investment options over time, such as a 401(k) and an IRA. You can also use it to compare the cost of different investment strategies, such as a diversified portfolio versus a concentrated portfolio."
+        },
+        {
+          "heading": "Comparing Loan Options",
+          "text": "Use the continuous calculator to compare different loan options side-by-side, such as comparing the total cost of a car loan versus a mortgage loan. This can help you make informed decisions about which loan is best for your financial situation."
+        },
+        {
+          "heading": "Real World Examples",
+          "text": "For example, you can use the continuous calculator to compare the performance of two different investment strategies: a diversified portfolio of stocks and bonds versus a concentrated portfolio of high-growth stocks. By entering the initial investment amounts, time periods, and expected returns for each strategy, the calculator will show you how they would have performed over time."
         }
       ],
       "faqs": [
@@ -3308,19 +3340,20 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Simple Vs Compound planning",
-            "text": "Use the tool to plan how simple vs compound fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Simple Vs Compound optimization",
-            "text": "Compare alternative rates and frequencies for simple vs compound to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Retirement Planning",
+          "text": "Use the compound interest calculator to estimate how much you'll need to save for retirement based on your desired income and lifestyle. By accounting for the power of compounding, you can ensure that your savings grow significantly over time."
+        },
+        {
+          "heading": "Real World Examples",
+          "text": "For example, let's say you have $10,000 in a savings account earning an interest rate of 2% per year. If you compound the interest monthly, after one year you will have $10,200. But if you only compound the interest annually, you will have $10,400. See how the power of compounding can make a difference over time?"
+        },
+        {
+          "heading": "Example Calculations",
+          "text": "For example, let's say you have a $200,000 mortgage with an interest rate of 4% and a loan term of 30 years. Using the compound interest calculator, you can see that the total interest paid over the life of the loan is approximately $76,000. This calculation assumes that the interest rate remains constant throughout the loan term."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $31,000 grow to at 7.7% per annum over 3 years for simple vs compound?",
@@ -3339,6 +3372,32 @@
         {
           "slug": "simple-vs-compound",
           "name": "Simple Vs Compound Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the compound interest calculator for a loan?",
+          "a": "Yes, you can use the compound interest calculator to calculate the total cost of a loan, including interest and fees. Simply enter the loan amount, interest rate, and loan term to get an estimate of the total cost."
+        },
+        {
+          "q": "How does the compound interest calculator handle inflation?",
+          "a": "The compound interest calculator assumes that the inflation rate is 0%, which means that the value of money remains constant over time. If you need to account for inflation, you can use a separate inflation calculator or adjust the results manually."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a savings account?",
+          "a": "Yes, you can use the compound interest calculator for a savings account. Just enter the initial deposit amount, interest rate, and number of compounding periods to see how much your savings will grow over time."
+        },
+        {
+          "q": "How does the compound interest calculator handle different interest payment frequencies?",
+          "a": "The compound interest calculator allows you to choose from monthly, quarterly, semi-annually, and annually interest payments. Just select the payment frequency that best matches your loan or savings account."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a mortgage?",
+          "a": "Yes, you can use the compound interest calculator to calculate the total interest paid on a mortgage over its term. Please enter the loan amount, interest rate, and loan term to see the results."
+        },
+        {
+          "q": "How does the compound interest calculator handle different types of investments?",
+          "a": "The compound interest calculator can handle various types of investments, including stocks, bonds, mutual funds, and real estate. Please select the appropriate investment type and enter the relevant details to see the results."
         }
       ]
     },
@@ -3396,19 +3455,16 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Inflation Adjusted planning",
-            "text": "Use the tool to plan how inflation adjusted fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Inflation Adjusted optimization",
-            "text": "Compare alternative rates and frequencies for inflation adjusted to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Retirement Planning",
+          "text": "Using the inflation adjusted calculator can help you plan for a comfortable retirement by taking into account the impact of inflation on your savings. For example, if you expect to retire in 30 years and inflation is currently 2%, you can use this calculator to estimate how much you'll need to save each year to maintain your standard of living in retirement."
+        },
+        {
+          "heading": "Planning for Major Purchases",
+          "text": "Use the inflation-adjusted calculator to determine how much you need to save each month to cover the cost of a major purchase, such as a car or home, taking into account the expected rate of inflation. This will help you plan and budget accordingly."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $32,000 grow to at 7.9% per annum over 4 years for inflation adjusted?",
@@ -3427,6 +3483,24 @@
         {
           "slug": "inflation-adjusted",
           "name": "Inflation Adjusted Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "How does inflation affect the accuracy of my investment projections?",
+          "a": "Inflation can erode the purchasing power of your savings, making it more difficult to achieve your long-term financial goals."
+        },
+        {
+          "q": "Can I use this calculator to project the future value of my investments in real time?",
+          "a": "No, this calculator is designed to provide a rough estimate of future values based on historical data and assumptions. Real-time projections are not possible with current technology."
+        },
+        {
+          "q": "How do I account for inflation when saving for retirement?",
+          "a": "Use the inflation-adjusted calculator to determine how much you need to save each month to reach your retirement goals, taking into account the expected rate of inflation."
+        },
+        {
+          "q": "Can I use this calculator to project the future value of my investments in a non-monetary currency?",
+          "a": "Yes, the calculator can be used to project the future value of investments in any currency, not just monetary ones. Simply enter the current value and expected growth rate in the appropriate fields."
         }
       ]
     },
@@ -3484,19 +3558,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Early Retirement planning",
-            "text": "Use the tool to plan how early retirement fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Early Retirement optimization",
-            "text": "Compare alternative rates and frequencies for early retirement to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Examples of Non-Traditional Retirement Scenarios",
+          "text": "The early retirement calculator can also be used for non-traditional retirement scenarios, such as retiring early to travel the world or start a business. Enter your desired lifestyle and the calculator will provide an estimate of how much you need to save."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $33,000 grow to at 8.1% per annum over 5 years for early retirement?",
@@ -3515,6 +3582,16 @@
         {
           "slug": "early-retirement",
           "name": "Early Retirement Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the early retirement calculator for a non-traditional retirement age?",
+          "a": "Yes, you can enter any age you want to retire early. The calculator will still provide an estimate of how much you need to save based on your desired retirement lifestyle."
+        },
+        {
+          "q": "I'm not sure how to estimate my expected returns on investments. Can the calculator help with that?",
+          "a": "Yes, the calculator will provide a default expected return rate for investments, but you can also enter your own expected return rate if you have a specific investment strategy."
         }
       ]
     },
