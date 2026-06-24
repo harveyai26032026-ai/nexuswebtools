@@ -3257,6 +3257,10 @@
         {
           "heading": "Comparing Multiple Loans",
           "text": "Use the continuous calculator to compare the total cost of multiple loans side by side. Enter each loan's details separately and the calculator will display the results in a single chart, showing you which loan is the most expensive over the entire period."
+        },
+        {
+          "heading": "Using the continuous calculator for portfolio management",
+          "text": "You can use the continuous calculator to manage your investment portfolio by comparing the performance of different assets, such as stocks, bonds, and mutual funds. By inputting the initial investment amount, time horizon, and expected returns for each asset, the calculator will show you how much each asset is expected to grow over time, and which ones are likely to be the most profitable."
         }
       ],
       "faqs": [
@@ -3487,6 +3491,10 @@
         {
           "heading": "Using the Inflation Adjusted Calculator for Retirement Planning",
           "text": "The Inflation Adjusted Calculator can be a valuable tool for retirement planning. By accounting for inflation, you can ensure that your investments will maintain their purchasing power over time and provide a comfortable retirement income."
+        },
+        {
+          "heading": "Using the Inflation-Adjusted Calculator for Retirement Planning",
+          "text": "The inflation-adjusted calculator can be a valuable tool for retirement planning, as it allows you to account for the effects of inflation on your investments. By using historical inflation rates and projecting future inflation, you can get a more accurate picture of how much your investments will be worth in the future."
         }
       ],
       "faqs": [
@@ -3533,6 +3541,14 @@
         {
           "q": "Can I use this calculator to project the future value of my investments in a foreign currency?",
           "a": "Yes, you can use the calculator to project the future value of your investments in a foreign currency. Simply enter the current exchange rate and the inflation rate for the foreign currency, and the calculator will provide the future value in that currency."
+        },
+        {
+          "q": "How do I account for inflation when investing in a tax-deferred retirement account, such as a 401(k) or IRA?",
+          "a": "When using an inflation-adjusted calculator for retirement planning, it's important to consider the tax implications of inflation. Taxes can reduce the after-tax return on investments, which can affect the accuracy of your projections."
+        },
+        {
+          "q": "Can I use this calculator to project the future value of my investments in a cryptocurrency or other alternative asset?",
+          "a": "While the inflation-adjusted calculator can be used for traditional investment assets, it may not be suitable for projecting the future value of alternative assets such as cryptocurrencies. These assets are often highly volatile and can be affected by a wide range of factors beyond inflation."
         }
       ]
     },
