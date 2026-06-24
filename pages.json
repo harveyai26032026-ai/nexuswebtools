@@ -3253,6 +3253,10 @@
         {
           "heading": "Example Applications",
           "text": "For example, you could use the continuous calculator to compare the costs of different car loan options with varying interest rates and repayment terms. Or, you could use it to evaluate the potential returns of different investment strategies, such as a diversified portfolio versus a concentrated portfolio."
+        },
+        {
+          "heading": "Comparing Multiple Loans",
+          "text": "Use the continuous calculator to compare the total cost of multiple loans side by side. Enter each loan's details separately and the calculator will display the results in a single chart, showing you which loan is the most expensive over the entire period."
         }
       ],
       "faqs": [
@@ -3479,6 +3483,10 @@
         {
           "heading": "Planning for Major Purchases",
           "text": "Use the inflation-adjusted calculator to determine how much you need to save each month to cover the cost of a major purchase, such as a car or home, taking into account the expected rate of inflation. This will help you plan and budget accordingly."
+        },
+        {
+          "heading": "Using the Inflation Adjusted Calculator for Retirement Planning",
+          "text": "The Inflation Adjusted Calculator can be a valuable tool for retirement planning. By accounting for inflation, you can ensure that your investments will maintain their purchasing power over time and provide a comfortable retirement income."
         }
       ],
       "faqs": [
@@ -3517,6 +3525,14 @@
         {
           "q": "Can I use this calculator to project the future value of my investments in a non-monetary currency?",
           "a": "Yes, the calculator can be used to project the future value of investments in any currency, not just monetary ones. Simply enter the current value and expected growth rate in the appropriate fields."
+        },
+        {
+          "q": "How do I account for inflation when investing in alternative assets, such as real estate or collectibles?",
+          "a": "Accounting for inflation when investing in alternative assets can be more complex than with traditional investments. You may need to consider factors such as the asset's expected return on investment, its liquidity, and how it will hold up against inflation over time."
+        },
+        {
+          "q": "Can I use this calculator to project the future value of my investments in a foreign currency?",
+          "a": "Yes, you can use the calculator to project the future value of your investments in a foreign currency. Simply enter the current exchange rate and the inflation rate for the foreign currency, and the calculator will provide the future value in that currency."
         }
       ]
     },
@@ -3681,6 +3697,10 @@
         {
           "heading": "Planning for Special Education Needs",
           "text": "The education fund calculator can also help you plan for special education needs, such as therapy sessions or personalized tutoring. Please provide details on the specific services required and their estimated cost to get an accurate estimate."
+        },
+        {
+          "heading": "Accounting for Inflation",
+          "text": "The education fund calculator takes into account the effects of inflation on the estimated cost of education. This means that as time passes and your child grows older, the cost of education is expected to increase due to inflation. By accounting for this, you can better plan and prepare for the future costs of educating your child."
         }
       ],
       "faqs": [
