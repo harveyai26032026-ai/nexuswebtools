@@ -3273,6 +3273,10 @@
         {
           "heading": "Example 1: Calculating Compound Interest for Multiple Loans",
           "text": "For example, let's say you have two loans, one with an interest rate of 5% and a term of 5 years, and the other with an interest rate of 8% and a term of 7 years. Using the continuous calculator, you can enter both loans simultaneously and see how much interest you will owe for each loan over their respective terms. This can help you better understand your overall financial situation and make more informed decisions about managing your debt."
+        },
+        {
+          "heading": "Comparing Multiple Loans or Investments",
+          "text": "Use the continuous calculator to compare the total cost of multiple loans or investments over time, including the impact of different interest rates and repayment schedules. This can help you make informed decisions about which loans or investments are best for your financial goals."
         }
       ],
       "faqs": [
@@ -3646,6 +3650,10 @@
         {
           "heading": "Expected Returns",
           "text": "You can enter your expected returns as a percentage of your investment portfolio, or choose to use historical data or a benchmark index. The calculator will adjust the results based on your expected returns."
+        },
+        {
+          "heading": "Example Applications",
+          "text": "For example, let's say you want to estimate how much you need to save each month to reach a non-traditional retirement age of 60. Using the calculator, you can enter your current age, desired retirement age, expected return rate on investments, and other factors to get an estimated total value of your retirement savings. The calculator will then provide a monthly savings goal to help you reach your retirement goals."
         }
       ],
       "faqs": [
@@ -3983,6 +3991,10 @@
         {
           "heading": "Using the compound interest calculator for non-traditional investments",
           "text": "The compound interest calculator can help you estimate the potential growth of your non-traditional investments, such as a small business or startup. By entering the expected returns and risk associated with your investment, you can gain valuable insights into its potential growth over time."
+        },
+        {
+          "heading": "Examples of Non-Traditional Investments",
+          "text": "You can use the compound interest calculator to evaluate the potential growth of non-traditional investments such as a small business or startup, real estate, cryptocurrency, or a self-directed IRA or 401(k). For example, if you invested $10,000 in a small business and expected an annual return of 10%, the calculator can show you how much your investment could grow over time. Or, if you have a self-directed IRA or 401(k) and want to invest in real estate, the calculator can help you determine the potential impact on your retirement savings."
         }
       ],
       "faqs": [
@@ -4094,6 +4106,10 @@
         {
           "heading": "Example: Paying Off a Car Loan",
           "text": "Let's say you have a car loan with a remaining balance of $10,000 and an interest rate of 6%. Using the debt payoff calculator, we can see that it will take approximately 3 years and 4 months to pay off the loan if you make the minimum payment each month. However, if you were to make an extra payment of $200 per month, you could pay off the loan in just over 2 years!"
+        },
+        {
+          "heading": "Example Applications",
+          "text": "For example, let's say you have two credit card debts with balances of $2,000 and $3,000, respectively. The interest rates are 18% and 21%, respectively. If you make the minimum payments on each debt, it will take you 5 years to pay off the first debt and 7 years to pay off the second debt. However, if you make an extra payment of $50 per month on the first debt, you can pay it off in just 3 years. And if you make an extra payment of $100 per month on the second debt, you can pay it off in just 4 years."
         }
       ],
       "faqs": [
