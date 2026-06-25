@@ -3630,6 +3630,10 @@
         {
           "heading": "Expected Return on Investments",
           "text": "You can use the calculator to estimate your expected return on investments by entering a percentage. For example, if you expect to earn an average annual return of 7%, enter '7%' in the 'Expected Return' field. The calculator will then provide an estimate of how much your retirement savings can grow over time."
+        },
+        {
+          "heading": "Example Use Case: Planning for Alternative Retirement",
+          "text": "For example, let's say you want to retire at 50 years old and live off your investments. You estimate that your investments will return 8% annually, and you input this information into the calculator. The calculator will show you how much you need to save each month to reach your retirement goal."
         }
       ],
       "faqs": [
@@ -3832,6 +3836,10 @@
         {
           "heading": "How much should I save for unexpected expenses?",
           "text": "Consider saving 3-6 months' worth of living expenses in an easily accessible savings account, such as a high-yield savings account or a money market fund. This will provide a cushion for unexpected expenses, such as car repairs or medical bills, without sacrificing your long-term financial goals."
+        },
+        {
+          "heading": "I'm a student with irregular income from part-time jobs",
+          "text": "As a student, you may have irregular income from part-time jobs. To use the emergency fund calculator, enter your total annual income from these jobs in the 'Other Income' field. The calculator will then adjust the results based on your income level and expenses."
         }
       ],
       "faqs": [
@@ -3862,6 +3870,14 @@
         {
           "q": "I'm self-employed and have irregular income. How do I use the emergency fund calculator?",
           "a": "For irregular income, you can enter the average monthly income over the past year and the calculator will assume a consistent level of income. Alternatively, you can enter your actual income for the past year and the calculator will calculate the total emergency fund needed based on that."
+        },
+        {
+          "q": "What if I have a side hustle or freelance work? Can I include that income in my emergency fund calculator?",
+          "a": "Yes, you can include your side hustle or freelance work income in the calculator. Simply enter the total amount earned from these sources in the 'Other Income' field."
+        },
+        {
+          "q": "I have a variable income stream from a rental property. How do I use the emergency fund calculator?",
+          "a": "To calculate your emergency fund needs for a variable income stream from a rental property, you can use the 'Annual Income' field in the calculator. Enter the average annual income from the rental property and the calculator will adjust the results accordingly."
         }
       ]
     },
