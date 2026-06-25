@@ -3856,6 +3856,10 @@
         {
           "heading": "Using the Emergency Fund Calculator for Irregular Income",
           "text": "If you have irregular income, such as self-employment income or income from a side hustle, you can use the emergency fund calculator to determine how much you need in your emergency fund. Simply enter your total income and the calculator will adjust the results accordingly."
+        },
+        {
+          "heading": "Other Income Sources",
+          "text": "If you have any other sources of income that are not included in the calculator, such as investment dividends or a pension, you can include them in the 'Other Income' field. This will help you get a more accurate estimate of your total monthly income and your emergency fund needs."
         }
       ],
       "faqs": [
@@ -3902,6 +3906,10 @@
         {
           "q": "I have a savings account that earns interest but is not part of my emergency fund. Can I include it in the calculator?",
           "a": "Yes, you can include any savings account that earns interest in your emergency fund calculator. Simply enter the total value of the account and the calculator will adjust the results accordingly."
+        },
+        {
+          "q": "What if I have a variable income stream from a rental property? How do I use the emergency fund calculator?",
+          "a": "To calculate your emergency fund needs for a variable income stream from a rental property, you can use the following formula: Emergency Fund Amount = (Annual Rental Income x 0.5) + (Monthly Rental Income x Number of Months in Emergency Fund). For example, if your annual rental income is $10,000 and your monthly rental income is $2,000, your emergency fund amount would be $6,000 ($10,000 x 0.5) + $24,000 ($2,000 x 12)."
         }
       ]
     },
