@@ -1102,6 +1102,10 @@
         {
           "heading": "Additional Applications",
           "text": "You may be able to use your car as collateral for a personal loan or apply for a co-signer to improve your chances of approval. Additionally, some lenders offer specialized loans for certain types of cars, such as classic or luxury vehicles."
+        },
+        {
+          "heading": "Other Ways to Use Your Car's Value",
+          "text": "In addition to using your car as collateral for a personal loan, there are other ways to use the value of your car. For example, you could sell your car and use the proceeds to pay off debt or make a large purchase. Alternatively, you could trade in your car when buying a new one, which can help reduce the cost of the new vehicle."
         }
       ],
       "faqs": [
@@ -1140,6 +1144,10 @@
         {
           "q": "How do I know if I'm getting a good deal on my car loan?",
           "a": "To determine if you're getting a good deal, consider factors such as the interest rate, loan term, and any fees associated with the loan. You can also compare offers from multiple lenders to find the best deal."
+        },
+        {
+          "q": "Can I use my car's value to secure a personal loan?",
+          "a": "Yes, you can use the value of your car as collateral for a personal loan. This is called a 'car title loan' or 'car equity loan.' However, keep in mind that using your car as collateral means you risk losing your vehicle if you default on the loan."
         }
       ]
     },
@@ -3737,6 +3745,10 @@
         {
           "heading": "Examples of How to Use the Calculator for Multiple Children",
           "text": "For example, if you have two children, one entering kindergarten and the other entering 9th grade, you can use the calculator to estimate the total cost of their educations over the next 18 years. You can also adjust the calculator's estimates based on your children's desired majors or fields of study."
+        },
+        {
+          "heading": "Expected College Costs",
+          "text": "Based on current trends, it's expected that the total cost of attending a 4-year public college in the United States will be around $20,000 per year in 2030. However, this number can vary depending on factors such as location and lifestyle choices."
         }
       ],
       "faqs": [
@@ -3840,6 +3852,10 @@
         {
           "heading": "I'm a student with irregular income from part-time jobs",
           "text": "As a student, you may have irregular income from part-time jobs. To use the emergency fund calculator, enter your total annual income from these jobs in the 'Other Income' field. The calculator will then adjust the results based on your income level and expenses."
+        },
+        {
+          "heading": "Using the Emergency Fund Calculator for Irregular Income",
+          "text": "If you have irregular income, such as self-employment income or income from a side hustle, you can use the emergency fund calculator to determine how much you need in your emergency fund. Simply enter your total income and the calculator will adjust the results accordingly."
         }
       ],
       "faqs": [
@@ -3878,6 +3894,14 @@
         {
           "q": "I have a variable income stream from a rental property. How do I use the emergency fund calculator?",
           "a": "To calculate your emergency fund needs for a variable income stream from a rental property, you can use the 'Annual Income' field in the calculator. Enter the average annual income from the rental property and the calculator will adjust the results accordingly."
+        },
+        {
+          "q": "What if I have a pension or retirement account? Can I include it in my emergency fund calculator?",
+          "a": "Yes, you can include the value of your pension or retirement account in your emergency fund calculator. Simply enter the total value of the account and the calculator will adjust the results accordingly."
+        },
+        {
+          "q": "I have a savings account that earns interest but is not part of my emergency fund. Can I include it in the calculator?",
+          "a": "Yes, you can include any savings account that earns interest in your emergency fund calculator. Simply enter the total value of the account and the calculator will adjust the results accordingly."
         }
       ]
     },
