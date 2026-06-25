@@ -4037,6 +4037,10 @@
         {
           "q": "Can I use the compound interest calculator for a non-traditional investment, such as a self-directed IRA or 401(k)?",
           "a": "Yes, you can use the compound interest calculator for any type of investment, including those held within tax-advantaged retirement accounts. However, keep in mind that the results may be different due to the tax implications and potential restrictions on withdrawals."
+        },
+        {
+          "q": "Can I use the compound interest calculator for a non-traditional investment, such as a peer-to-peer lending platform or a crowdfunding site?",
+          "a": "Yes, you can use the compound interest calculator for any type of investment, including non-traditional ones like peer-to-peer lending or crowdfunding. Just enter the appropriate information into the calculator."
         }
       ]
     },
