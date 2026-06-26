@@ -3277,6 +3277,10 @@
         {
           "heading": "Comparing Multiple Loans or Investments",
           "text": "Use the continuous calculator to compare the total cost of multiple loans or investments over time, including the impact of different interest rates and repayment schedules. This can help you make informed decisions about which loans or investments are best for your financial goals."
+        },
+        {
+          "heading": "Examples of Compound Interest Calculations",
+          "text": "For example, let's say you take out a $10,000 loan with an interest rate of 5% for 5 years. If you make no payments and the interest is compounded annually, you will owe $12,769.43 in total by the end of the 5-year period. However, if you make monthly payments of $200, the total amount owed after 5 years would be $10,897.50, saving you over $1,800 in interest."
         }
       ],
       "faqs": [
@@ -3654,6 +3658,10 @@
         {
           "heading": "Example Applications",
           "text": "For example, let's say you want to estimate how much you need to save each month to reach a non-traditional retirement age of 60. Using the calculator, you can enter your current age, desired retirement age, expected return rate on investments, and other factors to get an estimated total value of your retirement savings. The calculator will then provide a monthly savings goal to help you reach your retirement goals."
+        },
+        {
+          "heading": "Example of how to use the calculator for a non-traditional retirement age",
+          "text": "For example, let's say you want to retire at 50 years old. You can enter this age in the calculator and it will estimate your retirement savings needed based on your current income and investment returns. The calculator will also show you how much you need to save each month to reach your retirement goal."
         }
       ],
       "faqs": [
@@ -4118,6 +4126,10 @@
         {
           "heading": "Example Applications",
           "text": "For example, let's say you have two credit card debts with balances of $2,000 and $3,000, respectively. The interest rates are 18% and 21%, respectively. If you make the minimum payments on each debt, it will take you 5 years to pay off the first debt and 7 years to pay off the second debt. However, if you make an extra payment of $50 per month on the first debt, you can pay it off in just 3 years. And if you make an extra payment of $100 per month on the second debt, you can pay it off in just 4 years."
+        },
+        {
+          "heading": "Example Calculation for Multiple Debts",
+          "text": "For example, let's say you have two debts: a credit card with a $2,000 balance and an interest rate of 18%, and a car loan with a $15,000 balance and an interest rate of 6%. To calculate the total amount you need to pay off both debts, you would enter the following amounts in the calculator: Credit card: $2,000, Interest rate: 18%, Car loan: $15,000, Interest rate: 6%. The calculator will then show you how long it will take to pay off both debts and the total amount of money you will need to pay. If you want to make extra payments on either or both of these debts, simply enter the additional payment amounts in the calculator and the results will be updated accordingly."
         }
       ],
       "faqs": [
@@ -4205,19 +4217,12 @@
         ],
         "subsections": []
       },
-      "applications": {
-        "text": "Practical uses of the calculator for everyday Australian finance.",
-        "subsections": [
-          {
-            "heading": "Compound Frequency planning",
-            "text": "Use the tool to plan how compound frequency fits into your financial roadmap, whether saving for a house or managing debt."
-          },
-          {
-            "heading": "Compound Frequency optimization",
-            "text": "Compare alternative rates and frequencies for compound frequency to optimise returns or minimise repayments in the Australian market."
-          }
-        ]
-      },
+      "applications": [
+        {
+          "heading": "Comparing Loan Offers",
+          "text": "Use the compound frequency calculator to compare the interest rates and total cost of different loan offers side by side. This can help you make an informed decision when choosing a loan."
+        }
+      ],
       "faqs": [
         {
           "q": "What will $38,000 grow to at 9.1% per annum over 5 years for compound frequency?",
@@ -4236,6 +4241,16 @@
         {
           "slug": "compound-frequency",
           "name": "Compound Frequency Calculator"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the compound frequency calculator for multiple loans or investments?",
+          "a": "Yes, you can use the calculator to compare the compound interest rates of multiple loans or investments side by side."
+        },
+        {
+          "q": "How does the compound frequency calculator handle different loan terms?",
+          "a": "The calculator allows you to enter different loan terms, including the loan amount, interest rate, and repayment term. It will then calculate the total interest paid over the life of the loan."
         }
       ]
     },
