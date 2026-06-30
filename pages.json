@@ -3285,6 +3285,10 @@
         {
           "heading": "Multiple Loans or Investments",
           "text": "You can use the continuous calculator to calculate the compound interest for multiple loans or investments at once. For example, you can enter the details of two loans side by side and see how the interest compounds over time. This can help you compare the total cost of different loan options or investment strategies."
+        },
+        {
+          "heading": "Example 1: Comparing the Performance of Multiple Loans",
+          "text": "For example, you can use the continuous calculator to compare the performance of a 5-year loan with an interest rate of 5% per year, and a 7-year loan with an interest rate of 6% per year. By entering the principal amounts, repayment schedules, and interest rates for each loan, the continuous calculator will show you which loan has the higher total cost and which one has the faster payoff."
         }
       ],
       "faqs": [
@@ -4142,6 +4146,10 @@
         {
           "heading": "Example Calculation for Multiple Debts",
           "text": "For example, let's say you have two debts: a credit card with a $2,000 balance and an interest rate of 18%, and a car loan with a $15,000 balance and an interest rate of 6%. To calculate the total amount you need to pay off both debts, you would enter the following amounts in the calculator: Credit card: $2,000, Interest rate: 18%, Car loan: $15,000, Interest rate: 6%. The calculator will then show you how long it will take to pay off both debts and the total amount of money you will need to pay. If you want to make extra payments on either or both of these debts, simply enter the additional payment amounts in the calculator and the results will be updated accordingly."
+        },
+        {
+          "heading": "Example of Using the Debt Payoff Calculator for Multiple Debts",
+          "text": "For example, let's say you have two credit card debts and a car loan. You enter the following information into the calculator: Credit Card Debt 1 - $5,000, interest rate 18%, Credit Card Debt 2 - $3,000, interest rate 21%, Car Loan - $15,000, interest rate 6%. The calculator will show you that it will take you 4 years and 9 months to pay off all of your debts if you make the minimum payments. However, if you can afford to make extra payments on Credit Card Debt 1, you can pay it off in just over 2 years. The calculator also shows you how much interest you will save by paying off these debts sooner."
         }
       ],
       "faqs": [
