@@ -3289,6 +3289,10 @@
         {
           "heading": "Example 1: Comparing the Performance of Multiple Loans",
           "text": "For example, you can use the continuous calculator to compare the performance of a 5-year loan with an interest rate of 5% per year, and a 7-year loan with an interest rate of 6% per year. By entering the principal amounts, repayment schedules, and interest rates for each loan, the continuous calculator will show you which loan has the higher total cost and which one has the faster payoff."
+        },
+        {
+          "heading": "Examples of Multiple Loans or Investments",
+          "text": "For example, you could use the continuous calculator to compare the performance of a 5-year car loan with a 3-year home equity loan. You could also compare the performance of different investment options, such as a high-yield savings account and a stock mutual fund."
         }
       ],
       "faqs": [
@@ -4154,6 +4158,10 @@
         {
           "heading": "Example of Using the Debt Payoff Calculator for Multiple Debts",
           "text": "For example, let's say you have two credit card debts and a car loan. You enter the following information into the calculator: Credit Card Debt 1 - $5,000, interest rate 18%, Credit Card Debt 2 - $3,000, interest rate 21%, Car Loan - $15,000, interest rate 6%. The calculator will show you that it will take you 4 years and 9 months to pay off all of your debts if you make the minimum payments. However, if you can afford to make extra payments on Credit Card Debt 1, you can pay it off in just over 2 years. The calculator also shows you how much interest you will save by paying off these debts sooner."
+        },
+        {
+          "heading": "Example of How to Use the Debt Payoff Calculator for Multiple Debts",
+          "text": "For example, let's say you have two credit card debts and a car loan. You owe a total of $30,000 on these debts. Using the debt payoff calculator, you can enter the total amount owed for each debt and see that it will take 5 years to pay off the credit card debts and 7 years to pay off the car loan. If you make extra payments of $200 per month on the credit card debts, you can pay them off in 4 years instead of 5. And if you make an additional $100 payment on the car loan each year, you can pay it off in 6 years instead of 7."
         }
       ],
       "faqs": [
@@ -4249,6 +4257,10 @@
         {
           "heading": "Example Applications",
           "text": "For example, you can use the compound frequency calculator to calculate the interest on a car loan with a 5-year term and a 6% interest rate. Or, you can use it to calculate the interest on a mortgage with a 30-year term and a 4% interest rate."
+        },
+        {
+          "heading": "Using the Compound Frequency Calculator for Retirement Planning",
+          "text": "The compound frequency calculator can be a valuable tool for retirement planning. By entering your expected retirement age, desired retirement income, and investment returns, you can estimate how much you need to save each month to reach your retirement goals. For example, if you want to retire in 30 years and have an expected return of 6% per year on your investments, the calculator can show you that you'll need to save around $1,500 per month starting at age 35 to reach your goal."
         }
       ],
       "faqs": [
@@ -4279,6 +4291,14 @@
         {
           "q": "How does the compound frequency calculator handle different loan terms?",
           "a": "The calculator allows you to enter different loan terms, including the loan amount, interest rate, and repayment term. It will then calculate the total interest paid over the life of the loan."
+        },
+        {
+          "q": "Can I use the compound frequency calculator for different types of investments, such as stocks or real estate?",
+          "a": "Yes, our compound frequency calculator can be used for a variety of investment types. Simply enter the appropriate values and frequencies for your specific investment."
+        },
+        {
+          "q": "How does the compound frequency calculator handle inflation?",
+          "a": "Our calculator assumes a constant inflation rate, so you can input an inflation rate to account for the effects of inflation on your investments."
         }
       ]
     },
