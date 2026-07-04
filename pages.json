@@ -4162,6 +4162,10 @@
         {
           "heading": "Example of How to Use the Debt Payoff Calculator for Multiple Debts",
           "text": "For example, let's say you have two credit card debts and a car loan. You owe a total of $30,000 on these debts. Using the debt payoff calculator, you can enter the total amount owed for each debt and see that it will take 5 years to pay off the credit card debts and 7 years to pay off the car loan. If you make extra payments of $200 per month on the credit card debts, you can pay them off in 4 years instead of 5. And if you make an additional $100 payment on the car loan each year, you can pay it off in 6 years instead of 7."
+        },
+        {
+          "heading": "Example: Paying Off Multiple Debts",
+          "text": "Let's say you have two credit card debts and a personal loan with the following balances and interest rates: Credit Card A - $2,000 balance, 18% interest rate; Credit Card B - $3,000 balance, 21% interest rate; Personal Loan - $5,000 balance, 10% interest rate. Using the debt payoff calculator, you can see how long it will take to pay off each debt and how much interest you'll save by making extra payments. For example, if you make an extra payment of $500 on Credit Card A every month, it will take 2 years and 8 months to pay off the balance, and you'll save $1,364 in interest."
         }
       ],
       "faqs": [
@@ -4261,6 +4265,10 @@
         {
           "heading": "Using the Compound Frequency Calculator for Retirement Planning",
           "text": "The compound frequency calculator can be a valuable tool for retirement planning. By entering your expected retirement age, desired retirement income, and investment returns, you can estimate how much you need to save each month to reach your retirement goals. For example, if you want to retire in 30 years and have an expected return of 6% per year on your investments, the calculator can show you that you'll need to save around $1,500 per month starting at age 35 to reach your goal."
+        },
+        {
+          "heading": "Real World Examples",
+          "text": "For example, let's say you have two loans with different terms: a 5-year loan at 6% interest and a 3-year loan at 7% interest. Using the compound frequency calculator, you can input these details and see that over the 8-year period, the total interest paid on both loans is $10,249.20. This can help you make more informed financial decisions."
         }
       ],
       "faqs": [
