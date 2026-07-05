@@ -1,0 +1,41 @@
+/* Policy pages shared styles — content & form only, ribbon handled by style.css + nav.css */
+.policy-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.6;
+}
+.policy-content h1 { margin-top: 0; }
+.policy-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.policy-content label { font-weight: bold; }
+.policy-content input, .policy-content select, .policy-content textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+}
+.policy-content input:focus, .policy-content select:focus, .policy-content textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.policy-content button[type="submit"] {
+  align-self: start;
+  padding: 0.75rem 1.5rem;
+  background-color: #d9531e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .15s ease;
+}
+.policy-content button[type="submit"]:hover { background-color: #c44518; }

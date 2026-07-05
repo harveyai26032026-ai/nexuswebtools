@@ -1,0 +1,12 @@
+{
+  "name": "Concrete Calculator",
+  "short_name": "Concrete Calc",
+  "description": "Estimate concrete volume, bags, mix ratios, saw cuts and volume on graded land.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d9531e",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pouring Concrete on Uneven Ground: The Graded Land Method – Concrete Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn how to calculate concrete volume on uneven or sloping ground using the graded land method — measuring corner depths, averaging and calculating volume accurately.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://concrete-calcs.com/guides/pouring-on-uneven-ground/">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/nav.css">
+<link rel="stylesheet" href="/policy.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pouring Concrete on Uneven Ground: The Graded Land Method",
+  "description": "Learn how to calculate concrete volume on uneven or sloping ground using the graded land method.",
+  "url": "https://concrete-calcs.com/guides/pouring-on-uneven-ground/",
+  "author": { "@type": "Organization", "name": "Concrete Calculator" },
+  "publisher": { "@type": "Organization", "name": "Concrete Calculator" },
+  "datePublished": "2026-06-25",
+  "dateModified": "2026-06-25"
+}
+</script>
+</head>
+<body>
+<header class="ribbon">
+  <div class="ribbon-inner">
+    <button class="hamburger" aria-label="Open menu">
+      <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="brand"><a href="/" style="text-decoration:none;color:inherit">🏗️ Concrete Calculator</a></div>
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+    <div class="ribbon-search">
+      <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <input type="text" placeholder="Search…" autocomplete="off">
+    </div>
+  </div>
+</header>
+<main class="policy-content">
+<h1>Pouring Concrete on Uneven Ground: The Graded Land Method</h1>
+<p>Not every concrete pour is on a perfectly flat, prepared base. In the real world, slabs often go onto sloping blocks, cut-and-fill sites, or ground that's been excavated at different depths across the footprint. The standard length × width × thickness formula doesn't work when the thickness varies from corner to corner. That's where the graded land method comes in — a simple technique for calculating concrete volume when the ground isn't level.</p>
+
+<svg viewBox="0 0 400 260" width="100%" style="max-width:520px;margin:18px auto;display:block" role="img" aria-label="Cross-section of a concrete slab on uneven ground with four corner depth labels">
+  <!-- Finished slab (flat top) -->
+  <polygon points="50,60 350,60 350,60 50,60" fill="none"/>
+  <rect x="50" y="55" width="300" height="8" fill="#d9531e" opacity="0.3" stroke="#d9531e" stroke-width="1"/>
+  <text x="200" y="50" text-anchor="middle" font-size="11" fill="#d9531e" font-weight="bold">Finished slab (flat &amp; level)</text>
+  <!-- Concrete body (varying depth) -->
+  <polygon points="50,63 350,63 350,130 50,180" fill="#e9edf5" stroke="#9aa3c7" stroke-width="1.5"/>
+  <text x="200" y="120" text-anchor="middle" font-size="11" fill="#5b647a">Concrete (varying depth)</text>
+  <!-- Natural ground (uneven) -->
+  <pattern id="hatch3" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="#e8dcc8" stroke-width="1"/>
+  </pattern>
+  <polygon points="50,180 350,130 350,230 50,230" fill="url(#hatch3)" stroke="#caa07a" stroke-width="1"/>
+  <text x="200" y="220" text-anchor="middle" font-size="10" fill="#8a6a4a">Natural ground (uneven)</text>
+  <!-- Corner depth labels -->
+  <line x1="50" y1="63" x2="50" y2="180" stroke="#0f9d6b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <circle cx="50" cy="63" r="4" fill="#d9531e"/>
+  <text x="35" y="125" text-anchor="middle" font-size="10" fill="#d9531e" font-weight="bold">A</text>
+  <text x="20" y="138" text-anchor="middle" font-size="9" fill="#0f9d6b">120mm</text>
+  <line x1="350" y1="63" x2="350" y2="130" stroke="#0f9d6b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <circle cx="350" cy="63" r="4" fill="#d9531e"/>
+  <text x="365" y="95" text-anchor="middle" font-size="10" fill="#d9531e" font-weight="bold">B</text>
+  <text x="375" y="108" text-anchor="middle" font-size="9" fill="#0f9d6b">80mm</text>
+  <!-- Back corners (dashed - perspective) -->
+  <circle cx="50" cy="63" r="3" fill="#d9531e" opacity="0.5"/>
+  <circle cx="350" cy="63" r="3" fill="#d9531e" opacity="0.5"/>
+  <text x="200" y="248" text-anchor="middle" font-size="10" fill="#5b647a">Corner depths measured from finished level to natural ground</text>
+</svg>
+
+<h2>What is the graded land method?</h2>
+<p>The graded land method calculates concrete volume by measuring the depth from the finished slab level down to the natural ground at each of the four corners of a rectangular slab. These four depths are averaged, and the average is multiplied by the plan area to give the total volume.</p>
+<p>The method assumes:</p>
+<ul>
+<li>The slab has a flat, level top surface (the finished level).</li>
+<li>The slab footprint is rectangular (or can be divided into rectangles).</li>
+<li>The ground surface between corners can be reasonably approximated by a plane (no sudden steps or holes).</li>
+</ul>
+
+<h2>The formula</h2>
+<p><code>Volume = Plan Area × Average Corner Depth</code></p>
+<p>Where:</p>
+<p><code>Average Depth = (A + B + C + D) ÷ 4</code></p>
+<p>And A, B, C, D are the depths at each corner, measured from the finished slab level down to the natural ground.</p>
+
+<h2>Step-by-step worked example</h2>
+<p>Imagine a 5&nbsp;m × 4&nbsp;m slab on a sloping block. You measure the depth at each corner:</p>
+<table class="ref">
+<thead><tr><th>Corner</th><th>Depth from finished level to ground</th></tr></thead>
+<tbody>
+<tr><td>A (front-left)</td><td>100&nbsp;mm (0.10&nbsp;m)</td></tr>
+<tr><td>B (front-right)</td><td>150&nbsp;mm (0.15&nbsp;m)</td></tr>
+<tr><td>C (back-right)</td><td>220&nbsp;mm (0.22&nbsp;m)</td></tr>
+<tr><td>D (back-left)</td><td>170&nbsp;mm (0.17&nbsp;m)</td></tr>
+</tbody>
+</table>
+<p><strong>Step 1:</strong> Calculate the average depth:</p>
+<p><code>(0.10 + 0.15 + 0.22 + 0.17) ÷ 4 = 0.64 ÷ 4 = 0.16 m</code></p>
+<p><strong>Step 2:</strong> Calculate the plan area:</p>
+<p><code>5 × 4 = 20 m²</code></p>
+<p><strong>Step 3:</strong> Calculate the volume:</p>
+<p><code>20 × 0.16 = 3.20 m³</code></p>
+<p><strong>Step 4:</strong> Add waste allowance (10% for uneven ground):</p>
+<p><code>3.20 × 1.10 = 3.52 m³</code></p>
+<p>Order 3.5&nbsp;m³ of concrete for this slab.</p>
+
+<h2>How to measure corner depths in the field</h2>
+<ol>
+<li><strong>Set up the finished level</strong> — use a laser level or dumpy level to establish the finished slab surface height at all four corners. Drive stakes at each corner.</li>
+<li><strong>Mark the finished level</strong> on each stake with a line or nail.</li>
+<li><strong>Measure down</strong> from the finished level mark to the natural ground at each stake. This is your corner depth.</li>
+<li><strong>Record all four depths</strong> and note which corner each measurement belongs to.</li>
+</ol>
+<p>If the ground has significant undulations between corners (not a smooth slope), take additional depth measurements at midpoints and adjust. The more measurements you take, the more accurate the volume estimate — but for most residential slabs, four corners is sufficient.</p>
+
+<h2>When to use the graded land method</h2>
+<table class="ref">
+<thead><tr><th>Situation</th><th>Use graded land?</th></tr></thead>
+<tbody>
+<tr><td>Sloping block, slab on ground</td><td>✅ Yes — this is the primary use case</td></tr>
+<tr><td>Cut-and-fill site with varying excavation depth</td><td>✅ Yes — measure after cut/fill but before sub-base</td></tr>
+<tr><td>Slab on perfectly flat prepared base</td><td>❌ No — use standard L × W × T</td></tr>
+<tr><td>Slab with a consistent slope (one-directional)</td><td>⚠️ Can use, but standard formula with average thickness also works</td></tr>
+<tr><td>Non-rectangular slab (L-shaped, curved)</td><td>⚠️ Divide into rectangles and apply the method to each section</td></tr>
+</tbody>
+</table>
+
+<h2>Formwork considerations on uneven ground</h2>
+<p>When the ground slopes, the formwork on the low side needs to be taller to contain the concrete. This is one of the main reasons the graded land method matters — without accurate depth measurements, you can't set the formwork height correctly, and you risk either:</p>
+<ul>
+<li><strong>Formwork too low</strong> — concrete spills out under the form on the low side.</li>
+<li><strong>Formwork too high</strong> — the slab ends up thicker than necessary on the low side, wasting concrete.</li>
+</ul>
+<p>For significant slopes (more than 150&nbsp;mm difference across the slab), consider stepping the base or building a low retaining wall on the low side rather than pouring an excessively thick slab.</p>
+
+<h2>Sub-base on sloping ground</h2>
+<p>Don't forget that the sub-base (compacted gravel) also needs to be accommodated. On uneven ground, you have two options:</p>
+<ol>
+<li><strong>Excavate the high side down</strong> so the sub-base is a consistent thickness across the slab. The corner depths are then measured from finished level to the <em>top of the sub-base</em>, not the natural ground.</li>
+<li><strong>Build up the low side</strong> with additional compacted fill. The corner depths will vary more, but the sub-base provides a consistent working surface.</li>
+</ol>
+<p>Option 1 is generally preferred — it produces a more uniform slab and reduces the risk of differential settlement. However, it requires more excavation.</p>
+
+<h2>Using the calculator for graded land</h2>
+<p>The <a href="/">Concrete Calculator</a> includes a built-in graded land mode. Open the advanced options and select "Graded / uneven land (rectangular slab)". Enter the four corner depths and the slab dimensions — the calculator automatically computes the average depth, the volume, and the bag count. An interactive diagram shows the slab and ground profile so you can visualise the pour.</p>
+
+<h2>Common mistakes with uneven ground pours</h2>
+<ul>
+<li><strong>Measuring to the wrong reference</strong> — all four depths must be measured from the same finished level, not from local ground level.</li>
+<li><strong>Ignoring the sub-base</strong> — if you're adding 75&nbsp;mm of compacted gravel, the concrete thickness is reduced by 75&nbsp;mm. Measure to the top of the sub-base, not the raw ground.</li>
+<li><strong>Not adding enough waste</strong> — uneven ground is unpredictable. Use 10% waste rather than 5%.</li>
+<li><strong>Assuming the ground is planar</strong> — if there's a hump or dip in the middle of the slab, the average of four corners won't capture it. Take extra measurements.</li>
+</ul>
+
+<h2>Related guides</h2>
+<ul>
+<li><a href="/guides/shed-slab-calculator/">How to Calculate Concrete for a Shed Slab</a></li>
+<li><a href="/guides/concrete-mix-ratios/">Concrete Mix Ratios Explained: Choosing the Right Strength</a></li>
+<li><a href="/guides/driveway-concrete-calculator/">Concrete Calculator for Driveways: Cost and Volume Estimation</a></li>
+<li><a href="/guides/saw-cuts-in-concrete/">Saw Cuts in Concrete: When, Where and How Deep</a></li>
+</ul>
+</main>
+<footer class="site-footer">
+  <p><a href="/privacy/">Privacy</a> | <a href="/terms/">Terms</a> | <a href="/about/">About</a> | <a href="/contact/">Contact</a></p>
+  <p>&copy; 2026 Concrete Calculator</p>
+</footer>
+<script src="/nav.js" defer></script>
+<script type="text/javascript">var infolinks_pid = 3446367;var infolinks_wsid = 0;</script><script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

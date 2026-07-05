@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Concrete Calculator RSS Feed</title>
+    <link>https://concrete-calcs.com/</link>
+    <description>Updates from the Concrete Calculator utility site.</description>
+    <item>
+      <title>New release of Concrete Calculator</title>
+      <link>https://concrete-calcs.com/</link>
+      <description>Version update with imperial defaults and new features.</description>
+      <pubDate>Wed, 16 Jun 2026 12:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,63 @@
+:root{
+  --accent:#d9531e; --accent2:#0f9d6b; --text:#1a1f2e; --muted:#5b647a;
+  --ring:#e3e7f0; --soft:#f7f8fb;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.5}
+
+/* ── Ribbon: single-row sticky header ── */
+.ribbon{display:flex;align-items:center;padding:0 18px;height:52px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring);position:sticky;top:0;z-index:10}
+.ribbon-inner{display:flex;align-items:center;width:100%;gap:6px;height:100%}
+.ribbon .brand{font-weight:700;letter-spacing:.3px;font-size:1.05rem;white-space:nowrap;margin-right:4px}
+.ribbon .brand a{color:var(--text);text-decoration:none}
+.ribbon .brand a:hover{color:var(--accent)}
+.ribbon nav{display:flex;align-items:center;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
+.ribbon nav::-webkit-scrollbar{display:none}
+.ribbon nav a{color:var(--muted);text-decoration:none;font-size:.88rem;padding:.3rem .55rem;border-radius:6px;white-space:nowrap;transition:color .15s,background .15s}
+.ribbon nav a:hover{color:var(--accent);background:rgba(217,83,30,.07)}
+
+.scroll-bar{height:3px;background:rgba(0,0,0,.06);width:100%;overflow:hidden;position:absolute;bottom:0;left:0}
+.scroll-bar-fill{height:100%;width:0%;background:var(--accent2);transition:width .12s ease-out;border-radius:0 2px 2px 0}
+
+main{max-width:860px;margin:0 auto;padding:28px 16px 50px}
+h1{font-size:1.7rem;margin:.2em 0 .25em}
+.lede{color:var(--muted);font-size:1rem;max-width:64ch;margin:.3em 0 0}
+.tool{background:var(--soft);border:1px solid var(--ring);border-radius:14px;padding:14px;margin:18px 0;box-shadow:0 8px 24px rgba(20,30,60,.06)}
+.field{display:flex;flex-direction:column;gap:3px;margin:7px 0}
+.field label{font-size:.82rem;font-weight:600;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+input,select{background:#fff;color:var(--text);border:1px solid var(--ring);border-radius:7px;padding:8px 9px;font-size:.95rem;width:100%}
+input:focus,select:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.combo{display:flex;gap:6px}
+.combo input{flex:1}
+.combo .unitsel{width:74px;flex:0 0 74px}
+.results{margin-top:12px;border-top:1px solid var(--ring);padding-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.stat{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:11px;text-align:center}
+.stat .big{display:block;font-size:1.3rem;font-weight:800;color:var(--accent2)}
+.stat .lbl{font-size:.74rem;color:var(--muted)}
+.adv-toggle{margin-top:14px;cursor:pointer;background:#fff;border:1px solid var(--accent);color:var(--accent);font-weight:700;border-radius:9px;padding:10px 14px;width:100%;font-size:.95rem}
+.adv-toggle:hover{background:#fff3ee}
+[hidden]{display:none !important}
+.advanced{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.adv-block{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:12px}
+.adv-head{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.95rem;cursor:pointer;color:var(--text)}
+.adv-head input{width:auto;flex:0 0 auto}
+.hint{font-size:.8rem;color:var(--muted);margin:.4em 0 0}
+.grade-wrap{background:var(--soft);border:1px solid var(--ring);border-radius:9px;padding:8px;margin:8px 0}
+h2{margin-top:32px}h3{margin-top:18px;color:var(--accent);font-size:1.02rem}
+table.ref{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92rem}
+table.ref th,table.ref td{border:1px solid var(--ring);padding:8px 10px;text-align:left}
+table.ref th{background:var(--soft);font-weight:700}
+table.ref tr:nth-child(even) td{background:#fafbfd}
+code{background:var(--soft);padding:2px 6px;border-radius:6px;border:1px solid var(--ring);font-size:.92em}
+footer{border-top:1px solid var(--ring);color:var(--muted);text-align:center;padding:20px;font-size:.86rem}
+@media (max-width:520px){
+  h1{font-size:1.45rem}
+  .lede{font-size:.92rem}
+  main{padding:20px 12px 40px}
+  .tool{padding:11px}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:7px}
+  .field{margin:5px 0}
+  .combo .unitsel{flex:0 0 66px;width:66px}
+  .stat .big{font-size:1.15rem}
+}

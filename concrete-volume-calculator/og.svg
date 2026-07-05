@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#ffffff"/>
+<rect width="1200" height="630" fill="#fff7f3"/>
+<rect x="0" y="0" width="1200" height="14" fill="#d9531e"/>
+<text x="80" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="92" font-weight="800" fill="#1a1f2e">🏗️ Concrete Calculator</text>
+<text x="80" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="46" fill="#5b647a">Volume · Bags · Cement/Sand/Aggregate Mix · Saw Cuts</text>
+<text x="80" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="46" fill="#5b647a">Graded land · Metric &amp; Imperial · Free &amp; instant</text>
+<text x="80" y="540" font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="700" fill="#d9531e">concrete-calcs.com</text>
+</svg>
