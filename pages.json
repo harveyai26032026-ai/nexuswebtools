@@ -3678,6 +3678,10 @@
         {
           "heading": "Example of how to estimate expected returns on investments",
           "text": "For example, let's say you plan to invest in a mix of stocks and bonds. You can use the calculator to estimate the historical return rates for each asset class, then multiply them by the percentage of your portfolio that is allocated to each class. This will give you an estimated return rate for your overall investment portfolio."
+        },
+        {
+          "heading": "Expected Return Rate",
+          "text": "The calculator allows you to enter your expected return rate for investments. This can be based on historical data or your own research and analysis. By entering a realistic expected return rate, you can get a more accurate estimate of your retirement savings needs."
         }
       ],
       "faqs": [
