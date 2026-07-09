@@ -3297,6 +3297,10 @@
         {
           "heading": "Comparing Multiple Loan Options",
           "text": "Use the continuous calculator to compare the total cost of multiple loans side by side, including the impact of different interest rates and repayment terms. This can help you make informed decisions about which loan is best for your financial situation."
+        },
+        {
+          "heading": "Example 2: Calculating Compound Interest for Multiple Loans",
+          "text": "For example, let's say you have two loans, one with an interest rate of 5% per year and the other with an interest rate of 8% per year. You want to calculate the compound interest for both loans over a period of 5 years. Using the continuous calculator, you can enter the loan amounts, interest rates, and time periods, and it will automatically calculate the compound interest for each loan separately and then combine the results to give you the total compound interest for both loans. This way, you can easily compare the performance of different loans and make informed decisions about which ones to pay off first or which ones to refinance."
         }
       ],
       "faqs": [
