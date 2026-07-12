@@ -3690,6 +3690,10 @@
         {
           "heading": "Expected Return Rate",
           "text": "The calculator allows you to enter your expected return rate for investments. This can be based on historical data or your own research and analysis. By entering a realistic expected return rate, you can get a more accurate estimate of your retirement savings needs."
+        },
+        {
+          "heading": "Example of how to estimate expected returns",
+          "text": "For example, let's say you expect to earn an average annual return of 7% on your investments. You can use this information to estimate your expected returns over a 30-year retirement period. Based on historical data, this could result in an estimated total return of around 216%."
         }
       ],
       "faqs": [
