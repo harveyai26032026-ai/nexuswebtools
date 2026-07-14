@@ -3694,6 +3694,10 @@
         {
           "heading": "Example of how to estimate expected returns",
           "text": "For example, let's say you expect to earn an average annual return of 7% on your investments. You can use this information to estimate your expected returns over a 30-year retirement period. Based on historical data, this could result in an estimated total return of around 216%."
+        },
+        {
+          "heading": "Expected Social Security Benefits",
+          "text": "Enter your estimated Social Security benefits here. This will help you better understand how much money you'll have coming in during retirement."
         }
       ],
       "faqs": [
