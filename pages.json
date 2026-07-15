@@ -3301,6 +3301,10 @@
         {
           "heading": "Example 2: Calculating Compound Interest for Multiple Loans",
           "text": "For example, let's say you have two loans, one with an interest rate of 5% per year and the other with an interest rate of 8% per year. You want to calculate the compound interest for both loans over a period of 5 years. Using the continuous calculator, you can enter the loan amounts, interest rates, and time periods, and it will automatically calculate the compound interest for each loan separately and then combine the results to give you the total compound interest for both loans. This way, you can easily compare the performance of different loans and make informed decisions about which ones to pay off first or which ones to refinance."
+        },
+        {
+          "heading": "Example 1: Comparing the Cost of Multiple Loans",
+          "text": "For example, let's say you are considering taking out multiple loans for different purposes. You can use the continuous calculator to compare the total cost of each loan over time, including the interest rates and fees associated with each one. This can help you make informed decisions about which loans to take out and how much to borrow."
         }
       ],
       "faqs": [
@@ -3821,6 +3825,10 @@
         {
           "heading": "Considering Alternative Education Paths",
           "text": "The calculator can also help you estimate the cost of alternative education paths, such as vocational training or apprenticeships. These options may be more affordable than traditional college degrees, but they still require significant investment. Use the calculator to determine how much you need to save for these alternatives."
+        },
+        {
+          "heading": "Expected College Expenses",
+          "text": "Based on current trends, the average cost of tuition and fees for a 4-year degree at a public university is $20,000 per year. Room and board can add an additional $10,000 per year. Private universities can cost upwards of $50,000 per year."
         }
       ],
       "faqs": [

@@ -82,6 +82,14 @@
 }
 </script>
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" defer></script>
+
+<link rel="alternate" hreflang="en" href="https://nexuswebtools.com/en/" />
+<link rel="alternate" hreflang="nl" href="https://nexuswebtools.com/nl/" />
+<link rel="alternate" hreflang="pt-BR" href="https://nexuswebtools.com/pt-BR/" />
+<link rel="alternate" hreflang="ja" href="https://nexuswebtools.com/ja/" />
+<link rel="alternate" hreflang="sg" href="https://nexuswebtools.com/sg/" />
+<link rel="alternate" hreflang="x-default" href="https://nexuswebtools.com/" />
+
 </head>
 <body>
 <header class="ribbon">
@@ -96,6 +104,15 @@
       <a href="/#tools">Tools</a>
       <a href="#faq">FAQ</a>
     </nav>
+    <!-- Language selector -->
+    <div class="lang-switch" style="margin-left:auto;display:flex;gap:0.4rem;">
+      <a href="/en/" class="lang" title="English">🇬🇧</a>
+      <a href="/nl/" class="lang" title="Nederlands">🇳🇱</a>
+      <a href="/pt-BR/" class="lang" title="Português (Brasil)">🇧🇷</a>
+      <a href="/ja/" class="lang" title="日本語">🇯🇵</a>
+      <a href="/sg/" class="lang" title="English (Singapore)">🇸🇬</a>
+    </div>
+
     <div class="ribbon-search">
       <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
       <input type="text" placeholder="Search tools…" autocomplete="off">
@@ -495,5 +512,7 @@ function exportToExcel(){
 <link rel="stylesheet" href="/nav.css">
   <script src="/nav.js" defer></script>
 <script type="text/javascript">var infolinks_pid = 3446367;var infolinks_wsid = 0;</script><script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+
+<script src="/lang-loader.js" defer></script>
 </body>
 </html>
