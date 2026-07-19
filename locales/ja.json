@@ -1,0 +1,21 @@
+{
+  "siteTitle": "Nexus Web Tools — 無料オンライン計算機＆ユニットコンバーター",
+  "brand": "🧰 Nexus Web Tools",
+  "navHome": "ホーム",
+  "navTools": "ツール",
+  "navFAQ": "よくある質問",
+  "heroTitle": "無料オンライン計算機＆ユニットコンバーター",
+  "heroDesc": "Nexus Web Toolsは、高速で無料、シンプルな計算機とユーティリティのハブです。すべてのツールはブラウザで即座に動作します — 登録不要、インストール不要、モバイル対応。",
+  "sectionTools": "すべてのツール",
+  "cardConcreteTitle": "コンクリート計算機",
+  "cardConcreteDesc": "体積、袋数、配合比、カット間隔、傾斜地のコンクリート。メートル法とヤード・ポンド法。",
+  "cardCompoundTitle": "複利計算機",
+  "cardCompoundDesc": "定期積立、任意の複利頻度、複数シナリオ比較ツール付きの将来価値計算。",
+  "cardMortgageTitle": "住宅ローン計算機",
+  "cardMortgageDesc": "月々の返済額、総利息、任意のローンの償却スケジュールを計算。",
+  "cardSCurveTitle": "Sカーブモデル",
+  "cardSCurveDesc": "進捗追跡、EVM、キャッシュフロー予測、リソース計画。",
+  "cardUnitTitle": "単位変換",
+  "cardUnitDesc": "40以上のカテゴリ — 長さ、重量、温度、面積、体積、速度など。",
+  "cardOpen": "ツールを開く →"
+}

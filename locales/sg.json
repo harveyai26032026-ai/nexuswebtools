@@ -1,5 +1,5 @@
 {
-  "siteTitle": "Nexus Web Tools — Free Online Calculators & Utilities",
+  "siteTitle": "Nexus Web Tools — Free Online Calculators & Unit Converters",
   "brand": "🧰 Nexus Web Tools",
   "navHome": "Home",
   "navTools": "Tools",
@@ -14,8 +14,8 @@
   "cardMortgageTitle": "Mortgage Calculator",
   "cardMortgageDesc": "Calculate monthly mortgage repayments, total interest, and amortisation schedules for any home loan.",
   "cardSCurveTitle": "S-Curve Model",
-  "cardSCurveDesc": "Project progress tracking, earned value management, cash flow forecasting, and resource planning with S-curve analysis.",
+  "cardSCurveDesc": "Project progress tracking, earned value management, cash flow forecasting, and resource planning.",
   "cardUnitTitle": "Unit Converter",
-  "cardUnitDesc": "Convert between 40+ unit categories — length, weight, temperature, area, volume, speed, pressure, energy, data, and more.",
+  "cardUnitDesc": "Convert between 40+ unit categories — length, weight, temperature, area, volume, speed and more.",
   "cardOpen": "Open tool →"
 }
