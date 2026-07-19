@@ -62,6 +62,7 @@ function forecastValue(opts){
 var splitPeople=[];
 function renderSplitPeople(){
   var c=$("#splitPeople");
+  if(!c)return; // guard: element may not exist
   if(!splitPeople.length){c.innerHTML='<p class="hint" style="margin:0">No split configured — click "Add person" to divide the loan.</p>';return}
   var totalPct=splitPeople.reduce(function(s,p){return s+p.pct},0);
   var valid=Math.abs(totalPct-100)<0.01;
@@ -753,7 +754,10 @@ document.addEventListener("DOMContentLoaded",function(){
   $("#resetBtn").addEventListener("click",function(){
     ["mPrice","mDeposit","mRate","mTerm","mIOYears","mExtra","mTax","mIns","mLMI","mHOA","mLoanFee","mStamp"].forEach(function(id){
       var e=document.getElementById(id);if(e)e.value=""});
-    $("#mPurchaseCosts").value=0;$("#mMaint").value=1;$("#mApprec").value="";$("#mInflation").value="";
+    var pc=$("#mPurchaseCosts"); if(pc) pc.value=0;
+    var mm=$("#mMaint"); if(mm) mm.value=1;
+    var ma=$("#mApprec"); if(ma) ma.value="";
+    var mi=$("#mInflation"); if(mi) mi.value="";
     $("#mCcy").value="USD";$("#mDepositMode").value="pct";
     $("#mFreq").value="monthly";$("#mRepayType").value="pi";
     localStorage.removeItem(LS_KEY);
