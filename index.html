@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="siteTitle">Nexus Web Tools — Free Online Calculators &amp; Utilities</title>
-<meta name="description" content="Free online calculators and utilities at Nexus Web Tools — compound interest, concrete volume and more. Instant results, no sign-up, mobile-friendly.">
+<title>Nexus Web Tools — Free Online Calculators &amp; Unit Converters</title>
+<meta name="description" content="Free online calculators and unit converters from Nexus Web Tools. Compound interest, mortgage, S-curve, 50+ unit converters and more. No sign-up, mobile-friendly, instant results.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="googlebot" content="index, follow">
 <meta name="author" content="Nexus Web Tools">
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Nexus Web Tools">
 <meta property="og:locale" content="en">
 <meta property="og:title" content="Nexus Web Tools — Free Online Calculators &amp; Utilities">
-<meta property="og:description" content="A growing hub of free, instant online calculators and utilities. No sign‑up, mobile‑friendly, fast.">
+<meta property="og:description" content="A growing hub of free, instant online calculators and utilities. No sign-up, mobile-friendly, fast.">
 <meta property="og:url" content="https://nexuswebtools.com/">
 <meta property="og:image" content="https://nexuswebtools.com/og.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,11 +36,11 @@
   @media (max-width: 600px) { .niche-links a { font-size: 0.8rem; padding: 0.3rem 0.6rem; } }
 </style>
 <!-- hreflang tags for language variants -->
-<link rel="alternate" hreflang="en" href="https://nexuswebtools.com/en/" />
-<link rel="alternate" hreflang="nl" href="https://nexuswebtools.com/nl/" />
-<link rel="alternate" hreflang="pt-BR" href="https://nexuswebtools.com/pt-BR/" />
-<link rel="alternate" hreflang="ja" href="https://nexuswebtools.com/ja/" />
-<link rel="alternate" hreflang="sg" href="https://nexuswebtools.com/sg/" />
+<link rel="alternate" hreflang="en" href="https://nexuswebtools.com/?lang=en" />
+<link rel="alternate" hreflang="nl" href="https://nexuswebtools.com/?lang=nl" />
+<link rel="alternate" hreflang="pt-BR" href="https://nexuswebtools.com/?lang=pt-BR" />
+<link rel="alternate" hreflang="ja" href="https://nexuswebtools.com/?lang=ja" />
+<link rel="alternate" hreflang="sg" href="https://nexuswebtools.com/?lang=sg" />
 <link rel="alternate" hreflang="x-default" href="https://nexuswebtools.com/" />
 </head>
 <body>
@@ -58,11 +58,11 @@
     </nav>
     <!-- Language selector -->
     <div class="lang-switch" style="margin-left:auto;display:flex;gap:0.4rem;">
-      <a href="/en/" class="lang" title="English">🇬🇧</a>
-      <a href="/nl/" class="lang" title="Nederlands">🇳🇱</a>
-      <a href="/pt-BR/" class="lang" title="Português (Brasil)">🇧🇷</a>
-      <a href="/ja/" class="lang" title="日本語">🇯🇵</a>
-      <a href="/sg/" class="lang" title="English (Singapore)">🇸🇬</a>
+      <a href="?lang=en" class="lang" title="English" onclick="localStorage.setItem('nwt-lang','en');">🇬🇧</a>
+      <a href="?lang=nl" class="lang" title="Nederlands" onclick="localStorage.setItem('nwt-lang','nl');">🇳🇱</a>
+      <a href="?lang=pt-BR" class="lang" title="Português (Brasil)" onclick="localStorage.setItem('nwt-lang','pt-BR');">🇧🇷</a>
+      <a href="?lang=ja" class="lang" title="日本語" onclick="localStorage.setItem('nwt-lang','ja');">🇯🇵</a>
+      <a href="?lang=sg" class="lang" title="English (Singapore)" onclick="localStorage.setItem('nwt-lang','sg');">🇸🇬</a>
     </div>
     <div class="ribbon-search">
       <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
@@ -73,54 +73,242 @@
 </header>
 <main class="container niche-content">
   <section class="hero">
-    <h1 data-i18n="heroTitle">Free Online Calculators &amp; Utilities</h1>
+    <h1 data-i18n="heroTitle">Free Online Calculators &amp; Unit Converters</h1>
     <p class="lede" data-i18n="heroDesc">Nexus Web Tools is a growing hub of fast, free, no‑nonsense calculators and utilities. Every tool runs instantly in your browser — no sign‑up, no install, mobile‑friendly.</p>
   </section>
-  <!-- Rest of content unchanged for brevity -->
+
+  <section id="intro">
+    <h2>About Our Free Tools</h2>
+    <p>Nexus Web Tools provides a comprehensive suite of free online calculators and unit converters designed for everyday use. Whether you are planning a mortgage, modelling compound interest for retirement, managing a construction project with S-curve analysis, or converting units for work or study, our tools deliver instant, accurate results directly in your browser. There is no need to download software, create an account, or pay subscription fees. Every calculator is mobile-friendly, works offline once loaded, and respects your privacy — no tracking of your inputs.</p>
+    <p>Our financial calculators cover the full spectrum of personal finance: compound interest with regular contributions and scenario comparison, mortgage amortisation, loan repayments, savings goals, retirement planning, and investment growth modelling. Each tool includes detailed explanations of the underlying formulas, worked examples, and frequently asked questions so you can understand the maths behind the numbers — not just get a black-box answer.</p>
+    <p>For professionals in construction, engineering, and project management, our S-curve modelling tools help you track project progress, forecast cash flow, and compare planned versus actual performance using earned value management principles. The unit converter suite includes over 40 categories spanning length, weight, temperature, speed, area, volume, pressure, energy, power, data, time, angle, frequency, torque, fuel, force, density, flow rate, illuminance, radiation, viscosity, and many common conversion shortcuts (mm to inches, kg to lbs, Fahrenheit to Celsius, and more).</p>
+  </section>
+
   <section id="tools">
-    <h2 data-i18n="sectionTools">Tools</h2>
+    <h2 data-i18n="sectionTools">All Tools</h2>
     <div class="cards">
-      <a class="card" href="https://concrete-calcs.com/" data-i18n-title="cardConcreteTitle">
-        <span class="card-ico">🏗️</span>
-        <span class="card-title" data-i18n="cardConcreteTitle">Concrete Calculator</span>
-        <span class="card-desc" data-i18n="cardConcreteDesc">Volume, bags, mix ratios, saw‑cut spacing and concrete on graded land. Metric &amp; imperial.</span>
-        <span class="card-cta" data-i18n="cardOpen">Open tool →</span>
-      </a>
-      <a class="card" href="/compound-interest/" data-i18n-title="cardCompoundTitle">
+      <a class="card" href="/compound-interest/" title="Compound Interest Calculator">
         <span class="card-ico">💰</span>
-        <span class="card-title" data-i18n="cardCompoundTitle">Compound Interest Calculator</span>
-        <span class="card-desc" data-i18n="cardCompoundDesc">Future value with regular contributions, any compounding frequency, plus a multi‑scenario comparison tool.</span>
-        <span class="card-cta" data-i18n="cardOpen">Open tool →</span>
+        <span class="card-title">Compound Interest Calculator</span>
+        <span class="card-desc">Future value with regular contributions, any compounding frequency, plus a multi-scenario comparison tool.</span>
+        <span class="card-cta">Open tool →</span>
       </a>
-      <!-- Additional cards omitted for brevity -->
+      <a class="card" href="/mortgage/" title="Mortgage Calculator">
+        <span class="card-ico">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+        <span class="card-desc">Calculate monthly mortgage repayments, total interest, and amortisation schedules for any home loan.</span>
+        <span class="card-cta">Open tool →</span>
+      </a>
+      <a class="card" href="/s-curve/" title="S-Curve Model">
+        <span class="card-ico">📈</span>
+        <span class="card-title">S-Curve Model</span>
+        <span class="card-desc">Project progress tracking, earned value management, cash flow forecasting, and resource planning with S-curve analysis.</span>
+        <span class="card-cta">Open tool →</span>
+      </a>
+      <a class="card" href="/unit-converter/" title="Unit Converter">
+        <span class="card-ico">📐</span>
+        <span class="card-title">Unit Converter</span>
+        <span class="card-desc">Convert between 40+ unit categories — length, weight, temperature, area, volume, speed, pressure, energy, data, and more.</span>
+        <span class="card-cta">Open tool →</span>
+      </a>
+      <a class="card" href="https://concrete-calcs.com/" title="Concrete Calculator">
+        <span class="card-ico">🏗️</span>
+        <span class="card-title">Concrete Calculator</span>
+        <span class="card-desc">Volume, bags, mix ratios, saw-cut spacing and concrete on graded land. Metric &amp; imperial.</span>
+        <span class="card-cta">Open tool →</span>
+      </a>
     </div>
+  </section>
+
+  <!-- Compound Interest sub-calculators -->
+  <section id="compound-interest-tools">
+    <h2>Compound Interest &amp; Finance Calculators</h2>
+    <p>Our compound interest calculator suite covers every common financial scenario. Each sub-calculator is pre-configured for its specific use case while sharing the same powerful engine — regular contributions, any compounding frequency (daily, weekly, monthly, quarterly, yearly, continuous), contribution timing, annual increases, and side-by-side scenario comparison.</p>
+    <div class="niche-group">
+      <h3>Loans &amp; Debt</h3>
+      <div class="niche-links">
+        <a href="/compound-interest/mortgage/">Mortgage</a>
+        <a href="/compound-interest/home-loan/">Home Loan</a>
+        <a href="/compound-interest/car-loan/">Car Loan</a>
+        <a href="/compound-interest/personal-loan/">Personal Loan</a>
+        <a href="/compound-interest/business-loan/">Business Loan</a>
+        <a href="/compound-interest/student-loan/">Student Loan</a>
+        <a href="/compound-interest/credit-card/">Credit Card</a>
+        <a href="/compound-interest/fha-loan/">FHA Loan</a>
+        <a href="/compound-interest/debt-payoff/">Debt Payoff</a>
+      </div>
+    </div>
+    <div class="niche-group">
+      <h3>Savings &amp; Investments</h3>
+      <div class="niche-links">
+        <a href="/compound-interest/savings/">Savings</a>
+        <a href="/compound-interest/retirement/">Retirement</a>
+        <a href="/compound-interest/investments/">Investments</a>
+        <a href="/compound-interest/superannuation/">Superannuation</a>
+        <a href="/compound-interest/term-deposit/">Term Deposit</a>
+        <a href="/compound-interest/fixed-deposit/">Fixed Deposit</a>
+        <a href="/compound-interest/recurring-deposit/">Recurring Deposit</a>
+        <a href="/compound-interest/annuity/">Annuity</a>
+        <a href="/compound-interest/dividend/">Dividend</a>
+        <a href="/compound-interest/bond/">Bond</a>
+        <a href="/compound-interest/mutual-fund/">Mutual Fund</a>
+        <a href="/compound-interest/etf/">ETF</a>
+        <a href="/compound-interest/real-estate/">Real Estate</a>
+        <a href="/compound-interest/crypto/">Crypto</a>
+      </div>
+    </div>
+    <div class="niche-group">
+      <h3>Financial Planning</h3>
+      <div class="niche-links">
+        <a href="/compound-interest/early-retirement/">Early Retirement</a>
+        <a href="/compound-interest/education-fund/">Education Fund</a>
+        <a href="/compound-interest/emergency-fund/">Emergency Fund</a>
+        <a href="/compound-interest/wealth-building/">Wealth Building</a>
+        <a href="/compound-interest/inflation-adjusted/">Inflation Adjusted</a>
+        <a href="/compound-interest/rule-of-72/">Rule of 72</a>
+        <a href="/compound-interest/simple-vs-compound/">Simple vs Compound</a>
+      </div>
+    </div>
+    <div class="niche-group">
+      <h3>Compounding Frequency</h3>
+      <div class="niche-links">
+        <a href="/compound-interest/daily/">Daily</a>
+        <a href="/compound-interest/weekly/">Weekly</a>
+        <a href="/compound-interest/monthly/">Monthly</a>
+        <a href="/compound-interest/quarterly/">Quarterly</a>
+        <a href="/compound-interest/annually/">Annually</a>
+        <a href="/compound-interest/continuous/">Continuous</a>
+        <a href="/compound-interest/compound-frequency/">Compare Frequencies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- S-Curve sub-calculators -->
+  <section id="s-curve-tools">
+    <h2>S-Curve &amp; Project Management Tools</h2>
+    <p>An S-curve is a graphical representation of cumulative progress over time, widely used in project management, construction, engineering, and financial forecasting. Our S-curve tools help you model planned progress, track actual performance against plan, forecast cash flow, and apply earned value management (EVM) techniques. Each industry-specific calculator is tailored to the conventions and metrics of its sector.</p>
+    <div class="niche-group">
+      <h3>Industry-Specific S-Curves</h3>
+      <div class="niche-links">
+        <a href="/s-curve/construction/">Construction</a>
+        <a href="/s-curve/engineering/">Engineering</a>
+        <a href="/s-curve/mining/">Mining</a>
+        <a href="/s-curve/oil-gas/">Oil &amp; Gas</a>
+        <a href="/s-curve/infrastructure/">Infrastructure</a>
+        <a href="/s-curve/it-project/">IT Project</a>
+      </div>
+    </div>
+    <div class="niche-group">
+      <h3>Project Management Applications</h3>
+      <div class="niche-links">
+        <a href="/s-curve/project-management/">Project Management</a>
+        <a href="/s-curve/budget-tracking/">Budget Tracking</a>
+        <a href="/s-curve/cash-flow/">Cash Flow</a>
+        <a href="/s-curve/resource-planning/">Resource Planning</a>
+        <a href="/s-curve/financial-forecasting/">Financial Forecasting</a>
+        <a href="/s-curve/earned-value/">Earned Value</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unit Converter sub-calculators -->
+  <section id="unit-converter-tools">
+    <h2>Unit Converter Tools</h2>
+    <p>Our unit converter suite covers over 40 measurement categories with instant, accurate conversions. Whether you need to convert metric to imperial units for a recipe, calculate pressure in bar from psi, or convert data storage from megabytes to gigabytes, our tools handle it all. Below you will find full-category converters and popular quick-conversion shortcuts.</p>
+    <div class="niche-group">
+      <h3>Full Category Converters</h3>
+      <div class="niche-links">
+        <a href="/unit-converter/length/">Length</a>
+        <a href="/unit-converter/weight/">Weight</a>
+        <a href="/unit-converter/temperature/">Temperature</a>
+        <a href="/unit-converter/speed/">Speed</a>
+        <a href="/unit-converter/area/">Area</a>
+        <a href="/unit-converter/volume/">Volume</a>
+        <a href="/unit-converter/pressure/">Pressure</a>
+        <a href="/unit-converter/energy/">Energy</a>
+        <a href="/unit-converter/power/">Power</a>
+        <a href="/unit-converter/data/">Data</a>
+        <a href="/unit-converter/time/">Time</a>
+        <a href="/unit-converter/angle/">Angle</a>
+        <a href="/unit-converter/frequency/">Frequency</a>
+        <a href="/unit-converter/torque/">Torque</a>
+        <a href="/unit-converter/fuel/">Fuel</a>
+        <a href="/unit-converter/force/">Force</a>
+        <a href="/unit-converter/density/">Density</a>
+        <a href="/unit-converter/flow-rate/">Flow Rate</a>
+        <a href="/unit-converter/illuminance/">Illuminance</a>
+        <a href="/unit-converter/radiation/">Radiation</a>
+        <a href="/unit-converter/viscosity/">Viscosity</a>
+      </div>
+    </div>
+    <div class="niche-group">
+      <h3>Quick Conversions</h3>
+      <div class="niche-links">
+        <a href="/unit-converter/mm-to-inches/">mm → Inches</a>
+        <a href="/unit-converter/cm-to-inches/">cm → Inches</a>
+        <a href="/unit-converter/inches-to-cm/">Inches → cm</a>
+        <a href="/unit-converter/kg-to-lbs/">kg → lbs</a>
+        <a href="/unit-converter/lbs-to-kg/">lbs → kg</a>
+        <a href="/unit-converter/f-to-c/">°F → °C</a>
+        <a href="/unit-converter/c-to-f/">°C → °F</a>
+        <a href="/unit-converter/meters-to-feet/">m → ft</a>
+        <a href="/unit-converter/feet-to-meters/">ft → m</a>
+        <a href="/unit-converter/km-to-miles/">km → mi</a>
+        <a href="/unit-converter/miles-to-km/">mi → km</a>
+        <a href="/unit-converter/liters-to-gallons/">L → gal</a>
+        <a href="/unit-converter/gallons-to-liters/">gal → L</a>
+        <a href="/unit-converter/sqm-to-sqft/">m² → ft²</a>
+        <a href="/unit-converter/acres-to-hectares/">ac → ha</a>
+        <a href="/unit-converter/psi-to-bar/">psi → bar</a>
+        <a href="/unit-converter/kg-to-stone/">kg → st</a>
+        <a href="/unit-converter/oz-to-ml/">oz → ml</a>
+        <a href="/unit-converter/cups-to-ml/">cups → ml</a>
+        <a href="/unit-converter/mb-to-gb/">MB → GB</a>
+        <a href="/unit-converter/kw-to-hp/">kW → HP</a>
+        <a href="/unit-converter/joules-to-calories/">J → cal</a>
+        <a href="/unit-converter/knots-to-mph/">kn → mph</a>
+        <a href="/unit-converter/lbs-to-ounces/">lbs → oz</a>
+        <a href="/unit-converter/grams-to-ounces/">g → oz</a>
+        <a href="/unit-converter/feet-to-inches/">ft → in</a>
+        <a href="/unit-converter/yards-to-meters/">yd → m</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us">
+    <h2>Why Choose Nexus Web Tools?</h2>
+    <ul class="benefits">
+      <li><strong>100% Free, No Sign-Up.</strong> Every calculator and converter on this site is completely free to use. There are no accounts to create, no trials that expire, and no hidden paywalls. Simply visit the page and start calculating.</li>
+      <li><strong>Instant Results in Your Browser.</strong> All calculations run client-side in JavaScript. That means your inputs never leave your device, results appear instantly as you type, and the tools continue to work even on slow connections.</li>
+      <li><strong>Mobile-Friendly &amp; Responsive.</strong> Our tools are designed to work beautifully on phones, tablets, and desktops alike. The interface adapts to your screen size, so you can calculate on the go.</li>
+      <li><strong>Detailed Explanations.</strong> We do not just give you a number. Every calculator includes the underlying formula, a worked example, and answers to frequently asked questions, so you understand the maths behind the result.</li>
+      <li><strong>Privacy-First.</strong> We do not track your calculator inputs, store your financial data, or sell your information. Your calculations stay private to your browser session.</li>
+      <li><strong>Regularly Updated.</strong> We continually add new calculators and refine existing tools based on user feedback. If there is a tool you would like to see, <a href="/contact/">contact us</a> and let us know.</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <h3>Are these calculators free to use?</h3>
+    <p>Yes. Every calculator and unit converter on Nexus Web Tools is 100% free. There are no subscriptions, no trial periods, and no hidden fees. You can use them as many times as you like without creating an account.</p>
+    <h3>Do I need to install any software?</h3>
+    <p>No. All our tools run entirely in your web browser. They work on any modern browser (Chrome, Firefox, Safari, Edge) and on any device — desktop, laptop, tablet, or phone. There is nothing to download or install.</p>
+    <h3>Is my financial data safe?</h3>
+    <p>Absolutely. All calculations happen locally in your browser using JavaScript. The numbers you enter into any calculator never leave your device, are never sent to a server, and are not stored anywhere. Your privacy is protected by design.</p>
+    <h3>Can I use these tools offline?</h3>
+    <p>Once a calculator page has loaded in your browser, it will continue to function even if your internet connection drops, because all the computation logic is embedded in the page. However, you do need an internet connection to initially load the page.</p>
+    <h3>How accurate are the results?</h3>
+    <p>Our calculators use standard, well-established formulas (such as the compound interest formula A = P(1 + r/n)^(nt)) and compute results to full floating-point precision. However, all results are estimates for informational purposes only and do not constitute financial, legal, or professional advice. Always consult a qualified professional for important decisions.</p>
+    <h3>Can I suggest a new calculator?</h3>
+    <p>Yes! We welcome suggestions for new tools. If you have an idea for a calculator or converter that would be useful, please visit our <a href="/contact/">contact page</a> and send us your suggestion.</p>
   </section>
 </main>
 <footer class="site-footer">
-  <p>&copy; 2026 Nexus Web Tools</p>
+  <p>&copy; 2026 Nexus Web Tools — <a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+  <p>Free online calculators and unit converters. No sign-up. Mobile-friendly.</p>
 </footer>
 <script src="/scroll-bar.js" defer></script>
 <script src="/nav.js" defer></script>
-<script>
-  // Simple i18n loader – reads /locales/<lang>.json and replaces elements with data-i18n
-  (function(){
-    const pathParts = location.pathname.split('/').filter(Boolean);
-    const lang = pathParts[0] && /^[a-z]{2}(-[A-Z]{2})?$/.test(pathParts[0]) ? pathParts[0] : 'en';
-    fetch(`/locales/${lang}.json`).then(r=>r.json()).then(tr=>{
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        if(tr[key]){
-          if(el.tagName.toLowerCase() === 'title'){
-            document.title = tr[key];
-          } else {
-            el.textContent = tr[key];
-          }
-        }
-      });
-    }).catch(()=>{console.warn('i18n load failed for', lang);});
-  })();
-</script>
-
 <script src="/lang-loader.js" defer></script>
 </body>
 </html>

@@ -38,11 +38,13 @@
 /* Match site font/colour — no blue, no underline */
 .drawer-nav{list-style:none;margin:0;padding:8px 0}
 .drawer-nav li{position:relative}
+.drawer-nav > li{display:flex;align-items:center;flex-wrap:wrap}
 .drawer-nav a{
   display:block;padding:.5rem 16px;
   color:var(--text);text-decoration:none;
   font-family:inherit;font-size:.92rem;line-height:1.4;
   transition:background .1s;
+  flex:1;
 }
 .drawer-nav a:hover{background:rgba(59,91,219,.06)}
 /* Tier-1 links (top-level tools) — normal weight */
@@ -65,6 +67,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-basis: 100%;
 }
 .drawer-nav .has-children.open > .drawer-sub {
   display: block;
@@ -73,10 +76,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0 8px;
-  font-size: .9rem;
-  line-height: 1;
+  padding: .5rem 12px;
+  font-size: .7rem;
+  line-height: 1.4;
   color: var(--muted);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  transition: transform .2s ease, color .1s;
 }
 .drawer-nav .has-children.open > .drawer-toggle {
   transform: rotate(90deg);

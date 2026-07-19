@@ -127,10 +127,10 @@
       var cls = item.tier ? ' class="dn-tier1"' : '';
       var ext = item.external ? ' <span class="dn-external">↗</span>' : '';
       html += '<li class="has-children">';
+      html += '<a href="' + item.href + '"' + cls + '>' + item.label + ext + '</a>';
       if (item.children) {
         html += '<button class="drawer-toggle" aria-label="Expand '+item.label+'">▶</button>';
       }
-      html += '<a href="' + item.href + '"' + cls + '>' + item.label + ext + '</a>';
       if (item.children) {
         html += '<ul class="drawer-sub">';
         item.children.forEach(function(ch) {
