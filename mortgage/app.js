@@ -768,18 +768,20 @@ document.addEventListener("DOMContentLoaded",function(){
     this.textContent=hidden?"⚙️ Advanced options ▴":"⚙️ Advanced options ▾";
   });
 
-  // Loan Split toggle
-  $("#splitToggle").addEventListener("click",function(){
+  // Loan Split toggle (guard if element doesn't exist)
+  var stEl = $("#splitToggle");
+  if(stEl) stEl.addEventListener("click",function(){
     var sec=$("#splitSection");var hidden=sec.hidden;sec.hidden=!hidden;
     this.setAttribute("aria-expanded",!hidden);
     this.textContent=hidden?"👥 Loan Split ▴":"👥 Loan Split ▾";
   });
 
-  // Add / Remove person
+  // Add / Remove person (guard if elements don't exist)
   function updateSplitBtns(){
-    $("#removePerson").disabled=splitPeople.length<1;
+    var rp=$("#removePerson"); if(rp) rp.disabled=splitPeople.length<1;
   }
-  $("#addPerson").addEventListener("click",function(){
+  var apEl=$("#addPerson");
+  if(apEl) apEl.addEventListener("click",function(){
     var n=splitPeople.length;
     // Default: equal split
     splitPeople.push({name:"Person "+(n+1),pct:Math.round(100/(n+1)*10)/10});
@@ -791,7 +793,8 @@ document.addEventListener("DOMContentLoaded",function(){
     splitPeople[splitPeople.length-1].pct=Math.round((splitPeople[splitPeople.length-1].pct+diff)*10)/10;
     renderSplitPeople();updateSplitBtns();
   });
-  $("#removePerson").addEventListener("click",function(){
+  var rpEl2=$("#removePerson");
+  if(rpEl2) rpEl2.addEventListener("click",function(){
     if(splitPeople.length<1)return;
     splitPeople.pop();
     if(splitPeople.length>0){

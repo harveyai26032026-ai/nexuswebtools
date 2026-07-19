@@ -2,7 +2,7 @@
 (function(){
   function getLang(){
     var qs = (window.location.search || '').match(/[?&]lang=([a-zA-Z-]+)/);
-    if(qs) return qs[1].toLowerCase();
+    if(qs) return qs[1];  // preserve case (pt-BR not pt-br)
     try { var s = localStorage.getItem('nwt-lang'); if(s) return s; } catch(e){}
     return 'en';
   }
@@ -15,7 +15,7 @@
     btns.forEach(function(b){
       var href = b.getAttribute('href') || '';
       var match = href.match(/[?&]lang=([a-zA-Z-]+)/);
-      var code = match ? match[1].toLowerCase() : 'en';
+      var code = match ? match[1] : 'en';
       if(code === lang){
         b.style.opacity = '1';
         b.style.borderBottom = '2px solid #3b5bdb';

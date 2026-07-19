@@ -170,6 +170,10 @@
         <div class="field"><label for="mLMI"><strong>PMI / LMI %/yr</strong> <span class="hint-inline">(0 = off)</span></label><input id="mLMI" type="number" min="0" step="any" value="0"></div>
         <div class="field"><label for="mHOA"><strong>Annual HOA / strata</strong> <span class="hint-inline">(0 = none)</span></label><input id="mHOA" type="number" min="0" step="any" value="0"></div>
         <div class="field"><label for="mStamp"><strong>Stamp duty / transfer tax</strong> <span class="hint-inline">(one‑off)</span></label><input id="mStamp" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mLoanFee"><strong>Loan application fee</strong> <span class="hint-inline">(one‑off)</span></label><input id="mLoanFee" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mPurchaseCosts"><strong>Other purchase costs</strong> <span class="hint-inline">(one‑off)</span></label><input id="mPurchaseCosts" type="number" min="0" step="any" value="0"></div>
+        <div class="field"><label for="mApprec"><strong>Annual property growth %</strong></label><input id="mApprec" type="number" step="any" value="4"></div>
+        <div class="field"><label for="mInflation"><strong>Annual inflation %</strong></label><input id="mInflation" type="number" step="any" value="2.5"></div>
       </div>
     </div>
 
@@ -220,7 +224,18 @@
       </div>
       <div class="grid">
         <div class="field"><label for="rvInvRate"><strong>Investment return %/yr</strong></label><input id="rvInvRate" type="number" step="any" value="7"></div>
-        <div class="field"><label for="rvTaxRate"><strong>Marginal tax rate %</strong></label><input id="rvTaxRate" type="number" step="any" value="25"></div>
+        <div class="field"><label for="rvTax"><strong>Marginal tax rate %</strong></label><input id="rvTax" type="number" step="any" value="25"></div>
+      </div>
+      <button id="rvbAdvToggle" type="button" class="adv-toggle" aria-expanded="false">⚙️ Advanced costs ▾</button>
+      <div id="rvbAdvSection" class="advanced" hidden>
+        <div class="grid">
+          <div class="field"><label for="rvHOA"><strong>Annual HOA / strata</strong></label><input id="rvHOA" type="number" min="0" step="any" value="0"></div>
+          <div class="field"><label for="rvIns"><strong>Annual insurance</strong></label><input id="rvIns" type="number" min="0" step="any" value="0"></div>
+          <div class="field"><label for="rvLMI"><strong>PMI / LMI %/yr</strong></label><input id="rvLMI" type="number" min="0" step="any" value="0"></div>
+          <div class="field"><label for="rvStamp"><strong>Stamp duty</strong></label><input id="rvStamp" type="number" min="0" step="any" value="0"></div>
+          <div class="field"><label for="rvLoanFee"><strong>Loan fee</strong></label><input id="rvLoanFee" type="number" min="0" step="any" value="0"></div>
+          <div class="field"><label for="rvPurchaseCosts"><strong>Other purchase costs</strong></label><input id="rvPurchaseCosts" type="number" min="0" step="any" value="0"></div>
+        </div>
       </div>
       <div class="btn-row">
         <button id="rvbCalc" type="button" class="adv-toggle primary">Compare Rent vs Buy</button>
