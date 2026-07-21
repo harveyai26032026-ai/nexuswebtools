@@ -3305,6 +3305,10 @@
         {
           "heading": "Example 1: Comparing the Cost of Multiple Loans",
           "text": "For example, let's say you are considering taking out multiple loans for different purposes. You can use the continuous calculator to compare the total cost of each loan over time, including the interest rates and fees associated with each one. This can help you make informed decisions about which loans to take out and how much to borrow."
+        },
+        {
+          "heading": "Example 2: Calculating the Compound Interest for Multiple Loans",
+          "text": "Suppose you have taken two loans from the same bank, one with an interest rate of 5% per year and the other with an interest rate of 7% per year. You want to calculate the compound interest for both loans over a period of 5 years. Using the continuous calculator, you can enter the loan amounts, interest rates, and the number of years, and it will give you the total compound interest for each loan separately and also the overall compound interest for all the loans combined."
         }
       ],
       "faqs": [
