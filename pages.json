@@ -4347,6 +4347,14 @@
         {
           "q": "How does the compound frequency calculator handle inflation?",
           "a": "Our calculator assumes a constant inflation rate, so you can input an inflation rate to account for the effects of inflation on your investments."
+        },
+        {
+          "q": "Can I use the compound frequency calculator for different types of investments, such as mutual funds or retirement accounts?",
+          "a": "Yes, you can use the compound frequency calculator for a variety of investment types. Simply enter the appropriate information for your investment type and the calculator will provide the results."
+        },
+        {
+          "q": "How does the compound frequency calculator handle different interest rates for multiple loans or investments?",
+          "a": "The compound frequency calculator allows you to input multiple interest rates for different loans or investments. The calculator will then provide the total interest paid or earned over the specified time period."
         }
       ]
     },
