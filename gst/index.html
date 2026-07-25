@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GST Calculator — Calculate GST (Goods and Services Tax)</title>
+<meta name="description" content="Free GST calculator. Add or remove GST from any amount. Supports Australian (10%), New Zealand (15%), and custom GST rates. Instant results.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="Nexus Web Tools">
+<meta name="theme-color" content="#3b5bdb">
+<link rel="canonical" href="https://nexuswebtools.com/gst/">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/favicon.webp" type="image/webp">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/nav.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nexus Web Tools">
+<meta property="og:title" content="GST Calculator — Calculate GST (Goods and Services Tax)">
+<meta property="og:description" content="Free GST calculator. Add or remove GST from any amount. Supports Australian (10%), New Zealand (15%), and custom GST rates. Instant results.">
+<meta property="og:url" content="https://nexuswebtools.com/gst/">
+<meta property="og:image" content="https://nexuswebtools.com/og.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GST Calculator — Calculate GST (Goods and Services Tax)">
+<meta name="twitter:description" content="Free GST calculator. Add or remove GST from any amount. Supports Australian (10%), New Zealand (15%), and custom GST rates. Instant results.">
+<link rel="alternate" hreflang="en" href="https://nexuswebtools.com/?lang=en" />
+<link rel="alternate" hreflang="nl" href="https://nexuswebtools.com/?lang=nl" />
+<link rel="alternate" hreflang="pt-BR" href="https://nexuswebtools.com/?lang=pt-BR" />
+<link rel="alternate" hreflang="ja" href="https://nexuswebtools.com/?lang=ja" />
+<link rel="alternate" hreflang="sg" href="https://nexuswebtools.com/?lang=sg" />
+<link rel="alternate" hreflang="x-default" href="https://nexuswebtools.com/" />
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XY5PSBLW98"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XY5PSBLW98', { 'anonymize_ip': true });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "GST Calculator",
+      "url": "https://nexuswebtools.com/gst/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Free GST calculator. Add or remove GST from any amount. Supports Australian (10%), New Zealand (15%), and custom GST rates. Instant results.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate 10% GST?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Multiply the price by 0.10 to get the GST amount, or by 1.10 to get the total including GST. For example, $100 + 10% GST = $110."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I remove GST from a total?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide the GST-inclusive total by 1.10 (for 10% GST). For example, $220 \u00f7 1.10 = $200 (the GST-free price). The GST is $20."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What items are GST-free in Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Basic food (bread, milk, fruit, vegetables), medical services, educational courses, childcare, and some exports are GST-free."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between GST and VAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GST and VAT are essentially the same \u2014 both are consumption taxes collected at each stage of production. The terms are used interchangeably, though different countries use different names."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to charge GST?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Australia, you must register for GST if your annual turnover is $75,000 or more. Once registered, you charge GST on taxable sales and can claim GST credits on business purchases."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="ribbon">
+  <div class="ribbon-inner">
+    <button class="hamburger" aria-label="Open menu">
+      <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="brand"><a href="/" style="text-decoration:none;color:inherit">🧰 Nexus Web Tools</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#tools">Tools</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="lang-switch" style="margin-left:auto;display:flex;gap:0.4rem;">
+      <a href="?lang=en" class="lang" title="English" onclick="localStorage.setItem('nwt-lang','en');">🇬🇧</a>
+      <a href="?lang=nl" class="lang" title="Nederlands" onclick="localStorage.setItem('nwt-lang','nl');">🇳🇱</a>
+      <a href="?lang=pt-BR" class="lang" title="Português (Brasil)" onclick="localStorage.setItem('nwt-lang','pt-BR');">🇧🇷</a>
+      <a href="?lang=ja" class="lang" title="日本語" onclick="localStorage.setItem('nwt-lang','ja');">🇯🇵</a>
+      <a href="?lang=sg" class="lang" title="English (Singapore)" onclick="localStorage.setItem('nwt-lang','sg');">🇸🇬</a>
+    </div>
+    <div class="ribbon-search">
+      <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <input type="text" placeholder="Search tools…" autocomplete="off">
+    </div>
+  </div>
+  <div class="scroll-bar"><div class="scroll-bar-fill"></div></div>
+</header>
+<main>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>GST Calculator</span></nav>
+  <div class="hero">
+    <h1>GST Calculator</h1>
+    <p class="lede">Add or remove GST from any amount instantly. Supports 10% Australian GST, 15% NZ GST, and custom rates. Calculate tax-inclusive and tax-exclusive prices.</p>
+  </div>
+  <p class="disclaimer"><strong>Disclaimer:</strong> This calculator is provided for informational and educational purposes only. It does not constitute financial, tax, or professional advice.</p>
+  <section>
+    <h2>What is GST?</h2>
+    <p>Goods and Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic consumption. It is used in many countries including Australia (10%), New Zealand (15%), Singapore (9%), Canada (5%), and India (18% for most goods).</p>
+    <p>GST is typically included in the price displayed to consumers. Businesses collect GST on behalf of the government and can claim back GST they pay on business expenses.</p>
+  </section>
+  <section>
+    <h2>How to calculate GST</h2>
+    <p>To add GST to a price:</p>
+    <p>GST amount = Price × (GST rate ÷ 100)</p>
+    <p>Total (GST-inclusive) = Price + GST amount</p>
+    <p>For example, with 10% GST on a $100 item:
+GST = $100 × 0.10 = $10
+Total = $110</p>
+    <p>To remove GST from a GST-inclusive price:</p>
+    <p>Price (excl GST) = Total ÷ (1 + GST rate/100)
+GST amount = Total − Price (excl GST)</p>
+    <p>For example, removing 10% GST from $220:
+Price excl GST = $220 ÷ 1.10 = $200
+GST = $220 − $200 = $20</p>
+  </section>
+  <section>
+    <h2>GST rates by country</h2>
+    <p>Different countries have different GST rates:</p>
+    <ul>
+      <li>**Australia**: 10% (since July 2000)</li>
+      <li>**New Zealand**: 15% (raised from 12.5% in 2010)</li>
+      <li>**Singapore**: 9% (raised from 8% in 2024)</li>
+      <li>**Canada**: 5% federal, plus provincial rates</li>
+      <li>**India**: 5%, 12%, 18%, or 28% depending on goods</li>
+      <li>**United Kingdom**: 20% VAT (similar to GST)</li>
+    </ul>
+    <p>Some items are GST-free, including basic food, medical services, and educational services in Australia.</p>
+  </section>
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <h3>How do I calculate 10% GST?</h3>
+    <p>Multiply the price by 0.10 to get the GST amount, or by 1.10 to get the total including GST. For example, $100 + 10% GST = $110.</p>
+    <h3>How do I remove GST from a total?</h3>
+    <p>Divide the GST-inclusive total by 1.10 (for 10% GST). For example, $220 ÷ 1.10 = $200 (the GST-free price). The GST is $20.</p>
+    <h3>What items are GST-free in Australia?</h3>
+    <p>Basic food (bread, milk, fruit, vegetables), medical services, educational courses, childcare, and some exports are GST-free.</p>
+    <h3>What is the difference between GST and VAT?</h3>
+    <p>GST and VAT are essentially the same — both are consumption taxes collected at each stage of production. The terms are used interchangeably, though different countries use different names.</p>
+    <h3>Do I need to charge GST?</h3>
+    <p>In Australia, you must register for GST if your annual turnover is $75,000 or more. Once registered, you charge GST on taxable sales and can claim GST credits on business purchases.</p>
+  </section>
+  <section class="related-tools">
+    <h2>Related Calculators</h2>
+    <div class="related-links">
+      <a href="/compound-interest/">Compound Interest Calculator</a>
+      <a href="/mortgage/">Mortgage Calculator</a>
+      <a href="/percentage/">Percentage Calculator</a>
+      <a href="/unit-converter/">Unit Converter</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>GST Calculator</strong> — free online calculator from Nexus Web Tools.</p>
+  <p><a href="/">All tools</a> · <a href="/compound-interest/">Compound Interest</a> · <a href="/mortgage/">Mortgage</a> · <a href="/s-curve/">S‑Curve Model</a> · <a href="/unit-converter/">Unit Converter</a> · <a href="/percentage/">Percentage Calculator</a></p>
+  <p>Estimates are for general guidance only and are not financial advice. Consult a licensed professional for important decisions.</p>
+</footer>
+<script src="/scroll-bar.js" defer></script>
+<script src="/nav.js" defer></script>
+<script src="/lang-loader.js" defer></script>
+<script type="text/javascript">var infolinks_pid = 3446367;var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

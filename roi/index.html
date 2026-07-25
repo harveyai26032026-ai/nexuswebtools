@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROI Calculator — Return on Investment Calculator</title>
+<meta name="description" content="Free ROI calculator. Calculate return on investment, annualized ROI, and compare investment performance. Includes formula, examples, and FAQ.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="Nexus Web Tools">
+<meta name="theme-color" content="#3b5bdb">
+<link rel="canonical" href="https://nexuswebtools.com/roi/">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/favicon.webp" type="image/webp">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/nav.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nexus Web Tools">
+<meta property="og:title" content="ROI Calculator — Return on Investment Calculator">
+<meta property="og:description" content="Free ROI calculator. Calculate return on investment, annualized ROI, and compare investment performance. Includes formula, examples, and FAQ.">
+<meta property="og:url" content="https://nexuswebtools.com/roi/">
+<meta property="og:image" content="https://nexuswebtools.com/og.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ROI Calculator — Return on Investment Calculator">
+<meta name="twitter:description" content="Free ROI calculator. Calculate return on investment, annualized ROI, and compare investment performance. Includes formula, examples, and FAQ.">
+<link rel="alternate" hreflang="en" href="https://nexuswebtools.com/?lang=en" />
+<link rel="alternate" hreflang="nl" href="https://nexuswebtools.com/?lang=nl" />
+<link rel="alternate" hreflang="pt-BR" href="https://nexuswebtools.com/?lang=pt-BR" />
+<link rel="alternate" hreflang="ja" href="https://nexuswebtools.com/?lang=ja" />
+<link rel="alternate" hreflang="sg" href="https://nexuswebtools.com/?lang=sg" />
+<link rel="alternate" hreflang="x-default" href="https://nexuswebtools.com/" />
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XY5PSBLW98"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XY5PSBLW98', { 'anonymize_ip': true });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "ROI Calculator",
+      "url": "https://nexuswebtools.com/roi/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Free ROI calculator. Calculate return on investment, annualized ROI, and compare investment performance. Includes formula, examples, and FAQ.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a good ROI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A \"good\" ROI depends on the investment type and risk. Stock market average is ~7-10% per year. Real estate typically targets 8-12%. A business investment might need 15-25% to justify the risk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is ROI different from profit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Profit is the dollar amount gained (e.g., $500). ROI is the percentage return (e.g., 50%). ROI allows comparison between investments of different sizes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does ROI account for time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Basic ROI does not. A 50% return over 1 year is very different from 50% over 10 years. Use annualized ROI to compare investments held for different periods."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ROI be negative?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If the final value is less than the initial cost, ROI is negative. For example, investing $1,000 and selling for $800 gives an ROI of -20%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate ROI with multiple investments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the total of all investments as the initial cost, and the current total value as the final value. Or use IRR for more accurate results with timed cash flows."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="ribbon">
+  <div class="ribbon-inner">
+    <button class="hamburger" aria-label="Open menu">
+      <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="brand"><a href="/" style="text-decoration:none;color:inherit">🧰 Nexus Web Tools</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#tools">Tools</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="lang-switch" style="margin-left:auto;display:flex;gap:0.4rem;">
+      <a href="?lang=en" class="lang" title="English" onclick="localStorage.setItem('nwt-lang','en');">🇬🇧</a>
+      <a href="?lang=nl" class="lang" title="Nederlands" onclick="localStorage.setItem('nwt-lang','nl');">🇳🇱</a>
+      <a href="?lang=pt-BR" class="lang" title="Português (Brasil)" onclick="localStorage.setItem('nwt-lang','pt-BR');">🇧🇷</a>
+      <a href="?lang=ja" class="lang" title="日本語" onclick="localStorage.setItem('nwt-lang','ja');">🇯🇵</a>
+      <a href="?lang=sg" class="lang" title="English (Singapore)" onclick="localStorage.setItem('nwt-lang','sg');">🇸🇬</a>
+    </div>
+    <div class="ribbon-search">
+      <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <input type="text" placeholder="Search tools…" autocomplete="off">
+    </div>
+  </div>
+  <div class="scroll-bar"><div class="scroll-bar-fill"></div></div>
+</header>
+<main>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>ROI Calculator</span></nav>
+  <div class="hero">
+    <h1>ROI Calculator</h1>
+    <p class="lede">Calculate the return on investment (ROI) for any investment. Enter your initial cost and final value to see total ROI, annualized return, and profit.</p>
+  </div>
+  <p class="disclaimer"><strong>Disclaimer:</strong> This calculator is provided for informational and educational purposes only. It does not constitute financial, tax, or professional advice.</p>
+  <section>
+    <h2>What is ROI?</h2>
+    <p>Return on Investment (ROI) is a measure of the profitability of an investment. It expresses the gain or loss as a percentage of the original cost, making it easy to compare different investments.</p>
+    <p>ROI is one of the most widely used metrics in finance because it is simple to calculate and understand. However, it does have limitations — particularly that it doesn't account for the time held, unless you use annualized ROI.</p>
+  </section>
+  <section>
+    <h2>How to calculate ROI</h2>
+    <p>The basic ROI formula is:</p>
+    <p>ROI = (Final Value − Initial Cost) ÷ Initial Cost × 100</p>
+    <p>For example, if you invest $1,000 and sell for $1,500:
+ROI = ($1,500 − $1,000) ÷ $1,000 × 100 = 50%</p>
+    <p>To calculate annualized ROI:</p>
+    <p>Annualized ROI = ((Final Value ÷ Initial Cost) ^ (1 ÷ years)) − 1</p>
+    <p>For example, if the $1,000 investment grew to $1,500 over 3 years:
+Annualized ROI = ((1,500 ÷ 1,000) ^ (1/3)) − 1 = 14.5% per year</p>
+  </section>
+  <section>
+    <h2>ROI vs other metrics</h2>
+    <p>While ROI is useful, it has limitations. Other metrics to consider:</p>
+    <ul>
+      <li>**IRR (Internal Rate of Return)**: Accounts for the timing of cash flows, not just start and end values.</li>
+      <li>**NPV (Net Present Value)**: Discounts future cash flows to present value using a discount rate.</li>
+      <li>**CAGR (Compound Annual Growth Rate)**: Similar to annualized ROI but assumes steady growth.</li>
+      <li>**Payback Period**: How long it takes to recover the initial investment.</li>
+    </ul>
+    <p>For real estate, stocks, or business investments with multiple cash flows, IRR or NPV may be more appropriate than simple ROI.</p>
+  </section>
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <h3>What is a good ROI?</h3>
+    <p>A "good" ROI depends on the investment type and risk. Stock market average is ~7-10% per year. Real estate typically targets 8-12%. A business investment might need 15-25% to justify the risk.</p>
+    <h3>How is ROI different from profit?</h3>
+    <p>Profit is the dollar amount gained (e.g., $500). ROI is the percentage return (e.g., 50%). ROI allows comparison between investments of different sizes.</p>
+    <h3>Does ROI account for time?</h3>
+    <p>Basic ROI does not. A 50% return over 1 year is very different from 50% over 10 years. Use annualized ROI to compare investments held for different periods.</p>
+    <h3>Can ROI be negative?</h3>
+    <p>Yes. If the final value is less than the initial cost, ROI is negative. For example, investing $1,000 and selling for $800 gives an ROI of -20%.</p>
+    <h3>How do I calculate ROI with multiple investments?</h3>
+    <p>Use the total of all investments as the initial cost, and the current total value as the final value. Or use IRR for more accurate results with timed cash flows.</p>
+  </section>
+  <section class="related-tools">
+    <h2>Related Calculators</h2>
+    <div class="related-links">
+      <a href="/compound-interest/">Compound Interest Calculator</a>
+      <a href="/compound-interest/investments/">Investments Calculator</a>
+      <a href="/compound-interest/retirement/">Retirement Calculator</a>
+      <a href="/percentage/">Percentage Calculator</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>ROI Calculator</strong> — free online calculator from Nexus Web Tools.</p>
+  <p><a href="/">All tools</a> · <a href="/compound-interest/">Compound Interest</a> · <a href="/mortgage/">Mortgage</a> · <a href="/s-curve/">S‑Curve Model</a> · <a href="/unit-converter/">Unit Converter</a> · <a href="/percentage/">Percentage Calculator</a></p>
+  <p>Estimates are for general guidance only and are not financial advice. Consult a licensed professional for important decisions.</p>
+</footer>
+<script src="/scroll-bar.js" defer></script>
+<script src="/nav.js" defer></script>
+<script src="/lang-loader.js" defer></script>
+<script type="text/javascript">var infolinks_pid = 3446367;var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>
