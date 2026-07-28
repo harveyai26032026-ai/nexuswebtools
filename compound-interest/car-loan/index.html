@@ -130,7 +130,14 @@
       <nav class="nav-ribbon">
         <a href="/">Home</a>
         <a href="/#tools">Tools</a>
-      </nav>
+          <div class="lang-switch" style="margin-left:auto;display:flex;gap:0.4rem;">
+      <a href="?lang=en" class="lang" title="English" onclick="localStorage.setItem('nwt-lang','en');">🇬🇧</a>
+      <a href="?lang=nl" class="lang" title="Nederlands" onclick="localStorage.setItem('nwt-lang','nl');">🇳🇱</a>
+      <a href="?lang=pt-BR" class="lang" title="Português (Brasil)" onclick="localStorage.setItem('nwt-lang','pt-BR');">🇧🇷</a>
+      <a href="?lang=ja" class="lang" title="日本語" onclick="localStorage.setItem('nwt-lang','ja');">🇯🇵</a>
+      <a href="?lang=sg" class="lang" title="English (Singapore)" onclick="localStorage.setItem('nwt-lang','sg');">🇸🇬</a>
+    </div>
+</nav>
       <div class="ribbon-search">
         <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
         <input type="text" placeholder="Search tools…" autocomplete="off">
