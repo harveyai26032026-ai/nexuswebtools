@@ -234,5 +234,11 @@
   "page_uc_weight_title": "Weight Converter | Nexus Web Tools",
   "page_uc_weight_h1": "Weight Converter",
   "page_uc_yards_to_meters_title": "Yards to Metres Converter | Nexus Web Tools",
-  "page_uc_yards_to_meters_h1": "Yards to Metres Converter"
+  "page_uc_yards_to_meters_h1": "Yards to Metres Converter",
+  "page_capital_gains_tax_title": "Capital Gains Tax (CGT) Calculator — Calculate CGT on Investments",
+  "page_capital_gains_tax_h1": "Capital Gains Tax (CGT) Calculator",
+  "page_income_tax_title": "Income Tax Calculator — Estimate Your Tax Liability",
+  "page_income_tax_h1": "Income Tax Calculator",
+  "page_stamp_duty_title": "Stamp Duty Calculator — Calculate Property Transfer Duty",
+  "page_stamp_duty_h1": "Stamp Duty Calculator"
 }

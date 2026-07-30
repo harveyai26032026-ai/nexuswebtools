@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="page_income_tax_title">Income Tax Calculator — Estimate Your Tax Liability</title>
+<meta name="description" content="Free income tax calculator. Estimate your income tax liability for the 2025-26 financial year. Supports Australian marginal tax rates, HECS/HELP, and Medicare levy.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="Nexus Web Tools">
+<link rel="canonical" href="https://nexuswebtools.com/income-tax/">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/nav.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nexus Web Tools">
+<meta property="og:title" content="Income Tax Calculator — Estimate Your Tax Liability">
+<meta property="og:description" content="Free income tax calculator. Estimate your income tax liability for the 2025-26 financial year. Supports Australian marginal tax rates, HECS/HELP, and Medicare levy.">
+<meta property="og:url" content="https://nexuswebtools.com/income-tax/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Income Tax Calculator — Estimate Your Tax Liability">
+<meta name="twitter:description" content="Free income tax calculator. Estimate your income tax liability for the 2025-26 financial year. Supports Australian marginal tax rates, HECS/HELP, and Medicare levy.">
+<link rel="alternate" hreflang="en" href="https://nexuswebtools.com/?lang=en" />
+<link rel="alternate" hreflang="nl" href="https://nexuswebtools.com/?lang=nl" />
+<link rel="alternate" hreflang="pt-BR" href="https://nexuswebtools.com/?lang=pt-BR" />
+<link rel="alternate" hreflang="ja" href="https://nexuswebtools.com/?lang=ja" />
+<link rel="alternate" hreflang="sg" href="https://nexuswebtools.com/?lang=sg" />
+<link rel="alternate" hreflang="x-default" href="https://nexuswebtools.com/" />
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XY5PSBLW98"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XY5PSBLW98', { 'anonymize_ip': true });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Income Tax Calculator",
+      "url": "https://nexuswebtools.com/income-tax/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "Free income tax calculator. Estimate your income tax liability for the 2025-26 financial year. Supports Australian marginal tax rates, HECS/HELP, and Medicare levy.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the tax-free threshold in Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The tax-free threshold is $18,200. If your total income for the year is $18,200 or less, you pay no income tax. Most Australian residents are entitled to this threshold."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Medicare levy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Medicare levy is 2% of your taxable income. Most taxpayers pay it. Low-income earners may be exempt or pay a reduced rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is HECS/HELP repaid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HECS/HELP repayments are automatically deducted by the ATO from your salary once your income exceeds $54,435 (2025-26). The percentage increases with income, from 1% up to 10%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is negative gearing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Negative gearing occurs when the costs of owning an investment property exceed the rental income. The loss can be deducted from your other income, reducing your overall tax bill."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is tax due in Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most employees, tax is withheld from each paycheck (PAYG withholding). If you lodge your own return, it is due by 31 October each year. Tax agents get extensions into the following year."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="ribbon">
+  <div class="ribbon-inner">
+    <button class="hamburger" aria-label="Open menu">
+      <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="brand"><a href="/" style="text-decoration:none;color:inherit"><span data-i18n="brand">🧰 Nexus Web Tools</span></a></div>
+    <nav>
+      <a href="/"><span data-i18n="navHome">Home</span></a>
+      <a href="/#tools"><span data-i18n="navTools">Tools</span></a>
+      <a href="#faq"><span data-i18n="navFAQ">FAQ</span></a>
+    </nav>
+    <div class="lang-switch" style="margin-left:auto;display:flex;gap:0.4rem;">
+      <a href="?lang=en" class="lang" title="English" onclick="localStorage.setItem('nwt-lang','en');">🇬🇧</a>
+      <a href="?lang=nl" class="lang" title="Nederlands" onclick="localStorage.setItem('nwt-lang','nl');">🇳🇱</a>
+      <a href="?lang=pt-BR" class="lang" title="Português (Brasil)" onclick="localStorage.setItem('nwt-lang','pt-BR');">🇧🇷</a>
+      <a href="?lang=ja" class="lang" title="日本語" onclick="localStorage.setItem('nwt-lang','ja');">🇯🇵</a>
+      <a href="?lang=sg" class="lang" title="English (Singapore)" onclick="localStorage.setItem('nwt-lang','sg');">🇸🇬</a>
+    </div>
+    <div class="ribbon-search">
+      <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <input type="text" placeholder="Search tools…" autocomplete="off">
+    </div>
+  </div>
+  <div class="scroll-bar"><div class="scroll-bar-fill"></div></div>
+</header>
+<main>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Income Tax Calculator</span></nav>
+  <div class="hero">
+    <h1 data-i18n="page_income_tax_h1">Income Tax Calculator</h1>
+    <p class="lede">Estimate your income tax for the 2025-26 financial year. Enter your gross income to see your marginal tax rate, HECS/HELP repayments, Medicare levy, and net (after-tax) income.</p>
+  </div>
+  <p class="disclaimer"><strong>Disclaimer:</strong> This calculator is provided for informational and educational purposes only. It does not constitute financial, tax, or professional advice.</p>
+  <section>
+    <h2>How Australian income tax works</h2>
+    <p>Australia uses a progressive tax system, meaning the more you earn, the higher the percentage of tax you pay. Your income is divided into brackets, and each bracket is taxed at a different rate.</p>
+    <p>For the 2025-26 financial year (1 July 2025 to 30 June 2026), the tax brackets are:</p>
+    <ul>
+      <li>$0 – $18,200: 0% (tax-free threshold)</li>
+      <li>$18,201 – $45,000: 16%</li>
+      <li>$45,001 – $135,000: 30%</li>
+      <li>$135,001 – $190,000: 37%</li>
+      <li>$190,001 and over: 45%</li>
+    </ul>
+    <p>In addition to income tax, most taxpayers pay the 2% Medicare levy. High-income earners without private health insurance may also pay the Medicare levy surcharge (1%–1.5%).</p>
+  </section>
+  <section>
+    <h2>What is a marginal tax rate?</h2>
+    <p>Your marginal tax rate is the rate applied to your next dollar of income. For example, if you earn $80,000, your marginal rate is 30%. This means any additional income (like a pay rise, bonus, or investment return) will be taxed at 30% until you cross into the next bracket.</p>
+    <p>Understanding your marginal rate is crucial for financial decisions:</p>
+    <ul>
+      <li>Salary sacrificing into superannuation saves tax at your marginal rate</li>
+      <li>Investment income (dividends, interest) is taxed at your marginal rate</li>
+      <li>Side hustle income is taxed on top of your existing income at your marginal rate</li>
+    </ul>
+  </section>
+  <section>
+    <h2>HECS/HELP debt and tax</h2>
+    <p>If you have a HECS-HELP student loan, the Australian Taxation Office (ATO) automatically deducts repayments from your income once you earn above the repayment threshold. For 2025-26, the threshold is $54,435.</p>
+    <p>Repayment rates are:</p>
+    <ul>
+      <li>$54,435 – $62,854: 1%</li>
+      <li>$62,855 – $66,820: 2%</li>
+      <li>$66,821 – $71,093: 2.5%</li>
+      <li>$71,094 – $77,691: 3%</li>
+      <li>... increasing up to 10% for incomes over $162,852</li>
+    </ul>
+    <p>HECS/HELP repayments are calculated on your repayment income, which includes salary, reportable fringe benefits, and some investment income.</p>
+  </section>
+  <section>
+    <h2>How to reduce your tax legally</h2>
+    <p>There are several legitimate strategies to reduce your tax bill:</p>
+    <ul>
+      <li>Salary sacrifice to superannuation: Contribute up to $30,000 per year into super (taxed at 15% instead of your marginal rate).</li>
+      <li>Work-related deductions: Claim expenses directly related to earning your income (home office, uniforms, tools, education).</li>
+      <li>Investment property deductions: Negative gearing allows you to offset property losses against other income.</li>
+      <li>Charitable donations: Deductible gifts over $2 to registered charities reduce your taxable income.</li>
+      <li>Private health insurance: Avoid the Medicare levy surcharge if your income is above $93,000 (singles) or $186,000 (couples).</li>
+    </ul>
+  </section>
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <h3>What is the tax-free threshold in Australia?</h3>
+    <p>The tax-free threshold is $18,200. If your total income for the year is $18,200 or less, you pay no income tax. Most Australian residents are entitled to this threshold.</p>
+    <h3>What is the Medicare levy?</h3>
+    <p>The Medicare levy is 2% of your taxable income. Most taxpayers pay it. Low-income earners may be exempt or pay a reduced rate.</p>
+    <h3>How is HECS/HELP repaid?</h3>
+    <p>HECS/HELP repayments are automatically deducted by the ATO from your salary once your income exceeds $54,435 (2025-26). The percentage increases with income, from 1% up to 10%.</p>
+    <h3>What is negative gearing?</h3>
+    <p>Negative gearing occurs when the costs of owning an investment property exceed the rental income. The loss can be deducted from your other income, reducing your overall tax bill.</p>
+    <h3>When is tax due in Australia?</h3>
+    <p>For most employees, tax is withheld from each paycheck (PAYG withholding). If you lodge your own return, it is due by 31 October each year. Tax agents get extensions into the following year.</p>
+  </section>
+  <section class="related-tools">
+    <h2>Related Calculators</h2>
+    <div class="related-links">
+      <a href="/compound-interest/superannuation/">Superannuation Calculator</a>
+      <a href="/compound-interest/savings/">Savings Calculator</a>
+      <a href="/gst/">GST Calculator</a>
+      <a href="/percentage/">Percentage Calculator</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Income Tax Calculator</strong> — free online calculator from Nexus Web Tools.</p>
+  <p><a href="/">All tools</a> · <a href="/compound-interest/">Compound Interest</a> · <a href="/mortgage/">Mortgage</a> · <a href="/income-tax/">Income Tax</a> · <a href="/capital-gains-tax/">CGT Calculator</a> · <a href="/stamp-duty/">Stamp Duty</a> · <a href="/unit-converter/">Unit Converter</a></p>
+  <p>Estimates are for general guidance only and are not financial advice. Consult a licensed professional for important decisions.</p>
+</footer>
+<script src="/scroll-bar.js" defer></script>
+<script src="/nav.js" defer></script>
+<script src="/lang-loader.js" defer></script>
+<script type="text/javascript">var infolinks_pid = 3446367;var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>
