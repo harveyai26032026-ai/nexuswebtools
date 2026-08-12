@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+Generate a concrete volume calculator page for nexuswebtools.com
+matching the content depth of concretecalculatormax.com
+"""
+import pathlib
+
+OUTPUT = pathlib.Path('/home/harvey/nexuswebtools/concrete-volume-calculator/index.html')
+
+HTML = '''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -337,3 +346,9 @@ function calculateConcrete() {
 </script>
 </body>
 </html>
+'''
+
+# Write the file
+pathlib.Path('/home/harvey/nexuswebtools/concrete-volume-calculator/').mkdir(parents=True, exist_ok=True)
+pathlib.Path('/home/harvey/nexuswebtools/concrete-volume-calculator/index.html').write_text(HTML)
+print(f'Written: /home/harvey/nexuswebtools/concrete-volume-calculator/index.html ({len(HTML)} bytes)')
