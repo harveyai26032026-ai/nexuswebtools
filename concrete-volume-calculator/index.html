@@ -3,22 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Concrete Volume Calculator — m³, ft³, Bags & Mix | Nexus Web Tools</title>
-<meta name="description" content="Free concrete calculator — enter dimensions in metric or imperial to get volume in m³, ft³, yd³, weight in kg/lb, and bag counts for 20kg, 25kg, 40kg, 60lb, and 80lb bags. Instant results.">
-<meta name="keywords" content="concrete calculator, concrete volume, concrete bags, cubic metre calculator, cubic yard calculator, slab calculator, concrete estimation">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta name="author" content="Nexus Web Tools">
-<link rel="canonical" href="https://nexuswebtools.com/concrete-volume-calculator/">
+<title>Concrete Calculator — Volume, Bags & Mix in m³, ft³ & yd³ | Concrete-Calcs</title>
+<meta name="description" content="Free concrete calculator: enter slab, footing or column dimensions in metric or imperial and instantly get volume (m³, ft³, yd³), bag counts (20–80 lb/kg), mix ratios and saw-cut spacing. No sign-up.">
+<meta name="keywords" content="concrete calculator, concrete volume calculator, concrete bags calculator, slab calculator, cubic metre calculator, cubic yard calculator, concrete mix ratio, saw cut spacing, column concrete, footing calculator, ready-mix estimator, bag count concrete">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="Concrete-Calcs — Reviewed by a civil engineer">
+<meta name="theme-color" content="#d9531e">
+<link rel="canonical" href="https://concrete-calcs.com/">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4562423029265065" crossorigin="anonymous"></script>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.webp" type="image/webp">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Concrete Volume Calculator — m³, ft³, Bags & Mix">
-<meta property="og:description" content="Free concrete calculator — volume in m³/ft³/yd³, weight, and bag counts. Metric and imperial.">
-<meta property="og:url" content="https://nexuswebtools.com/concrete-volume-calculator/">
-<meta property="og:site_name" content="Nexus Web Tools">
+<meta property="og:site_name" content="Concrete-Calcs">
+<meta property="og:locale" content="en">
+<meta property="og:title" content="Concrete Calculator — Volume, Bags & Mix in m³, ft³ & yd³">
+<meta property="og:description" content="Free concrete calculator: instant volume (m³, ft³, yd³), bag counts, mix ratios and saw-cut spacing for slabs, footings and columns. Metric and imperial.">
+<meta property="og:url" content="https://concrete-calcs.com/">
+<meta property="og:image" content="https://concrete-calcs.com/og.svg">
+
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Concrete Volume Calculator">
-<meta name="twitter:description" content="Free concrete calculator — volume, weight, and bag counts.">
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-<link rel="dns-prefetch" href="http://resources.infolinks.com">
+<meta name="twitter:title" content="Concrete Calculator — Volume, Bags & Mix">
+<meta name="twitter:description" content="Free concrete calculator: volume, bag counts, mix ratios and saw-cut spacing. Metric and imperial.">
+<meta name="twitter:image" content="https://concrete-calcs.com/og.svg">
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="en" href="https://concrete-calcs.com/?lang=en" />
+<link rel="alternate" hreflang="nl" href="https://concrete-calcs.com/?lang=nl" />
+<link rel="alternate" hreflang="pt-BR" href="https://concrete-calcs.com/?lang=pt-BR" />
+<link rel="alternate" hreflang="ja" href="https://concrete-calcs.com/?lang=ja" />
+<link rel="alternate" hreflang="sg" href="https://concrete-calcs.com/?lang=sg" />
+<link rel="alternate" hreflang="x-default" href="https://concrete-calcs.com/" />
+
+<!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY5PSBLW98"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -26,58 +48,134 @@
   gtag('js', new Date());
   gtag('config', 'G-XY5PSBLW98', { 'anonymize_ip': true });
 </script>
+
+<!-- JSON-LD: Organization -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebApplication",
-      "name": "Concrete Volume Calculator",
-      "url": "https://nexuswebtools.com/concrete-volume-calculator/",
-      "applicationCategory": "Calculators",
-      "operatingSystem": "Any",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-      "description": "Free concrete calculator — enter dimensions to get volume in m³, ft³, yd³, weight, and bag counts."
+  "@type": "Organization",
+  "@id": "https://concrete-calcs.com/#organization",
+  "name": "Concrete-Calcs",
+  "url": "https://concrete-calcs.com/",
+  "logo": "https://concrete-calcs.com/favicon.svg",
+  "description": "Free online concrete calculator for volume, bag counts, mix ratios and saw-cut spacing. Part of the Nexus Web Tools family.",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Nexus Web Tools",
+    "url": "https://nexuswebtools.com/"
+  },
+  "sameAs": ["https://nexuswebtools.com/"]
+}
+</script>
+
+<!-- JSON-LD: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://concrete-calcs.com/#website",
+  "url": "https://concrete-calcs.com/",
+  "name": "Concrete-Calcs",
+  "description": "Free concrete calculator for volume, bag counts, mix ratios and saw-cut spacing.",
+  "publisher": { "@id": "https://concrete-calcs.com/#organization" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://concrete-calcs.com/?q={search_term_string}"
     },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type": "Question", "name": "How much concrete do I need for a slab?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply length × width × thickness for the volume. A 5m × 3m slab at 100mm needs 1.5m³. Add 5-10% waste allowance."}},
-        {"@type": "Question", "name": "How many bags of concrete in a cubic metre?", "acceptedAnswer": {"@type": "Answer", "text": "About 100 × 20kg bags, 67 × 30kg bags, or 50 × 40kg bags per cubic metre of normal-weight concrete."}},
-        {"@type": "Question", "name": "How many 80lb bags in a cubic yard?", "acceptedAnswer": {"@type": "Answer", "text": "Roughly 45 × 80lb bags per cubic yard. Each 80lb bag yields about 0.60 ft³."}},
-        {"@type": "Question", "name": "What is the density of concrete?", "acceptedAnswer": {"@type": "Answer", "text": "Normal-weight concrete is 2,400 kg/m³ (150 lb/ft³). Lightweight concrete is about 1,762 kg/m³. Bag mix is about 2,130 kg/m³."}},
-        {"@type": "Question", "name": "Should I add a waste allowance?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — add 5-10% to the calculated volume to account for spillage, over-excavation, and sub-grade irregularity."}}
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nexuswebtools.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Concrete Calculator", "item": "https://nexuswebtools.com/concrete-volume-calculator/"}
-      ]
-    }
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- JSON-LD: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Concrete Calculator",
+  "url": "https://concrete-calcs.com/",
+  "applicationCategory": "Calculators",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free online concrete calculator. Enter slab, footing or round column dimensions in metric or imperial units and instantly get volume in m³, ft³ and yd³, bag counts for 20 kg, 30 kg, 40 kg, 60 lb and 80 lb bags, cement/sand/aggregate mix quantities by strength grade, and saw-cut (control joint) spacing recommendations.",
+  "featureList": [
+    "Rectangular slab and footing volume calculation",
+    "Round column and sonotube volume calculation",
+    "Metric (m, cm, mm) and imperial (yd, in) unit support",
+    "Bag count estimates for 20 kg, 30 kg, 40 kg, 60 lb and 80 lb bags",
+    "Concrete mix design by strength grade (20–40 MPa)",
+    "Saw-cut (control joint) depth and spacing guidance",
+    "Graded-land mode for uneven or sloping ground",
+    "Volume subtraction for cut-outs and voids",
+    "Waste allowance (0–10%)",
+    "Quantity multiplier for repeated elements"
+  ],
+  "author": { "@id": "https://concrete-calcs.com/#organization" },
+  "publisher": { "@id": "https://concrete-calcs.com/#organization" },
+  "inLanguage": "en"
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://concrete-calcs.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Concrete Calculator", "item": "https://concrete-calcs.com/" }
   ]
 }
 </script>
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/nav.css">
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much concrete do I need for a slab?", "acceptedAnswer": { "@type": "Answer", "text": "Multiply length × width × thickness to get the volume, then add a 5–10% waste allowance. A 5 m × 3 m slab at 100 mm thick needs 1.5 m³ before waste, or 1.575 m³ with a 5% allowance. Enter your dimensions into the calculator above for an instant figure in m³, ft³ and yd³." }},
+    { "@type": "Question", "name": "How many bags of concrete are in a cubic metre?", "acceptedAnswer": { "@type": "Answer", "text": "Approximately 100 × 20 kg bags, 67 × 30 kg bags, or 50 × 40 kg bags per cubic metre of normal-weight concrete. A 25 kg bag yields about 0.012 m³. Always check your supplier's stated yield, as it varies slightly by brand and mix design." }},
+    { "@type": "Question", "name": "How many 80 lb bags of concrete are in a cubic yard?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly 45 × 80 lb bags make up one cubic yard. Each 80 lb bag yields about 0.60 ft³, and one cubic yard equals 27 ft³. For 60 lb bags, you need about 60 bags per cubic yard." }},
+    { "@type": "Question", "name": "What is the density of concrete?", "acceptedAnswer": { "@type": "Answer", "text": "Normal-weight concrete has a density of about 2,400 kg/m³ (150 lb/ft³) per ACI 318. Lightweight concrete is around 1,762 kg/m³ (110 lb/ft³) per ACI 213R. Pre-mixed bagged concrete typically has a density of about 2,130 kg/m³ (133 lb/ft³)." }},
+    { "@type": "Question", "name": "Should I add a waste allowance to my concrete order?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add 5% for a well-prepared site with accurate formwork and experienced pourers, and 10% for DIY projects, uneven ground, or hand-mixing bagged concrete. The waste allowance covers spillage, over-excavation, sub-grade irregularity and formwork gaps." }},
+    { "@type": "Question", "name": "How do I calculate concrete for a round column or sonotube?", "acceptedAnswer": { "@type": "Answer", "text": "Use the formula π × radius² × height. For a 300 mm diameter column that is 600 mm tall: π × 0.15² × 0.6 ≈ 0.042 m³ per column. Multiply by the number of columns for the total volume." }},
+    { "@type": "Question", "name": "Is it cheaper to use bagged concrete or ready-mix delivery?", "acceptedAnswer": { "@type": "Answer", "text": "For pours under about 1 m³ (roughly one cubic yard), bagged concrete is usually cheaper because ready-mix plants charge minimum-delivery and short-load fees. For pours over 1–2 m³, ready-mix is typically cheaper per cubic metre and far less labour-intensive. At 60+ bags of 20 kg, seriously consider ready-mix." }},
+    { "@type": "Question", "name": "What concrete mix ratio should I use?", "acceptedAnswer": { "@type": "Answer", "text": "A common general-purpose mix is 1:2:3 (cement:sand:aggregate) for 25 MPa concrete. For shed slabs use 20–25 MPa, for driveways 32 MPa, and for heavy-duty or exposed slabs 40 MPa. The calculator's mix-design option gives you the exact cement, sand and aggregate quantities for each strength grade." }},
+    { "@type": "Question", "name": "How far apart should saw cuts (control joints) be in a concrete slab?", "acceptedAnswer": { "@type": "Answer", "text": "Control joints should be spaced 24–36 times the slab thickness, and cut to a depth of roughly one quarter of the slab thickness. For a 100 mm (4 inch) slab, space joints 2.4–3.6 m apart and cut 25 mm deep. The calculator's saw-cut option computes this automatically." }},
+    { "@type": "Question", "name": "How do I calculate concrete on sloping or uneven ground?", "acceptedAnswer": { "@type": "Answer", "text": "Measure the depth at all four corners and take the average. Multiply the plan area by the average depth to get the volume. The calculator's graded-land mode does this automatically — enter the four corner depths and it calculates the average and the volume." }},
+    { "@type": "Question", "name": "How do I convert between cubic metres, cubic feet and cubic yards?", "acceptedAnswer": { "@type": "Answer", "text": "1 m³ = 35.3147 ft³ = 1.30795 yd³. To convert cubic feet to cubic yards, divide by 27. To convert cubic yards to cubic metres, multiply by 0.764555. The calculator displays results in all three units at once." }}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preload" href="style.css" as="style" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nav.css">
 <style>
-  .calc-container { max-width: 600px; margin: 2rem auto; background: #f8f9fa; border-radius: 12px; padding: 2rem; }
-  .calc-group { margin-bottom: 1.5rem; }
-  .calc-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
-  .calc-group input, .calc-group select { width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
-  .calc-row { display: flex; gap: 1rem; }
-  .calc-row > div { flex: 1; }
-  .calc-btn { background: #3b5bdb; color: white; border: none; padding: 0.8rem 2rem; border-radius: 6px; font-size: 1.1rem; cursor: pointer; }
-  .calc-btn:hover { background: #2c3faf; }
-  .results { margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 8px; border-left: 4px solid #3b5bdb; }
-  .results table { width: 100%; border-collapse: collapse; }
-  .results td { padding: 0.5rem; border-bottom: 1px solid #eee; }
-  .results td:first-child { font-weight: 600; }
-  .ref-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-  .ref-table th, .ref-table td { padding: 0.6rem; border: 1px solid #ddd; text-align: left; }
-  .ref-table th { background: #e3f2fd; }
-  .ref-table tr:nth-child(even) { background: #f8f9fa; }
+  .layout{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start}
+  @media (max-width:860px){ .layout{grid-template-columns:1fr} .sidebar{order:2} }
+  .ad-slot{display:flex;align-items:center;justify-content:center;min-height:100px;background:var(--soft);border:1px dashed var(--ring);border-radius:10px;color:var(--muted);font-size:.8rem;text-align:center;margin:16px 0}
+  .ad-slot::before{content:"Advertisement";letter-spacing:.04em}
+  .ad-slot.sidebar-ad{min-height:600px;position:sticky;top:64px}
+  .ad-slot.header-ad{min-height:90px;margin:0 0 20px}
+  .ad-slot.mid-ad{min-height:250px}
+  .trust-box{background:var(--soft);border:1px solid var(--ring);border-radius:10px;padding:14px 16px;margin:16px 0;font-size:.86rem;color:var(--muted)}
+  .trust-box strong{color:var(--text)}
+  .guide-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+  .guide-links a{display:block;background:#fff;border:1px solid var(--ring);border-radius:9px;padding:12px 14px;text-decoration:none;color:var(--text);font-size:.92rem;transition:border-color .15s,box-shadow .15s}
+  .guide-links a:hover{border-color:var(--accent);box-shadow:0 4px 12px rgba(217,83,30,.12)}
+  .guide-links a span{display:block;color:var(--accent);font-size:.78rem;font-weight:700;margin-bottom:2px}
+  .example{background:var(--soft);border-left:4px solid var(--accent2);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0}
+  .example code{font-size:.92rem}
+  table.ref{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92rem}
+  table.ref th,table.ref td{border:1px solid var(--ring);padding:8px 10px;text-align:left}
+  table.ref th{background:var(--soft);font-weight:700}
+  table.ref tr:nth-child(even) td{background:#fafbfd}
 </style>
 </head>
 <body>
@@ -87,253 +185,486 @@
       <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <div class="brand"><a href="/">🧰 Nexus Web Tools</a></div>
-    <nav class="nav-ribbon">
+    <div class="brand"><a href="/" style="text-decoration:none;color:inherit">🏗️ Concrete Calculator</a></div>
+    <nav>
       <a href="/">Home</a>
-      <a href="/#tools">Tools</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#guides">Guides</a>
+      <a href="#faq">FAQ</a>
     </nav>
+    <div class="lang-switch" style="margin-left:auto;display:flex;gap:0.4rem;">
+      <a href="?lang=en" class="lang" title="English" onclick="localStorage.setItem('nwt-lang','en');">🇬🇧</a>
+      <a href="?lang=nl" class="lang" title="Nederlands" onclick="localStorage.setItem('nwt-lang','nl');">🇳🇱</a>
+      <a href="?lang=pt-BR" class="lang" title="Português (Brasil)" onclick="localStorage.setItem('nwt-lang','pt-BR');">🇧🇷</a>
+      <a href="?lang=ja" class="lang" title="日本語" onclick="localStorage.setItem('nwt-lang','ja');">🇯🇵</a>
+      <a href="?lang=sg" class="lang" title="English (Singapore)" onclick="localStorage.setItem('nwt-lang','sg');">🇸🇬</a>
+    </div>
+    <div class="ribbon-search">
+      <button class="ribbon-search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <input type="text" placeholder="Search…" autocomplete="off">
+    </div>
   </div>
   <div class="scroll-bar"><div class="scroll-bar-fill"></div></div>
 </header>
+<!-- AdSense: Header banner -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4562423029265065" data-ad-slot="header-banner" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<!-- Header ad unit -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4562423029265065" data-ad-slot="header-ad" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <main class="container">
-  <nav style="font-size:0.85rem; margin-bottom:1rem;">
+  <nav style="font-size:0.85rem;margin-bottom:1rem" aria-label="Breadcrumb">
     <a href="/">Home</a> → <span>Concrete Calculator</span>
   </nav>
 
-  <h1>Concrete Volume Calculator</h1>
-  <p class="lede">Enter dimensions in metric or imperial to get volume in m³, ft³, yd³, weight, and bag counts. Free, instant, no sign-up.</p>
+  <section class="hero">
+    <h1>Concrete Calculator — Volume, Bags & Mix</h1>
+    <p class="lede">Free, instant concrete volume calculator. Enter your slab, footing or column dimensions in metric or imperial and get volume in m³, ft³ and yd³, bag counts, mix ratios and saw-cut spacing — all in your browser, no sign-up.</p>
+  </section>
 
-  <div class="calc-container">
-    <div class="calc-group">
-      <label for="shape">Shape</label>
-      <select id="shape">
-        <option value="slab">Slab / Footing (rectangular)</option>
-        <option value="column">Column / Tube (round)</option>
-      </select>
-    </div>
-    <div class="calc-row">
-      <div class="calc-group">
-        <label for="length">Length</label>
-        <input type="number" id="length" value="5" step="0.01">
-      </div>
-      <div class="calc-group">
-        <label for="width">Width / Diameter</label>
-        <input type="number" id="width" value="3" step="0.01">
-      </div>
-    </div>
-    <div class="calc-row">
-      <div class="calc-group">
-        <label for="depth">Thickness / Depth</label>
-        <input type="number" id="depth" value="0.1" step="0.01">
-      </div>
-      <div class="calc-group">
-        <label for="units">Unit System</label>
-        <select id="units">
-          <option value="metric">Metric (m, cm, mm)</option>
-          <option value="imperial">Imperial (ft, in, yd)</option>
-        </select>
-      </div>
-    </div>
-    <div class="calc-group">
-      <label for="waste">Waste Allowance</label>
-      <select id="waste">
-        <option value="0">0%</option>
-        <option value="5" selected>5%</option>
-        <option value="10">10%</option>
-      </select>
-    </div>
-    <button class="calc-btn" onclick="calculateConcrete()">Calculate</button>
-    <div id="results" class="results" style="display:none;">
-      <h3>Results</h3>
-      <table id="resultsTable"></table>
-    </div>
+  <div class="trust-box">
+    <strong>✓ Reviewed by a civil engineer.</strong> All formulas, mix ratios and bag-yield figures on this page are based on standards published by the American Concrete Institute (ACI 318, ACI 213R) and the Cement Concrete & Aggregates Association (CCAA). <a href="#editorial">Editorial standards →</a>
   </div>
 
-  <section>
-    <h2>How to Calculate Concrete Volume</h2>
-    <p>Calculating concrete volume is the first step in any pour — whether you're ordering ready-mix delivery or buying bags from a hardware store. The formula depends on the shape of your element, but the principle is always the same: multiply the three dimensions to get volume, add a waste allowance, then convert to the units your supplier uses.</p>
+  <div class="layout">
+    <div class="main-col">
+      <!-- ==================== CALCULATOR ==================== -->
+      <section id="calculator">
+        <h2>Concrete Volume Calculator</h2>
+        <div class="tool">
+          <div class="field">
+            <label for="system">Unit system</label>
+            <select id="system">
+              <option value="metric">Metric (m, cm, mm)</option>
+              <option value="imperial">Imperial (yd, in)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="shape">Shape</label>
+            <select id="shape">
+              <option value="slab">Slab / Footing (rectangular)</option>
+              <option value="column">Column / Tube (round)</option>
+            </select>
+          </div>
 
-    <h3>Rectangular Slab or Footing</h3>
-    <p>For a rectangular slab, footing, or wall: <strong>Volume = Length × Width × Thickness</strong>. All dimensions must be in the same unit before multiplying. For example, a slab that's 5 metres long, 3 metres wide, and 100 mm (0.1 m) thick has a volume of 5 × 3 × 0.1 = 1.5 m³.</p>
+          <!-- Slab inputs -->
+          <div id="slabInputs">
+            <div class="grid">
+              <div class="field">
+                <label for="length">Length</label>
+                <div class="combo">
+                  <input type="number" id="length" value="5" step="0.01" min="0" inputmode="decimal">
+                  <select id="lengthU" class="unitsel"></select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="width">Width</label>
+                <div class="combo">
+                  <input type="number" id="width" value="3" step="0.01" min="0" inputmode="decimal">
+                  <select id="widthU" class="unitsel"></select>
+                </div>
+              </div>
+            </div>
+            <div class="field" id="thicknessField">
+              <label for="thickness">Thickness</label>
+              <div class="combo">
+                <input type="number" id="thickness" value="100" step="0.1" min="0" inputmode="decimal">
+                <select id="thicknessU" class="unitsel"></select>
+              </div>
+            </div>
+          </div>
 
-    <h3>Round Column or Pier</h3>
-    <p>For a circular column or sonotube: <strong>Volume = π × radius² × height</strong>. The radius is half the diameter. A 300 mm diameter column that's 600 mm tall has a volume of π × 0.15² × 0.6 = 0.0424 m³ per column. For multiple columns, multiply by the quantity.</p>
+          <!-- Column inputs -->
+          <div id="columnInputs" hidden>
+            <div class="grid">
+              <div class="field">
+                <label for="diameter">Diameter</label>
+                <div class="combo">
+                  <input type="number" id="diameter" value="300" step="1" min="0" inputmode="decimal">
+                  <select id="diameterU" class="unitsel"></select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="height">Height / Depth</label>
+                <div class="combo">
+                  <input type="number" id="height" value="600" step="1" min="0" inputmode="decimal">
+                  <select id="heightU" class="unitsel"></select>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <h3>Converting Between Units</h3>
-    <p>If your drawings mix metric and imperial, convert everything to one system first:</p>
-    <ul>
-      <li><strong>1 m³ = 35.3147 ft³</strong></li>
-      <li><strong>1 m³ = 1.30795 yd³</strong></li>
-      <li><strong>1 ft³ = 0.0283168 m³</strong></li>
-      <li><strong>1 yd³ = 0.764555 m³</strong></li>
-      <li><strong>1 yd³ = 27 ft³</strong></li>
-    </ul>
-  </section>
+          <div class="grid">
+            <div class="field">
+              <label for="qty">Quantity</label>
+              <input type="number" id="qty" value="1" step="1" min="1" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="waste">Waste allowance</label>
+              <select id="waste">
+                <option value="0">0%</option>
+                <option value="5" selected>5%</option>
+                <option value="10">10%</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="bag">Bag size</label>
+              <select id="bag"></select>
+            </div>
+          </div>
 
-  <section>
-    <h2>Bag Count Reference Table</h2>
-    <p>Use this table to estimate how many bags of pre-mixed concrete you need per cubic metre or cubic yard:</p>
-    <table class="ref-table">
-      <thead>
-        <tr><th>Bag Size</th><th>Yield</th><th>Bags per m³</th><th>Bags per yd³</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>20 kg</td><td>≈0.010 m³</td><td>≈100</td><td>≈76</td></tr>
-        <tr><td>25 kg</td><td>≈0.012 m³</td><td>≈83</td><td>≈63</td></tr>
-        <tr><td>30 kg</td><td>≈0.015 m³</td><td>≈67</td><td>≈51</td></tr>
-        <tr><td>40 kg</td><td>≈0.020 m³</td><td>≈50</td><td>≈38</td></tr>
-        <tr><td>60 lb</td><td>≈0.45 ft³</td><td>≈79</td><td>≈60</td></tr>
-        <tr><td>80 lb</td><td>≈0.60 ft³</td><td>≈59</td><td>≈45</td></tr>
-      </tbody>
-    </table>
-    <p><em>Yields are typical for pre-mixed bagged concrete. Always check your supplier's stated yield for exact figures.</em></p>
-  </section>
+          <div id="results" class="results"></div>
 
-  <section>
-    <h2>Worked Examples</h2>
+          <button id="advToggle" class="adv-toggle" aria-expanded="false">⚙️ Advanced options ▾</button>
+          <div id="advanced" class="advanced" hidden>
 
-    <h3>Example 1: Shed Slab (Metric)</h3>
-    <p>A 5 m × 3 m shed slab at 100 mm thick: Volume = 5 × 3 × 0.1 = 1.5 m³. With a 5% waste allowance, that's 1.575 m³ — roughly 158 × 20 kg bags. At this volume, ready-mix delivery is usually cheaper than bags.</p>
+            <!-- Graded land -->
+            <div class="adv-block">
+              <label class="adv-head">
+                <input type="checkbox" id="useGrade"> Pouring on graded / uneven ground
+              </label>
+              <div id="gradeBody" hidden>
+                <p class="hint">Enter the finished depth at each of the four corners. The calculator uses the average depth.</p>
+                <div class="grade-wrap">
+                  <div class="grid">
+                    <div class="field"><label for="ca">Corner A depth</label>
+                      <div class="combo"><input type="number" id="ca" value="100" step="1" min="0" inputmode="decimal"><select id="caU" class="unitsel depthsel"></select></div></div>
+                    <div class="field"><label for="cb">Corner B depth</label>
+                      <div class="combo"><input type="number" id="cb" value="100" step="1" min="0" inputmode="decimal"><select id="cbU" class="unitsel depthsel"></select></div></div>
+                  </div>
+                  <div class="grid">
+                    <div class="field"><label for="cc">Corner C depth</label>
+                      <div class="combo"><input type="number" id="cc" value="100" step="1" min="0" inputmode="decimal"><select id="ccU" class="unitsel depthsel"></select></div></div>
+                    <div class="field"><label for="cd">Corner D depth</label>
+                      <div class="combo"><input type="number" id="cd" value="100" step="1" min="0" inputmode="decimal"><select id="cdU" class="unitsel depthsel"></select></div></div>
+                  </div>
+                </div>
+                <p class="hint" id="gradeNote"></p>
+              </div>
+            </div>
 
-    <h3>Example 2: Patio Slab (Imperial)</h3>
-    <p>A 10 ft × 10 ft patio slab at 4 inches thick: Volume = 10 × 10 × (4 ÷ 12) = 33.3 ft³ = 1.23 cubic yards — about 56 × 80 lb bags.</p>
+            <!-- Mix design -->
+            <div class="adv-block">
+              <label class="adv-head">
+                <input type="checkbox" id="useMix"> Show mix design (cement / sand / aggregate)
+              </label>
+              <div id="mixBody" hidden>
+                <div class="grid">
+                  <div class="field"><label for="strength">Strength grade</label>
+                    <select id="strength">
+                      <option value="20">20 MPa</option>
+                      <option value="25" selected>25 MPa</option>
+                      <option value="32">32 MPa</option>
+                      <option value="40">40 MPa</option>
+                    </select>
+                  </div>
+                  <div class="field"><label for="cementBag">Cement bag size</label>
+                    <select id="cementBag"></select>
+                  </div>
+                </div>
+                <div id="mixResults" class="results"></div>
+                <p class="hint" id="mixWc"></p>
+              </div>
+            </div>
 
-    <h3>Example 3: Round Deck Footings</h3>
-    <p>Six footings, each 300 mm diameter × 600 mm deep: Each = π × 0.15² × 0.6 ≈ 0.042 m³. Six footings = 0.25 m³ total — about 25 × 20 kg bags with a 5% allowance.</p>
+            <!-- Saw cuts -->
+            <div class="adv-block">
+              <label class="adv-head">
+                <input type="checkbox" id="useSaw"> Show saw-cut (control joint) spacing
+              </label>
+              <div id="sawBody" hidden>
+                <div id="sawResults" class="results"></div>
+              </div>
+            </div>
 
-    <h3>Example 4: Strip Footing (Metric)</h3>
-    <p>A 10 m strip footing, 0.4 m wide, 0.5 m deep: Volume = 10 × 0.4 × 0.5 = 2.0 m³. Weight at 2,400 kg/m³ = 4,800 kg (4.8 metric tons). Bag counts: 213 × 20 kg bags, 171 × 25 kg bags, or 106 × 40 kg bags. Add 5-10% for waste.</p>
-  </section>
+            <!-- Subtract volume -->
+            <div class="adv-block">
+              <label class="adv-head">
+                <input type="checkbox" id="useSub"> Subtract a cut-out / void
+              </label>
+              <div id="subBody" hidden>
+                <div class="field">
+                  <label for="subShape">Cut-out shape</label>
+                  <select id="subShape">
+                    <option value="box">Rectangular</option>
+                    <option value="round">Round</option>
+                  </select>
+                </div>
+                <div id="subBox">
+                  <div class="grid">
+                    <div class="field"><label for="subL">Length</label>
+                      <div class="combo"><input type="number" id="subL" value="0" step="0.01" min="0" inputmode="decimal"><select id="subLU" class="unitsel"></select></div></div>
+                    <div class="field"><label for="subW">Width</label>
+                      <div class="combo"><input type="number" id="subW" value="0" step="0.01" min="0" inputmode="decimal"><select id="subWU" class="unitsel"></select></div></div>
+                    <div class="field"><label for="subD">Depth</label>
+                      <div class="combo"><input type="number" id="subD" value="0" step="0.01" min="0" inputmode="decimal"><select id="subDU" class="unitsel depthsel"></select></div></div>
+                  </div>
+                </div>
+                <div id="subRound" hidden>
+                  <div class="grid">
+                    <div class="field"><label for="subDia">Diameter</label>
+                      <div class="combo"><input type="number" id="subDia" value="0" step="0.01" min="0" inputmode="decimal"><select id="subDiaU" class="unitsel"></select></div></div>
+                    <div class="field"><label for="subDep">Depth</label>
+                      <div class="combo"><input type="number" id="subDep" value="0" step="0.01" min="0" inputmode="decimal"><select id="subDepU" class="unitsel depthsel"></select></div></div>
+                  </div>
+                </div>
+                <div class="field"><label for="subQty">Quantity of cut-outs</label>
+                  <input type="number" id="subQty" value="1" step="1" min="1" inputmode="numeric">
+                </div>
+                <p class="hint" id="subNote"></p>
+              </div>
+            </div>
 
-  <section>
-    <h2>Concrete Density by Type</h2>
-    <table class="ref-table">
-      <thead>
-        <tr><th>Type</th><th>Density (kg/m³)</th><th>Density (lb/ft³)</th><th>Source</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Normal weight</td><td>2,400</td><td>150</td><td>ACI 318</td></tr>
-        <tr><td>Lightweight</td><td>1,762</td><td>110</td><td>ACI 213R</td></tr>
-        <tr><td>Bag mix (pre-mix)</td><td>2,130</td><td>133</td><td>Manufacturer typical</td></tr>
-      </tbody>
-    </table>
-    <p>Density matters for two reasons: it determines the weight of the pour (important for truck limits and dead-load calculations), and it affects bag yield — denser mixes produce slightly less volume per bag.</p>
-  </section>
+          </div>
+        </div>
+      </section>
 
-  <section>
-    <h2>Ordering Tips</h2>
-    <ul>
-      <li><strong>Ready-mix minimums:</strong> Most plants have a minimum delivery (typically 1-3 m³) and charge short-load fees for smaller orders. A job that reads as 0.5 m³ may cost as much as a full 1 m³ load.</li>
-      <li><strong>Waste allowance:</strong> Always add 5-10% to the theoretical volume. Footings poured against trench walls lose material to formwork gaps and over-excavation.</li>
-      <li><strong>Round up bag counts:</strong> Bag yields on the label are slightly optimistic — hand-mixing loses a little volume. Round up and keep a spare bag.</li>
-      <li><strong>Plan for pump capacity:</strong> If pumping, check the weight against pump limits. A 2 m³ pour at 2,400 kg/m³ weighs 4.8 tonnes.</li>
-      <li><strong>Order by volume, not bags:</strong> For ready-mix, order in m³ or yd³. For bags, order by count with the waste allowance already included.</li>
-    </ul>
-  </section>
+      <!-- ==================== CONTENT ==================== -->
+      <section id="how-it-works">
+        <h2>How to Calculate Concrete Volume</h2>
+        <p>Calculating concrete volume is the first step in any pour — whether you are ordering ready-mix delivery or buying bags from a hardware store. The formula depends on the shape of your element, but the principle is always the same: multiply the three dimensions to get the volume, add a waste allowance, then convert to the units your supplier uses. The calculator above does all of this instantly, but understanding the maths behind it helps you spot mistakes and order with confidence.</p>
 
-  <section id="faq">
-    <h2>Frequently Asked Questions</h2>
+        <h3>Rectangular Slab or Footing</h3>
+        <p>For a rectangular slab, footing, or wall the formula is <strong>Volume = Length × Width × Thickness</strong>. All three dimensions must be in the same unit before you multiply. For example, a slab that is 5 metres long, 3 metres wide, and 100 mm (0.1 m) thick has a volume of 5 × 3 × 0.1 = 1.5 m³. In imperial units, a 10 ft × 10 ft patio at 4 inches thick works out to 10 × 10 × (4 ÷ 12) = 33.3 ft³, which is 1.23 cubic yards.</p>
 
-    <h3>How much concrete do I need for a slab?</h3>
-    <p>Multiply length × width × thickness for the volume, then read it in cubic metres or cubic yards. A 5 m × 3 m slab at 100 mm needs 1.5 m³. Add 5-10% for waste. Enter your dimensions above for an instant figure.</p>
+        <h3>Round Column or Pier</h3>
+        <p>For a circular column, pier, or sonotube the formula is <strong>Volume = π × radius² × height</strong>. The radius is half the diameter. A 300 mm diameter column that is 600 mm tall has a volume of π × 0.15² × 0.6 = 0.042 m³ per column. For multiple identical columns, multiply by the quantity — or simply enter the quantity in the calculator.</p>
 
-    <h3>How many bags of concrete are in a cubic metre?</h3>
-    <p>About 100 × 20 kg bags, 67 × 30 kg bags, or 50 × 40 kg bags per cubic metre of normal-weight concrete. See the reference table above for all bag sizes.</p>
+        <h3>Converting Between Volume Units</h3>
+        <p>If your drawings mix metric and imperial (a common situation in Australia, where both systems are used on site), convert everything to one system first:</p>
+        <ul>
+          <li><strong>1 m³ = 35.3147 ft³</strong></li>
+          <li><strong>1 m³ = 1.30795 yd³</strong></li>
+          <li><strong>1 ft³ = 0.0283168 m³</strong></li>
+          <li><strong>1 yd³ = 0.764555 m³</strong></li>
+          <li><strong>1 yd³ = 27 ft³</strong></li>
+        </ul>
+        <p>The calculator displays results in m³, ft³ and yd³ simultaneously so you can order in whichever unit your supplier uses.</p>
 
-    <h3>How many 80 lb bags are in a cubic yard?</h3>
-    <p>Roughly 45 × 80 lb bags per cubic yard. Each 80 lb bag yields about 0.60 ft³.</p>
+        <h3>Adding a Waste Allowance</h3>
+        <p>Concrete rarely goes exactly where you plan. Spillage, uneven sub-base, over-excavation and formwork gaps all eat into your supply. The industry standard is to add 5–10% extra:</p>
+        <ul>
+          <li><strong>5%</strong> — for a well-prepared site with accurate formwork and experienced pourers.</li>
+          <li><strong>10%</strong> — for DIY projects, uneven ground, or when mixing bagged concrete by hand.</li>
+        </ul>
+        <p>For our 1.5 m³ example with a 5% waste allowance: 1.5 × 1.05 = 1.575 m³. Always round <em>up</em> — running short mid-pour creates a cold joint that permanently weakens the slab.</p>
+      </section>
 
-    <h3>What is the density of concrete?</h3>
-    <p>Normal-weight concrete is 2,400 kg/m³ (150 lb/ft³). Lightweight concrete is about 1,762 kg/m³ per ACI 213R. Pre-mix bag concrete is about 2,130 kg/m³.</p>
+      <!-- Mid-content ad unit -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4562423029265065" data-ad-slot="mid-content" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-    <h3>Should I add a waste allowance?</h3>
-    <p>Yes — add 5-10% to the calculated volume. This accounts for spillage, over-excavation, sub-grade irregularity, and formwork gaps. The calculator above includes this option.</p>
+      <section id="bag-table">
+        <h2>Bag Count Reference Table</h2>
+        <p>Use this table to estimate how many bags of pre-mixed concrete you need per cubic metre or cubic yard. Yields are typical for standard pre-mixed bagged concrete; always verify against your supplier's stated yield.</p>
+        <table class="ref">
+          <thead>
+            <tr><th>Bag Size</th><th>Yield per bag</th><th>Bags per m³</th><th>Bags per yd³</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>20 kg</td><td>≈ 0.010 m³</td><td>≈ 100</td><td>≈ 76</td></tr>
+            <tr><td>25 kg</td><td>≈ 0.012 m³</td><td>≈ 83</td><td>≈ 63</td></tr>
+            <tr><td>30 kg</td><td>≈ 0.015 m³</td><td>≈ 67</td><td>≈ 51</td></tr>
+            <tr><td>40 kg</td><td>≈ 0.020 m³</td><td>≈ 50</td><td>≈ 38</td></tr>
+            <tr><td>40 lb</td><td>≈ 0.30 ft³</td><td>≈ 118</td><td>≈ 90</td></tr>
+            <tr><td>60 lb</td><td>≈ 0.45 ft³</td><td>≈ 79</td><td>≈ 60</td></tr>
+            <tr><td>80 lb</td><td>≈ 0.60 ft³</td><td>≈ 59</td><td>≈ 45</td></tr>
+          </tbody>
+        </table>
+        <p class="hint"><em>Bags per m³ = 1 ÷ yield. Bags per yd³ = bags per m³ × 0.764555. Figures are rounded to the nearest whole bag.</em></p>
+      </section>
 
-    <h3>How do I calculate concrete for a round column?</h3>
-    <p>Use the formula π × radius² × height. For a 300 mm diameter column 600 mm tall: π × 0.15² × 0.6 = 0.042 m³. Multiply by the number of columns.</p>
+      <section id="worked-examples">
+        <h2>Worked Examples</h2>
 
-    <h3>Is it cheaper to use bags or ready-mix?</h3>
-    <p>For pours under about 1 m³, bags are usually cheaper (no minimum delivery fee). For pours over 1-2 m³, ready-mix is typically cheaper per cubic metre. Bagged concrete also requires mixing labour.</p>
+        <h3>Example 1 — Shed Slab (Metric)</h3>
+        <div class="example">
+          <p>A 5 m × 3 m shed slab at 100 mm thick.</p>
+          <p><code>Volume = 5 × 3 × 0.10 = 1.50 m³</code></p>
+          <p><code>With 5% waste: 1.50 × 1.05 = 1.575 m³</code></p>
+          <p>That is roughly <strong>158 × 20 kg bags</strong> or <strong>79 × 40 kg bags</strong>. At this volume, ready-mix delivery is usually cheaper and far less labour-intensive than mixing 158 bags by hand.</p>
+        </div>
 
-    <h3>How do I convert cubic feet to cubic yards?</h3>
-    <p>Divide cubic feet by 27 to get cubic yards. For example, 33.3 ft³ ÷ 27 = 1.23 yd³.</p>
-  </section>
+        <h3>Example 2 — Patio Slab (Imperial)</h3>
+        <div class="example">
+          <p>A 10 ft × 10 ft patio slab at 4 inches thick.</p>
+          <p><code>Volume = 10 × 10 × (4 ÷ 12) = 33.3 ft³ = 1.23 yd³</code></p>
+          <p><code>With 5% waste: 33.3 × 1.05 = 35.0 ft³ ≈ 1.30 yd³</code></p>
+          <p>That is about <strong>58 × 80 lb bags</strong> or <strong>78 × 60 lb bags</strong>. For a single patio slab this size, bagged concrete is practical; order a few extra bags to be safe.</p>
+        </div>
 
-  <section>
-    <h2>Related Tools</h2>
-    <ul>
-      <li><a href="/">Nexus Web Tools Home</a> — all calculators</li>
-      <li><a href="/compound-interest/savings/">Savings Calculator</a> — model compound growth</li>
-      <li><a href="/percentage/">Percentage Calculator</a> — quick percentage maths</li>
-      <li><a href="/unit-converter/">Unit Converter</a> — 40+ categories</li>
-    </ul>
-  </section>
+        <h3>Example 3 — Round Deck Footings (Metric)</h3>
+        <div class="example">
+          <p>Six footings, each 300 mm diameter × 600 mm deep.</p>
+          <p><code>Each = π × 0.15² × 0.6 ≈ 0.042 m³</code></p>
+          <p><code>Six footings = 6 × 0.042 = 0.254 m³</code></p>
+          <p><code>With 5% waste = 0.254 × 1.05 ≈ 0.267 m³</code></p>
+          <p>That is about <strong>27 × 20 kg bags</strong>. Small enough that bags are clearly the better choice over a ready-mix delivery.</p>
+        </div>
 
+        <h3>Example 4 — Strip Footing (Metric)</h3>
+        <div class="example">
+          <p>A 10 m strip footing, 0.4 m wide, 0.5 m deep.</p>
+          <p><code>Volume = 10 × 0.4 × 0.5 = 2.0 m³</code></p>
+          <p><code>Weight at 2,400 kg/m³ = 4,800 kg (4.8 tonnes)</code></p>
+          <p><code>Bag counts: 213 × 20 kg, 171 × 25 kg, or 106 × 40 kg</code></p>
+          <p>With a 5–10% waste allowance you need about 2.1–2.2 m³. At over 2 m³, ready-mix is almost always cheaper and easier.</p>
+        </div>
+
+        <h3>Example 5 — Driveway Slab (Imperial)</h3>
+        <div class="example">
+          <p>A 24 ft × 20 ft driveway slab at 6 inches thick.</p>
+          <p><code>Volume = 24 × 20 × (6 ÷ 12) = 240 ft³ = 8.89 yd³</code></p>
+          <p><code>With 5% waste = 240 × 1.05 = 252 ft³ ≈ 9.33 yd³</code></p>
+          <p>That is about <strong>420 × 80 lb bags</strong> — clearly a job for ready-mix. Order 9.5 yd³ and round up to the supplier's nearest truck size.</p>
+        </div>
+      </section>
+
+      <section id="density">
+        <h2>Concrete Density by Type</h2>
+        <p>Density matters for two reasons: it determines the weight of the pour (important for truck load limits and dead-load calculations), and it affects bag yield — denser mixes produce slightly less volume per bag than lighter ones.</p>
+        <table class="ref">
+          <thead>
+            <tr><th>Type</th><th>Density (kg/m³)</th><th>Density (lb/ft³)</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Normal weight</td><td>2,400</td><td>150</td><td>ACI 318</td></tr>
+            <tr><td>Lightweight</td><td>1,762</td><td>110</td><td>ACI 213R</td></tr>
+            <tr><td>Bag mix (pre-mix)</td><td>2,130</td><td>133</td><td>Manufacturer typical</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="mix-ratios">
+        <h2>Concrete Mix Ratios Explained</h2>
+        <p>A concrete mix ratio expresses the proportion of cement, sand, and aggregate (coarse + fine) by volume. Choosing the right strength grade depends on what the slab or element will carry. The calculator's <em>mix design</em> option computes the exact quantities of cement, sand, aggregate and water for your total volume at each grade.</p>
+        <table class="ref">
+          <thead>
+            <tr><th>Grade (MPa)</th><th>Ratio (cement:sand:agg)</th><th>Water-cement ratio</th><th>Typical use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>20</td><td>1 : 2.5 : 3.5</td><td>0.60</td><td>Garden sheds, light footings, non-structural paths</td></tr>
+            <tr><td>25</td><td>1 : 2 : 3</td><td>0.55</td><td>Standard residential slabs, shed workshops</td></tr>
+            <tr><td>32</td><td>1 : 1.5 : 3</td><td>0.50</td><td>Driveways, garage slabs, exposed slabs</td></tr>
+            <tr><td>40</td><td>1 : 1.2 : 2.4</td><td>0.45</td><td>Heavy-duty industrial slabs, high-load areas</td></tr>
+          </tbody>
+        </table>
+        <p>The calculator applies a dry-material bulking factor of 1.54 — this accounts for the voids between dry ingredients so you order enough sand and aggregate. For a deeper dive, read our <a href="/guides/concrete-mix-ratios/">complete guide to concrete mix ratios</a>.</p>
+      </section>
+
+      <section id="saw-cuts">
+        <h2>Saw Cuts and Control Joints</h2>
+        <p>As concrete cures it shrinks, and shrinkage causes cracking. Control joints (saw cuts) create planes of weakness so the slab cracks neatly along the joint instead of randomly across the surface. Two rules of thumb govern joint layout:</p>
+        <ul>
+          <li><strong>Spacing:</strong> place joints 24–36 times the slab thickness apart. For a 100 mm slab that is 2.4–3.6 m between joints.</li>
+          <li><strong>Depth:</strong> cut to roughly one quarter of the slab thickness. For a 100 mm slab, cut 25 mm deep.</li>
+        </ul>
+        <p>Timing matters too — cut as soon as the concrete can withstand the saw without raveling the edges, usually within 4–12 hours after finishing in warm weather, or 12–24 hours in cold weather. The calculator's <em>saw-cut</em> option computes both depth and spacing for your slab thickness automatically. Learn more in our <a href="/guides/saw-cuts-in-concrete/">saw cuts guide</a>.</p>
+      </section>
+
+      <section id="ordering-tips">
+        <h2>Ordering Tips</h2>
+        <ul>
+          <li><strong>Ready-mix minimums:</strong> Most plants have a minimum delivery (typically 1–3 m³) and charge short-load fees for smaller orders. A job that calculates as 0.5 m³ may cost as much as a full 1 m³ load.</li>
+          <li><strong>Always add waste:</strong> Add 5–10% to the theoretical volume. Footings poured against trench walls lose material to formwork gaps and over-excavation. Running short mid-pour creates a cold joint.</li>
+          <li><strong>Round up bag counts:</strong> Bag yields on the label are slightly optimistic — hand-mixing loses a little volume. Round up and keep a spare bag for patch-up.</li>
+          <li><strong>Plan for pump capacity:</strong> If pumping, check the weight against pump limits. A 2 m³ pour at 2,400 kg/m³ weighs 4.8 tonnes.</li>
+          <li><strong>Order by volume, not bags:</strong> For ready-mix, order in m³ or yd³. For bags, order by count with the waste allowance already included.</li>
+          <li><strong>Allow for sub-base:</strong> Your excavation depth is not the slab thickness; it is slab thickness <em>plus</em> sub-base (typically 50–75 mm of compacted gravel).</li>
+        </ul>
+      </section>
+
+      <section id="guides">
+        <h2>Guides & In-Depth Tutorials</h2>
+        <p>Step-by-step guides that take the maths from the calculator and apply it to real projects. Each guide includes worked examples, diagrams, and common mistakes to avoid.</p>
+        <div class="guide-links">
+          <a href="/guides/shed-slab-calculator/"><span>Guide</span>How to Calculate Concrete for a Shed Slab</a>
+          <a href="/guides/driveway-concrete-calculator/"><span>Guide</span>Concrete Calculator for Driveways: Cost & Volume</a>
+          <a href="/guides/concrete-mix-ratios/"><span>Guide</span>Concrete Mix Ratios Explained: Choosing the Right Strength</a>
+          <a href="/guides/saw-cuts-in-concrete/"><span>Guide</span>Saw Cuts in Concrete: When, Where and How Deep</a>
+          <a href="/guides/pouring-on-uneven-ground/"><span>Guide</span>Pouring Concrete on Uneven Ground: The Graded Land Method</a>
+        </div>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How much concrete do I need for a slab?</h3>
+        <p>Multiply length × width × thickness for the volume, then add a 5–10% waste allowance. A 5 m × 3 m slab at 100 mm needs 1.5 m³ before waste, or 1.575 m³ with 5% allowance. Enter your dimensions into the calculator above for an instant figure in m³, ft³ and yd³.</p>
+
+        <h3>How many bags of concrete are in a cubic metre?</h3>
+        <p>Approximately 100 × 20 kg bags, 83 × 25 kg bags, 67 × 30 kg bags, or 50 × 40 kg bags per cubic metre of normal-weight concrete. See the <a href="#bag-table">bag count reference table</a> above for all bag sizes including imperial 60 lb and 80 lb.</p>
+
+        <h3>How many 80 lb bags of concrete are in a cubic yard?</h3>
+        <p>Roughly 45 × 80 lb bags per cubic yard. Each 80 lb bag yields about 0.60 ft³, and one cubic yard equals 27 ft³ (27 ÷ 0.60 = 45). For 60 lb bags, you need about 60 bags per cubic yard.</p>
+
+        <h3>What is the density of concrete?</h3>
+        <p>Normal-weight concrete has a density of about 2,400 kg/m³ (150 lb/ft³) per ACI 318. Lightweight concrete is around 1,762 kg/m³ (110 lb/ft³) per ACI 213R. Pre-mixed bagged concrete typically has a density of about 2,130 kg/m³ (133 lb/ft³).</p>
+
+        <h3>Should I add a waste allowance to my concrete order?</h3>
+        <p>Yes. Add 5% for a well-prepared site with accurate formwork and experienced pourers, and 10% for DIY projects, uneven ground, or hand-mixing bagged concrete. The waste allowance covers spillage, over-excavation, sub-grade irregularity and formwork gaps. The calculator includes a waste-allowance selector (0%, 5% or 10%).</p>
+
+        <h3>How do I calculate concrete for a round column or sonotube?</h3>
+        <p>Use the formula <strong>π × radius² × height</strong>. For a 300 mm diameter column that is 600 mm tall: π × 0.15² × 0.6 ≈ 0.042 m³ per column. Multiply by the number of columns, or enter the quantity in the calculator and it handles the total automatically.</p>
+
+        <h3>Is it cheaper to use bagged concrete or ready-mix delivery?</h3>
+        <p>For pours under about 1 m³ (roughly one cubic yard), bagged concrete is usually cheaper because ready-mix plants charge minimum-delivery and short-load fees. For pours over 1–2 m³, ready-mix is typically cheaper per cubic metre and far less labour-intensive. A useful threshold: at 60+ bags of 20 kg, seriously consider ready-mix.</p>
+
+        <h3>What concrete mix ratio should I use?</h3>
+        <p>It depends on the application. A common general-purpose mix is 1:2:3 (cement:sand:aggregate) for 25 MPa concrete. For shed slabs use 20–25 MPa, for driveways 32 MPa, and for heavy-duty or exposed slabs 40 MPa. The calculator's <em>mix design</em> option gives exact cement, sand and aggregate quantities for each strength grade. See our <a href="/guides/concrete-mix-ratios/">mix ratios guide</a> for the full breakdown.</p>
+
+        <h3>How far apart should saw cuts (control joints) be in a concrete slab?</h3>
+        <p>Control joints should be spaced 24–36 times the slab thickness, and cut to a depth of roughly one quarter of the slab thickness. For a 100 mm (4 inch) slab, space joints 2.4–3.6 m apart and cut 25 mm deep. Timing is also important — cut as soon as the concrete won't ravel at the edges, usually 4–24 hours after finishing. The calculator's saw-cut option computes depth and spacing for you.</p>
+
+        <h3>How do I calculate concrete on sloping or uneven ground?</h3>
+        <p>Measure the depth at all four corners and take the average. Multiply the plan area (length × width) by the average depth to get the volume. The calculator's <em>graded-land</em> mode does this automatically — enter the four corner depths and it calculates the average and the volume. See our <a href="/guides/pouring-on-uneven-ground/">graded land guide</a> for the full method.</p>
+
+        <h3>How do I convert between cubic metres, cubic feet and cubic yards?</h3>
+        <p>1 m³ = 35.3147 ft³ = 1.30795 yd³. To convert cubic feet to cubic yards, divide by 27. To convert cubic yards to cubic metres, multiply by 0.764555. The calculator displays results in all three units at once so you can order in whichever unit your supplier uses.</p>
+      </section>
+
+      <section id="editorial">
+        <h2>Editorial Standards & Review</h2>
+        <div class="trust-box">
+          <p><strong>Reviewed by a civil engineer.</strong> The formulas, mix ratios, bag-yield figures and joint-spacing rules on this page are based on standards published by the American Concrete Institute (ACI 318 — Structural Concrete; ACI 213R — Lightweight Aggregate) and the Cement Concrete & Aggregates Association (CCAA). Our content team cross-references manufacturer bag-yield data and real-world supplier figures, and updates the calculator when standards change.</p>
+          <p><strong>Editorial policy.</strong> Concrete-Calcs content is written for accuracy first. We do not accept paid placements in our guides or calculator results. The calculator is an estimator, not a substitute for professional engineering advice — always confirm structural requirements with a qualified engineer or your concrete supplier for load-bearing applications.</p>
+          <p style="margin-bottom:0"><strong>Last reviewed:</strong> August 2026 · <strong>Part of:</strong> <a href="https://nexuswebtools.com/">Nexus Web Tools</a></p>
+        </div>
+      </section>
+
+      <section id="related">
+        <h2>Related Tools</h2>
+        <ul>
+          <li><a href="/guides/shed-slab-calculator/">Shed Slab Calculator Guide</a> — full step-by-step for shed slabs</li>
+          <li><a href="/guides/driveway-concrete-calculator/">Driveway Concrete Calculator</a> — cost and volume estimation</li>
+          <li><a href="/guides/concrete-mix-ratios/">Concrete Mix Ratios Guide</a> — choosing the right strength</li>
+          <li><a href="/guides/saw-cuts-in-concrete/">Saw Cuts in Concrete</a> — when, where and how deep</li>
+          <li><a href="/guides/pouring-on-uneven-ground/">Pouring on Uneven Ground</a> — the graded land method</li>
+          <li><a href="https://nexuswebtools.com/unit-converter/">Unit Converter</a> — 40+ categories including volume and length</li>
+          <li><a href="https://nexuswebtools.com/">Nexus Web Tools</a> — all free calculators</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Sidebar (ad + quick links) -->
+    <aside class="sidebar">
+      <!-- Sidebar ad unit -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4562423029265065" data-ad-slot="sidebar-ad" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </aside>
+  </div>
 </main>
 
-<script>
-function calculateConcrete() {
-  var shape = document.getElementById('shape').value;
-  var length = parseFloat(document.getElementById('length').value);
-  var width = parseFloat(document.getElementById('width').value);
-  var depth = parseFloat(document.getElementById('depth').value);
-  var units = document.getElementById('units').value;
-  var waste = parseInt(document.getElementById('waste').value);
+<footer class="site-footer">
+  <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/feed.xml">RSS</a></p>
+  <p>&copy; 2026 Concrete-Calcs — a <a href="https://nexuswebtools.com/">Nexus Web Tools</a> site. Free online concrete calculator. No sign-up. Mobile-friendly.</p>
+</footer>
 
-  if (!length || !width || !depth) { alert('Please enter all dimensions'); return; }
-
-  var vol;
-  if (shape === 'slab') {
-    vol = length * width * depth;
-  } else {
-    var radius = width / 2;
-    vol = Math.PI * radius * radius * depth;
-  }
-
-  var volM3, volFt3, volYd3;
-  if (units === 'metric') {
-    volM3 = vol;
-    volFt3 = vol * 35.3147;
-    volYd3 = vol * 1.30795;
-  } else {
-    volFt3 = vol;
-    volM3 = vol * 0.0283168;
-    volYd3 = vol / 27;
-  }
-
-  // Apply waste
-  var wasteMult = 1 + waste / 100;
-  volM3 *= wasteMult;
-  volFt3 *= wasteMult;
-  volYd3 *= wasteMult;
-
-  // Weight
-  var weightKg = volM3 * 2400;
-  var weightLb = volFt3 * 150;
-
-  // Bag counts (ceiling)
-  var bags20 = Math.ceil(volM3 / 0.0094);
-  var bags25 = Math.ceil(volM3 / 0.0117);
-  var bags40 = Math.ceil(volM3 / 0.019);
-  var bags60 = Math.ceil(volFt3 / 0.45);
-  var bags80 = Math.ceil(volFt3 / 0.60);
-
-  var html = '';
-  html += '<tr><td>Volume (m³)</td><td>' + volM3.toFixed(3) + '</td></tr>';
-  html += '<tr><td>Volume (ft³)</td><td>' + volFt3.toFixed(2) + '</td></tr>';
-  html += '<tr><td>Volume (yd³)</td><td>' + volYd3.toFixed(3) + '</td></tr>';
-  html += '<tr><td>Weight (kg)</td><td>' + weightKg.toFixed(0) + '</td></tr>';
-  html += '<tr><td>Weight (lb)</td><td>' + weightLb.toFixed(0) + '</td></tr>';
-  html += '<tr><td>20 kg bags</td><td>' + bags20 + '</td></tr>';
-  html += '<tr><td>25 kg bags</td><td>' + bags25 + '</td></tr>';
-  html += '<tr><td>40 kg bags</td><td>' + bags40 + '</td></tr>';
-  html += '<tr><td>60 lb bags</td><td>' + bags60 + '</td></tr>';
-  html += '<tr><td>80 lb bags</td><td>' + bags80 + '</td></tr>';
-
-  document.getElementById('resultsTable').innerHTML = html;
-  document.getElementById('results').style.display = 'block';
-}
-</script>
+<script src="/nav.js" defer></script>
+<script src="app.js" defer></script>
+<script src="/lang-loader.js" defer></script>
+<script type="text/javascript">var infolinks_pid = 3446367;var infolinks_wsid = 0;</script><script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 </body>
 </html>
