@@ -4230,6 +4230,10 @@
         {
           "heading": "Example Application",
           "text": "For example, let's say you have two debts: a credit card with a balance of $2,000 and a car loan with a balance of $15,000. If you make the minimum payments on both debts, it will take you 10 years to pay off the credit card and 6 years to pay off the car loan. However, if you make an extra payment of $500 on the credit card each year, you'll be able to pay it off in 5 years instead of 10. And if you make an extra payment of $200 on the car loan each year, you'll be able to pay it off in 4 years instead of 6."
+        },
+        {
+          "heading": "Example 1: Consolidating Debts",
+          "text": "Let's say you have three credit card debts with balances of $2,000, $3,000, and $4,000. By consolidating these debts into a single loan with a lower interest rate, you could save money on interest and pay off your debt faster. Using the debt payoff calculator, you can input the original balances and interest rates for each card, as well as the new loan amount and interest rate, to see how much you can save by consolidating your debts."
         }
       ],
       "faqs": [
@@ -4452,6 +4456,10 @@
         {
           "heading": "Estimating Time to Reach a Down Payment on a House",
           "text": "Use the Rule of 72 calculator to estimate how long it will take to save for a down payment on a house. For example, if you want to save $20,000 for a 10% down payment on a $200,000 house, and you invest $500 per month, it will take approximately 36 months to reach your goal."
+        },
+        {
+          "heading": "Estimating the Number of Years to Reach a Financial Goal",
+          "text": "The Rule of 72 calculator can be used to estimate the number of years it will take to reach a financial goal, such as saving for a down payment on a house or paying off debt. For example, if you want to save $100,000 in 5 years for a down payment on a house, and you assume an annual investment of $20,000, the Rule of 72 calculator will tell you that it will take approximately 3.6 years to reach your goal."
         }
       ],
       "faqs": [
