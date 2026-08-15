@@ -3718,6 +3718,10 @@
         {
           "heading": "Expected Social Security Benefits",
           "text": "Enter your estimated Social Security benefits here. This will help you better understand how much money you'll have coming in during retirement."
+        },
+        {
+          "heading": "Expected Expenses in Early Retirement",
+          "text": "Enter your estimated expenses in early retirement, including housing, food, transportation, healthcare, and any other regular costs. This will help you determine how much money you'll need to save for a comfortable retirement."
         }
       ],
       "faqs": [
@@ -4460,6 +4464,10 @@
         {
           "heading": "Estimating the Number of Years to Reach a Financial Goal",
           "text": "The Rule of 72 calculator can be used to estimate the number of years it will take to reach a financial goal, such as saving for a down payment on a house or paying off debt. For example, if you want to save $100,000 in 5 years for a down payment on a house, and you assume an annual investment of $20,000, the Rule of 72 calculator will tell you that it will take approximately 3.6 years to reach your goal."
+        },
+        {
+          "heading": "Examples of How to Use the Rule of 72 Calculator for Other Financial Goals",
+          "text": "For example, you could use the Rule of 72 calculator to determine how long it will take to save enough money for a down payment on a house. Or, you could use it to determine how long it will take to pay off a large debt, like a student loan or credit card balance."
         }
       ],
       "faqs": [
