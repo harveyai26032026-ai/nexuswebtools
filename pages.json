@@ -3722,6 +3722,10 @@
         {
           "heading": "Expected Expenses in Early Retirement",
           "text": "Enter your estimated expenses in early retirement, including housing, food, transportation, healthcare, and any other regular costs. This will help you determine how much money you'll need to save for a comfortable retirement."
+        },
+        {
+          "heading": "Expected Investment Strategy",
+          "text": "The early retirement calculator can help you estimate your expected returns on investments based on your chosen investment strategy. For example, if you plan to invest in a mix of stocks and bonds, the calculator can provide an estimated return rate based on historical data and industry benchmarks."
         }
       ],
       "faqs": [
@@ -4468,6 +4472,10 @@
         {
           "heading": "Examples of How to Use the Rule of 72 Calculator for Other Financial Goals",
           "text": "For example, you could use the Rule of 72 calculator to determine how long it will take to save enough money for a down payment on a house. Or, you could use it to determine how long it will take to pay off a large debt, like a student loan or credit card balance."
+        },
+        {
+          "heading": "Using the Rule of 72 Calculator to Buy a House",
+          "text": "To use the Rule of 72 calculator to buy a house, enter the purchase price of the house and the expected interest rate for the mortgage. The calculator will show you how many years it will take to save enough money to buy the house based on your regular investments."
         }
       ],
       "faqs": [
