@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+rsvps.json
+server.py
+gen_invitation.py
+regenerate.py
