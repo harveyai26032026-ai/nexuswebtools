@@ -3321,6 +3321,10 @@
         {
           "heading": "Calculating Compound Interest for Multiple Loans or Investments",
           "text": "For example, let's say you have two loans with different interest rates and repayment schedules. You can use the continuous calculator to calculate the compound interest for both loans simultaneously, and see how they will affect your financial situation over time."
+        },
+        {
+          "heading": "Example Use Cases",
+          "text": "The continuous calculator can be used in a variety of ways to help you make informed financial decisions. For example, you could use it to compare the long-term performance of different investment portfolios, or to calculate the total interest paid on multiple loans over their lifetimes."
         }
       ],
       "faqs": [
@@ -3726,6 +3730,10 @@
         {
           "heading": "Expected Investment Strategy",
           "text": "The early retirement calculator can help you estimate your expected returns on investments based on your chosen investment strategy. For example, if you plan to invest in a mix of stocks and bonds, the calculator can provide an estimated return rate based on historical data and industry benchmarks."
+        },
+        {
+          "heading": "Expected Expenses in Retirement",
+          "text": "Enter your estimated expenses in retirement, including housing, transportation, food, healthcare, and any other regular expenses. The calculator will help you determine how much you need to save each month to achieve your retirement goals."
         }
       ],
       "faqs": [
