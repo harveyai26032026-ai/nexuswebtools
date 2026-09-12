@@ -46,6 +46,10 @@
       { label: 'FHA Loan', href: '/compound-interest/fha-loan/' },
     ]},
     { label: 'Mortgage Calculator', href: '/mortgage/', tier: 1 },
+    { label: 'Novated Lease', href: '/novated-lease/', tier: 1 },
+    { label: 'Income Tax', href: '/income-tax/', tier: 1 },
+    { label: 'GST Calculator', href: '/gst/', tier: 1 },
+    { label: 'Capital Gains Tax', href: '/capital-gains-tax/', tier: 1 },
     { label: 'Unit Converter', href: '/unit-converter/', tier: 1, children: [
       { label: 'Length', href: '/unit-converter/length/' },
       { label: 'Weight', href: '/unit-converter/weight/' },
