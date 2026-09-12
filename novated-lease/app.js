@@ -12,7 +12,7 @@ var MEDICARE_RATE = 0.02;
 
 /* ATO minimum residual values for novated leases */
 var RESIDUAL_TABLE = {
-  1: 0.6563, 2: 0.5250, 3: 0.4125, 4: 0.30, 5: 0.1125, 6: 0.1125, 7: 0.1125
+  1: 0.6583, 2: 0.5625, 3: 0.4688, 4: 0.375, 5: 0.2813, 6: 0.2813, 7: 0.2813
 };
 
 /* ─── DOM helpers ─── */
@@ -176,7 +176,7 @@ function calcLease(o){
   var runningCostsTotal = o.runningCosts * term;
 
   // ATO minimum residual
-  var residualPct = RESIDUAL_TABLE[term] !== undefined ? RESIDUAL_TABLE[term] : 0.1125;
+  var residualPct = RESIDUAL_TABLE[term] !== undefined ? RESIDUAL_TABLE[term] : 0.2813;
   var residual = o.carPrice * residualPct;
 
   // Monthly finance payment (lease uses same rate as car loan for finance cost)

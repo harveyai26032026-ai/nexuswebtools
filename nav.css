@@ -94,6 +94,7 @@
   .ribbon nav{display:none}
   .ribbon-search input{width:0}
   .ribbon-search.open input,.ribbon-search input:focus{width:130px}
+  .ribbon{overflow:hidden}
 }
 /* Always show hamburger; drawer works on all widths */
 @media(min-width:641px){
