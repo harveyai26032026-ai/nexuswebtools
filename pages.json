@@ -3734,6 +3734,10 @@
         {
           "heading": "Expected Expenses in Retirement",
           "text": "Enter your estimated expenses in retirement, including housing, transportation, food, healthcare, and any other regular expenses. The calculator will help you determine how much you need to save each month to achieve your retirement goals."
+        },
+        {
+          "heading": "Example 1: Non-Traditional Retirement Age",
+          "text": "For example, let's say you want to retire at the age of 50. Using the calculator, you can enter your current age (say 35), your desired retirement age (50), and your expected returns on investments (e.g., 6%). Based on these inputs, the calculator will estimate how much you need to save each month to reach your retirement goal."
         }
       ],
       "faqs": [
@@ -3873,6 +3877,10 @@
         {
           "heading": "Expected College Costs by Year",
           "text": "Based on current trends, the cost of attending a public college in the United States is estimated to be around $10,000 per year for in-state students and $25,000 per year for out-of-state students. Private colleges can cost significantly more, with an average annual price tag of around $40,000."
+        },
+        {
+          "heading": "Examples of How Much You May Need to Save for Each Child",
+          "text": "For example, if you have two children, ages 5 and 8, and you expect them to attend college in 12 years, you may need to save around $100,000 for each child ($200,000 total) to cover the estimated cost of tuition, fees, room, and board at a public university. However, if you expect your children to attend private college, the costs could be significantly higher, potentially over $500,000 per child."
         }
       ],
       "faqs": [
