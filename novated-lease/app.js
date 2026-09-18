@@ -7,6 +7,8 @@
 var LS_KEY = "nwt_novated_lease_v1";
 var LCT_THRESHOLD = 91387;       // Luxury Car Tax threshold for EV FBT exemption
 var FBT_STATUTORY_FRACTION = 0.20; // 20% of car value per year (statutory method)
+var FBT_RATE_TYPE1 = 0.47;        // FBT gross-up rate — employer claims GST credits
+var FBT_RATE_TYPE2 = 0.30;        // FBT gross-up rate — employer cannot claim GST credits
 var MEDICARE_THRESHOLD = 24276;   // Singles threshold (approx 2024-25)
 var MEDICARE_RATE = 0.02;
 
@@ -192,16 +194,21 @@ function calcLease(o){
   var fbtTotal = 0;
   var employeeContribution = 0;
 
+  var fbtTaxableAnnual = 0;
   if(!isEV){
-    // Statutory method: 20% of car value per year
-    fbtAnnual = o.carPrice * FBT_STATUTORY_FRACTION;
+    // Statutory formula method: taxable value = base value x 20%
+    fbtTaxableAnnual = o.carPrice * FBT_STATUTORY_FRACTION;
+    // FBT payable by employer (Type 2 — most lessors cannot claim GST credits on running costs)
+    fbtAnnual = fbtTaxableAnnual * FBT_RATE_TYPE2;
     fbtTotal = fbtAnnual * term;
-    // ECM: employee post-tax contribution equals FBT, reducing FBT to zero
-    employeeContribution = fbtTotal;
+    // FBT is recovered through pre-tax salary packaging (no ECM assumed — cheaper
+    // than post-tax ECM for every marginal bracket). If the user selects ECM,
+    // a post-tax contribution of the taxable value zeroes the FBT instead.
+    employeeContribution = 0;
   }
 
   // Pre-tax salary sacrifice: finance payments + running costs (bundled)
-  var preTaxDeductions = totalFinancePayments + runningCostsTotal;
+  var preTaxDeductions = totalFinancePayments + runningCostsTotal + fbtTotal;
 
   // Tax savings: actual tax difference (handles bracket crossings)
   var taxBefore = totalTax(o.income);
@@ -225,12 +232,13 @@ function calcLease(o){
   if(isEV){
     fbtNote = "EV FBT exemption applies (car value ≤ $" + LCT_THRESHOLD.toLocaleString() + " LCT threshold). No FBT payable.";
   } else {
-    fbtNote = "FBT at 20% of car value/year = $" + fmtFull(fbtAnnual) + "/yr. Employee Contribution Method (ECM) offsets FBT with post-tax contribution of $" + fmtFull(fbtTotal) + " over the term.";
+    fbtNote = "Statutory formula: taxable value $" + fmtFull(fbtTaxableAnnual) + "/yr (20% of car value). FBT payable (Type 2, 30% gross-up) $" + fmtFull(fbtAnnual) + "/yr = $" + fmtFull(fbtTotal) + " over the term, salary-packaged pre-tax.";
   }
 
   return {
     label: "Novated Lease",
     carPrice: o.carPrice,
+    fbtCost: fbtTotal,
     monthlyFinance: monthlyFinance,
     totalFinancePayments: totalFinancePayments,
     financeInterest: financeInterest,
@@ -353,7 +361,7 @@ function renderTable(cash, loan, lease, o, winnerKey){
     {label:"Car purchase price",                      cash:cash.carPrice,        loan:loan.carPrice,        lease:lease.carPrice,        fmt:'money'},
     {label:"Interest / finance cost",                 cash:0,                    loan:loan.interestCost,    lease:lease.financeInterest, fmt:'money'},
     {label:"Opportunity cost",                       cash:cash.opportunityCost, loan:0,                    lease:0,                     fmt:'money'},
-    {label:"FBT / ECM contribution",                  cash:0,                    loan:0,                    lease:lease.employeeContribution, fmt:'money'},
+    {label:"FBT payable (pre-tax packaged)",          cash:0,                    loan:0,                    lease:lease.fbtCost, fmt:'money'},
     {label:"Running costs (over term)",               cash:cash.runningCosts,    loan:loan.runningCosts,    lease:lease.runningCosts,    fmt:'money'},
     {label:"Residual payment (end of lease)",         cash:0,                    loan:0,                    lease:lease.residual,        fmt:'money'},
     {label:"Tax savings",                             cash:0,                    loan:0,                    lease:lease.taxSavings,      fmt:'money', isGain:true},
@@ -425,7 +433,7 @@ function renderBreakdown(cash, loan, lease, o){
     bdRow("Pre-tax salary sacrifice", lease.preTaxDeductions) +
     bdRow("Tax saved", lease.taxSavings, true, false, true) +
     bdRow("Net salary sacrifice (after tax)", lease.netSalarySacrifice) +
-    (lease.employeeContribution > 0 ? bdRow("ECM post-tax contribution (FBT)", lease.employeeContribution, false, true) : '') +
+    (lease.fbtCost > 0 ? bdRow("FBT payable (Type 2, pre-tax packaged)", lease.fbtCost, false, true) : '') +
     bdRow("Residual (pay to keep car)", lease.residual) +
     bdRow("Total net cost", lease.totalCost, true) +
     '<p style="font-size:.8rem;color:var(--muted);margin-top:8px;line-height:1.4">' + lease.notes + '</p>' +
