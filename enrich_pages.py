@@ -47,7 +47,7 @@ def build_prompt(page: dict, tool_type: str) -> str:
     """Build a prompt that asks the model to generate extra FAQs and context."""
     title = page.get('title', '')
     intro = page.get('intro', '')
-    existing_faqs = page.get('faq', [])
+    existing_faqs = page.get('faqs', [])
     existing_q = [f['q'] for f in existing_faqs] if existing_faqs else []
 
     prompt = f"""You are an SEO content writer. For the page "{title}" ({tool_type} tool), generate:
@@ -99,14 +99,14 @@ def enrich_page(page: dict, tool_type: str, model: str, dry_run: bool) -> bool:
     # Add extra FAQs
     extra_faq = parsed.get('extra_faq', [])
     if extra_faq and isinstance(extra_faq, list):
-        if 'faq' not in page or not isinstance(page.get('faq'), list):
-            page['faq'] = []
+        if 'faqs' not in page or not isinstance(page.get('faqs'), list):
+            page['faqs'] = []
         for fq in extra_faq:
             if isinstance(fq, dict) and 'q' in fq and 'a' in fq:
                 # Don't add duplicate questions
-                existing_q = [f['q'].lower().strip() for f in page['faq']]
+                existing_q = [f['q'].lower().strip() for f in page['faqs']]
                 if fq['q'].lower().strip() not in existing_q:
-                    page['faq'].append(fq)
+                    page['faqs'].append(fq)
                     updated = True
 
     # Add extra application
@@ -148,7 +148,7 @@ def main():
             continue
         for i, page in enumerate(pages):
             # Skip pages that already have 5+ FAQs and 4+ applications
-            n_faq = len(page.get('faq', []))
+            n_faq = len(page.get('faqs', []))
             n_app = len(page.get('applications', []))
             if n_faq >= 5 and n_app >= 4:
                 continue

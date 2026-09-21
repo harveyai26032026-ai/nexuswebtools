@@ -84,15 +84,7 @@
         {
           "q": "What will $10,000 grow to at 3.5% per annum over 4 years for savings?",
           "a": "At 3.5% annually, $10,000 becomes $11,475.23 after 4 years, earning $1,475.23 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "savings",
-          "name": "Savings Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "How does the compound interest calculator work?",
           "a": "Our compound interest calculator uses a formula to calculate the future value of an investment based on the principal amount, interest rate, and time. The formula takes into account the power of compounding, which can significantly increase the value of your investment over time."
@@ -120,6 +112,12 @@
         {
           "q": "How can I use the compound interest calculator to estimate the future value of a savings plan for my child's education?",
           "a": "The compound interest calculator can help you estimate the future value of a savings plan for your child's education by entering the initial deposit amount, interest rate, and number of years until your child starts college. Based on these inputs, the calculator will display the estimated future value of the savings plan."
+        }
+      ],
+      "related": [
+        {
+          "slug": "savings",
+          "name": "Savings Calculator"
         }
       ]
     },
@@ -207,15 +205,7 @@
         {
           "q": "What will $11,000 grow to at 3.7% per annum over 5 years for mortgage?",
           "a": "At 3.7% annually, $11,000 becomes $13,191.27 after 5 years, earning $2,191.27 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "mortgage",
-          "name": "Mortgage Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the mortgage calculator for a commercial property?",
           "a": "Yes, our mortgage calculator can be used to estimate the costs associated with purchasing or refinancing a commercial property. Please note that commercial mortgages have different terms and requirements than residential mortgages."
@@ -239,6 +229,12 @@
         {
           "q": "How does the mortgage calculator handle loan assumptions?",
           "a": "The mortgage calculator allows you to enter different loan assumptions, such as interest rate or loan term, to see how they affect the estimated monthly payments and total interest. You can also use the calculator to compare different loan scenarios."
+        }
+      ],
+      "related": [
+        {
+          "slug": "mortgage",
+          "name": "Mortgage Calculator"
         }
       ]
     },
@@ -326,15 +322,7 @@
         {
           "q": "What will $12,000 grow to at 3.9% per annum over 6 years for retirement?",
           "a": "At 3.9% annually, $12,000 becomes $15,096.44 after 6 years, earning $3,096.44 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "retirement",
-          "name": "Retirement Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "How does compounding time affect my retirement savings?",
           "a": "Compounding time can significantly impact your retirement savings. The longer you give your money to grow, the more time it has to accumulate interest and grow. For example, if you start saving for retirement at age 25 and don't touch the funds until age 65, you could end up with over $1 million in savings, assuming an average annual return of 7%."
@@ -358,6 +346,12 @@
         {
           "q": "Can I use a retirement calculator to estimate the cost of healthcare in retirement?",
           "a": "Yes, many retirement calculators include estimates for healthcare costs in retirement, which can help you better plan for this expense."
+        }
+      ],
+      "related": [
+        {
+          "slug": "retirement",
+          "name": "Retirement Calculator"
         }
       ]
     },
@@ -453,15 +447,7 @@
         {
           "q": "What will $13,000 grow to at 4.1% per annum over 2 years for investments?",
           "a": "At 4.1% annually, $13,000 becomes $14,087.85 after 2 years, earning $1,087.85 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "investments",
-          "name": "Investments Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the compound interest calculator for multiple investments?",
           "a": "Yes, our compound interest calculator can handle multiple investments. Simply enter the details for each investment, including the principal amount, interest rate, and time period."
@@ -485,6 +471,12 @@
         {
           "q": "How do I calculate the tax implications of my investments using the calculator?",
           "a": "The compound interest calculator does not take into account tax implications, so you may want to consult with a financial advisor or use a separate tool for this purpose."
+        }
+      ],
+      "related": [
+        {
+          "slug": "investments",
+          "name": "Investments Calculator"
         }
       ]
     },
@@ -572,15 +564,7 @@
         {
           "q": "What will $14,000 grow to at 4.3% per annum over 3 years for superannuation?",
           "a": "At 4.3% annually, $14,000 becomes $15,884.77 after 3 years, earning $1,884.77 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "superannuation",
-          "name": "Superannuation Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "What if I want to calculate my superannuation balance at a future date?",
           "a": "Our compound interest calculator allows you to enter a future date and see how much your superannuation balance could grow by then."
@@ -612,6 +596,12 @@
         {
           "q": "How does the calculator handle taxation of my superannuation contributions if I am a non-resident of Australia?",
           "a": "The calculator takes into account the different tax rates and rules for non-resident Australians, so you can get an accurate calculation of your superannuation balance."
+        }
+      ],
+      "related": [
+        {
+          "slug": "superannuation",
+          "name": "Superannuation Calculator"
         }
       ]
     },
@@ -699,15 +689,7 @@
         {
           "q": "What will $15,000 grow to at 4.5% per annum over 4 years for term deposit?",
           "a": "At 4.5% annually, $15,000 becomes $17,887.78 after 4 years, earning $2,887.78 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "term-deposit",
-          "name": "Term Deposit Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the term deposit calculator to compare different banks' term deposit rates?",
           "a": "Yes, you can use our term deposit calculator to compare different banks' term deposit rates. Simply enter the interest rates and terms of each bank's term deposit offer into the calculator and it will show you which bank offers the best deal based on your investment goals and risk tolerance."
@@ -747,6 +729,12 @@
         {
           "q": "How does the term deposit calculator handle tax implications when calculating returns?",
           "a": "The term deposit calculator considers tax implications by factoring in the tax rate applied to the investment's return. This helps users understand how much they will actually earn after taxes are taken into account."
+        }
+      ],
+      "related": [
+        {
+          "slug": "term-deposit",
+          "name": "Term Deposit Calculator"
         }
       ]
     },
@@ -838,15 +826,7 @@
         {
           "q": "What will $16,000 grow to at 4.7% per annum over 5 years for student loan?",
           "a": "At 4.7% annually, $16,000 becomes $20,130.45 after 5 years, earning $4,130.45 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "student-loan",
-          "name": "Student Loan Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the student loan calculator to compare different repayment plans?",
           "a": "Yes, our student loan calculator allows you to compare different repayment plans and see how they can affect your monthly payments and overall cost of your loans."
@@ -870,6 +850,12 @@
         {
           "q": "How does the student loan calculator handle potential future changes in my income?",
           "a": "The calculator assumes that any changes in your income will affect your monthly payments. However, if you enter a specific income amount in the 'Current Income' field, the calculator will use that amount to calculate your monthly payments rather than a projected income amount."
+        }
+      ],
+      "related": [
+        {
+          "slug": "student-loan",
+          "name": "Student Loan Calculator"
         }
       ]
     },
@@ -961,15 +947,7 @@
         {
           "q": "What will $17,000 grow to at 4.9% per annum over 6 years for credit card?",
           "a": "At 4.9% annually, $17,000 becomes $22,651.75 after 6 years, earning $5,651.75 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "credit-card",
-          "name": "Credit Card Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the credit card calculator to compare different credit cards?",
           "a": "Yes, you can use our credit card calculator to compare different credit cards by entering the details of each card side-by-side."
@@ -993,6 +971,12 @@
         {
           "q": "What if I want to use the credit card calculator to estimate my payments for a loan from a bank?",
           "a": "Our credit card calculator is specifically designed for estimating credit card payments, but it can also be used to estimate payments for loans from banks."
+        }
+      ],
+      "related": [
+        {
+          "slug": "credit-card",
+          "name": "Credit Card Calculator"
         }
       ]
     },
@@ -1120,15 +1104,7 @@
         {
           "q": "What will $18,000 grow to at 5.1% per annum over 2 years for car loan?",
           "a": "At 5.1% annually, $18,000 becomes $19,882.82 after 2 years, earning $1,882.82 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "car-loan",
-          "name": "Car Loan Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "What if I want to make extra payments on my car loan?",
           "a": "If you want to make extra payments on your car loan, you can use our car loan calculator to see how much faster you can pay off your loan. For example, if you make an extra payment of $500 per year, you could save thousands of dollars in interest and pay off your loan 2-3 years earlier."
@@ -1148,6 +1124,12 @@
         {
           "q": "Can I use my car's value to secure a personal loan?",
           "a": "Yes, you can use the value of your car as collateral for a personal loan. This is called a 'car title loan' or 'car equity loan.' However, keep in mind that using your car as collateral means you risk losing your vehicle if you default on the loan."
+        }
+      ],
+      "related": [
+        {
+          "slug": "car-loan",
+          "name": "Car Loan Calculator"
         }
       ]
     },
@@ -1235,15 +1217,7 @@
         {
           "q": "What will $19,000 grow to at 5.3% per annum over 3 years for home loan?",
           "a": "At 5.3% annually, $19,000 becomes $22,183.94 after 3 years, earning $3,183.94 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "home-loan",
-          "name": "Home Loan Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "How much will my monthly repayments change if I increase my loan amount by $10,000?",
           "a": "Using our home loan calculator, we can see that increasing the loan amount by $10,000 will result in a approximately $75-$100 increase in the monthly repayment amount."
@@ -1267,6 +1241,12 @@
         {
           "q": "Can I use the calculator to estimate my home loan repayments if I have a fixed interest rate?",
           "a": "Yes, the calculator can help you estimate your monthly repayments for a fixed-rate home loan. Just enter the loan amount, term, and interest rate to see your estimated repayments."
+        }
+      ],
+      "related": [
+        {
+          "slug": "home-loan",
+          "name": "Home Loan Calculator"
         }
       ]
     },
@@ -1354,15 +1334,7 @@
         {
           "q": "What will $20,000 grow to at 5.5% per annum over 4 years for personal loan?",
           "a": "At 5.5% annually, $20,000 becomes $24,776.49 after 4 years, earning $4,776.49 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "personal-loan",
-          "name": "Personal Loan Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use a personal loan to consolidate debt?",
           "a": "Yes, personal loans can be used for debt consolidation. By combining multiple debts into one loan with a lower interest rate and a single monthly payment, you may be able to simplify your finances and save money on interest."
@@ -1398,6 +1370,12 @@
         {
           "q": "How do I know if I'm overspending on my personal loan?",
           "a": "You can use a budgeting app or spreadsheet to track your spending and ensure that you're not overspending. It's also important to consider the total cost of the loan, including interest and fees, when determining how much you can afford to borrow."
+        }
+      ],
+      "related": [
+        {
+          "slug": "personal-loan",
+          "name": "Personal Loan Calculator"
         }
       ]
     },
@@ -1485,15 +1463,7 @@
         {
           "q": "What will $21,000 grow to at 5.7% per annum over 5 years for fixed deposit?",
           "a": "At 5.7% annually, $21,000 becomes $27,707.30 after 5 years, earning $6,707.30 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "fixed-deposit",
-          "name": "Fixed Deposit Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I withdraw my fixed deposit before maturity?",
           "a": "Yes, you can withdraw your fixed deposit before maturity, but there may be penalties and fees associated with early withdrawal."
@@ -1517,6 +1487,12 @@
         {
           "q": "How do I calculate the taxes owed on my fixed deposit?",
           "a": "The taxes owed on your fixed deposit will depend on the interest earned and your tax bracket. You can consult with a tax professional or use an online tax calculator to determine your tax liability."
+        }
+      ],
+      "related": [
+        {
+          "slug": "fixed-deposit",
+          "name": "Fixed Deposit Calculator"
         }
       ]
     },
@@ -1604,15 +1580,7 @@
         {
           "q": "What will $22,000 grow to at 5.9% per annum over 6 years for recurring deposit?",
           "a": "At 5.9% annually, $22,000 becomes $31,031.19 after 6 years, earning $9,031.19 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "recurring-deposit",
-          "name": "Recurring Deposit Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I make adjustments to my recurring deposit amount after it's been set up?",
           "a": "Yes, you can make changes to your recurring deposit amount at any time. However, please note that there may be fees associated with making changes to an existing recurring deposit."
@@ -1636,6 +1604,12 @@
         {
           "q": "How does the calculator account for inflation when calculating my investment growth?",
           "a": "The calculator uses a historical inflation rate to estimate the impact of inflation on your investment. This helps you understand how much your investment will be worth in real terms over time."
+        }
+      ],
+      "related": [
+        {
+          "slug": "recurring-deposit",
+          "name": "Recurring Deposit Calculator"
         }
       ]
     },
@@ -1723,15 +1697,7 @@
         {
           "q": "What will $23,000 grow to at 6.1% per annum over 2 years for annuity?",
           "a": "At 6.1% annually, $23,000 becomes $25,891.58 after 2 years, earning $2,891.58 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "annuity",
-          "name": "Annuity Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use an annuity calculator to compare different types of annuities?",
           "a": "Yes, our annuity calculator allows you to compare different types of annuities based on their interest rates, fees, and other factors. This can help you determine which type of annuity is best for your financial goals."
@@ -1763,6 +1729,12 @@
         {
           "q": "How do I know if an annuity is a good fit for my long-term financial goals?",
           "a": "Annuity calculators can help you evaluate whether an annuity is a good choice for your specific situation, but it's also important to consider other factors such as your risk tolerance and investment horizon."
+        }
+      ],
+      "related": [
+        {
+          "slug": "annuity",
+          "name": "Annuity Calculator"
         }
       ]
     },
@@ -1866,15 +1838,7 @@
         {
           "q": "What will $24,000 grow to at 6.3% per annum over 3 years for crypto?",
           "a": "At 6.3% annually, $24,000 becomes $28,827.77 after 3 years, earning $4,827.77 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "crypto",
-          "name": "Crypto Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the compound interest calculator for multiple assets?",
           "a": "Yes, you can use our compound interest calculator to calculate the growth of multiple assets. Simply enter each asset's principal amount, interest rate, and time period into the calculator separately."
@@ -1894,6 +1858,12 @@
         {
           "q": "Can I use the calculator to compare different investment strategies?",
           "a": "Yes, the calculator allows you to input different investment strategies (e.g. 50/50 stocks/bonds, 100% stocks, etc.) and will display the resulting compound interest."
+        }
+      ],
+      "related": [
+        {
+          "slug": "crypto",
+          "name": "Crypto Calculator"
         }
       ]
     },
@@ -2001,15 +1971,7 @@
         {
           "q": "What will $25,000 grow to at 6.5% per annum over 4 years for dividend?",
           "a": "At 6.5% annually, $25,000 becomes $32,161.66 after 4 years, earning $7,161.66 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "dividend",
-          "name": "Dividend Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the dividend calculator for multiple stocks at once?",
           "a": "Yes, you can input multiple stock tickers or symbols in the tool to calculate the dividends for each one simultaneously."
@@ -2029,6 +1991,12 @@
         {
           "q": "How often do I need to run the dividend calculator to get an accurate estimate of my dividend income?",
           "a": "It's a good idea to run the dividend calculator on a regular basis, such as quarterly or annually, to ensure that your estimated dividend income is up-to-date and reflects any changes in your stock holdings. However, you can also run the calculator whenever you receive a dividend payment to verify that the estimate is accurate."
+        }
+      ],
+      "related": [
+        {
+          "slug": "dividend",
+          "name": "Dividend Calculator"
         }
       ]
     },
@@ -2148,15 +2116,7 @@
         {
           "q": "What will $26,000 grow to at 6.7% per annum over 5 years for bond?",
           "a": "At 6.7% annually, $26,000 becomes $35,957.99 after 5 years, earning $9,957.99 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "bond",
-          "name": "Bond Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "What if I want to pay off my bond early?",
           "a": "If you want to pay off your bond early, you may be able to do so with a prepayment penalty. The amount of the penalty will depend on the terms of your bond and the interest rate."
@@ -2176,6 +2136,12 @@
         {
           "q": "Can I use the bond calculator to compare different bonds?",
           "a": "Yes, you can use the bond calculator to compare different bonds by entering the relevant details for each bond. This can help you make an informed decision about which bond to invest in."
+        }
+      ],
+      "related": [
+        {
+          "slug": "bond",
+          "name": "Bond Calculator"
         }
       ]
     },
@@ -2263,15 +2229,7 @@
         {
           "q": "What will $27,000 grow to at 6.9% per annum over 6 years for mutual fund?",
           "a": "At 6.9% annually, $27,000 becomes $40,293.04 after 6 years, earning $13,293.04 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "mutual-fund",
-          "name": "Mutual Fund Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the mutual fund calculator to compare different investment options?",
           "a": "Yes, the mutual fund calculator can be used to compare different investment options based on their potential returns and risks. For example, you could compare a mutual fund to a stock or bond portfolio, or even a real estate investment trust (REIT)."
@@ -2303,6 +2261,12 @@
         {
           "q": "How does the mutual fund calculator handle exchange-traded funds (ETFs) when calculating returns?",
           "a": "The mutual fund calculator can handle ETFs by calculating their returns based on the underlying asset prices."
+        }
+      ],
+      "related": [
+        {
+          "slug": "mutual-fund",
+          "name": "Mutual Fund Calculator"
         }
       ]
     },
@@ -2390,15 +2354,7 @@
         {
           "q": "What will $28,000 grow to at 7.1% per annum over 2 years for etf?",
           "a": "At 7.1% annually, $28,000 becomes $32,117.15 after 2 years, earning $4,117.15 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "etf",
-          "name": "Etf Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "How do I use the compound interest calculator to estimate the value of my investment portfolio?",
           "a": "To use the compound interest calculator, simply enter the initial principal amount, interest rate, and time period into the respective fields. The calculator will then provide you with an estimate of the future value of your investment portfolio based on the power of compounding."
@@ -2430,6 +2386,12 @@
         {
           "q": "How do I use the compound interest calculator to estimate the impact of capital gains tax on my investments?",
           "a": "To estimate the impact of capital gains tax on your investments using the compound interest calculator, you will need to enter the tax rate and the frequency of capital gains realizations. The calculator will then show you how much of your investment returns are absorbed by taxes."
+        }
+      ],
+      "related": [
+        {
+          "slug": "etf",
+          "name": "Etf Calculator"
         }
       ]
     },
@@ -2517,15 +2479,7 @@
         {
           "q": "What will $29,000 grow to at 7.3% per annum over 3 years for real estate?",
           "a": "At 7.3% annually, $29,000 becomes $35,825.90 after 3 years, earning $6,825.90 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "real-estate",
-          "name": "Real Estate Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "What are the tax implications of selling a rental property?",
           "a": "Selling a rental property can have significant tax implications, including capital gains tax and depreciation recapture. It's important to consult with a tax professional before making a decision."
@@ -2557,6 +2511,12 @@
         {
           "q": "How do I account for maintenance and repair costs when using the calculator?",
           "a": "The calculator allows you to enter maintenance and repair costs separately or as a percentage of the property's value."
+        }
+      ],
+      "related": [
+        {
+          "slug": "real-estate",
+          "name": "Real Estate Calculator"
         }
       ]
     },
@@ -2644,15 +2604,7 @@
         {
           "q": "What will $30,000 grow to at 7.5% per annum over 4 years for business loan?",
           "a": "At 7.5% annually, $30,000 becomes $40,064.07 after 4 years, earning $10,064.07 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "business-loan",
-          "name": "Business Loan Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use a business loan calculator to determine how much I can borrow?",
           "a": "Yes, a business loan calculator can help you determine how much you can borrow based on your business's financial information and other factors such as your credit score and cash flow."
@@ -2676,6 +2628,12 @@
         {
           "q": "How do I know if my business has enough collateral for a loan?",
           "a": "A business loan calculator can help you determine if your business has enough collateral by analyzing your assets and liabilities. However, it's important to note that lenders may have different requirements and criteria for determining collateral."
+        }
+      ],
+      "related": [
+        {
+          "slug": "business-loan",
+          "name": "Business Loan Calculator"
         }
       ]
     },
@@ -2763,15 +2721,7 @@
         {
           "q": "What will $31,000 grow to at 7.7% per annum over 5 years for monthly?",
           "a": "At 7.7% annually, $31,000 becomes $44,920.05 after 5 years, earning $13,920.05 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "monthly",
-          "name": "Monthly Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "How does compound interest work for different investment horizons?",
           "a": "Use our calculator to see how the power of compounding can grow your savings over time, from short-term goals to long-term retirement."
@@ -2795,6 +2745,12 @@
         {
           "q": "Can I use compound interest to save for multiple goals at once?",
           "a": "Yes, you can use compound interest to save for multiple financial goals simultaneously. By using a multi-goal savings strategy and taking advantage of compound interest, you can reach your goals faster."
+        }
+      ],
+      "related": [
+        {
+          "slug": "monthly",
+          "name": "Monthly Calculator"
         }
       ]
     },
@@ -2882,15 +2838,7 @@
         {
           "q": "What will $32,000 grow to at 7.9% per annum over 6 years for daily?",
           "a": "At 7.9% annually, $32,000 becomes $50,498.52 after 6 years, earning $18,498.52 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "daily",
-          "name": "Daily Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the compound interest calculator for a loan?",
           "a": "Yes, you can use the compound interest calculator to calculate the total cost of a loan over time, including interest and fees."
@@ -2930,6 +2878,12 @@
         {
           "q": "How does the compound interest calculator handle different inflation rates?",
           "a": "The compound interest calculator allows you to enter an inflation rate as a percentage. The calculator will then adjust the principal and interest amounts based on the inflation rate, so you can see how much your investment or loan will be worth over time in real terms."
+        }
+      ],
+      "related": [
+        {
+          "slug": "daily",
+          "name": "Daily Calculator"
         }
       ]
     },
@@ -3017,15 +2971,7 @@
         {
           "q": "What will $33,000 grow to at 8.1% per annum over 2 years for quarterly?",
           "a": "At 8.1% annually, $33,000 becomes $38,562.51 after 2 years, earning $5,562.51 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "quarterly",
-          "name": "Quarterly Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the compound interest calculator for a loan?",
           "a": "Yes, you can use the compound interest calculator to calculate the total cost of a loan over time, including interest and fees."
@@ -3057,6 +3003,12 @@
         {
           "q": "How does the compound interest calculator handle different tax rates?",
           "a": "The compound interest calculator assumes that all interest earned is subject to the same tax rate. If you have different tax rates for different parts of your investment, please adjust the calculations accordingly."
+        }
+      ],
+      "related": [
+        {
+          "slug": "quarterly",
+          "name": "Quarterly Calculator"
         }
       ]
     },
@@ -3144,15 +3096,7 @@
         {
           "q": "What will $34,000 grow to at 8.3% per annum over 3 years for annually?",
           "a": "At 8.3% annually, $34,000 becomes $43,188.12 after 3 years, earning $9,188.12 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "annually",
-          "name": "Annually Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the compound interest calculator for a loan?",
           "a": "Yes, you can use the compound interest calculator to calculate the total cost of a loan over time, including interest and fees."
@@ -3184,6 +3128,12 @@
         {
           "q": "How do I calculate the future value of an investment using the compound interest calculator if the investment is in a non-interest bearing account?",
           "a": "To calculate the future value of an investment in a non-interest bearing account using the compound interest calculator, you will need to enter the initial amount invested, the frequency of deposits or withdrawals, and the time period. The calculator will show you how much the investment will grow over time due to the compounding effect."
+        }
+      ],
+      "related": [
+        {
+          "slug": "annually",
+          "name": "Annually Calculator"
         }
       ]
     },
@@ -3325,6 +3275,10 @@
         {
           "heading": "Example Use Cases",
           "text": "The continuous calculator can be used in a variety of ways to help you make informed financial decisions. For example, you could use it to compare the long-term performance of different investment portfolios, or to calculate the total interest paid on multiple loans over their lifetimes."
+        },
+        {
+          "heading": "Loan Comparison",
+          "text": "Use the continuous calculator to compare the total cost of different loans over time. For example, you can enter the loan amounts, interest rates, and repayment terms for two different loans side-by-side, and the calculator will show you which loan is more expensive in the long run."
         }
       ],
       "faqs": [
@@ -3339,15 +3293,7 @@
         {
           "q": "What will $35,000 grow to at 8.5% per annum over 4 years for continuous?",
           "a": "At 8.5% annually, $35,000 becomes $48,505.05 after 4 years, earning $13,505.05 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "continuous",
-          "name": "Continuous Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the continuous calculator for more than one loan or investment at a time?",
           "a": "Yes, you can input multiple loans or investments into the continuous calculator and it will calculate the compound interest for each of them separately."
@@ -3359,6 +3305,12 @@
         {
           "q": "Can I use the continuous calculator for multiple loans or investments at once?",
           "a": "Yes, you can use the continuous calculator to compare the total cost of multiple loans or investments over time."
+        }
+      ],
+      "related": [
+        {
+          "slug": "continuous",
+          "name": "Continuous Calculator"
         }
       ]
     },
@@ -3446,15 +3398,7 @@
         {
           "q": "What will $36,000 grow to at 8.7% per annum over 5 years for simple vs compound?",
           "a": "At 8.7% annually, $36,000 becomes $54,632.39 after 5 years, earning $18,632.39 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "simple-vs-compound",
-          "name": "Simple Vs Compound Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the compound interest calculator for a loan?",
           "a": "Yes, you can use the compound interest calculator to calculate the total cost of a loan, including interest and fees. Simply enter the loan amount, interest rate, and loan term to get an estimate of the total cost."
@@ -3486,6 +3430,12 @@
         {
           "q": "How does the compound interest calculator handle taxes?",
           "a": "The compound interest calculator assumes that all interest earned is subject to federal income tax. You can adjust the calculator's settings to account for state and local taxes, if applicable."
+        }
+      ],
+      "related": [
+        {
+          "slug": "simple-vs-compound",
+          "name": "Simple Vs Compound Calculator"
         }
       ]
     },
@@ -3573,15 +3523,7 @@
         {
           "q": "What will $37,000 grow to at 8.9% per annum over 6 years for inflation adjusted?",
           "a": "At 8.9% annually, $37,000 becomes $61,711.91 after 6 years, earning $24,711.91 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "inflation-adjusted",
-          "name": "Inflation Adjusted Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "How does inflation affect the accuracy of my investment projections?",
           "a": "Inflation can erode the purchasing power of your savings, making it more difficult to achieve your long-term financial goals."
@@ -3613,6 +3555,12 @@
         {
           "q": "Can I use this calculator to project the future value of my investments in a cryptocurrency or other alternative asset?",
           "a": "While the inflation-adjusted calculator can be used for traditional investment assets, it may not be suitable for projecting the future value of alternative assets such as cryptocurrencies. These assets are often highly volatile and can be affected by a wide range of factors beyond inflation."
+        }
+      ],
+      "related": [
+        {
+          "slug": "inflation-adjusted",
+          "name": "Inflation Adjusted Calculator"
         }
       ]
     },
@@ -3752,15 +3700,7 @@
         {
           "q": "What will $38,000 grow to at 9.1% per annum over 2 years for early retirement?",
           "a": "At 9.1% annually, $38,000 becomes $45,230.68 after 2 years, earning $7,230.68 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "early-retirement",
-          "name": "Early Retirement Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the early retirement calculator for a non-traditional retirement age?",
           "a": "Yes, you can enter any age you want to retire early. The calculator will still provide an estimate of how much you need to save based on your desired retirement lifestyle."
@@ -3768,6 +3708,12 @@
         {
           "q": "I'm not sure how to estimate my expected returns on investments. Can the calculator help with that?",
           "a": "Yes, the calculator will provide a default expected return rate for investments, but you can also enter your own expected return rate if you have a specific investment strategy."
+        }
+      ],
+      "related": [
+        {
+          "slug": "early-retirement",
+          "name": "Early Retirement Calculator"
         }
       ]
     },
@@ -3895,15 +3841,7 @@
         {
           "q": "What will $39,000 grow to at 9.3% per annum over 3 years for education fund?",
           "a": "At 9.3% annually, $39,000 becomes $50,924.30 after 3 years, earning $11,924.30 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "education-fund",
-          "name": "Education Fund Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the education fund calculator for multiple children?",
           "a": "Yes, you can input separate amounts for each child and see how much you'll need to save for each one."
@@ -3919,6 +3857,12 @@
         {
           "q": "How do I account for inflation in my calculations?",
           "a": "You can adjust the calculator's settings to include an inflation factor, which will help you account for rising costs over time."
+        }
+      ],
+      "related": [
+        {
+          "slug": "education-fund",
+          "name": "Education Fund Calculator"
         }
       ]
     },
@@ -4006,15 +3950,7 @@
         {
           "q": "What will $40,000 grow to at 9.5% per annum over 4 years for emergency fund?",
           "a": "At 9.5% annually, $40,000 becomes $57,506.44 after 4 years, earning $17,506.44 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "emergency-fund",
-          "name": "Emergency Fund Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "What if I have multiple sources of income? Can I include them all in my emergency fund calculator?",
           "a": "Yes, you can enter multiple sources of income on the calculator. Simply provide the total amount of each source and the calculator will automatically calculate the total emergency fund needed."
@@ -4042,6 +3978,12 @@
         {
           "q": "What if I have a variable income stream from a rental property? How do I use the emergency fund calculator?",
           "a": "To calculate your emergency fund needs for a variable income stream from a rental property, you can use the following formula: Emergency Fund Amount = (Annual Rental Income x 0.5) + (Monthly Rental Income x Number of Months in Emergency Fund). For example, if your annual rental income is $10,000 and your monthly rental income is $2,000, your emergency fund amount would be $6,000 ($10,000 x 0.5) + $24,000 ($2,000 x 12)."
+        }
+      ],
+      "related": [
+        {
+          "slug": "emergency-fund",
+          "name": "Emergency Fund Calculator"
         }
       ]
     },
@@ -4129,15 +4071,7 @@
         {
           "q": "What will $41,000 grow to at 9.7% per annum over 5 years for wealth building?",
           "a": "At 9.7% annually, $41,000 becomes $65,135.39 after 5 years, earning $24,135.39 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "wealth-building",
-          "name": "Wealth Building Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the compound interest calculator for a non-traditional investment, such as real estate or cryptocurrency?",
           "a": "Yes, you can use the calculator for any investment that earns interest or returns over time."
@@ -4157,6 +4091,12 @@
         {
           "q": "Can I use the compound interest calculator for a non-traditional investment, such as a peer-to-peer lending platform or a crowdfunding site?",
           "a": "Yes, you can use the compound interest calculator for any type of investment, including non-traditional ones like peer-to-peer lending or crowdfunding. Just enter the appropriate information into the calculator."
+        }
+      ],
+      "related": [
+        {
+          "slug": "wealth-building",
+          "name": "Wealth Building Calculator"
         }
       ]
     },
@@ -4266,6 +4206,10 @@
         {
           "heading": "Example 1: Consolidating Debts",
           "text": "Let's say you have three credit card debts with balances of $2,000, $3,000, and $4,000. By consolidating these debts into a single loan with a lower interest rate, you could save money on interest and pay off your debt faster. Using the debt payoff calculator, you can input the original balances and interest rates for each card, as well as the new loan amount and interest rate, to see how much you can save by consolidating your debts."
+        },
+        {
+          "heading": "Example of How Extra Payments Can Help You Pay Off Your Debt Faster",
+          "text": "For example, let's say you have two credit card debts with balances of $2,000 and $3,000, respectively. The interest rates are 18% and 20%, respectively. If you make only the minimum payments on each debt, it will take you 7 years and 9 years to pay off the debts, respectively. However, if you make an additional payment of $500 per month on the debt with the higher interest rate, you can pay it off in just 4 years. This is because the extra payment is applied directly to the debt with the higher interest rate, reducing the principal balance faster and saving you money in interest charges."
         }
       ],
       "faqs": [
@@ -4280,15 +4224,7 @@
         {
           "q": "What will $42,000 grow to at 9.9% per annum over 6 years for debt payoff?",
           "a": "At 9.9% annually, $42,000 becomes $74,000.63 after 6 years, earning $32,000.63 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "debt-payoff",
-          "name": "Debt Payoff Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the debt payoff calculator for multiple debts?",
           "a": "Yes, you can enter multiple debts and their respective balances, interest rates, and payment amounts to see how much you can save by consolidating them into a single loan or how long it will take to pay off each debt separately."
@@ -4296,6 +4232,12 @@
         {
           "q": "What if I want to make extra payments on my debt?",
           "a": "Great! You can enter any additional payments you want to make above the minimum payment required to see how quickly you can pay off your debt."
+        }
+      ],
+      "related": [
+        {
+          "slug": "debt-payoff",
+          "name": "Debt Payoff Calculator"
         }
       ]
     },
@@ -4383,15 +4325,7 @@
         {
           "q": "What will $43,000 grow to at 10.1% per annum over 2 years for compound frequency?",
           "a": "At 10.1% annually, $43,000 becomes $52,124.64 after 2 years, earning $9,124.64 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "compound-frequency",
-          "name": "Compound Frequency Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the compound frequency calculator for multiple loans or investments?",
           "a": "Yes, you can use the calculator to compare the compound interest rates of multiple loans or investments side by side."
@@ -4415,6 +4349,12 @@
         {
           "q": "How does the compound frequency calculator handle different interest rates for multiple loans or investments?",
           "a": "The compound frequency calculator allows you to input multiple interest rates for different loans or investments. The calculator will then provide the total interest paid or earned over the specified time period."
+        }
+      ],
+      "related": [
+        {
+          "slug": "compound-frequency",
+          "name": "Compound Frequency Calculator"
         }
       ]
     },
@@ -4500,6 +4440,10 @@
         {
           "heading": "Using the Rule of 72 Calculator to Buy a House",
           "text": "To use the Rule of 72 calculator to buy a house, enter the purchase price of the house and the expected interest rate for the mortgage. The calculator will show you how many years it will take to save enough money to buy the house based on your regular investments."
+        },
+        {
+          "heading": "Estimating the Number of Years to Save for a Down Payment on a House",
+          "text": "Use the Rule of 72 calculator to estimate how many years it will take to save for a down payment on a house based on your current savings rate and the desired amount of the down payment."
         }
       ],
       "faqs": [
@@ -4514,15 +4458,7 @@
         {
           "q": "What will $44,000 grow to at 10.3% per annum over 3 years for rule of 72?",
           "a": "At 10.3% annually, $44,000 becomes $59,044.47 after 3 years, earning $15,044.47 in interest."
-        }
-      ],
-      "related": [
-        {
-          "slug": "rule-of-72",
-          "name": "Rule Of 72 Calculator"
-        }
-      ],
-      "faq": [
+        },
         {
           "q": "Can I use the Rule of 72 calculator for non-retirement savings goals?",
           "a": "Yes, the Rule of 72 calculator can be used for any financial goal that involves compounding interest over time."
@@ -4538,6 +4474,12 @@
         {
           "q": "How does the Rule of 72 calculator handle different types of investment accounts, like taxable vs. tax-deferred?",
           "a": "The Rule of 72 calculator can handle different types of investment accounts by adjusting the expected rate of return based on the tax implications of each type of account."
+        }
+      ],
+      "related": [
+        {
+          "slug": "rule-of-72",
+          "name": "Rule Of 72 Calculator"
         }
       ]
     },
@@ -8719,6 +8661,14 @@
         {
           "q": "Can S-Curves predict completion?",
           "a": "Yes. Extrapolate actual curve to 100% for estimated completion date and final cost. More accurate than linear projection."
+        },
+        {
+          "q": "What are some common construction projects that can benefit from using an S-curve tool?",
+          "a": "Some common construction projects that can benefit from using an S-curve tool include building renovations, civil engineering projects, and commercial construction. By using an S-curve tool, project managers can better plan and execute these complex projects."
+        },
+        {
+          "q": "How does the S-curve tool help construction project managers identify potential risks and issues?",
+          "a": "The S-curve tool helps construction project managers identify potential risks and issues by providing a visual representation of the project timeline, allowing them to easily identify potential bottlenecks and areas where delays may occur. This can help managers proactively address these issues before they become major problems."
         }
       ],
       "related": [
@@ -8733,16 +8683,6 @@
         {
           "slug": "budget-tracking",
           "name": "Budget Tracking S-Curve"
-        }
-      ],
-      "faq": [
-        {
-          "q": "What are some common construction projects that can benefit from using an S-curve tool?",
-          "a": "Some common construction projects that can benefit from using an S-curve tool include building renovations, civil engineering projects, and commercial construction. By using an S-curve tool, project managers can better plan and execute these complex projects."
-        },
-        {
-          "q": "How does the S-curve tool help construction project managers identify potential risks and issues?",
-          "a": "The S-curve tool helps construction project managers identify potential risks and issues by providing a visual representation of the project timeline, allowing them to easily identify potential bottlenecks and areas where delays may occur. This can help managers proactively address these issues before they become major problems."
         }
       ]
     },
@@ -8810,6 +8750,14 @@
         {
           "q": "Can I use S-Curves for agile?",
           "a": "Yes. Plot cumulative story points completed vs planned. Agile curves are flatter but same principles apply."
+        },
+        {
+          "q": "How can I use the S-Curve tool to track progress on a project with multiple stakeholders?",
+          "a": "The S-Curve tool allows you to add multiple stakeholders and assign them roles in the project, making it easier to track progress and ensure that everyone is on the same page."
+        },
+        {
+          "q": "Can I use the S-Curve tool to manage a remote team?",
+          "a": "Yes, the S-Curve tool can be used to manage a remote team by allowing you to assign tasks and track progress in real-time, regardless of location."
         }
       ],
       "related": [
@@ -8824,16 +8772,6 @@
         {
           "slug": "budget-tracking",
           "name": "Budget Tracking S-Curve"
-        }
-      ],
-      "faq": [
-        {
-          "q": "How can I use the S-Curve tool to track progress on a project with multiple stakeholders?",
-          "a": "The S-Curve tool allows you to add multiple stakeholders and assign them roles in the project, making it easier to track progress and ensure that everyone is on the same page."
-        },
-        {
-          "q": "Can I use the S-Curve tool to manage a remote team?",
-          "a": "Yes, the S-Curve tool can be used to manage a remote team by allowing you to assign tasks and track progress in real-time, regardless of location."
         }
       ]
     },
