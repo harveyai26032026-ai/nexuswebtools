@@ -109,14 +109,29 @@ def enrich_page(page: dict, tool_type: str, model: str, dry_run: bool) -> bool:
                     page['faqs'].append(fq)
                     updated = True
 
-    # Add extra application
+    # Add extra application — supports both storage forms:
+    #   list form: [{"heading": ..., "text": ...}, ...]
+    #   dict form: {"subsections": [{"heading": ..., "text": ...}, ...]}
+    # (Never replace a dict-form applications value with a list — that wipes
+    #  the original subsections. Bug fixed Sep 2026 after 'area' lost 3 apps.)
     extra_app = parsed.get('extra_application')
     if extra_app and isinstance(extra_app, dict) and 'heading' in extra_app and 'text' in extra_app:
-        if 'applications' not in page or not isinstance(page.get('applications'), list):
-            page['applications'] = []
-        existing_headings = [a.get('heading', '').lower().strip() for a in page['applications'] if isinstance(a, dict)]
-        if extra_app['heading'].lower().strip() not in existing_headings:
-            page['applications'].append(extra_app)
+        apps = page.get('applications')
+        new_heading = str(extra_app['heading']).lower().strip()
+        if isinstance(apps, dict):
+            subs = apps.setdefault('subsections', [])
+            existing_headings = [str(s.get('heading', '')).lower().strip() for s in subs if isinstance(s, dict)]
+            if new_heading not in existing_headings:
+                subs.append(extra_app)
+                updated = True
+        elif isinstance(apps, list):
+            existing_headings = [str(a.get('heading', '')).lower().strip() for a in apps if isinstance(a, dict)]
+            if new_heading not in existing_headings:
+                apps.append(extra_app)
+                updated = True
+        else:
+            # Missing or unexpected type: start a fresh list (nothing to lose)
+            page['applications'] = [extra_app]
             updated = True
 
     if updated:
@@ -149,7 +164,13 @@ def main():
         for i, page in enumerate(pages):
             # Skip pages that already have 5+ FAQs and 4+ applications
             n_faq = len(page.get('faqs', []))
-            n_app = len(page.get('applications', []))
+            apps = page.get('applications')
+            if isinstance(apps, dict):
+                n_app = len(apps.get('subsections', []))
+            elif isinstance(apps, list):
+                n_app = len(apps)
+            else:
+                n_app = 0
             if n_faq >= 5 and n_app >= 4:
                 continue
             queue.append((tool_id, i, page))
