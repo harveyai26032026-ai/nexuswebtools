@@ -6153,6 +6153,10 @@
           {
             "heading": "Oil and Gas",
             "text": "API gravity: light crude > 31.1° (< 870 kg/m³). Converting API to kg/m³ is standard in petroleum engineering."
+          },
+          {
+            "heading": "Density in Construction",
+            "text": "In construction, density is an important factor to consider when selecting building materials. For example, a higher density concrete will provide better structural integrity and durability than a lower density concrete. Our density converter tool can help architects, engineers, and builders determine the appropriate density of materials for their projects."
           }
         ]
       },
@@ -6168,6 +6172,14 @@
         {
           "q": "Density of water?",
           "a": "1,000 kg/m³ or 1 g/cm³ at 4°C. The reference for specific gravity."
+        },
+        {
+          "q": "How do you convert density from one unit to another?",
+          "a": "Our density converter tool allows you to easily convert between different units of density, such as kg/m³ to g/cm³ or g/cm³ to lb/ft³. Simply enter the values in the appropriate fields and click convert."
+        },
+        {
+          "q": "Can I use your density converter tool for specific industries?",
+          "a": "Yes, our density converter tool can be used for a variety of industries such as pharmaceuticals, food processing, and construction materials. For example, you can use it to calculate the density of pills or tablets, or the density of soil or gravel."
         }
       ],
       "related": []
@@ -6644,6 +6656,10 @@
           {
             "heading": "Furniture",
             "text": "120 cm table = 47.2 inches. European furniture sites list dimensions in cm."
+          },
+          {
+            "heading": "Common conversions using cm to inches",
+            "text": "For example, 10 cm is equal to 3.937 inches, and there are approximately 2.54 centimeters in an inch."
           }
         ]
       },
@@ -6659,6 +6675,14 @@
         {
           "q": "How many cm in an inch?",
           "a": "1 inch = 2.54 cm exactly (1959 international standard)."
+        },
+        {
+          "q": "Can I convert cm to other units?",
+          "a": "Yes, our converter tool can also convert cm to other units such as meters and millimeters."
+        },
+        {
+          "q": "How do I convert a mixture of units?",
+          "a": "Simply enter the mix of units in the input field, separated by spaces, and our tool will handle the conversion for you."
         }
       ],
       "related": [
