@@ -6493,6 +6493,10 @@
           {
             "heading": "Food Industry",
             "text": "Tomato sauce: ~50,000 cP. Convert for international food processing standards."
+          },
+          {
+            "heading": "Industrial Applications",
+            "text": "Viscosity is an important property in industrial applications such as lubrication, where the viscosity of a fluid can affect the performance and longevity of machinery. For example, in hydraulic systems, the viscosity of the fluid can determine the amount of pressure and flow rate, while in coolants, it can affect the heat transfer and corrosion protection."
           }
         ]
       },
@@ -6508,6 +6512,14 @@
         {
           "q": "cP vs cSt?",
           "a": "cP = dynamic viscosity. cSt = kinematic viscosity. cSt = cP ÷ density (g/cm³)."
+        },
+        {
+          "q": "Can you convert viscosity from FPS to L/min?",
+          "a": "Yes, you can use the conversion factor of 1 L/min = 0.4536 m/s."
+        },
+        {
+          "q": "How do you convert viscosity from kg/m³ to lb/ft?",
+          "a": "You can use the conversion factor of 1 lb/ft = 0.4536 kg/m³."
         }
       ],
       "related": []
@@ -7060,6 +7072,10 @@
           {
             "heading": "Science",
             "text": "98.6°F (body temp) = 37°C. Medical measurements use both scales."
+          },
+          {
+            "heading": "Converting Temperature for Cooking",
+            "text": "Our temperature converter is particularly useful when cooking, as it allows you to easily convert temperatures between Fahrenheit and Celsius. For example, if a recipe calls for 350°F (175°C), but your oven only goes up to 400°F (200°C), our converter can help you determine the equivalent temperature in Celsius."
           }
         ]
       },
@@ -7075,6 +7091,14 @@
         {
           "q": "What is the easiest way to estimate?",
           "a": "Subtract 30 and divide by 2. 80°F → (80−30)/2 = 25°C (actual 26.7°C)."
+        },
+        {
+          "q": "Can I convert temperatures that are not whole numbers?",
+          "a": "Yes, our converter can handle decimal temperatures as well."
+        },
+        {
+          "q": "How do I convert a temperature range to Celsius?",
+          "a": "Simply enter the lower and upper temperatures in Fahrenheit and our converter will give you the corresponding range in Celsius."
         }
       ],
       "related": [
@@ -7146,6 +7170,10 @@
           {
             "heading": "Healthcare",
             "text": "38°C fever = 100.4°F. Some medical devices display both scales."
+          },
+          {
+            "heading": "Converting Temperature Ranges",
+            "text": "Our Celsius to Fahrenheit converter can also handle temperature ranges. For example, if you need to convert a range of 0-100°C to Fahrenheit, simply enter the lower and upper limits of the range in the appropriate fields and click convert."
           }
         ]
       },
@@ -7161,6 +7189,14 @@
         {
           "q": "Quick estimation method?",
           "a": "Double and add 30. 20°C → 40+30 = 70°F (actual 68°F). Close enough for weather."
+        },
+        {
+          "q": "Can I convert temperatures that are not whole numbers?",
+          "a": "Yes, our converter can handle decimal temperatures as well. Simply enter the temperature in the appropriate field and click convert."
+        },
+        {
+          "q": "How do I convert a temperature range to Fahrenheit?",
+          "a": "To convert a temperature range to Fahrenheit, simply enter the lower and upper limits of the range in the appropriate fields and click convert. For example, to convert 0-100°C to Fahrenheit, enter 0 and 100 in the respective fields."
         }
       ],
       "related": [
@@ -7232,6 +7268,10 @@
           {
             "heading": "Construction",
             "text": "2.4 m wall = 7.87 ft. US blueprints use feet."
+          },
+          {
+            "heading": "Converting measurements for architectural designs",
+            "text": "Our meter-to-foot converter tool can be useful when designing buildings or other structures. For example, if you're designing a house that is 10 meters long and 5 meters wide, you can use our tool to convert the length and width to feet and inches for your architectural plans."
           }
         ]
       },
@@ -7247,6 +7287,14 @@
         {
           "q": "How many metres in a foot?",
           "a": "1 ft = 0.3048 m exactly."
+        },
+        {
+          "q": "Can I convert meters to feet for a specific building project?",
+          "a": "Yes, you can use our converter tool to convert the length of a room, hallway, or other structure in meters to feet for your construction plans."
+        },
+        {
+          "q": "How do I convert a measurement that is in meters and inches?",
+          "a": "To convert a measurement that is in both meters and inches, you can use our converter tool to first convert the measurement from meters to feet, then convert the remaining inches."
         }
       ],
       "related": [
@@ -7318,6 +7366,10 @@
           {
             "heading": "Pool Depths",
             "text": "8 ft deep end = 2.44 m. Pool specifications vary by country."
+          },
+          {
+            "heading": "Real World Examples",
+            "text": "Our converter can be used in a variety of real-world applications. For example, architects can use it to convert the length of a building's facade or the area of a room for design purposes. Interior designers can use it to measure the dimensions of a space and choose furniture and decor accordingly. Contractors can use it to calculate the length of pipes, wiring, or other materials needed for a construction project."
           }
         ]
       },
@@ -7333,6 +7385,14 @@
         {
           "q": "How many feet in a metre?",
           "a": "1 m = 3.28084 ft."
+        },
+        {
+          "q": "Can I convert feet to meters for a specific area?",
+          "a": "Yes, you can use our converter to convert the length of an area in feet to meters. For example, if you want to convert a room that is 12 feet by 15 feet, you would enter 12 and 15 as the length and width respectively, and the converter will give you the area in square meters."
+        },
+        {
+          "q": "How do I convert a mixture of units?",
+          "a": "Our converter allows you to mix and match different units. For example, if you want to convert 10 feet of fabric that is 5 yards long, you can enter 10 as the length in feet and 5 as the length in yards, and the converter will give you the result in meters."
         }
       ],
       "related": [
