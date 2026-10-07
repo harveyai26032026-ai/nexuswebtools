@@ -85,6 +85,22 @@
         "@type": "Answer",
         "text": "500 \u00f7 236.588 = 2.11 US cups, or 2 metric cups exactly."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert liquid ounces to cups?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can use our cup-to-ounce converter tool to convert liquid ounces to cups."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert milliliters to teaspoons?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our unit converter tool also allows you to convert milliliters to teaspoons. Simply enter the value in milliliters and select 'teaspoon' as the unit."
+      }
     }
   ]
 }</script>
@@ -179,6 +195,8 @@
       <p>1 cup = 236.6 ml. Coffee makers may use either measurement.</p>
     <h3>Smoothies</h3>
       <p>3 cups = 709.8 ml. Convert US health drink recipes.</p>
+    <h3>Converting Recipes</h3>
+      <p>Our cup-to-milliliter converter tool is especially useful when converting recipes. By using our tool, you can ensure that your baked goods turn out to be the perfect size and consistency. For example, if a recipe calls for 3 cups of flour, you can use our tool to convert that to 300 milliliters, which is a more accurate measurement.</p>
 
 
 
@@ -194,6 +212,14 @@
     <details>
       <summary><strong>How many cups in 500 ml?</strong></summary>
       <p>500 ÷ 236.588 = 2.11 US cups, or 2 metric cups exactly.</p>
+    </details>
+    <details>
+      <summary><strong>Can I convert liquid ounces to cups?</strong></summary>
+      <p>Yes, you can use our cup-to-ounce converter tool to convert liquid ounces to cups.</p>
+    </details>
+    <details>
+      <summary><strong>How do I convert milliliters to teaspoons?</strong></summary>
+      <p>Our unit converter tool also allows you to convert milliliters to teaspoons. Simply enter the value in milliliters and select &#x27;teaspoon&#x27; as the unit.</p>
     </details>
 
 
@@ -217,5 +243,12 @@
   </footer>
 <script src="/scroll-bar.js" defer></script>
 <script src="/nav.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').catch(function(){});
+  });
+}
+</script>
 </body>
 </html>

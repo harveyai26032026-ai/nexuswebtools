@@ -85,6 +85,22 @@
         "@type": "Answer",
         "text": "100 \u00f7 29.5735 = 3.38 US fl oz."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert between different units of measurement using this converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our converter supports conversion between various units of measurement, including oz, ml, l, kg, and more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate the volume of a shape that is not a simple container?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our converter can handle complex shapes by using the formula for the volume of a irregular shape. Simply enter the dimensions of the shape and our tool will provide you with the volume in the desired unit."
+      }
     }
   ]
 }</script>
@@ -179,6 +195,8 @@
       <p>3.4 fl oz = 100.55 ml. Fragrance bottles listed in fl oz.</p>
     <h3>Baby Formula</h3>
       <p>4 fl oz feeding = 118.29 ml. Convert US feeding instructions.</p>
+    <h3>Common Applications</h3>
+      <p>Our converter can be used in a variety of situations, such as: measuring ingredients for cooking or baking, converting liquid volumes for painting or cleaning, and even calculating the volume of materials for construction or engineering projects.</p>
 
 
 
@@ -194,6 +212,14 @@
     <details>
       <summary><strong>How many fl oz in 100 ml?</strong></summary>
       <p>100 ÷ 29.5735 = 3.38 US fl oz.</p>
+    </details>
+    <details>
+      <summary><strong>Can I convert between different units of measurement using this converter?</strong></summary>
+      <p>Yes, our converter supports conversion between various units of measurement, including oz, ml, l, kg, and more.</p>
+    </details>
+    <details>
+      <summary><strong>How do I calculate the volume of a shape that is not a simple container?</strong></summary>
+      <p>Our converter can handle complex shapes by using the formula for the volume of a irregular shape. Simply enter the dimensions of the shape and our tool will provide you with the volume in the desired unit.</p>
     </details>
 
 
@@ -217,5 +243,12 @@
   </footer>
 <script src="/scroll-bar.js" defer></script>
 <script src="/nav.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').catch(function(){});
+  });
+}
+</script>
 </body>
 </html>
