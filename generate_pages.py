@@ -354,6 +354,13 @@ def render_niche_page(tool_id: str, page: dict) -> str:
   </footer>
 <script src="/scroll-bar.js" defer></script>
 <script src="/nav.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {{
+  window.addEventListener('load', function() {{
+    navigator.serviceWorker.register('/sw.js').catch(function(){{}});
+  }});
+}}
+</script>
 </body>
 </html>
 """
