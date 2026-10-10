@@ -9130,6 +9130,10 @@
           {
             "heading": "Fabric",
             "text": "5 yd of fabric = 4.572 m. US fabric sold by the yard."
+          },
+          {
+            "heading": "Common conversions for construction and landscaping",
+            "text": "Our yards to meters converter can also be used for common conversions in the construction and landscaping industries. For example, you may need to convert the length of a driveway or patio from yards to meters for design purposes. Our tool makes it easy to perform these conversions quickly and accurately."
           }
         ]
       },
@@ -9145,6 +9149,14 @@
         {
           "q": "How many yards in a kilometre?",
           "a": "1 km = 1,093.61 yd."
+        },
+        {
+          "q": "Can I convert yards to meters for a specific building project?",
+          "a": "Yes, you can use our converter tool to convert the length of a building project from yards to meters. For example, if your project is 100 yards long, you can convert it to meters by multiplying it by 0.9144."
+        },
+        {
+          "q": "How do I convert a measurement in yards that is less than 1 yard?",
+          "a": "A fraction of a yard converts the same way as a whole yard: multiply by 0.9144. For example, 0.75 yd x 0.9144 = 0.6858 m (about 68.6 cm). If you prefer to work in feet first, 0.75 yd = 2.25 ft, and 2.25 ft x 0.3048 = 0.6858 m, the same result."
         }
       ],
       "related": [
@@ -9316,6 +9328,10 @@
         {
           "heading": "Real World Examples of S-Curve Applications",
           "text": "The S-Curve has been successfully applied to a variety of construction projects, including: large-scale commercial developments, infrastructure projects, and residential construction. By using the curve, project managers can better anticipate and mitigate risks, leading to improved project outcomes."
+        },
+        {
+          "heading": "Real World Examples of Construction Projects That Have Used an S-Curve",
+          "text": "The S-Curve has been used on a variety of construction projects, including large commercial buildings, infrastructure projects, and residential developments. For example, a recent skyscraper project in New York City used an S-Curve to manage the complex timeline and resource allocation requirements of the project."
         }
       ],
       "faqs": [
@@ -9350,6 +9366,14 @@
         {
           "q": "How do you handle multiple stakeholders with conflicting priorities?",
           "a": "The S-Curve can help identify and manage competing priorities by breaking down complex tasks into smaller, more manageable parts. Project managers can use the curve to allocate resources and set realistic timelines."
+        },
+        {
+          "q": "What if the S-Curve doesn't account for external factors affecting project timelines?",
+          "a": "The S-Curve can be adjusted to include external factors, such as weather events or changes in local regulations, by incorporating them into the curve."
+        },
+        {
+          "q": "How do you handle conflicting priorities between different stakeholders on a construction project?",
+          "a": "The S-Curve can help identify potential areas of conflict and provide a framework for prioritizing tasks and resources to ensure timely completion of the project."
         }
       ],
       "related": [
@@ -9447,6 +9471,14 @@
         {
           "q": "How does the S-Curve tool handle changes in project scope?",
           "a": "The S-Curve tool allows you to easily adjust the scope of a project by adding or removing tasks. This will help you keep your project on track and ensure that you're meeting the needs of all stakeholders."
+        },
+        {
+          "q": "Can I use the S-Curve tool to manage a project with a complex network of dependencies?",
+          "a": "Yes, with care. The calculator models cumulative effort over time rather than dependency networks, so enter each phase's duration and weight as shaped by your dependencies - serial chains flatten the curve, parallel work steepens it. Overlay actual progress to see whether the plan is being delivered, and pair the S-Curve with a Gantt or critical-path tool for dependency analysis itself."
+        },
+        {
+          "q": "How does the S-Curve tool handle conflicting dependencies between tasks?",
+          "a": "The calculator does not schedule tasks or resolve dependencies - it models cumulative progress over time. Enter each phase's duration and effort weight to generate the baseline curve. If dependencies constrain parallel work, reflect that in the weights and durations, then compare your actual progress curve against the baseline to spot variances."
         }
       ],
       "related": [
@@ -9528,6 +9560,10 @@
           {
             "heading": "Investor Reporting",
             "text": "S-Curves help investors understand growth trajectory and market timing. A company in the steep middle section of the S is accelerating; one flattening is maturing."
+          },
+          {
+            "heading": "Real World Examples of S-Curve Applications",
+            "text": "The S-Curve tool has been used in a variety of real-world applications, such as predicting stock prices for a major financial institution, forecasting exchange rates for a global bank, and analyzing commodity prices for an energy company."
           }
         ]
       },
@@ -9547,6 +9583,14 @@
         {
           "q": "Can S-Curves predict stock prices?",
           "a": "Indirectly. Company revenue follows an S-Curve, and stock prices reflect revenue growth expectations. Understanding where a company sits on its S-Curve helps assess whether growth expectations are realistic."
+        },
+        {
+          "q": "How does the S-Curve tool handle seasonality in financial data?",
+          "a": "The calculator has no built-in seasonal adjustment - it fits an S-curve to the data you enter. If your underlying data has seasonal patterns, de-seasonalise the inputs first or compare year-on-year rather than raw periods, so the trend is not distorted by regular fluctuations."
+        },
+        {
+          "q": "Can the S-Curve tool be used for forecasting other types of financial data, such as exchange rates or commodity prices?",
+          "a": "Yes, the S-Curve tool can be applied to any type of financial data, including exchange rates and commodity prices."
         }
       ],
       "related": [
