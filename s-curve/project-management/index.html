@@ -133,6 +133,22 @@
         "@type": "Answer",
         "text": "The calculator does not schedule tasks or resolve dependencies - it models cumulative progress over time. Enter each phase's duration and effort weight to generate the baseline curve. If dependencies constrain parallel work, reflect that in the weights and durations, then compare your actual progress curve against the baseline to spot variances."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the S-Curve tool to manage a project with multiple parallel tracks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Enter each parallel track as its own phase with its duration and effort weight - parallel work running alongside serial phases steepens the curve in those periods. You can also plot separate curves, one per track, and compare them against the overall baseline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the S-Curve tool handle dependencies between tasks that are not linear?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator models cumulative progress, not dependency networks. To reflect non-linear sequencing, adjust each phase's duration and weight so the curve matches how work actually accumulates - for example, give a long-lead procurement phase a flat early profile. For true dependency analysis, pair the S-Curve with a Gantt or critical-path tool."
+      }
     }
   ]
 }</script>
@@ -224,6 +240,8 @@
     <h2>Applications</h2>
     <h2>Real-Time Collaboration</h2>
       <p>The S-Curve tool allows for real-time collaboration, enabling team members to work together on a project from anywhere in the world. This feature is especially useful for remote teams, as it eliminates the need for constant communication and ensures that everyone is always on the same page.</p>
+    <h2>Real-time Project Monitoring</h2>
+      <p>The S-Curve tool can be used in real-time to monitor the progress of a project, allowing teams to quickly identify and address any issues that may arise.</p>
 
 
 
@@ -263,6 +281,14 @@
     <details>
       <summary><strong>How does the S-Curve tool handle conflicting dependencies between tasks?</strong></summary>
       <p>The calculator does not schedule tasks or resolve dependencies - it models cumulative progress over time. Enter each phase&#x27;s duration and effort weight to generate the baseline curve. If dependencies constrain parallel work, reflect that in the weights and durations, then compare your actual progress curve against the baseline to spot variances.</p>
+    </details>
+    <details>
+      <summary><strong>Can I use the S-Curve tool to manage a project with multiple parallel tracks?</strong></summary>
+      <p>Yes. Enter each parallel track as its own phase with its duration and effort weight - parallel work running alongside serial phases steepens the curve in those periods. You can also plot separate curves, one per track, and compare them against the overall baseline.</p>
+    </details>
+    <details>
+      <summary><strong>How does the S-Curve tool handle dependencies between tasks that are not linear?</strong></summary>
+      <p>The calculator models cumulative progress, not dependency networks. To reflect non-linear sequencing, adjust each phase&#x27;s duration and weight so the curve matches how work actually accumulates - for example, give a long-lead procurement phase a flat early profile. For true dependency analysis, pair the S-Curve with a Gantt or critical-path tool.</p>
     </details>
 
 

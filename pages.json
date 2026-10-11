@@ -9332,6 +9332,10 @@
         {
           "heading": "Real World Examples of Construction Projects That Have Used an S-Curve",
           "text": "The S-Curve has been used on a variety of construction projects, including large commercial buildings, infrastructure projects, and residential developments. For example, a recent skyscraper project in New York City used an S-Curve to manage the complex timeline and resource allocation requirements of the project."
+        },
+        {
+          "heading": "Common Use Cases for the S-Curve Tool",
+          "text": "The S-Curve tool is particularly useful for complex construction projects with multiple stakeholders, tight deadlines, and potential risks. It can help project managers identify potential issues early on and make informed decisions to stay on track."
         }
       ],
       "faqs": [
@@ -9374,6 +9378,14 @@
         {
           "q": "How do you handle conflicting priorities between different stakeholders on a construction project?",
           "a": "The S-Curve can help identify potential areas of conflict and provide a framework for prioritizing tasks and resources to ensure timely completion of the project."
+        },
+        {
+          "q": "Can the S-Curve tool help with project budgeting?",
+          "a": "The calculator takes your phase budgets as inputs and distributes them into a planned cumulative spend curve. It doesn't forecast delays or cost overruns itself, but comparing actual spend against the baseline surfaces variances early, which is what helps you keep the budget under control."
+        },
+        {
+          "q": "How does the S-Curve tool handle changes in project scope?",
+          "a": "You can re-enter the phases with revised durations and budgets to regenerate the baseline curve. Re-baselining shows how the new plan compares with progress to date, but keeping the project on track still depends on your management decisions."
         }
       ],
       "related": [
@@ -9441,6 +9453,10 @@
         {
           "heading": "Real-Time Collaboration",
           "text": "The S-Curve tool allows for real-time collaboration, enabling team members to work together on a project from anywhere in the world. This feature is especially useful for remote teams, as it eliminates the need for constant communication and ensures that everyone is always on the same page."
+        },
+        {
+          "heading": "Real-time Project Monitoring",
+          "text": "The S-Curve tool can be used in real-time to monitor the progress of a project, allowing teams to quickly identify and address any issues that may arise."
         }
       ],
       "faqs": [
@@ -9479,6 +9495,14 @@
         {
           "q": "How does the S-Curve tool handle conflicting dependencies between tasks?",
           "a": "The calculator does not schedule tasks or resolve dependencies - it models cumulative progress over time. Enter each phase's duration and effort weight to generate the baseline curve. If dependencies constrain parallel work, reflect that in the weights and durations, then compare your actual progress curve against the baseline to spot variances."
+        },
+        {
+          "q": "Can I use the S-Curve tool to manage a project with multiple parallel tracks?",
+          "a": "Yes. Enter each parallel track as its own phase with its duration and effort weight - parallel work running alongside serial phases steepens the curve in those periods. You can also plot separate curves, one per track, and compare them against the overall baseline."
+        },
+        {
+          "q": "How does the S-Curve tool handle dependencies between tasks that are not linear?",
+          "a": "The calculator models cumulative progress, not dependency networks. To reflect non-linear sequencing, adjust each phase's duration and weight so the curve matches how work actually accumulates - for example, give a long-lead procurement phase a flat early profile. For true dependency analysis, pair the S-Curve with a Gantt or critical-path tool."
         }
       ],
       "related": [
@@ -9672,6 +9696,10 @@
           {
             "heading": "Operational Budgets",
             "text": "Track monthly operating spend against an S-shaped baseline that accounts for seasonal patterns. Useful for departments with variable workloads like IT or marketing."
+          },
+          {
+            "heading": "Real World Examples",
+            "text": "The same baseline-vs-actual technique works for personal targets: split a savings goal into stages with an S-shaped profile (slow start, stronger middle contributions), then overlay your actual cumulative savings each month. The gap against the baseline shows whether you need to increase contributions or extend the timeline."
           }
         ]
       },
@@ -9691,6 +9719,14 @@
         {
           "q": "Is budget S-Curve tracking better than EVM?",
           "a": "They complement each other. EVM adds earned value (work performed) to the cost and schedule tracking. Budget S-Curves are simpler and more accessible for non-specialists. Start with S-Curves, add EVM for more rigour."
+        },
+        {
+          "q": "Can I use an S-Curve to track my savings goals?",
+          "a": "Yes, you can use an S-Curve to track your savings goals by creating a separate curve for savings. This will help you visualize and manage your savings progress over time."
+        },
+        {
+          "q": "How do I adjust the S-Curve for inflation?",
+          "a": "The calculator works in nominal dollars and has no built-in inflation adjustment. A practical approach is to build expected inflation into your phase budgets up front - e.g. allocate slightly higher budgets to later phases - so the baseline reflects the real cost pressures your project will face."
         }
       ],
       "related": [
@@ -9768,6 +9804,10 @@
           {
             "heading": "Fabrication and Installation",
             "text": "Monitor physical progress as equipment and structures are installed. The steep section corresponds to peak workforce on site."
+          },
+          {
+            "heading": "Real-time Project Monitoring",
+            "text": "Engineering S-Curves can be used to monitor projects in real-time, providing up-to-date information on project progress and identifying potential issues before they become major problems."
           }
         ]
       },
@@ -9787,6 +9827,14 @@
         {
           "q": "Can S-Curves track multi-discipline engineering?",
           "a": "Yes. Plot separate curves for each discipline (civil, mechanical, electrical, instrumentation). Different disciplines have different S shapes and peak at different times."
+        },
+        {
+          "q": "How do engineering S-Curves account for parallel tasks?",
+          "a": "Yes. Enter each discipline or workstream as its own phase with its duration and effort weight. The calculator doesn't model dependencies directly - it shows cumulative progress over time - so encode any dependency constraints in the durations and weights you choose. Overlapping disciplines steepen the curve in the periods where they run in parallel."
+        },
+        {
+          "q": "Can engineering S-Curves accommodate changing project scope?",
+          "a": "Yes, engineering S-Curves can adapt to changes in project scope by updating the S-Curve model accordingly. This ensures that the project stays on track and within budget."
         }
       ],
       "related": [
@@ -9868,6 +9916,10 @@
           {
             "heading": "Production Ramp-Up Tracking",
             "text": "After construction, track production against the ramp-up S-Curve. Most mines reach nameplate capacity 12–24 months after first production. Delays in ramp-up are costly."
+          },
+          {
+            "heading": "S-Curves for Renewable Energy Projects",
+            "text": "S-Curves can be used to model the development and production ramp-up of renewable energy projects, such as solar or wind farms. By tracking progress against an S-Curve, project developers can identify potential bottlenecks and make adjustments to optimize production and reduce costs."
           }
         ]
       },
@@ -9887,6 +9939,14 @@
         {
           "q": "How do mining S-Curves differ from construction?",
           "a": "Much longer timeline (years not months), far larger capex, and a distinct production ramp-up phase that doesn't exist in building construction. The exploration phase is also unique to mining — high uncertainty, low spend."
+        },
+        {
+          "q": "What is the impact of mining project S-Curves on local communities?",
+          "a": "Indirectly, yes. An S-Curve of project spend and workforce shows when the peak construction period falls - usually the steepest section - which is when local job creation, demand for services, and community disruption are all at their highest. Planning accommodation, traffic, and procurement around that peak helps manage the community impact."
+        },
+        {
+          "q": "How do you ensure data accuracy in mining project S-Curves?",
+          "a": "Data accuracy is crucial for creating an accurate S-Curve. This can be achieved through the use of reliable data sources, regular quality control checks, and the involvement of multiple stakeholders in the data collection process."
         }
       ],
       "related": [
