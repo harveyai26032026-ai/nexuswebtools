@@ -9457,6 +9457,10 @@
         {
           "heading": "Real-time Project Monitoring",
           "text": "The S-Curve tool can be used in real-time to monitor the progress of a project, allowing teams to quickly identify and address any issues that may arise."
+        },
+        {
+          "heading": "Real World Applications",
+          "text": "The S-Curve approach is used across software development, construction, manufacturing, and consulting to track cumulative progress against a plan. This calculator turns your phases into a baseline curve that you overlay with actual progress each week or month - the same tracking pattern project teams use to report status to stakeholders on real projects."
         }
       ],
       "faqs": [
@@ -9503,6 +9507,14 @@
         {
           "q": "How does the S-Curve tool handle dependencies between tasks that are not linear?",
           "a": "The calculator models cumulative progress, not dependency networks. To reflect non-linear sequencing, adjust each phase's duration and weight so the curve matches how work actually accumulates - for example, give a long-lead procurement phase a flat early profile. For true dependency analysis, pair the S-Curve with a Gantt or critical-path tool."
+        },
+        {
+          "q": "Can I use the S-Curve tool to manage a project with a high degree of uncertainty?",
+          "a": "Yes, with care. The calculator takes point estimates for each phase's duration and effort weight rather than probability distributions, so build the baseline from your best current estimates, then track actual progress closely and re-baseline as estimates firm up. Overlaying actual against baseline makes the impact of the uncertainty visible as variances emerge."
+        },
+        {
+          "q": "How does the S-Curve tool handle tasks that have multiple dependent subtasks?",
+          "a": "The calculator works with phases, not individual subtasks - roll your dependent subtasks up into a phase and give that phase a duration and effort weight. Serial dependencies stretch the phase out; parallel subtasks concentrate the work. For task-level dependency analysis, pair the S-Curve with a Gantt or critical-path tool."
         }
       ],
       "related": [
@@ -10028,6 +10040,10 @@
           {
             "heading": "First Oil Forecasting",
             "text": "The most important milestone. The S-Curve projects when first oil will be achieved based on current progress. Delays to first oil directly impact revenue and project economics."
+          },
+          {
+            "heading": "Project Management",
+            "text": "S-Curves can help project managers track progress and identify potential issues early on, enabling them to take corrective action before the project falls behind schedule."
           }
         ]
       },
@@ -10047,6 +10063,14 @@
         {
           "q": "What is first oil in S-Curve terms?",
           "a": "The point where the project transitions from capital expenditure to revenue generation. On the S-Curve, it corresponds to the top of the capex curve and the start of the production curve. Delaying first oil by one month on a $5B project can cost $20–50M in deferred revenue."
+        },
+        {
+          "q": "How do S-Curves account for project delays?",
+          "a": "The baseline curve shows the plan; delays appear when you overlay actual progress and it falls behind the baseline. Update the actual curve each period and extrapolate from the current trajectory to revise the expected completion date. To model a new schedule, re-enter the phases with revised durations to generate a fresh baseline."
+        },
+        {
+          "q": "Can S-Curves be used for projects with multiple phases?",
+          "a": "Yes, S-Curves can be adapted to accommodate projects with multiple phases, such as engineering, procurement, and construction."
         }
       ],
       "related": [
@@ -10128,6 +10152,10 @@
           {
             "heading": "Energy Infrastructure",
             "text": "Solar farms have short, steep S-Curves (6–12 months construction). Transmission lines are longer (18–36 months) with more linear progress."
+          },
+          {
+            "heading": "Project Management",
+            "text": "S-Curves can help project managers track progress, identify potential issues early on, and make informed decisions to keep the project on schedule and within budget."
           }
         ]
       },
@@ -10147,6 +10175,14 @@
         {
           "q": "Can S-Curves track environmental compliance?",
           "a": "Indirectly. Environmental milestones (clearing completed, offsets delivered, water quality targets met) can be plotted as binary events on the timeline. They don't form an S shape themselves but constrain the progress curve."
+        },
+        {
+          "q": "How do S-Curves handle multiple stakeholders with competing interests?",
+          "a": "The S-Curve itself doesn't manage stakeholder input, but it gives all parties a single shared view of planned versus actual progress. Because the baseline is agreed before work starts, disagreements surface as visible variances rather than competing verbal status reports - which is why S-Curves are common in government and PPP project reporting."
+        },
+        {
+          "q": "Can S-Curves be used for projects with uncertain or changing requirements?",
+          "a": "Yes, by re-baselining. When requirements change materially, re-enter the phases with revised durations and weights to regenerate the baseline curve, then compare actual progress against the new plan. The calculator models progress over time rather than scope itself, so the flexibility comes from re-baselining whenever the plan changes."
         }
       ],
       "related": [
@@ -10328,6 +10364,10 @@
           {
             "heading": "Portfolio-Level EVM",
             "text": "Aggregate PV, EV, and AC across all projects for portfolio-level performance. A single set of curves shows whether the entire portfolio is on track."
+          },
+          {
+            "heading": "Real-time monitoring and forecasting",
+            "text": "Earned Value Management can be used to monitor and forecast project progress in real-time, allowing for prompt corrective action if the project is not on track. This can help avoid delays and cost overruns."
           }
         ]
       },
@@ -10347,6 +10387,14 @@
         {
           "q": "How do you forecast final cost with EVM?",
           "a": "Estimate at Completion (EAC) = Budget at Completion (BAC) / CPI. If BAC = $10M and CPI = 0.90, EAC = $11.11M. This assumes the cost efficiency trend continues. For a more optimistic forecast, use EAC = AC + (BAC − EV)."
+        },
+        {
+          "q": "What is the difference between Earned Value (EV) and Planned Value (PV)?",
+          "a": "Earned Value represents the actual value of work completed, while Planned Value represents the planned value of work to be completed. The EV/PV ratio can help identify if the project is on track or not."
+        },
+        {
+          "q": "How do you handle changes in project scope during an earned value management (EVM) cycle?",
+          "a": "Changes in project scope should be documented and included in the next EVM cycle to ensure accurate tracking of earned value. The EVM process allows for flexibility in adapting to changing project requirements."
         }
       ],
       "related": [

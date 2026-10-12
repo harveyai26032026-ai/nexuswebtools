@@ -149,6 +149,22 @@
         "@type": "Answer",
         "text": "The calculator models cumulative progress, not dependency networks. To reflect non-linear sequencing, adjust each phase's duration and weight so the curve matches how work actually accumulates - for example, give a long-lead procurement phase a flat early profile. For true dependency analysis, pair the S-Curve with a Gantt or critical-path tool."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the S-Curve tool to manage a project with a high degree of uncertainty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with care. The calculator takes point estimates for each phase's duration and effort weight rather than probability distributions, so build the baseline from your best current estimates, then track actual progress closely and re-baseline as estimates firm up. Overlaying actual against baseline makes the impact of the uncertainty visible as variances emerge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the S-Curve tool handle tasks that have multiple dependent subtasks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator works with phases, not individual subtasks - roll your dependent subtasks up into a phase and give that phase a duration and effort weight. Serial dependencies stretch the phase out; parallel subtasks concentrate the work. For task-level dependency analysis, pair the S-Curve with a Gantt or critical-path tool."
+      }
     }
   ]
 }</script>
@@ -242,6 +258,8 @@
       <p>The S-Curve tool allows for real-time collaboration, enabling team members to work together on a project from anywhere in the world. This feature is especially useful for remote teams, as it eliminates the need for constant communication and ensures that everyone is always on the same page.</p>
     <h2>Real-time Project Monitoring</h2>
       <p>The S-Curve tool can be used in real-time to monitor the progress of a project, allowing teams to quickly identify and address any issues that may arise.</p>
+    <h2>Real World Applications</h2>
+      <p>The S-Curve approach is used across software development, construction, manufacturing, and consulting to track cumulative progress against a plan. This calculator turns your phases into a baseline curve that you overlay with actual progress each week or month - the same tracking pattern project teams use to report status to stakeholders on real projects.</p>
 
 
 
@@ -289,6 +307,14 @@
     <details>
       <summary><strong>How does the S-Curve tool handle dependencies between tasks that are not linear?</strong></summary>
       <p>The calculator models cumulative progress, not dependency networks. To reflect non-linear sequencing, adjust each phase&#x27;s duration and weight so the curve matches how work actually accumulates - for example, give a long-lead procurement phase a flat early profile. For true dependency analysis, pair the S-Curve with a Gantt or critical-path tool.</p>
+    </details>
+    <details>
+      <summary><strong>Can I use the S-Curve tool to manage a project with a high degree of uncertainty?</strong></summary>
+      <p>Yes, with care. The calculator takes point estimates for each phase&#x27;s duration and effort weight rather than probability distributions, so build the baseline from your best current estimates, then track actual progress closely and re-baseline as estimates firm up. Overlaying actual against baseline makes the impact of the uncertainty visible as variances emerge.</p>
+    </details>
+    <details>
+      <summary><strong>How does the S-Curve tool handle tasks that have multiple dependent subtasks?</strong></summary>
+      <p>The calculator works with phases, not individual subtasks - roll your dependent subtasks up into a phase and give that phase a duration and effort weight. Serial dependencies stretch the phase out; parallel subtasks concentrate the work. For task-level dependency analysis, pair the S-Curve with a Gantt or critical-path tool.</p>
     </details>
 
 
