@@ -72,10 +72,14 @@ def render_steps(steps: list) -> str:
     return f'      <ol class="steps">\n{ol}\n      </ol>'
 
 
-def render_paragraphs(text: str) -> str:
+def render_paragraphs(text) -> str:
     """Render a text string as one or more <p> elements (split on double newline)."""
     if not text:
         return ""
+    if isinstance(text, list):
+        # llama2:7b sometimes emits list-form text in applications subsections;
+        # join items into paragraphs instead of crashing (hit 14 Oct 2026).
+        text = "\n\n".join(str(t).strip() for t in text if str(t).strip())
     paragraphs = text.strip().split("\n\n")
     return "\n".join(f"      <p>{esc(p.strip())}</p>" for p in paragraphs if p.strip())
 

@@ -9515,6 +9515,10 @@
         {
           "q": "How does the S-Curve tool handle tasks that have multiple dependent subtasks?",
           "a": "The calculator works with phases, not individual subtasks - roll your dependent subtasks up into a phase and give that phase a duration and effort weight. Serial dependencies stretch the phase out; parallel subtasks concentrate the work. For task-level dependency analysis, pair the S-Curve with a Gantt or critical-path tool."
+        },
+        {
+          "q": "Can I use the S-Curve tool to manage a project with a high degree of complexity?",
+          "a": "Yes - break the complexity down. Roll groups of dependent subtasks up into phases, give each a duration and effort weight, and the calculator plots the combined cumulative curve. The tool plots and compares curves; it does not re-sequence or optimise the schedule. For dependency-level analysis, pair the S-Curve with a Gantt or critical-path tool."
         }
       ],
       "related": [
@@ -10264,6 +10268,10 @@
           {
             "heading": "ERP Implementation",
             "text": "Large ERP projects (SAP, Oracle) have classic S-Curves: slow configuration, rapid development, extended testing. Track by module completion and integration test results."
+          },
+          {
+            "heading": "Real World Examples of S-Curves in IT Projects",
+            "text": "A typical software project shows it: requirements and design crawl along the flat bottom, coding climbs the steep middle, then testing and launch flatten the top. Enter each phase's duration and effort weight to build the baseline, then overlay actual progress weekly - if actuals fall below the curve, launch is at risk. ERP rollouts follow the same pattern, tracked module by module."
           }
         ]
       },
@@ -10283,6 +10291,14 @@
         {
           "q": "How do you track ERP implementation progress?",
           "a": "By module: plot cumulative configuration, development, and testing completion for each module (Finance, Supply Chain, HR, etc.). Each has its own S-Curve. The aggregate shows overall progress."
+        },
+        {
+          "q": "Can you use S-Curves for projects with multiple stakeholders?",
+          "a": "Yes. Roll each stakeholder's workstream into its own phases with durations and effort weights - the cumulative curve aggregates their progress into one picture. For per-stakeholder detail, build a separate curve per workstream and overlay actuals against each baseline."
+        },
+        {
+          "q": "How do you handle project scope changes that impact the S-Curve?",
+          "a": "Re-baseline. Enter the changed scope as new or amended phases (duration plus effort weight) and regenerate the curve - that becomes your new plan line. Keep the original baseline for comparison: the gap between old and new curves is the visible cost of the change."
         }
       ],
       "related": [
@@ -10476,6 +10492,10 @@
           {
             "heading": "Investment Analysis",
             "text": "Property developers project capex and revenue S-Curves to calculate IRR and NPV. The timing of cash flows (not just the amounts) determines investment returns."
+          },
+          {
+            "heading": "S-Curve for Investment Portfolio Management",
+            "text": "Cumulative cash position through a funding round is a classic S-Curve: outflows dominate early while the product is built, then revenue bends the curve upward. Plot cumulative monthly inflows and outflows against plan to find the burn inflection, and extend the curve to project when the business turns cash-flow positive."
           }
         ]
       },
@@ -10495,6 +10515,14 @@
         {
           "q": "Can S-Curves model seasonal cash flows?",
           "a": "Yes. For businesses with seasonal revenue, the annual cash flow follows a repeating S pattern. Plot cumulative monthly revenue against the baseline to track whether the business is ahead or behind its seasonal pattern."
+        },
+        {
+          "q": "What is the ideal S-Curve shape for a successful business?",
+          "a": "Flat at the start while you set up and win early customers, steep through the growth phase, then flattening as the market matures. Steep initial growth on a cash curve is actually a warning sign - it usually means spending is front-loaded before revenue arrives. Track actual cumulative cash against the planned baseline to judge the shape."
+        },
+        {
+          "q": "How do S-Curves help with scenario planning?",
+          "a": "S-Curves can help with scenario planning by providing a visual representation of different possible future states of a business. By modeling multiple S-Curves for different scenarios, entrepreneurs and investors can better understand the potential risks and opportunities associated with each scenario."
         }
       ],
       "related": [
@@ -10576,6 +10604,10 @@
           {
             "heading": "Supply Chain Management",
             "text": "Material deliveries follow the S-Curve. Peak delivery periods create logistics bottlenecks. Forecasting these peaks enables warehouse, transport, and site storage planning."
+          },
+          {
+            "heading": "Optimising Supply Chain Logistics",
+            "text": "Plot the cumulative resource curve to see when demand peaks in the steep mid-phase, then line up hiring, equipment hire, and warehouse space against that peak. Where two phases compete for the same crews or kit, the curve shows the clash - stagger schedules or book capacity early rather than discovering it on site."
           }
         ]
       },
@@ -10595,6 +10627,14 @@
         {
           "q": "Can S-Curves optimise supply chain logistics?",
           "a": "Yes. Material deliveries peak during the steep section of the S-Curve. Forecasting this peak enables warehouse capacity planning, transport scheduling, and just-in-time delivery to minimise site storage."
+        },
+        {
+          "q": "What is the ideal S-Curve shape for resource planning?",
+          "a": "A smooth S: gentle ramp-up as crews mobilise, a steep middle where most of the work happens, and a flat tail through commissioning and handover. Sharp steps or jumps usually mean phase durations or effort weights are mis-estimated - re-check those phases before locking the plan."
+        },
+        {
+          "q": "How do I account for seasonal fluctuations in S-Curves?",
+          "a": "Build the seasonality into the baseline: stretch outdoor phases across wet months or compress them into dry-season windows when entering durations and effort weights. Then overlay actual progress against that seasonal baseline - a December dip reads as weather, not a slipping project. Re-baseline when the pattern changes."
         }
       ],
       "related": [

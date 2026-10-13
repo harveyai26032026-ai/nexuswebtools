@@ -93,6 +93,22 @@
         "@type": "Answer",
         "text": "By module: plot cumulative configuration, development, and testing completion for each module (Finance, Supply Chain, HR, etc.). Each has its own S-Curve. The aggregate shows overall progress."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you use S-Curves for projects with multiple stakeholders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Roll each stakeholder's workstream into its own phases with durations and effort weights - the cumulative curve aggregates their progress into one picture. For per-stakeholder detail, build a separate curve per workstream and overlay actuals against each baseline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle project scope changes that impact the S-Curve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Re-baseline. Enter the changed scope as new or amended phases (duration plus effort weight) and regenerate the curve - that becomes your new plan line. Keep the original baseline for comparison: the gap between old and new curves is the visible cost of the change."
+      }
     }
   ]
 }</script>
@@ -190,6 +206,8 @@
       <p>Track features deployed to staging and production. The S-Curve shows whether the release schedule is on track.</p>
     <h3>ERP Implementation</h3>
       <p>Large ERP projects (SAP, Oracle) have classic S-Curves: slow configuration, rapid development, extended testing. Track by module completion and integration test results.</p>
+    <h3>Real World Examples of S-Curves in IT Projects</h3>
+      <p>A typical software project shows it: requirements and design crawl along the flat bottom, coding climbs the steep middle, then testing and launch flatten the top. Enter each phase&#x27;s duration and effort weight to build the baseline, then overlay actual progress weekly - if actuals fall below the curve, launch is at risk. ERP rollouts follow the same pattern, tracked module by module.</p>
 
 
 
@@ -209,6 +227,14 @@
     <details>
       <summary><strong>How do you track ERP implementation progress?</strong></summary>
       <p>By module: plot cumulative configuration, development, and testing completion for each module (Finance, Supply Chain, HR, etc.). Each has its own S-Curve. The aggregate shows overall progress.</p>
+    </details>
+    <details>
+      <summary><strong>Can you use S-Curves for projects with multiple stakeholders?</strong></summary>
+      <p>Yes. Roll each stakeholder&#x27;s workstream into its own phases with durations and effort weights - the cumulative curve aggregates their progress into one picture. For per-stakeholder detail, build a separate curve per workstream and overlay actuals against each baseline.</p>
+    </details>
+    <details>
+      <summary><strong>How do you handle project scope changes that impact the S-Curve?</strong></summary>
+      <p>Re-baseline. Enter the changed scope as new or amended phases (duration plus effort weight) and regenerate the curve - that becomes your new plan line. Keep the original baseline for comparison: the gap between old and new curves is the visible cost of the change.</p>
     </details>
 
 
