@@ -9461,6 +9461,10 @@
         {
           "heading": "Real World Applications",
           "text": "The S-Curve approach is used across software development, construction, manufacturing, and consulting to track cumulative progress against a plan. This calculator turns your phases into a baseline curve that you overlay with actual progress each week or month - the same tracking pattern project teams use to report status to stakeholders on real projects."
+        },
+        {
+          "heading": "Forecasting Completion and Final Cost",
+          "text": "The S-Curve turns routine progress readings into a completion forecast. On a 9-month build tracked monthly, the gap between the baseline and actual curves at month 4 tells you whether you are trending late or over budget, and extrapolating the actual trajectory gives an evidence-based revised completion date and final cost instead of a gut-feel estimate. Because stakeholders see the same two curves, status conversations start from shared numbers rather than competing anecdotes."
         }
       ],
       "faqs": [
@@ -9519,6 +9523,14 @@
         {
           "q": "Can I use the S-Curve tool to manage a project with a high degree of complexity?",
           "a": "Yes - break the complexity down. Roll groups of dependent subtasks up into phases, give each a duration and effort weight, and the calculator plots the combined cumulative curve. The tool plots and compares curves; it does not re-sequence or optimise the schedule. For dependency-level analysis, pair the S-Curve with a Gantt or critical-path tool."
+        },
+        {
+          "q": "Can I use the S-Curve tool to manage a project with a high degree of interdependence between tasks?",
+          "a": "The calculator doesn't model task dependencies directly - it aggregates effort. Tasks that are tightly coupled usually sit in the same phase, so their progress rises together in that phase's weighted segment of the curve; if they span phases, the impact shows at each phase boundary. Because the tool plots curves rather than sequencing work, pair it with a Gantt or critical-path chart when you need task-level dependency logic."
+        },
+        {
+          "q": "How does the S-Curve tool handle changes in project scope or requirements?",
+          "a": "By re-baselining: re-enter the affected phases with revised durations and effort weights, and the calculator redraws the baseline curve. Your recorded actual progress stays on the chart, so the overlay shows exactly how the scope change moved you against the original plan. Nothing auto-adjusts - you update the completion forecast yourself from the new curve."
         }
       ],
       "related": [
